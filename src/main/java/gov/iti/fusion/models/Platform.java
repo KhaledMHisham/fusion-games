@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class Platform {
     @Id
     @UuidGenerator(style = Style.TIME)
-    private UUID id;
+    private String id;
     
     @Enumerated(EnumType.STRING)
     @Column(unique = true, nullable = false)
@@ -36,12 +36,12 @@ public class Platform {
         this.type = type;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

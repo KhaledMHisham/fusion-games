@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 public class Genre {
     @Id
     @UuidGenerator(style = Style.TIME)
-    private UUID id;
+    private String id;
 
     
     @Enumerated(EnumType.STRING)
@@ -38,10 +38,10 @@ public class Genre {
         this.genre = genre;
     }    
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
     public GenreType getGenre() {

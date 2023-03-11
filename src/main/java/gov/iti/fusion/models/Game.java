@@ -20,7 +20,7 @@ import jakarta.persistence.Table;
 public class Game {
     @Id
     @UuidGenerator(style = Style.TIME)
-    private UUID id;
+    private String id;
 
     @Column(unique = true, nullable = false)
     private String name;
@@ -98,12 +98,12 @@ public class Game {
     }
 
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

@@ -20,7 +20,7 @@ public class Order {
 
     @Id
     @UuidGenerator(style = Style.TIME)
-    private UUID id;
+    private String id;
 
 
     @Column(name = "created_at", nullable = false)
@@ -46,11 +46,11 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 

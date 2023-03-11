@@ -3,6 +3,8 @@ package gov.iti.fusion.models;
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
+
+import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import jakarta.persistence.CascadeType;
@@ -21,9 +23,8 @@ public class User {
 
     @Id
     @UuidGenerator(style = Style.TIME)
-    private UUID id;
-
-
+    private String id;
+    
     @Column(unique = true, nullable = false)
     private String username;
 
@@ -96,11 +97,11 @@ public class User {
         this.role = role;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
