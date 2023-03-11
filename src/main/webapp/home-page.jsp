@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%System.out.println(request.getAttribute("weHave"));%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -112,7 +114,7 @@
   <!-- intro -->
       <!-- Right elements -->
      
-      <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+      <div id="carouselExampleCaptions" class="container carousel slide carousel-fade" data-mdb-ride="carousel">
         <header class="mb-4">
           <h3 class="text-gold mx-4">Just For You</h3>
         </header>
@@ -216,8 +218,8 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-  
-      <div class="container row justify-content-around mx-2 my-5">
+  <div class="container">
+      <div class="row justify-content-around mx-2 my-5">
         <header class="mb-4">
           <h3 class="text-gold">New Releases</h3>
         </header>
@@ -304,6 +306,8 @@
         </div>
       </section>
     </div>
+  </div>
+    
     
   <!-- carousel -->
  
@@ -316,19 +320,19 @@
       <header class="mb-4">
         <h3 class="text-gold">What We Have</h3>
       </header>
-
       <div class="row">
+        <c:forEach items="${weHave}" var="game">
         <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
           <div class="card my-3 shadow-0 bg-black border border-gold">
             <a href="#">
               <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2"> 
               <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
+                <p class="text-gold mx-3 mb-2">Base Game</p>
+                <h5 class="card-title text-white mx-3">${game.name}</h5>
                 <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
+                  <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
+                  <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
+                  <p class="text-white mx-3"> &dollar;${game.price - (game.price * game.discount.getType().getDiscount()/100)} </p>
                 </div>
               </div>
             </a>
@@ -338,153 +342,7 @@
           </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 col-sm-6">
-          <div class="card my-3 shadow-0 bg-black border border-gold">
-            <a href="#">
-              <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2"> 
-              <div class="card-body p-0 pt-2">
-                <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                  <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                  <p class="text-white mx-3"> <del>$59.99</del></p>
-                  <p class="text-white mx-3"> $19.79 </p>
-                </div>
-              </div>
-            </a>
-            <div class="card-footer px-2" >
-              <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-              <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i class="fas fa-heart fa-lg px-1 text-white"></i></a>
-          </div>
-          </div>
-        </div>
-        
+        </c:forEach>        
       </div>
     </div>
   </section>
