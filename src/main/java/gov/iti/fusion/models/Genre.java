@@ -1,16 +1,14 @@
 package gov.iti.fusion.models;
 
-import java.util.HashSet;
 import java.util.Set;
-
+import java.util.UUID;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.GenreType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
@@ -19,19 +17,31 @@ import jakarta.persistence.Table;
 @Table(name="genres")
 public class Genre {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator(style = Style.TIME)
+    private UUID id;
+
     
     @Enumerated(EnumType.STRING)
     @Column(unique = true, nullable = false)
     private GenreType genre;
 
-    @ManyToMany(fetch=FetchType.LAZY,mappedBy = "genres")
-    private Set<Game> games = new HashSet<>();
-    public Long getId() {
+    @ManyToMany(mappedBy = "genres")
+    private Set<Game> games;
+
+    public Genre() {
+    }
+    public Genre(GenreType genre, Set<Game> games) {
+        this.genre = genre;
+        this.games = games;
+    }   
+    public Genre(GenreType genre) {
+        this.genre = genre;
+    }    
+
+    public UUID getId() {
         return id;
     }
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
     public GenreType getGenre() {
@@ -46,16 +56,9 @@ public class Genre {
     public void setGames(Set<Game> games) {
         this.games = games;
     }
-    public Genre() {
+    @Override
+    public String toString() {
+        return "Genre [id=" + id + ", genre=" + genre + "]";
     }
-    public Genre(GenreType genre, Set<Game> games) {
-        this.genre = genre;
-        this.games = games;
-    }   
-    public Genre(GenreType genre) {
-        this.genre = genre;
-    }    
-
-
-
+     
 }

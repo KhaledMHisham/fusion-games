@@ -1,22 +1,16 @@
 package gov.iti.fusion.persistence.repositories;
 
 
+import java.util.UUID;
+
 import gov.iti.fusion.models.Game;
-import gov.iti.fusion.persistence.connection.JpaManagerSingleton;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Query;
+import jakarta.servlet.http.HttpServletRequest;
 
-public class GameRepository {
+public class GameRepository extends CrudRepository<Game, UUID>{
     
-    private EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
-
-    public Game save(Game game) {
-        transaction.begin();
-        entityManager.persist(game);
-        transaction.commit();
-        return game;
+    public GameRepository(HttpServletRequest request) {
+        super(request);
     }
 
     public Game findGameByName(String name){
@@ -24,13 +18,6 @@ public class GameRepository {
         Query query = entityManager.createQuery(jpql, Game.class);
         query.setParameter("name", name);
         return (Game) query.getSingleResult();
-    }
-
-    public Game delete(Game game){
-        transaction.begin();
-        entityManager.remove(game);
-        transaction.commit();
-        return game;
     }
     
 }

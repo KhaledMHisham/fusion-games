@@ -1,25 +1,14 @@
 package gov.iti.fusion.persistence.repositories;
 
 
+import java.util.UUID;
+
 import gov.iti.fusion.models.Platform;
-import gov.iti.fusion.persistence.connection.JpaManagerSingleton;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.servlet.http.HttpServletRequest;
 
-public class PlatformsRepository {
+public class PlatformsRepository extends CrudRepository<Platform, UUID> {
     
-    private EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
-
-    public Platform save(Platform platform) {
-        transaction.begin();
-        entityManager.persist(platform);
-        transaction.commit();
-        return platform;
-    }
-
-    public Platform find(Long id){
-        return entityManager.find(Platform.class, id);
-    }
-    
+    public PlatformsRepository(HttpServletRequest request) {
+        super(request);
+    }    
 }

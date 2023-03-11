@@ -1,14 +1,14 @@
 package gov.iti.fusion.models;
 
 import java.util.Set;
-
+import java.util.UUID;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.DiscountType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -18,8 +18,8 @@ import jakarta.persistence.Table;
 public class Discount {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator(style = Style.TIME)
+    private UUID id;
 
     @Column(unique = true, nullable = false)
     @Enumerated(EnumType.ORDINAL)
@@ -31,13 +31,10 @@ public class Discount {
     public Discount(DiscountType type) {
         this.type = type;
     }
-    public Discount( DiscountType type, Set<Game> games) {
-        this.type = type;
-        this.games = games;
-    }
+
     public Discount() {
     }
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -56,10 +53,14 @@ public class Discount {
     public void setGames(Set<Game> games) {
         this.games = games;
     }
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    
+    @Override
+    public String toString() {
+        return "Discount [id=" + id + ", type=" + type + "]";
+    }
+      
 }
 

@@ -1,25 +1,16 @@
 package gov.iti.fusion.persistence.repositories;
 
 
+import java.util.UUID;
+
 import gov.iti.fusion.models.Discount;
-import gov.iti.fusion.persistence.connection.JpaManagerSingleton;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.servlet.http.HttpServletRequest;
 
-public class DiscountRepository {
-    
-    private EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
+public class DiscountRepository extends CrudRepository<Discount, UUID> {
 
-    public Discount save(Discount game) {
-        transaction.begin();
-        entityManager.persist(game);
-        transaction.commit();
-        return game;
-    }
-
-    public Discount find(Long id){
-        return entityManager.find(Discount.class, id);
+    public DiscountRepository(HttpServletRequest request) {
+        super(request);
     }
     
+
 }

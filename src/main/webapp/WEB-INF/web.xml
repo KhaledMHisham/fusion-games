@@ -14,4 +14,13 @@
     <servlet-name>HomePage</servlet-name>
     <url-pattern>/home</url-pattern>
   </servlet-mapping>
+
+  <listener>
+    <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
+  </listener>
+
+  <listener>
+    <listener-class>gov.iti.fusion.listeners.RequestListener</listener-class>
+  </listener>
+
 </web-app>

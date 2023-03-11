@@ -1,17 +1,16 @@
 package gov.iti.fusion.models;
 
 import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.Set;
-
+import java.util.UUID;
 import org.hibernate.annotations.Check;
+import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.UuidGenerator.Style;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
@@ -20,30 +19,14 @@ import jakarta.persistence.Table;
 @Table(name="games")
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @UuidGenerator(style = Style.TIME)
+    private UUID id;
 
     @Column(unique = true, nullable = false)
     private String name;
 
     @Column(nullable = false)
     private Double price; 
-
-    @Column(nullable = false)
-    private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "discount_id")
-    private Discount discount;
-
-
-    @ManyToMany
-    private Set<Genre> genres = new HashSet<>();
-
-
-    @Column( name = "release_date", nullable = false)
-    @Check(constraints = "release_date <= CURRENT_DATE")
-    private LocalDate releaseDate;
 
     @Column(nullable = false)
     private String developer;
@@ -54,11 +37,50 @@ public class Game {
     @Column(unique = true, nullable = false)
     private String pictureUrl;
 
+    @Column(nullable = false)
+    private String description;
+
+    @ManyToMany(mappedBy = "library")
+    private Set<User> owners;
+
+    @ManyToMany(mappedBy = "wishes")
+    private Set<User> wishes;
+
+    @ManyToMany(mappedBy = "cart")
+    private Set<User> carts;
+
+    @ManyToMany(mappedBy = "games")
+    private Set<Order> orders;
+
+    @Column( name = "release_date", nullable = false)
+    @Check(constraints = "release_date <= CURRENT_DATE")
+    private LocalDate releaseDate;
+
+    @ManyToOne
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
 
     @ManyToMany
+    private Set<Genre> genres;
+
+    @ManyToMany
+    @JoinTable(name = "platforms_games",
+                joinColumns = @JoinColumn(name = "game_id"),
+                inverseJoinColumns = @JoinColumn(name = "platform_id"))
     private Set<Platform> platforms;
     
-    public Game() {
+    public Game() {}
+
+    public Game(String name, Double price, LocalDate releaseDate, String pictureUrl, String description, String developer, String publisher,
+        Discount discount) {
+        this.name = name;
+        this.price = price;
+        this.releaseDate = releaseDate;
+        this.pictureUrl = pictureUrl;
+        this.description = description;
+        this.developer = developer;
+        this.publisher = publisher;
+        this.discount = discount;
     }
 
     public Game(String name, Double price, String description, Discount discount, Set<Genre> genres, LocalDate releaseDate,
@@ -76,12 +98,12 @@ public class Game {
     }
 
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
@@ -183,6 +205,54 @@ public class Game {
 
     public void setPlatforms(Set<Platform> platforms) {
         this.platforms = platforms;
+    }
+
+    
+    public Set<User> getOwners() {
+        return owners;
+    }
+
+    public void setOwners(Set<User> owners) {
+        this.owners = owners;
+    }
+
+    public Set<User> getWishes() {
+        return wishes;
+    }
+
+    public void setWishes(Set<User> wishes) {
+        this.wishes = wishes;
+    }
+
+    public Set<User> getCarts() {
+        return carts;
+    }
+
+    public void setCarts(Set<User> carts) {
+        this.carts = carts;
+    }
+
+    public Set<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Set<Order> orders) {
+        this.orders = orders;
+    }
+
+    public Set<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(Set<Genre> genres) {
+        this.genres = genres;
+    }
+
+    @Override
+    public String toString() {
+        return "Game [id=" + id + ", name=" + name + ", price=" + price + ", developer=" + developer + ", publisher="
+                + publisher + ", pictureUrl=" + pictureUrl + ", description=" + description + ", releaseDate="
+                + releaseDate + ", discount=" + discount + ", genres=" + genres + ", platforms=" + platforms + "]";
     }
 
 

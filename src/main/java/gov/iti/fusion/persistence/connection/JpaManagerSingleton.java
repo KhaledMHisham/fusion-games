@@ -7,15 +7,14 @@ public enum JpaManagerSingleton {
     
     INSTANCE;
     private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
 
-    public EntityManager getEntityManager(){
-        return entityManager;
+    public EntityManagerFactory getEntityManagerFactory(){
+        return entityManagerFactory;
     }
 
     JpaManagerSingleton(){
         entityManagerFactory = Persistence.createEntityManagerFactory("fusion");
-        entityManager = entityManagerFactory.createEntityManager();
+        
     }
 
 }

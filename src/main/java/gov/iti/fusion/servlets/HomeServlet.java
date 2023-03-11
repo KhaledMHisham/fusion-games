@@ -26,7 +26,6 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class HomeServlet extends HttpServlet {
     ServletConfig myConfig;
-    GameService gameService = new GameService();
 
     @Override
     public void destroy() {
@@ -41,7 +40,6 @@ public class HomeServlet extends HttpServlet {
 
     @Override
     public String getServletInfo() {
-        // TODO Auto-generated method stub
         return null;
     }
 
@@ -53,10 +51,10 @@ public class HomeServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        GameService gameService = new GameService();
-        DiscountService discountService = new DiscountService();
-        PlatformService platformService = new PlatformService();
-        GenreService genreService = new GenreService();
+        GameService gameService = new GameService(request);
+        DiscountService discountService = new DiscountService(request);
+        PlatformService platformService = new PlatformService(request);
+        GenreService genreService = new GenreService(request);
 
 
         Set<Game> mainGames = new HashSet<>();

@@ -1,25 +1,14 @@
 package gov.iti.fusion.persistence.repositories;
 
 
+import java.util.UUID;
+
 import gov.iti.fusion.models.Genre;
-import gov.iti.fusion.persistence.connection.JpaManagerSingleton;
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityTransaction;
+import jakarta.servlet.http.HttpServletRequest;
 
-public class GenreRepository {
+public class GenreRepository extends CrudRepository<Genre, UUID> {
     
-    private EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManager();
-    EntityTransaction transaction = entityManager.getTransaction();
-
-    public Genre save(Genre genre) {
-        transaction.begin();
-        entityManager.persist(genre);
-        transaction.commit();
-        return genre;
-    }
-
-    public Genre find(Long id){
-        return entityManager.find(Genre.class, id);
-    }
-    
+    public GenreRepository(HttpServletRequest request) {
+        super(request);
+    }    
 }
