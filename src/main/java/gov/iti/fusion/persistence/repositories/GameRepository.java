@@ -7,7 +7,7 @@ import gov.iti.fusion.models.Game;
 import jakarta.persistence.Query;
 import jakarta.servlet.http.HttpServletRequest;
 
-public class GameRepository extends CrudRepository<Game, UUID>{
+public class GameRepository extends CrudRepository<Game, String>{
     
     public GameRepository(HttpServletRequest request) {
         super(request);

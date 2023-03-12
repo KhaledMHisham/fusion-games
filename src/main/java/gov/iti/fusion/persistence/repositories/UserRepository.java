@@ -5,7 +5,7 @@ import gov.iti.fusion.models.User;
 import jakarta.persistence.Query;
 import jakarta.servlet.http.HttpServletRequest;
 
-public class UserRepository extends CrudRepository<User, UUID> {
+public class UserRepository extends CrudRepository<User, String> {
     
     public UserRepository(HttpServletRequest request) {
         super(request);

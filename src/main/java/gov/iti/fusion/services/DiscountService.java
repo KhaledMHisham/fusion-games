@@ -18,7 +18,7 @@ public class DiscountService {
         return discountRepository.save(discount);
     }
 
-    public Discount findById(UUID id){
+    public Discount findById(String id){
         return discountRepository.findById(Discount.class, id);
     }
   

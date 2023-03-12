@@ -18,7 +18,7 @@ public class GenreService {
         return genreRepository.save(genre);
     }
 
-    public Genre findById(UUID id){
+    public Genre findById(String id){
         return genreRepository.findById(Genre.class, id);
     }
   

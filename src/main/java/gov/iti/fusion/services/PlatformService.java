@@ -18,7 +18,7 @@ public class PlatformService {
         return platformsRepository.save(platform);
     }
 
-    public Platform findById(UUID id){
+    public Platform findById(String id){
         return platformsRepository.findById(Platform.class, id);
     }
   
