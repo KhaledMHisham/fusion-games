@@ -22,7 +22,7 @@ public class GameService {
         return gameRepository.findGameByName(name);
     }
     
-    public Game delete(String id){
+    public Game deleteById(String id){
         return gameRepository.deleteById(Game.class, id);
     }
     public List<Game> findAllGames(){
