@@ -65,4 +65,7 @@ public class Platform {
         this.games = games;
     }
 
+    public Platform() {
+    }
+
 }

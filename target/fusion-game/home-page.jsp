@@ -141,7 +141,7 @@
             aria-label="Slide 3"
           ></button>
         </div>
-        <div class="carousel-inner">
+        <div class=" carousel-inner">
           <div class="carousel-item active">
             <img src="images/hellblade.jpg" class="d-block w-100" alt="Wild Landscape"/>
             <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)"></div>
