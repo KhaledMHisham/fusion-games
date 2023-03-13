@@ -155,7 +155,7 @@ body {
 }
 
 .card-banner {
-    min-height: 200px;
+    min-height: 400px;
     background-size: cover;
     background-position: center;
     width: 100%;

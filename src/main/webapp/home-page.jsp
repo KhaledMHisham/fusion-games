@@ -224,11 +224,11 @@
           <h3 class="text-gold">Just For You</h3>
         </header>
   
-        <div class="position-relative col-lg-7 col-md-7 col-sm-12">
+        <div class="position-relative col-lg-7 col-md-12 col-sm-12">
           <div id="card-banner"class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
           <div id="card-banner-desc" class = "position-absolute m-4" style="max-width: 60%;">
-            <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3>
-            <h3 id="game-name">That's true but not always</h3>
+            <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
+            <h3 id="game-name"></h3>
             <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
             <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
     
@@ -237,10 +237,10 @@
     
         <span style="width: 0px; "></span>
     
-      <section class="mx-3 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+      <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
         <div class="list-group">
           <c:forEach items="${newReleases}" var="game">
-            <div id="game1" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
+            <div id="game1" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
             <div class="card card-list shadow-0 bg-black hover-shadow-soft">
               <div class="card-body">
                 <div class="d-flex align-items-center">
