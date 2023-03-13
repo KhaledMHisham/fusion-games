@@ -30,6 +30,7 @@ public abstract class CrudRepository<T, Id> {
 
     public T delete(T obj){
         EntityTransaction transaction = entityManager.getTransaction();
+        obj = entityManager.merge(obj);
         transaction.begin();
         entityManager.remove(obj);
         transaction.commit();
