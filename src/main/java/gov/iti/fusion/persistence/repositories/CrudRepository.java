@@ -28,13 +28,13 @@ public abstract class CrudRepository<T, Id> {
         return obj;
     }
 
-    public T delete(T obj){
-        EntityTransaction transaction = entityManager.getTransaction();
-        obj = entityManager.merge(obj);
+    public T deleteById(Class objClass, Id id){
+        EntityTransaction transaction = entityManager.getTransaction();;
+        Object obj = entityManager.find(objClass, id);
         transaction.begin();
         entityManager.remove(obj);
         transaction.commit();
-        return obj;
+        return (T) obj;
     }
 
     public T findById(Class objClass, Id id){

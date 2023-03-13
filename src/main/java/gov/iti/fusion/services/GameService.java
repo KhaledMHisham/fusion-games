@@ -22,8 +22,8 @@ public class GameService {
         return gameRepository.findGameByName(name);
     }
     
-    public Game delete(Game game){
-        return gameRepository.delete(game);
+    public Game delete(String id){
+        return gameRepository.deleteById(Game.class, id);
     }
     public List<Game> findAllGames(){
         return gameRepository.findAll(Game.class);
