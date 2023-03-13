@@ -1,5 +1,7 @@
 package gov.iti.fusion.services;
 
+import java.util.List;
+
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.persistence.repositories.GameRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,5 +25,7 @@ public class GameService {
     public Game delete(Game game){
         return gameRepository.delete(game);
     }
-        
+    public List<Game> findAllGames(){
+        return gameRepository.findAll(Game.class);
+    }   
 }
