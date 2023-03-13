@@ -114,9 +114,9 @@
   <!-- intro -->
       <!-- Right elements -->
      
-      <div id="carouselExampleCaptions" class="container carousel slide carousel-fade" data-mdb-ride="carousel">
+      <div id="carouselExampleCaptions" class=" carousel slide carousel-fade" data-mdb-ride="carousel">
         <header class="mb-4">
-          <h3 class="text-gold mx-4">Just For You</h3>
+          <h3 class="text-gold mx-4">New Releases</h3>
         </header>
     
         <div class="carousel-indicators">
@@ -221,7 +221,7 @@
   <div class="container">
       <div class="row justify-content-around mx-2 my-5">
         <header class="mb-4">
-          <h3 class="text-gold">New Releases</h3>
+          <h3 class="text-gold">Just For You</h3>
         </header>
   
         <div class="position-relative col-lg-7 col-md-7 col-sm-12">
