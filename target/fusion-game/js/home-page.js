@@ -36,4 +36,14 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
    document.getElementById("card-banner").style.backgroundImage = "url("+gameImgSrc+")";
    document.getElementById("game-name").innerText = gameName;
  }
+ const jumbotronHeight = document.querySelector('.header').offsetHeight;
+
+ $(window).scroll(function(){
+  if ($(window).scrollTop() >jumbotronHeight) {
+      $('nav').addClass('fixed-header');
+  }
+  else {
+      $('nav').removeClass('fixed-header');
+  }
+});
 

@@ -155,7 +155,7 @@ public class HomeServlet extends HttpServlet {
         new5Games = gameService.findTopNewer(4);
         request.setAttribute("weHave",mainGames);
         request.setAttribute("newReleases",new5Games);
-        //System.out.println(mainGames);
+        System.out.println(mainGames.get(0).getReleaseDate().toString());
         request.getRequestDispatcher("home-page.jsp").forward(request, response);
     }
 }
