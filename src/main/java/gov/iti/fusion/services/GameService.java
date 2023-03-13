@@ -28,4 +28,7 @@ public class GameService {
     public List<Game> findAllGames(){
         return gameRepository.findAll(Game.class);
     }   
+    public List<Game> findTopNewer(int limit){
+        return gameRepository.findTopNewer(limit);
+    }   
 }

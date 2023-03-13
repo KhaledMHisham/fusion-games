@@ -239,7 +239,8 @@
     
       <section class="mx-3 col-xl-4 col-lg-4 col-md-4 col-sm-4">
         <div class="list-group">
-          <div id="game1" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
+          <c:forEach items="${newReleases}" var="game">
+            <div id="game1" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
             <div class="card card-list shadow-0 bg-black hover-shadow-soft">
               <div class="card-body">
                 <div class="d-flex align-items-center">
@@ -249,60 +250,16 @@
                     style="width:100px; height:100px"
                     class="fa-square "/>
                   <div class="ms-3">
-                    <p class="fw-bold mb-1">Rahma</p>
+                    <!-- <p class="fw-bold mb-1">${game.releaseDate}</p> -->
+                    <p class="fw-bold mb-1">${game.name}</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <div id="game3" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
-            <div class="card card-list shadow-0 bg-black hover-shadow-soft">
-              <div class="card-body">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="images/hellblade.jpg"
-                    alt=""
-                    style="width:100px; height:100px"
-                    class="fa-square "/>
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">Assassin's Creed Valhalla Standard Edition</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="game4" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
-            <div class="card card-list shadow-0 bg-black hover-shadow-soft">
-              <div class="card-body">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="images/hellblade.jpg"
-                    alt=""
-                    style="width:100px; height:100px"
-                    class="fa-square "/>
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1 flex-wrap">Assassin's Creed Valhalla Standard Edition</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="game5" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-8 mb-2">
-            <div class="card card-list shadow-0 bg-black">
-              <div class="card-body">
-                <div class="d-flex align-items-center">
-                  <img
-                    src="images/12.webp"
-                    alt=""
-                    style="width:100px; height:100px"
-                    class="fa-square "/>
-                  <div class="ms-3">
-                    <p class="fw-bold mb-1">Assassin's Creed Valhalla Standard Edition</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>  
+          </c:forEach>
+          
+         
         </div>
       </section>
     </div>
