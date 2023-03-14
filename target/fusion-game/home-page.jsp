@@ -1,5 +1,6 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
-  <%System.out.println(request.getAttribute("weHave"));%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+  <%System.out.println(request.getAttribute("gamesOnSale"));%>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -9,10 +10,9 @@
       <title>Home page style 3</title>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
       <link href="css/home-page.css" rel="stylesheet" />
+      <link href="css/header.css" rel="stylesheet" />
     </head>
 
     <body class="bg-black">
@@ -26,7 +26,7 @@
               <!-- Left elements -->
               <div class="col-lg-2 col-sm-4 col-4">
                 <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                  <img class="rounded-circle bg-gold" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="70">
+                  <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
                 </a>
               </div>
               <!-- Left elements -->
@@ -106,10 +106,10 @@
                 </li>
       
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Discover</a>
+                  <a class="nav-link text-white" href="home">Discover</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link " href="#">Browse</a>
+                  <a class="nav-link " href="all-products">Browse</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">Menu name</a>
@@ -158,7 +158,7 @@
                 <strong>${game.name}</strong>
               </h1>
               <p>
-                <strong>Best & free guide of responsive web design</strong>
+                <strong>Best & free games in our website</strong>
               </p>
               <p class="mb-4 d-none d-md-block">
                 <!-- <strong>The most comprehensive tutorial for the Bootstrap 5. Loved by over 3 000 000 users. Video and
@@ -167,7 +167,7 @@
               </p>
 
               <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
-                class="btn btn-outline-white btn-lg">Start free tutorial
+                class="btn btn-outline-white btn-lg">Browse
                 <i class="fas fa-graduation-cap ms-2"></i>
               </a>
             </div>
@@ -247,9 +247,9 @@
               <h3 id="game-name">${newReleases[0].name}</h3>
               <div class="d-flex justify-content-start align-items-start h-100 m-2">
                 <h6> starting at </h6>
-                <p class="text-white mx-3"> <del  id="game-price">&dollar;${newReleases[0].price}</del></p>
-                <p id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].price - (newReleases[0].price *
-                  newReleases[0].discount.getType().getDiscount()/100)} </p>
+                <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price}</del></h5>
+                <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].price - (newReleases[0].price *
+                  newReleases[0].discount.getType().getDiscount()/100)} </h5>
               </div>     
               <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
               <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
@@ -298,7 +298,7 @@
             <c:forEach items="${weHave}" var="game">
               <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
                 <div class="card my-3 shadow-0 bg-black border ">
-                  <a href="#">
+                  <a href="product?name=${game.name}">
                     <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2">Base Game</p>
@@ -333,6 +333,7 @@
           <div class="row position-relative gy-4">
             <c:forEach items="${freeGames}" var="game">
             <div class="col-lg-6">
+              <a href="product-details.html">
                 <div class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
                 <div class="position-absolute banner-desc m-4" style="max-width: 60%;">
                   <h3 class="text-white">100% off</h3>
@@ -340,6 +341,7 @@
                   <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
                   <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
                   </div>
+              </a>
             </div>
           </c:forEach>
               <!-- <div class="row mb-3 mb-sm-4 g-3 g-sm-4">
@@ -385,7 +387,8 @@
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
           <h3 class="text-gold ">Products on sale</h3>
-          <div class="row">
+          <c:if test="${fn:length(gamesOnSale) > 3}" >
+          <div class="row arrows">
             <div class="arrow arrow-left">
               <i class="fas fa-chevron-left"></i>
             </div>
@@ -393,19 +396,22 @@
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
+        </c:if>
         </div>
         <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy " style="position: relative;">
-          <div class="m-2 col-lg-3 col-md-6 col-sm-6">
-            <div class="card my-2 shadow-0 bg-black border border-gold">
-              <a href="#" class="">
+          <c:forEach items="${gamesOnSale}" var="game">
+            <div class="m-2 col-lg-3 col-md-6 col-sm-6">
+            <div class="card my-2 shadow-0 bg-black border">
+              <a href="product?name=${game.name}" class="">
                 <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                  <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
+                  <h5 class="card-title text-white mx-3">${game.name}</h5>
                   <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
-                    <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                    <p class="text-white mx-3"> <del>$59.99</del></p>
-                    <p class="text-white mx-3"> $19.79 </p>
+                    <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
+                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
+                    <p class="text-white mx-3"> &dollar;${game.price - (game.price *
+                      game.discount.getType().getDiscount()/100)} </p>
                   </div>
                 </div>
               </a>
@@ -416,90 +422,7 @@
               </div>
             </div>
           </div>
-          <div class="m-2 col-lg-3 col-md-6 col-sm-6">
-            <div class="card my-2 shadow-0 bg-black border border-gold">
-              <a href="#" class="">
-                <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
-                <div class="card-body p-0 pt-2">
-                  <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                  <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
-                    <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                    <p class="text-white mx-3"> <del>$59.99</del></p>
-                    <p class="text-white mx-3"> $19.79 </p>
-                  </div>
-                </div>
-              </a>
-              <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="m-2 col-lg-3 col-md-6 col-sm-6">
-            <div class="card my-2 shadow-0 bg-black border border-gold">
-              <a href="#" class="">
-                <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
-                <div class="card-body p-0 pt-2">
-                  <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                  <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
-                    <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                    <p class="text-white mx-3"> <del>$59.99</del></p>
-                    <p class="text-white mx-3"> $19.79 </p>
-                  </div>
-                </div>
-              </a>
-              <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="m-2 col-lg-3 col-md-6 col-sm-6">
-            <div class="card my-2 shadow-0 bg-black border border-gold">
-              <a href="#" class="">
-                <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
-                <div class="card-body p-0 pt-2">
-                  <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                  <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
-                    <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                    <p class="text-white mx-3"> <del>$59.99</del></p>
-                    <p class="text-white mx-3"> $19.79 </p>
-                  </div>
-                </div>
-              </a>
-              <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
-              </div>
-            </div>
-          </div>
-          <div class="m-2 col-lg-3 col-md-6 col-sm-6">
-            <div class="card my-2 shadow-0 bg-black border border-gold">
-              <a href="#" class="">
-                <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
-                <div class="card-body p-0 pt-2">
-                  <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                  <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
-                    <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                    <p class="text-white mx-3"> <del>$59.99</del></p>
-                    <p class="text-white mx-3"> $19.79 </p>
-                  </div>
-                </div>
-              </a>
-              <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
-              </div>
-            </div>
-          </div>
+        </c:forEach>
         </div>
       </div>
       </div>
@@ -748,10 +671,10 @@
       <!-- Footer -->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
       <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/home-page.js"></script>
+      <script type="text/javascript" src="js/header.js"></script>
     </body>
 
     </html>

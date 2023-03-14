@@ -173,20 +173,6 @@ body {
     bottom: 5%;
 }
 
- .fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; 
-    z-index: 999;
-
-}
-
-.nav-bar {
-    height: 60px;
-    contain: fixed;
-    z-index: 10;
-}
 
 
 /* .header-top {

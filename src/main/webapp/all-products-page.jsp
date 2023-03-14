@@ -1,3 +1,5 @@
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,20 +12,22 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
   <link href="css/home-page.css" rel="stylesheet" />
   <link href="css/products.css" rel="stylesheet" />
+  <link href="css/header.css" rel="stylesheet" />
+
 </head>
 
 <body class="bg-black">
 
   <!--Main Navigation-->
-  <header class="fixed-top">
+  <header class="header-top">
     <!-- Jumbotron -->
-    <div class="p-3 text-center bg-main">
+    <div class=" p-3 text-center bg-main header">
       <div class="container">
         <div class="row gy-3">
           <!-- Left elements -->
           <div class="col-lg-2 col-sm-4 col-4">
             <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-              <img class="rounded-circle bg-gold" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="70">
+              <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
             </a>
           </div>
           <!-- Left elements -->
@@ -69,7 +73,7 @@
     <!-- Jumbotron -->
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
+    <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top p-2">
       <!-- Container wrapper -->
       <div class="container justify-content-center justify-content-md-between">
         <!-- Toggle button -->
@@ -78,7 +82,7 @@
           aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
-
+  
         <!-- Collapsible wrapper -->
         <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
           <!-- Left links -->
@@ -101,18 +105,12 @@
                 </li>
               </ul>
             </li>
-
+  
             <li class="nav-item">
-              <a class="nav-link text-white" href="#">Hot offers</a>
+              <a class="nav-link text-white" href="home">Discover</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="#">Gift boxes</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="#">Projects</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu item</a>
+              <a class="nav-link " href="all-products">Browse</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Menu name</a>
@@ -123,6 +121,7 @@
       </div>
       <!-- Container wrapper -->
     </nav>
+   
     <!-- Navbar -->
   </header>
 
@@ -250,7 +249,7 @@
                   <button class="accordion-button bg-black text-gold" type="button" data-mdb-toggle="collapse"
                     data-mdb-target="#panelsStayOpen-collapseFour" aria-expanded="false"
                     aria-controls="panelsStayOpen-collapseFour">
-                    Size
+                    Discount
                   </button>
                 </h2>
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
@@ -258,16 +257,16 @@
                   <div class="accordion-body">
                     <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked
                       autocomplete="off" />
-                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">XS</label>
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">15%</label>
                     <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2" checked
                       autocomplete="off" />
-                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">SM</label>
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">50%</label>
                     <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3" checked
                       autocomplete="off" />
-                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">LG</label>
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">85%</label>
                     <input type="checkbox" class="btn-check border justify-content-center" id="btn-check4" checked
                       autocomplete="off" />
-                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">XXL</label>
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">100%</label>
                   </div>
                 </div>
               </div>
@@ -361,20 +360,21 @@
         <!-- content -->
         <div class="col-lg-9">
 
-
           <div class="row">
+            <c:forEach items="${weHave}" var="game">
             <div class="col-lg-4 col-md-6 col-sm-6">
-              <div class="card my-3 shadow-0 bg-black border border-gold">
-                <a href="#">
+              <div class="card my-3 shadow-0 bg-black border ">
+                <a href="product?name=${game.name}">
                   <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2">
                   <div class="card-body p-0 pt-2">
                     <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                    <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                    <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                      <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
-                      <p class="text-white mx-3"> <del>$59.99</del></p>
-                      <p class="text-white mx-3"> $19.79 </p>
-                    </div>
+                    <h5 class="card-title text-white mx-3">${game.name}</h5>
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
+                    <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
+                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
+                    <p class="text-white mx-3"> &dollar;${game.price - (game.price *
+                      game.discount.getType().getDiscount()/100)} </p>
+                  </div>
                   </div>
                 </a>
                 <div class="card-footer px-2">
@@ -384,7 +384,8 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-6">
+            </c:forEach>
+            <!-- <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card my-3 shadow-0 bg-black border border-gold">
                 <a href="#">
                   <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2">
@@ -551,11 +552,9 @@
                       class="fas fa-heart fa-lg px-1 text-white"></i></a>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
-
           <hr />
-
           <!-- Pagination -->
           <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
             <ul class="pagination">
@@ -724,7 +723,10 @@
   <!-- Footer -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
+  <script type="text/javascript" src="js/header.js"></script>
+
 </body>
 
 </html>

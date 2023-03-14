@@ -1,8 +1,10 @@
 package gov.iti.fusion.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import gov.iti.fusion.models.Genre;
+import gov.iti.fusion.models.enums.GenreType;
 import gov.iti.fusion.persistence.repositories.GenreRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -20,6 +22,9 @@ public class GenreService {
 
     public Genre findById(String id){
         return genreRepository.findById(Genre.class, id);
+    }
+    public List<Integer> groupGameWithGenre(GenreType genreType){
+        return genreRepository.groupGameWithGenre(genreType);
     }
   
 }

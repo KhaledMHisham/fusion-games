@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 
@@ -148,16 +149,42 @@ public class HomeServlet extends HttpServlet {
         // gameService.save(game7);
         // gameService.save(game8);
 
-        List<Game> mainGames = new ArrayList<>();
+        List<Game> gamesWithoutDiscount = new ArrayList<>();
         List<Game> new5Games = new ArrayList<>();
         List<Game> free2Games = new ArrayList<>();
+        List<Game> gamesOnSale = new ArrayList<>();
 
-        mainGames =  gameService.findAllGames();
+        gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
+        if(gamesWithoutDiscount.size()>12)
+            gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
+
         new5Games = gameService.findTopNewer(4);
         free2Games = gameService.findFreeGames(2);
-        request.setAttribute("weHave",mainGames);
+        gamesOnSale = gameService.findGamesOnSale();
+        
+        if(gamesOnSale.size()>12)
+            gamesOnSale = getRandomElements(gameService.findGamesOnSale());
+        request.setAttribute("weHave",gamesWithoutDiscount);
         request.setAttribute("newReleases",new5Games);
         request.setAttribute("freeGames",free2Games);
+        request.setAttribute("gamesOnSale",gamesOnSale);
+        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
+        System.out.println(gamesOnSale.size()+"===================================================================");
         request.getRequestDispatcher("home-page.jsp").forward(request, response);
+    }
+    public List<Game>getRandomElements(List<Game> list)
+    {
+        Random rand = new Random();
+ 
+        // create a temporary list for storing
+        // selected element
+        List<Game> newList = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            int randomIndex = rand.nextInt(list.size());
+             newList.add(list.get(randomIndex));
+             list.remove(randomIndex);
+             
+        }
+        return newList;
     }
 }

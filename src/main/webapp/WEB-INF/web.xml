@@ -16,6 +16,27 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>ProductsPage</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.AllProductsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ProductsPage</servlet-name>
+    <url-pattern>/all-products</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ProductsDetails</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.ProductDetailsServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>ProductsDetails</servlet-name>
+    <url-pattern>/product</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
     <servlet-name>RegisterServlet</servlet-name>
     <servlet-class>gov.iti.fusion.servlets.RegisterServlet</servlet-class>
   </servlet>

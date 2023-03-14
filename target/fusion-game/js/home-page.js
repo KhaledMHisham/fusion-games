@@ -9,8 +9,9 @@
 //   searchLabel.classList.remove("search-label");
 // });
 const scrollContainer = document.querySelector('.collapsible-scrollspy');
+const scrollArrows = document.querySelector('.arrows');
 const scrollStep = 600;
-
+if(scrollArrows!=null){
 document.querySelector('.arrow-left').addEventListener('click', () => {
   scrollContainer.scrollBy({
     left: -scrollStep,
@@ -24,7 +25,7 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
     behavior: 'smooth'
   });
 });
-
+}
 //function onClickGameCard
 
  function onClickGame(th,gameName,gamePrice,gameDiscount){
@@ -40,15 +41,3 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
    document.getElementById("game-price").innerText = "$"+gamePrice;
    document.getElementById("game-net-price").innerText = "$"+(gamePrice - (gameDiscount/100));
  }
- 
- const jumbotronHeight = document.querySelector('.header').offsetHeight;
-
- $(window).scroll(function(){
-  if ($(window).scrollTop() >jumbotronHeight) {
-      $('nav').addClass('fixed-header');
-  }
-  else {
-      $('nav').removeClass('fixed-header');
-  }
-});
- 

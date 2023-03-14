@@ -33,5 +33,11 @@ public class GameService {
     }   
     public List<Game> findFreeGames(int limit){
         return gameRepository.findFreeGames(limit);
+    }  
+    public List<Game> findGamesWithNoDiscount(){
+        return gameRepository.findGamesWithNoDiscount();
+    } 
+    public List<Game> findGamesOnSale(){
+        return gameRepository.findGamesOnSale();
     }   
 }

@@ -1,5 +1,5 @@
 .products-container {
-    margin: 200px auto 50px !important;
+    /* margin: 200px auto 50px !important; */
 }
 
 .accordion {
@@ -64,5 +64,11 @@
 }
 :root {
     --mdb-primary: #e4a11b !important;
+}
+.card{
+    min-height: 430px;
+}
+.card-title{
+    min-height: 48;
 }
 

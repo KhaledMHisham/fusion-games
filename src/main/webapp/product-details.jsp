@@ -9,133 +9,134 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
     <link href="css/home-page.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
+
 </head>
 
 <body class="bg-black">
 
     <!--Main Navigation-->
-    <header class="fixed-top">
+    <header class="header-top">
         <!-- Jumbotron -->
-        <div class="p-3 text-center bg-main">
-            <div class="container">
-                <div class="row gy-3">
-                    <!-- Left elements -->
-                    <div class="col-lg-2 col-sm-4 col-4">
-                        <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                            <img class="rounded-circle bg-gold" style="aspect-ratio: 1/1;" src="images/phoenix.png"
-                                height="70">
-                        </a>
-                    </div>
-                    <!-- Left elements -->
-                    <!-- Center elements -->
-                    <div class="order-lg-last col-lg-5 col-sm-8 col-8">
-                        <div class="d-flex float-end">
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
-                                <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
-                            </a>
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
-                                <i class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
-                            </a>
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">My cart</p>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Center elements -->
-
-                    <!-- Right elements -->
-                    <div class="col-lg-5 col-md-12 col-12">
-                        <div class="input-group">
-                            <div class="form-outline ">
-                                <input type="search" id="search-input" class="form-control text-gold " />
-                                <label id="search-label" class="form-label text-gold bg-main search-label"
-                                    for="search-form">Search</label>
-                            </div>
-                            <button id="search-button" type="button" class="btn btn-gold shadow-0">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Right elements -->
+        <div class=" p-3 text-center bg-main header">
+          <div class="container">
+            <div class="row gy-3">
+              <!-- Left elements -->
+              <div class="col-lg-2 col-sm-4 col-4">
+                <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
+                  <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
+                </a>
+              </div>
+              <!-- Left elements -->
+              <!-- Center elements -->
+              <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                <div class="d-flex float-end">
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
+                  </a>
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
+                  </a>
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">My cart</p>
+                  </a>
                 </div>
+              </div>
+              <!-- Center elements -->
+
+              <!-- Right elements -->
+              <div class="col-lg-5 col-md-12 col-12">
+                <div class="input-group">
+                  <div class="form-outline ">
+                    <input type="search" id="search-input" class="form-control text-gold " />
+                    <label id="search-label" class="form-label text-gold bg-main search-label"
+                      for="search-form">Search</label>
+                  </div>
+                  <button id="search-button" type="button" class="btn btn-gold shadow-0">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+              <!-- Right elements -->
             </div>
+          </div>
         </div>
         <!-- Jumbotron -->
 
         <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-dark bg-black ">
-            <!-- Container wrapper -->
-            <div class="container justify-content-center justify-content-md-between">
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <!-- Collapsible wrapper -->
-                <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-                    <!-- Left links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                                data-mdb-toggle="dropdown" aria-expanded="false">
-                                Categories
-                            </a>
-                            <!-- Dropdown menu -->
-                            <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Hot offers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Gift boxes</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="#">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Menu item</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Menu name</a>
-                        </li>
-                    </ul>
-                    <!-- Left links -->
-                </div>
+        <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top p-2">
+          <!-- Container wrapper -->
+          <div class="container justify-content-center justify-content-md-between">
+            <!-- Toggle button -->
+            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+              data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <i class="fas fa-bars"></i>
+            </button>
+      
+            <!-- Collapsible wrapper -->
+            <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+              <!-- Left links -->
+              <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                    data-mdb-toggle="dropdown" aria-expanded="false">
+                    Categories
+                  </a>
+                  <!-- Dropdown menu -->
+                  <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
+                    <li>
+                      <a class="dropdown-item bg-black text-white" href="#">Action</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item bg-black text-white" href="#">RPG</a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
+                    </li>
+                  </ul>
+                </li>
+      
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="home">Discover</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="all-products">Browse</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Menu name</a>
+                </li>
+              </ul>
+              <!-- Left links -->
             </div>
-            <!-- Container wrapper -->
+          </div>
+          <!-- Container wrapper -->
         </nav>
+       
         <!-- Navbar -->
-    </header>
-    <div class="page-offset"></div>
+      </header>
+    <!-- <div class="page-offset"></div> -->
 
     <div class="container">
         <div class="row justify-content-around">
             <div class="col-lg-7 col-md-7 col-sm-12 p-3">
                 <img class="img-fluid rounded-5" src="images/hellblade.jpg">
-                <p class="pt-3">Hogwarts Legacy is an immersive, open-world action RPG. Now you can take control of the action and be at the center of your own adventure in the wizarding world.</p>
+                <p class="pt-3">${game.description}.</p>
+                <!-- <p class="pt-3"><c:out value="${game.discount}"/></p> -->
                 <div class="row pt-1">
                     <div class="col-6 border-start border-1 border-gold">
                         <p class="m-0 mb-1">Genres</p>
-                        <p class="m-0" style="font-size:small"> Action, RPG, Adventure</p>
+                        <p class="m-0" style="font-size:small">
+                            <c:forEach items="${game.genres}" var="genr">
+                                ${genr.genre},
+                            </c:forEach>
+                        </p>
                     </div>
                     <div class="col-6 border-start border-1 border-gold">
                         <p class="m-0 mb-1">Features</p>
@@ -147,7 +148,7 @@
             <div class="col-lg-4 col-md-4 col-sm-12 p-3">
                 <div class="row">
                     <div class="col-12 justify-content-center">
-                        <h4 class=" text-center"><strong class="border-bottom border-1 border-gold">Hell Blade Senua's Sacrifice</strong></h4>
+                        <h4 class=" text-center"><strong class="border-bottom border-1 border-gold">${game.name}</strong></h4>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -155,36 +156,45 @@
                         <h6><span class="badge bg-dark mx-2 pt-2">BASE GAME</span></h6>
                     </div>
                 </div>
+                <c:if test="${not empty game.discount}">
+                    <c:out value="${game.discount}"/>
+                    
                 <div class="row mt-2">
                     <div class="col-2">
-                        <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
+                        <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
                     </div>
                     <div class="col-2">
-                        <p class="text-white mx-3"> <del>$59.99</del></p>
+                        <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
                     </div>
                     <div class="col-2">
-                        <p class="text-white mx-3"> $19.79 </p>
+                        <p class="text-white mx-3"> &dollar;${game.price - (game.price*game.discount.getType().getDiscount()/100)} </p>
                     </div>
                 </div>
+            </c:if>
+            <c:if test="${empty game.discount}">
+                <div class="col-2">
+                    <h5 class="text-white mx-3">&dollar;${game.price}</h5>
+                </div>
+            </c:if>
                 <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-black bg-gold">BUY NOW</button>
                 <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i class="fas fa-shopping-cart m-1 me-md-2 text-white"></i>ADD TO CART</button>
                 <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</button>
                 <div class="row px-2 pe-2">
                     <div class="col-12 d-flex flex-row justify-content-between mt-3 border-1 border-bottom border-gold">
                         <p>Developer</p>
-                        <p>Bethesda</p>
+                        <p>${game.developer}</p>
                     </div>
                 </div>
                 <div class="row px-2 pe-2">
                     <div class="col-12 d-flex flex-row justify-content-between mt-3 border-1 border-bottom border-gold">
                         <p>Publisher</p>
-                        <p>Bandai Namico</p>
+                        <p>${game.publisher}</p>
                     </div>
                 </div>
                 <div class="row px-2 pe-2">
                     <div class="col-12 d-flex flex-row justify-content-between mt-3 border-1 border-bottom border-gold">
                         <p>Release Date</p>
-                        <p>02/10/23</p>
+                        <p>${game.releaseDate}</p>
                     </div>
                 </div>
                 <div class="row px-2 pe-2">
@@ -386,8 +396,9 @@
     <!-- Footer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
-    <script type="text/javascript" src="js/home-page.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
 </body>
 
 </html>

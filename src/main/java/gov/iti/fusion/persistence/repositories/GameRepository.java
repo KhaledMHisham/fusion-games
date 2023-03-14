@@ -32,5 +32,15 @@ public class GameRepository extends CrudRepository<Game, String>{
         Query query = entityManager.createQuery(jpql, List.class);
         return ((List<Game>) query.setMaxResults(limit).getResultList());
     }
+    public List<Game> findGamesWithNoDiscount(){
+        String jpql = "SELECT g FROM Game g where g.discount is null";
+        Query query = entityManager.createQuery(jpql, List.class);
+        return ((List<Game>) query.getResultList());
+    }
+    public List<Game> findGamesOnSale(){
+        String jpql = "SELECT g FROM Game g where g.discount is not null and g.discount.type <> DiscountType.FREE";
+        Query query = entityManager.createQuery(jpql, List.class);
+        return ((List<Game>) query.getResultList());
+    }
     
 }
