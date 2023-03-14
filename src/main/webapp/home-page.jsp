@@ -402,7 +402,7 @@
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                   <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
                     <p class="text-white mx-3"> <del>$59.99</del></p>
                     <p class="text-white mx-3"> $19.79 </p>
@@ -423,7 +423,7 @@
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                   <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
                     <p class="text-white mx-3"> <del>$59.99</del></p>
                     <p class="text-white mx-3"> $19.79 </p>
@@ -444,7 +444,7 @@
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                   <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
                     <p class="text-white mx-3"> <del>$59.99</del></p>
                     <p class="text-white mx-3"> $19.79 </p>
@@ -465,7 +465,7 @@
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                   <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
                     <p class="text-white mx-3"> <del>$59.99</del></p>
                     <p class="text-white mx-3"> $19.79 </p>
@@ -486,7 +486,7 @@
                 <div class="card-body p-0 pt-2">
                   <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                   <h5 class="card-title text-white mx-3">Assassin's Creed Valhalla Standard Edition</h5>
-                  <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-60%</span></h6>
                     <p class="text-white mx-3"> <del>$59.99</del></p>
                     <p class="text-white mx-3"> $19.79 </p>

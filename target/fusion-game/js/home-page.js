@@ -28,7 +28,8 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
 //function onClickGameCard
 
  function onClickGame(th,gameName,gamePrice,gameDiscount){
- 
+   //var text = th.firstChild.firstChild.childNodes.img.getAttribute('src');
+   //document.getElementById("card-banner").style.backgroundImage = "url(images/hellblade.jpg)";
    var gameImgSrc = th.querySelector("#img-src").getAttribute('src');
   //  var gameName =th.querySelector("#clicked-game-name").innerText;
   //  var gamePrice = th.querySelector("#clicked-game-price").innerText;
