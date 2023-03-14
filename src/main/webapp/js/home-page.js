@@ -27,15 +27,19 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
 
 //function onClickGameCard
 
- function onClickGame(th){
-   //var text = th.firstChild.firstChild.childNodes.img.getAttribute('src');
-   //document.getElementById("card-banner").style.backgroundImage = "url(images/hellblade.jpg)";
-   var gameImgSrc = th.children[0].children[0].children[0].children[0].getAttribute('src');
-   var gameName = th.children[0].children[0].children[0].children[1].innerText;
+ function onClickGame(th,gameName,gamePrice,gameDiscount){
+ 
+   var gameImgSrc = th.querySelector("#img-src").getAttribute('src');
+  //  var gameName =th.querySelector("#clicked-game-name").innerText;
+  //  var gamePrice = th.querySelector("#clicked-game-price").innerText;
+  //  var gameNetPrice = th.querySelector("#clicked-game-net-price").innerText;
    console.log(gameName);
    document.getElementById("card-banner").style.backgroundImage = "url("+gameImgSrc+")";
    document.getElementById("game-name").innerText = gameName;
+   document.getElementById("game-price").innerText = "$"+gamePrice;
+   document.getElementById("game-net-price").innerText = "$"+(gamePrice - (gameDiscount/100));
  }
+ 
  const jumbotronHeight = document.querySelector('.header').offsetHeight;
 
  $(window).scroll(function(){
@@ -46,4 +50,4 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
       $('nav').removeClass('fixed-header');
   }
 });
-
+ 

@@ -106,7 +106,7 @@
                 </li>
       
                 <li class="nav-item">
-                  <a class="nav-link text-white" href="#">Hot offers</a>
+                  <a class="nav-link text-white" href="#">Discover</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link " href="#">Browse</a>
@@ -242,9 +242,15 @@
 
           <div class="position-relative col-lg-7 col-md-12 col-sm-12">
             <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
-            <div id="card-banner-desc" class="position-absolute m-4" style="max-width: 60%;">
+            <div id="card-banner-desc" class="card-banner-desc position-absolute m-4" style="max-width: 60%;">
               <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
-              <h3 id="game-name"></h3>
+              <h3 id="game-name">${newReleases[0].name}</h3>
+              <div class="d-flex justify-content-start align-items-start h-100 m-2">
+                <h6> starting at </h6>
+                <p class="text-white mx-3"> <del  id="game-price">&dollar;${newReleases[0].price}</del></p>
+                <p id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].price - (newReleases[0].price *
+                  newReleases[0].discount.getType().getDiscount()/100)} </p>
+              </div>     
               <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
               <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
 
@@ -256,14 +262,13 @@
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
               <c:forEach items="${newReleases}" var="game">
-                <div id="game1" onclick="onClickGame(this)" class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
+                <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
                   <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                     <div class="card-body">
                       <div class="d-flex align-items-center">
-                        <img src="images/hellblade.jpg" alt="" style="width:100px; height:100px" class="fa-square " />
+                        <img id="img-src" src="images/hellblade.jpg" alt="" style="width:100px; height:100px" class="fa-square " />
                         <div class="ms-3">
-                          <!-- <p class="fw-bold mb-1">${game.releaseDate}</p> -->
-                          <p class="fw-bold mb-1">${game.name}</p>
+                          <p id="clicked-game-name" class="fw-bold mb-1">${game.name}</p>
                         </div>
                       </div>
                     </div>
@@ -298,12 +303,11 @@
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2">Base Game</p>
                       <h5 class="card-title text-white mx-3">${game.name}</h5>
-                      <div class="d-flex justify-content-start align-items-start h-100 m-2">
-                        <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
-                        </h6>
-                        <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
-                        <p class="text-white mx-3"> &dollar;${game.price - (game.price *
-                          game.discount.getType().getDiscount()/100)} </p>
+                      <div class="d-flex justify-content-end align-items-start h-100 m-2">
+                        <!-- <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6> -->
+                        <h5 class=" text-gold mx-3">&dollar;${game.price}</h5>
+                        <!-- <p class="text-white mx-3"> &dollar;${game.price - (game.price *
+                          game.discount.getType().getDiscount()/100)} </p> -->
                       </div>
                     </div>
                   </a>
@@ -323,25 +327,22 @@
       <!-- Feature -->
       <section class="">
         <div class="container">
-          <div class="row gy-4">
+          <header class="mb-4">
+            <h3 class="text-gold">Free Games</h3>
+          </header>
+          <div class="row position-relative gy-4">
+            <c:forEach items="${freeGames}" var="game">
             <div class="col-lg-6">
-              <div class="card-banner bg-gray h-100" style="
-                                                        min-height: 200px;
-                                                        background-size: cover;
-                                                        background-position: center;
-                                                        width: 100%;
-                                                        background-repeat: no-repeat;
-                                                        top: 50%;
-                                                        background-image: url('images/12.webp');">
-                <div class="p-3 p-lg-5" style="max-width: 70%;">
-                  <h3 class="text-dark">Best products &amp; brands in our store at 80% off</h3>
-                  <p>That's true but not always</p>
-                  <button class="btn btn-warning shadow-0" href="#"> Claim offer </button>
-                </div>
-              </div>
+                <div class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
+                <div class="position-absolute banner-desc m-4" style="max-width: 60%;">
+                  <h3 class="text-white">100% off</h3>
+                  <h5>${game.name}</h5>  
+                  <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
+                  <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
+                  </div>
             </div>
-            <div class="col-lg-6">
-              <div class="row mb-3 mb-sm-4 g-3 g-sm-4">
+          </c:forEach>
+              <!-- <div class="row mb-3 mb-sm-4 g-3 g-sm-4">
                 <div class="col-6 d-flex">
                   <div class="card w-100 bg-primary" style="min-height: 200px;">
                     <div class="card-body">
@@ -361,7 +362,7 @@
                   </div>
                 </div>
               </div>
-              <!-- row.// -->
+             row.// 
 
               <div class="card bg-success" style="min-height: 200px;">
                 <div class="card-body">
@@ -370,7 +371,7 @@
                     business improves the brand by sharing the profits</p>
                   <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
                 </div>
-              </div>
+              </div> -->
             </div>
             <!-- col.// -->
           </div>
@@ -507,9 +508,8 @@
       <section class="mt-5 mb-4">
         <div class="container text-dark">
           <header class="">
-            <h3 class="section-title">Recently viewed</h3>
+            <h3 class=" section-title text-gold">Most Purchased</h3>
           </header>
-
           <div class="row gy-3">
             <div class="col-lg-2 col-md-4 col-4">
               <a href="#" class="img-wrap">
@@ -572,7 +572,7 @@
                     <i class="fas fa-plane fa-2x fa-fw"></i>
                   </div>
                   <span class="info">
-                    <h6 class="title">Worldwide shipping</h6>
+                    <h6 class="title">Worldwide shopping</h6>
                     <p class="mb-0">Have you ever finally just</p>
                   </span>
                 </div>

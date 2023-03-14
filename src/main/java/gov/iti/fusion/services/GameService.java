@@ -31,4 +31,7 @@ public class GameService {
     public List<Game> findTopNewer(int limit){
         return gameRepository.findTopNewer(limit);
     }   
+    public List<Game> findFreeGames(int limit){
+        return gameRepository.findFreeGames(limit);
+    }   
 }

@@ -61,9 +61,6 @@ public class HomeServlet extends HttpServlet {
         // PlatformService platformService = new PlatformService(request);
         // GenreService genreService = new GenreService(request);
 
-
-        List<Game> mainGames = new ArrayList<>();
-        List<Game> new5Games = new ArrayList<>();
         // Set<Game> mainGames =  new HashSet<>();
         // Set<Platform> platforms =  new HashSet<>();
         // Set<Genre> genres =  new HashSet<>();
@@ -151,11 +148,16 @@ public class HomeServlet extends HttpServlet {
         // gameService.save(game7);
         // gameService.save(game8);
 
+        List<Game> mainGames = new ArrayList<>();
+        List<Game> new5Games = new ArrayList<>();
+        List<Game> free2Games = new ArrayList<>();
+
         mainGames =  gameService.findAllGames();
         new5Games = gameService.findTopNewer(4);
+        free2Games = gameService.findFreeGames(2);
         request.setAttribute("weHave",mainGames);
         request.setAttribute("newReleases",new5Games);
-        System.out.println(mainGames.get(0).getReleaseDate().toString());
+        request.setAttribute("freeGames",free2Games);
         request.getRequestDispatcher("home-page.jsp").forward(request, response);
     }
 }

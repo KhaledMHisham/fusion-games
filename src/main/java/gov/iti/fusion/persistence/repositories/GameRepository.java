@@ -23,7 +23,12 @@ public class GameRepository extends CrudRepository<Game, String>{
         return (Game) query.getSingleResult();
     }
     public List<Game> findTopNewer(int limit){
-        String jpql = "SELECT g FROM Game g order by g.releaseDate";
+        String jpql = "SELECT g FROM Game g order by g.releaseDate desc";
+        Query query = entityManager.createQuery(jpql, List.class);
+        return ((List<Game>) query.setMaxResults(limit).getResultList());
+    }
+    public List<Game> findFreeGames(int limit){
+        String jpql = "SELECT g FROM Game g where g.discount.type = DiscountType.FREE  order by g.releaseDate desc";
         Query query = entityManager.createQuery(jpql, List.class);
         return ((List<Game>) query.setMaxResults(limit).getResultList());
     }
