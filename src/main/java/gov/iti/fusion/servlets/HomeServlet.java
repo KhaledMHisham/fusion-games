@@ -161,7 +161,7 @@ public class HomeServlet extends HttpServlet {
         new5Games = gameService.findTopNewer(4);
         free2Games = gameService.findFreeGames(2);
         gamesOnSale = gameService.findGamesOnSale();
-        
+
         if(gamesOnSale.size()>12)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
         request.setAttribute("weHave",gamesWithoutDiscount);

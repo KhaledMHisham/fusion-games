@@ -19,108 +19,108 @@
     <header class="header-top">
         <!-- Jumbotron -->
         <div class=" p-3 text-center bg-main header">
-          <div class="container">
-            <div class="row gy-3">
-              <!-- Left elements -->
-              <div class="col-lg-2 col-sm-4 col-4">
-                <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                  <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
-                </a>
-              </div>
-              <!-- Left elements -->
-              <!-- Center elements -->
-              <div class="order-lg-last col-lg-5 col-sm-8 col-8">
-                <div class="d-flex float-end">
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
-                  </a>
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
-                  </a>
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">My cart</p>
-                  </a>
-                </div>
-              </div>
-              <!-- Center elements -->
+            <div class="container">
+                <div class="row gy-3">
+                    <!-- Left elements -->
+                    <div class="col-lg-2 col-sm-4 col-4">
+                        <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
+                            <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
+                        </a>
+                    </div>
+                    <!-- Left elements -->
+                    <!-- Center elements -->
+                    <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                        <div class="d-flex float-end">
+                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
+                                <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                                <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
+                            </a>
+                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
+                                <i class="fas fa-heart m-1 me-md-2 text-gold"></i>
+                                <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
+                            </a>
+                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                                class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
+                                <p class="d-none d-md-block mb-0 text-gold">My cart</p>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Center elements -->
 
-              <!-- Right elements -->
-              <div class="col-lg-5 col-md-12 col-12">
-                <div class="input-group">
-                  <div class="form-outline ">
-                    <input type="search" id="search-input" class="form-control text-gold " />
-                    <label id="search-label" class="form-label text-gold bg-main search-label"
-                      for="search-form">Search</label>
-                  </div>
-                  <button id="search-button" type="button" class="btn btn-gold shadow-0">
-                    <i class="fas fa-search"></i>
-                  </button>
+                    <!-- Right elements -->
+                    <div class="col-lg-5 col-md-12 col-12">
+                        <div class="input-group">
+                            <div class="form-outline ">
+                                <input type="search" id="search-input" class="form-control text-gold " />
+                                <label id="search-label" class="form-label text-gold bg-main search-label"
+                                    for="search-form">Search</label>
+                            </div>
+                            <button id="search-button" type="button" class="btn btn-gold shadow-0">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Right elements -->
                 </div>
-              </div>
-              <!-- Right elements -->
             </div>
-          </div>
         </div>
         <!-- Jumbotron -->
 
         <!-- Navbar -->
         <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top p-2">
-          <!-- Container wrapper -->
-          <div class="container justify-content-center justify-content-md-between">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-              data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-      
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-              <!-- Left links -->
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                    data-mdb-toggle="dropdown" aria-expanded="false">
-                    Categories
-                  </a>
-                  <!-- Dropdown menu -->
-                  <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                    </li>
-                  </ul>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="home">Discover</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="all-products">Browse</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Menu name</a>
-                </li>
-              </ul>
-              <!-- Left links -->
+            <!-- Container wrapper -->
+            <div class="container justify-content-center justify-content-md-between">
+                <!-- Toggle button -->
+                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Collapsible wrapper -->
+                <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+                    <!-- Left links -->
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                                data-mdb-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <!-- Dropdown menu -->
+                            <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item bg-black text-white" href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item bg-black text-white" href="#">RPG</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="home">Discover</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="all-products">Browse</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Menu name</a>
+                        </li>
+                    </ul>
+                    <!-- Left links -->
+                </div>
             </div>
-          </div>
-          <!-- Container wrapper -->
+            <!-- Container wrapper -->
         </nav>
-       
+
         <!-- Navbar -->
-      </header>
+    </header>
     <!-- <div class="page-offset"></div> -->
 
     <div class="container">
@@ -148,7 +148,8 @@
             <div class="col-lg-4 col-md-4 col-sm-12 p-3">
                 <div class="row">
                     <div class="col-12 justify-content-center">
-                        <h4 class=" text-center"><strong class="border-bottom border-1 border-gold">${game.name}</strong></h4>
+                        <h4 class=" text-center"><strong
+                                class="border-bottom border-1 border-gold">${game.name}</strong></h4>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -156,29 +157,35 @@
                         <h6><span class="badge bg-dark mx-2 pt-2">BASE GAME</span></h6>
                     </div>
                 </div>
-                <c:if test="${not empty game.discount}">
-                    <c:out value="${game.discount}"/>
-                    
-                <div class="row mt-2">
-                    <div class="col-2">
-                        <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
-                    </div>
-                    <div class="col-2">
-                        <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
-                    </div>
-                    <div class="col-2">
-                        <p class="text-white mx-3"> &dollar;${game.price - (game.price*game.discount.getType().getDiscount()/100)} </p>
-                    </div>
-                </div>
-            </c:if>
-            <c:if test="${empty game.discount}">
-                <div class="col-2">
-                    <h5 class="text-white mx-3">&dollar;${game.price}</h5>
-                </div>
-            </c:if>
+                <c:choose>
+                    <c:when test="${not empty game.discount}">
+                        <div class="row mt-2">
+                            <div class="col-2">
+                                <h6><span
+                                        class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
+                                </h6>
+                            </div>
+                            <div class="col-2">
+                                <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
+                            </div>
+                            <div class="col-2">
+                                <p class="text-white mx-3"> &dollar;${game.price -
+                                    (game.price*game.discount.getType().getDiscount()/100)} </p>
+                            </div>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="col-2">
+                            <h5 class="text-white mx-3">&dollar;${game.price}</h5>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+
                 <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-black bg-gold">BUY NOW</button>
-                <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i class="fas fa-shopping-cart m-1 me-md-2 text-white"></i>ADD TO CART</button>
-                <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</button>
+                <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                        class="fas fa-shopping-cart m-1 me-md-2 text-white"></i>ADD TO CART</button>
+                <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                        class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</button>
                 <div class="row px-2 pe-2">
                     <div class="col-12 d-flex flex-row justify-content-between mt-3 border-1 border-bottom border-gold">
                         <p>Developer</p>
@@ -210,7 +217,8 @@
         <div class="row">
             <h4>Specifications</h4>
             <div class="col-12 bg-main mt-5 mx-2 rounded-5">
-                <h5 class="mt-3 mx-2 me-2 pb-2 border-bottom border-1 border-gold"><strong class="border-bottom border-4 border-gold pb-2">Windows</strong></h5>
+                <h5 class="mt-3 mx-2 me-2 pb-2 border-bottom border-1 border-gold"><strong
+                        class="border-bottom border-4 border-gold pb-2">Windows</strong></h5>
                 <div class="row p-5">
                     <div class="mx-4 col-5">
                         <h6 class="text-white-50 m-0 mt-2 mb-4">Minimum</h6>

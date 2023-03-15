@@ -23,7 +23,7 @@ public class GenreService {
     public Genre findById(String id){
         return genreRepository.findById(Genre.class, id);
     }
-    public List<Integer> groupGameWithGenre(GenreType genreType){
+    public Integer groupGameWithGenre(GenreType genreType){
         return genreRepository.groupGameWithGenre(genreType);
     }
   

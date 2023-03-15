@@ -15,10 +15,10 @@ public class GenreRepository extends CrudRepository<Genre, String> {
     public GenreRepository(HttpServletRequest request) {
         super(request);
     } 
-    public List<Integer> groupGameWithGenre(GenreType genreType){
+    public Integer groupGameWithGenre(GenreType genreType){
         String jpql = "SELECT count(g.games) FROM Genre g group by genre having genre = GenreType.ACTION";
-        Query query = entityManager.createQuery(jpql,List.class);
-        return ((List<Integer>) query.getResultList());
+        Query query = entityManager.createQuery(jpql);
+        return ((Integer) query.getSingleResult());
     }   
     
 }
