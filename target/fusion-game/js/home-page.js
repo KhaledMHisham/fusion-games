@@ -8,9 +8,12 @@
 // searchInput.addEventListener('blur', function() {
 //   searchLabel.classList.remove("search-label");
 // });
+
+
+
 const scrollContainer = document.querySelector('.collapsible-scrollspy');
 const scrollArrows = document.querySelector('.arrows');
-const scrollStep = 600;
+const scrollStep = 1100;
 if(scrollArrows!=null){
 document.querySelector('.arrow-left').addEventListener('click', () => {
   scrollContainer.scrollBy({
@@ -26,6 +29,26 @@ document.querySelector('.arrow-right').addEventListener('click', () => {
   });
 });
 }
+
+const scrollContainerBest = document.querySelector('.collapsible-scrollspy-BestSellerList');
+const scrollArrowsBest = document.querySelector('.arrows-BestSellerList');
+if(scrollArrowsBest!=null){
+document.querySelector('.arrow-left-BestSellerList').addEventListener('click', () => {
+  scrollContainerBest.scrollBy({
+    left: -scrollStep,
+    behavior: 'smooth'
+  });
+});
+
+document.querySelector('.arrow-right-BestSellerList').addEventListener('click', () => {
+  scrollContainerBest.scrollBy({
+    left: scrollStep,
+    behavior: 'smooth'
+  });
+});
+}
+
+
 //function onClickGameCard
 
  function onClickGame(th,gameName,gamePrice,gameDiscount){

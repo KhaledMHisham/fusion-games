@@ -4,11 +4,13 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import com.google.gson.Gson;
 
 import gov.iti.fusion.models.Discount;
 import gov.iti.fusion.models.Game;
@@ -22,6 +24,8 @@ import gov.iti.fusion.services.DiscountService;
 import gov.iti.fusion.services.GameService;
 import gov.iti.fusion.services.GenreService;
 import gov.iti.fusion.services.PlatformService;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
@@ -30,6 +34,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class HomeServlet extends HttpServlet {
     ServletConfig myConfig;
+
 
     @Override
     public void destroy() {
@@ -55,8 +60,8 @@ public class HomeServlet extends HttpServlet {
     }
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
         GameService gameService = new GameService(request);
+
         
         // DiscountService discountService = new DiscountService(request);
         // PlatformService platformService = new PlatformService(request);
@@ -149,11 +154,13 @@ public class HomeServlet extends HttpServlet {
         // gameService.save(game7);
         // gameService.save(game8);
 
+        List<Game> allGames = new ArrayList<>();
         List<Game> gamesWithoutDiscount = new ArrayList<>();
         List<Game> new5Games = new ArrayList<>();
         List<Game> free2Games = new ArrayList<>();
         List<Game> gamesOnSale = new ArrayList<>();
 
+        allGames = gameService.findAllGames();
         gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
         if(gamesWithoutDiscount.size()>12)
             gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
@@ -164,6 +171,7 @@ public class HomeServlet extends HttpServlet {
 
         if(gamesOnSale.size()>12)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
+        request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);
         request.setAttribute("newReleases",new5Games);
         request.setAttribute("freeGames",free2Games);
@@ -187,4 +195,15 @@ public class HomeServlet extends HttpServlet {
         }
         return newList;
     }
-}
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        GameService gameService = new GameService(request);
+        Gson gson = new Gson();
+           EntityManager entityManager = (EntityManager) request.getAttribute("EntityManager");
+            String jsonList = gson.toJson(gameService.findAllGames().stream().map((g->g.getName())).toList());
+            response.setContentType("application/json");
+            response.setCharacterEncoding("UTF-8");
+            response.getWriter().write(jsonList);
+          }
+    }
+

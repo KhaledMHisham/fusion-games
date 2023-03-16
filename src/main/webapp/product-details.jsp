@@ -1,3 +1,6 @@
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
     <link href="css/home-page.css" rel="stylesheet" />
-    <link href="css/header.css" rel="stylesheet" />
 
 </head>
 
@@ -19,108 +21,115 @@
     <header class="header-top">
         <!-- Jumbotron -->
         <div class=" p-3 text-center bg-main header">
-            <div class="container">
-                <div class="row gy-3">
-                    <!-- Left elements -->
-                    <div class="col-lg-2 col-sm-4 col-4">
-                        <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                            <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
-                        </a>
-                    </div>
-                    <!-- Left elements -->
-                    <!-- Center elements -->
-                    <div class="order-lg-last col-lg-5 col-sm-8 col-8">
-                        <div class="d-flex float-end">
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
-                                <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
-                            </a>
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank">
-                                <i class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
-                            </a>
-                            <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                                class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                                <p class="d-none d-md-block mb-0 text-gold">My cart</p>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- Center elements -->
-
-                    <!-- Right elements -->
-                    <div class="col-lg-5 col-md-12 col-12">
-                        <div class="input-group">
-                            <div class="form-outline ">
-                                <input type="search" id="search-input" class="form-control text-gold " />
-                                <label id="search-label" class="form-label text-gold bg-main search-label"
-                                    for="search-form">Search</label>
-                            </div>
-                            <button id="search-button" type="button" class="btn btn-gold shadow-0">
-                                <i class="fas fa-search"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Right elements -->
+          <div class="container">
+            <div class="row gy-3">
+              <!-- Left elements -->
+              <div class="col-lg-2 col-sm-4 col-4">
+                <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
+                  <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
+                </a>
+              </div>
+              <!-- Left elements -->
+              <!-- Center elements -->
+              <div class="order-lg-last col-lg-5 col-sm-8 col-8">
+                <div class="d-flex float-end">
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
+                  </a>
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
+                  </a>
+                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+                    class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">My cart</p>
+                  </a>
                 </div>
-            </div>
+              </div>
+              <!-- Center elements -->
+
+              <!-- Right elements -->
+              
+          
+          </div>
         </div>
         <!-- Jumbotron -->
 
         <!-- Navbar -->
-        <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top p-2">
-            <!-- Container wrapper -->
-            <div class="container justify-content-center justify-content-md-between">
-                <!-- Toggle button -->
-                <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-bars"></i>
-                </button>
-
-                <!-- Collapsible wrapper -->
-                <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-                    <!-- Left links -->
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                                data-mdb-toggle="dropdown" aria-expanded="false">
-                                Categories
-                            </a>
-                            <!-- Dropdown menu -->
-                            <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                                </li>
-                                <li>
-                                    <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                                </li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="home">Discover</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="all-products">Browse</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Menu name</a>
-                        </li>
-                    </ul>
-                    <!-- Left links -->
-                </div>
-            </div>
-            <!-- Container wrapper -->
-        </nav>
-
+       
+       
         <!-- Navbar -->
-    </header>
+      </header>
+
+      <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top mb-3 p-2">
+        <!-- Container wrapper -->
+        <div class="container justify-content-center justify-content-md-between">
+          <!-- <div class="col-lg-5">
+            <div class="input-group">
+              <div  id="search-autocomplete" class="searchInput form-outline ">
+                <input type="search" class="form-control  text-gold " />
+                <label id="search-label" class="form-label text-gold search-label"
+                  for="search-form">Search</label>
+                  
+              <button id="search-button" type="button" class="btn btn-gold shadow-0">
+                <i class="fas fa-search"></i>
+              </button>
+              <div class="resultBox">
+          
+              </div>
+            </div>
+           
+          </div>
+           Right elements 
+        </div> -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+         
+          <!-- Collapsible wrapper -->
+          <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                  data-mdb-toggle="dropdown" aria-expanded="false">
+                  Categories
+                </a>
+                <!-- Dropdown menu -->
+                <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item bg-black text-white" href="#">Action</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item bg-black text-white" href="#">RPG</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
+                  </li>
+                </ul>
+              </li>
+    
+              <li class="nav-item">
+                <a class="nav-link text-white" href="home">Discover</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="all-products">Browse</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Menu name</a>
+              </li>
+            </ul>
+            <!-- Left links -->
+          </div>
+        </div>
+        <!-- Container wrapper -->
+      </nav>
     <!-- <div class="page-offset"></div> -->
 
     <div class="container">
@@ -128,15 +137,15 @@
             <div class="col-lg-7 col-md-7 col-sm-12 p-3">
                 <img class="img-fluid rounded-5" src="images/hellblade.jpg">
                 <p class="pt-3">${game.description}.</p>
-                <!-- <p class="pt-3"><c:out value="${game.discount}"/></p> -->
+                <!-- <p class="pt-3"><c:out value="${game.genres}"/></p> -->
                 <div class="row pt-1">
                     <div class="col-6 border-start border-1 border-gold">
                         <p class="m-0 mb-1">Genres</p>
-                        <p class="m-0" style="font-size:small">
-                            <c:forEach items="${game.genres}" var="genr">
-                                ${genr.genre},
-                            </c:forEach>
-                        </p>
+                            <p class="m-0" style="font-size:small">
+                                <c:forEach items="${game.genres}" var="genr">
+                                    ${genr.genre}, 
+                                </c:forEach>
+                            </p>
                     </div>
                     <div class="col-6 border-start border-1 border-gold">
                         <p class="m-0 mb-1">Features</p>
@@ -158,7 +167,12 @@
                     </div>
                 </div>
                 <c:choose>
-                    <c:when test="${not empty game.discount}">
+                    <c:when test="${game.discount.getType().getDiscount()==100}">
+                        <div class="">
+                            <h5 class="text-white mx-3">Free Game</h5>
+                        </div>
+                    </c:when>
+                    <c:when test="${not empty game.getDiscount()}">
                         <div class="row mt-2">
                             <div class="col-2">
                                 <h6><span
@@ -174,6 +188,8 @@
                             </div>
                         </div>
                     </c:when>
+                    
+                    
                     <c:otherwise>
                         <div class="col-2">
                             <h5 class="text-white mx-3">&dollar;${game.price}</h5>
@@ -406,7 +422,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
-    <script type="text/javascript" src="js/header.js"></script>
 </body>
 
 </html>

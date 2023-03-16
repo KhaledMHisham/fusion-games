@@ -1,5 +1,6 @@
 package gov.iti.fusion.models;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Set;
 import java.util.UUID;
@@ -17,7 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="games")
-public class Game {
+public class Game implements Serializable{
     @Id
     @UuidGenerator(style = Style.TIME)
     private String id;

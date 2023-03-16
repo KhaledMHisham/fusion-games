@@ -53,76 +53,85 @@
               <!-- Center elements -->
 
               <!-- Right elements -->
-              <div class="col-lg-5 col-md-12 col-12">
-                <div class="input-group">
-                  <div class="form-outline ">
-                    <input type="search" id="search-input" class="form-control text-gold " />
-                    <label id="search-label" class="form-label text-gold bg-main search-label"
-                      for="search-form">Search</label>
-                  </div>
-                  <button id="search-button" type="button" class="btn btn-gold shadow-0">
-                    <i class="fas fa-search"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- Right elements -->
-            </div>
+              
+          
           </div>
         </div>
         <!-- Jumbotron -->
 
         <!-- Navbar -->
-        <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top p-2">
-          <!-- Container wrapper -->
-          <div class="container justify-content-center justify-content-md-between">
-            <!-- Toggle button -->
-            <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-              data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <i class="fas fa-bars"></i>
-            </button>
-      
-            <!-- Collapsible wrapper -->
-            <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-              <!-- Left links -->
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                    data-mdb-toggle="dropdown" aria-expanded="false">
-                    Categories
-                  </a>
-                  <!-- Dropdown menu -->
-                  <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                    </li>
-                  </ul>
-                </li>
-      
-                <li class="nav-item">
-                  <a class="nav-link text-white" href="home">Discover</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="all-products">Browse</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Menu name</a>
-                </li>
-              </ul>
-              <!-- Left links -->
-            </div>
-          </div>
-          <!-- Container wrapper -->
-        </nav>
+       
        
         <!-- Navbar -->
       </header>
+      <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top mb-3 p-2">
+        <!-- Container wrapper -->
+        <div class="container justify-content-center justify-content-md-between">
+          <div class="col-lg-5">
+            <div class="input-group">
+              <div  id="search-autocomplete" class="searchInput form-outline ">
+                <input type="search" class="form-control  text-gold " />
+                <label id="search-label" class="form-label text-gold search-label"
+                  for="search-form">Search</label>
+                  
+              
+              <div class="resultBox">
+          
+              </div>
+            </div>
+            <button id="search-button" type="button" class="btn btn-gold shadow-0">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+          <!-- Right elements -->
+        </div>    
+        <div>       
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+          </button>
+         
+          <!-- Collapsible wrapper -->
+         
+        </div> 
+        <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <!-- Dropdown menu -->
+              <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">Action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">RPG</a>
+                </li>
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
+                </li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link text-white" href="home">Discover</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="all-products">Browse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu name</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        </div>
+        <!-- Container wrapper -->
+      </nav>
       <!-- <div class="page-offset"></div> -->
       <!--  intro  -->
 
@@ -173,55 +182,7 @@
             </div>
           </div>
         </c:forEach>
-          <!-- <div class="carousel-item">
-            <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/8-col/img%283%29.jpg"
-              class="d-block w-100" alt="Camera" />
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)"></div>
-            <div class="carousel-caption d-none d-md-block mb-5">
-              <h1 class="mb-4">
-                <strong>Learn Bootstrap 5 with MDB</strong>
-              </h1>
-
-              <p>
-                <strong>Best & free guide of responsive web design</strong>
-              </p>
-
-              <p class="mb-4 d-none d-md-block">
-                <strong>The most comprehensive tutorial for the Bootstrap 5. Loved by over 3 000 000 users. Video and
-                  written versions
-                  available. Create your own, stunning website.</strong>
-              </p>
-
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
-                class="btn btn-outline-white btn-lg">Start free tutorial
-                <i class="fas fa-graduation-cap ms-2"></i>
-              </a>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="images/12.webp" class="d-block w-100" alt="Exotic Fruits" />
-            <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)"></div>
-            <div class="carousel-caption d-none d-md-block mb-5">
-              <h1 class="mb-4">
-                <strong>Learn Bootstrap 5 with MDB</strong>
-              </h1>
-
-              <p>
-                <strong>Best & free guide of responsive web design</strong>
-              </p>
-
-              <p class="mb-4 d-none d-md-block">
-                <strong>The most comprehensive tutorial for the Bootstrap 5. Loved by over 3 000 000 users. Video and
-                  written versions
-                  available. Create your own, stunning website.</strong>
-              </p>
-
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
-                class="btn btn-outline-white btn-lg">Start free tutorial
-                <i class="fas fa-graduation-cap ms-2"></i>
-              </a>
-            </div>
-          </div> -->
+        
         </div>
         <button class="carousel-control-prev" type="button" data-mdb-target="#carouselExampleCaptions"
           data-mdb-slide="prev">
@@ -259,6 +220,7 @@
 
           <span style="width: 0px; "></span>
 
+          
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
               <c:forEach items="${newReleases}" var="game">
@@ -275,24 +237,73 @@
                   </div>
                 </div>
               </c:forEach>
-
-
             </div>
           </section>
         </div>
       </div>
 
 
-      <!-- carousel -->
+      <div class="container my-5">
 
-      <!-- Products -->
-
-      <!-- to ten games -->
+        <div class="d-flex flex-row justify-content-between align-items-center mb-3">
+          <h3 class="text-gold ">BestSellers</h3>
+          <c:if test="${fn:length(gamesOnSale) > 3}" >
+          <div class="row arrows-BestSellerList">
+            <div class="arrow mx-2 arrow-left-BestSellerList">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="arrow arrow-right-BestSellerList">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+          </div>
+        </c:if>
+        </div>
+        <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy-BestSellerList " style="position: relative;">
+          <c:forEach items="${allGames}" var="game">
+            <div class="m-2 col-lg-3 col-md-6 col-sm-6">
+            <div class="card my-2 shadow-0 bg-black border">
+              <a href="product?name=${game.name}" class="">
+                <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
+                <div class="card-body p-0 pt-2">
+                  <p class="text-gold mx-3 mb-2"> BASE GAME</p>
+                  <h5 class="card-title text-white mx-3">${game.name}</h5>
+                  <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
+                    <c:choose>
+                      <c:when test="${game.discount.getType().getDiscount()==100}">
+                        <h5 class="text-white mx-3">Free Game</h5>
+  
+                      </c:when>
+                      <c:when test="${not empty game.getDiscount()}">
+                    <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
+                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
+                    <p class="text-white mx-3"> &dollar;${game.price - (game.price *
+                      game.discount.getType().getDiscount()/100)} </p>
+                    </c:when>
+                   
+                    <c:otherwise>
+                      <h4 class="text-white mx-3">&dollar;${game.price}</h4>
+                    </c:otherwise>
+                    </c:choose>
+                    
+                  </div>
+                </div>
+              </a>
+              <div class="card-footer px-2">
+                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
+                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
+              </div>
+            </div>
+          </div>
+        </c:forEach>
+        </div>
+      </div>
+      </div>
 
       <section>
         <div class="container my-5">
           <header class="mb-4">
-            <h3 class="text-gold">What We Have</h3>
+            <h3 class="text-gold">On Store</h3>
           </header>
           <div class="row">
             <c:forEach items="${weHave}" var="game">
@@ -304,10 +315,7 @@
                       <p class="text-gold mx-3 mb-2">Base Game</p>
                       <h5 class="card-title text-white mx-3">${game.name}</h5>
                       <div class="d-flex justify-content-end align-items-start h-100 m-2">
-                        <!-- <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6> -->
-                        <h5 class=" text-gold mx-3">&dollar;${game.price}</h5>
-                        <!-- <p class="text-white mx-3"> &dollar;${game.price - (game.price *
-                          game.discount.getType().getDiscount()/100)} </p> -->
+                        <h5 class=" text-gold mx-3">&dollar;${game.price}</h5>                        
                       </div>
                     </div>
                   </a>
@@ -333,47 +341,17 @@
           <div class="row position-relative gy-4">
             <c:forEach items="${freeGames}" var="game">
             <div class="col-lg-6">
-              <a href="product-details.html">
-                <div class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
-                <div class="position-absolute banner-desc m-4" style="max-width: 60%;">
+              <a href="product?name=${game.name}">
+                <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
+                <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
                   <h3 class="text-white">100% off</h3>
-                  <h5>${game.name}</h5>  
+                  <h5 class="text-white">${game.name}</h5>  
                   <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
                   <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
                   </div>
               </a>
             </div>
           </c:forEach>
-              <!-- <div class="row mb-3 mb-sm-4 g-3 g-sm-4">
-                <div class="col-6 d-flex">
-                  <div class="card w-100 bg-primary" style="min-height: 200px;">
-                    <div class="card-body">
-                      <h5 class="text-white">Gaming toolset</h5>
-                      <p class="text-white-50">Technology for cyber sport</p>
-                      <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 d-flex">
-                  <div class="card w-100 bg-primary" style="min-height: 200px;">
-                    <div class="card-body">
-                      <h5 class="text-white">Quality sound</h5>
-                      <p class="text-white-50">All you need for music</p>
-                      <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             row.// 
-
-              <div class="card bg-success" style="min-height: 200px;">
-                <div class="card-body">
-                  <h5 class="text-white">Buy 2 items, With special gift</h5>
-                  <p class="text-white-50" style="max-width: 400px;">Buy one, get one free marketing strategy helps your
-                    business improves the brand by sharing the profits</p>
-                  <a class="btn btn-outline-light btn-sm" href="#">Learn more</a>
-                </div>
-              </div> -->
             </div>
             <!-- col.// -->
           </div>
@@ -426,55 +404,6 @@
         </div>
       </div>
       </div>
-
-      <!-- Recently viewed -->
-      <section class="mt-5 mb-4">
-        <div class="container text-dark">
-          <header class="">
-            <h3 class=" section-title text-gold">Most Purchased</h3>
-          </header>
-          <div class="row gy-3">
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-            <!-- col.// -->
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-            <!-- col.// -->
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-            <!-- col.// -->
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-            <!-- col.// -->
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-            <!-- col.// -->
-            <div class="col-lg-2 col-md-4 col-4">
-              <a href="#" class="img-wrap">
-                <img class="img-thumbnail" src="images/hellblade.jpg" width="200" height="200">
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Recently viewed -->
-
-      <section>
         <div class="container">
           <div class="px-4 pt-3 border">
             <div class="row pt-1">
@@ -525,7 +454,7 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> -->
     </main>
 
       <!-- Footer -->
@@ -675,6 +604,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/home-page.js"></script>
       <script type="text/javascript" src="js/header.js"></script>
+
     </body>
 
     </html>

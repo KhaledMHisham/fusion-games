@@ -33,7 +33,7 @@ body {
 }
 
 .search-label {
-    background-color: rgb(53, 52, 52);
+    /* background-color: rgb(0, 0, 0); */
     z-index: 1;
     padding: 0 5px;
     transform: translateY(10%);
@@ -52,7 +52,9 @@ body {
 .form-notch .form-notch-trailing {
     border-color: #f5b80f !important;
 }
-
+.form-outline{
+    width: auto !important;
+}
 .form-outline .form-control:focus~.form-notch .form-notch-leading {
     border-color: #f5b80f !important;
     box-shadow: none;
@@ -137,11 +139,11 @@ body {
 }
 
 .arrow-left {
-    margin-right: 10px;
+    margin-right: 5px;
 }
 
 .arrow-right {
-    margin-left: 10px;
+    margin-left: 2px;
 }
 
 .text-cart {
@@ -160,7 +162,7 @@ body {
     background-position: center;
     width: 100%;
     background-repeat: no-repeat;
-    top: 50%;
+    /* top: 50%; */
     -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(128, 128, 128, 0.5) 50%, transparent 100%);
     mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(128, 128, 128, 1) 50%, transparent 100%);
     background-image: url(../images/12.webp);
@@ -175,22 +177,3 @@ body {
 
 
 
-/* .header-top {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-  
-  .header-scroll {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
-  }
-  
-  .navbar {
-    transition: background-color 0.5s ease;
-  } */
