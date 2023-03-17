@@ -31,8 +31,8 @@ public class OrderService {
         OrderedGame orderedGame = new OrderedGame(game, order);
         orderedGameRepository.save(orderedGame);
     }
-    public void addGamesToOrder(Game game, Collection<Order> orders){
-        for(Order order : orders){
+    public void addGamesToOrder(Order order, Collection<Game> games){
+        for(Game game : games){
             addGameToOrder(order, game);
         }
     }
