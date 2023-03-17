@@ -199,11 +199,11 @@ public class HomeServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GameService gameService = new GameService(request);
         Gson gson = new Gson();
-           EntityManager entityManager = (EntityManager) request.getAttribute("EntityManager");
-            String jsonList = gson.toJson(gameService.findAllGames().stream().map((g->g.getName())).toList());
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(jsonList);
+        EntityManager entityManager = (EntityManager) request.getAttribute("EntityManager");
+        String jsonList = gson.toJson(gameService.findAllGames().stream().map((g->g.getName())).toList());
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.getWriter().write(jsonList);
           }
     }
 

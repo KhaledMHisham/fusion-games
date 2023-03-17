@@ -158,23 +158,26 @@ public class Game {
         this.pictureUrl = pictureUrl;
     }
 
-    public List<Game> getWishItems() {
-        return Collections.unmodifiableList(wishItems.stream().map(WishItem::getGame).toList());
+    public List<User> getWishingUsers() {
+        return Collections.unmodifiableList(wishItems.stream().map(WishItem::getUser).toList());
     }
     public List<Genre> getGenres() {
         return Collections.unmodifiableList(genres.stream().map(GameGenre::getGenre).toList());
     }
 
-    public List<Game> getOwners() {
-        return Collections.unmodifiableList(owners.stream().map(LibraryItem::getGame).toList());
+    public List<User> getOwners() {
+        return Collections.unmodifiableList(owners.stream().map(LibraryItem::getUser).toList());
     }
 
-    public List<Game> getCarts() {
-        return Collections.unmodifiableList(carts.stream().map(CartItem::getGame).toList());
+    public List<User> getUsersFromCarts() {
+        return Collections.unmodifiableList(carts.stream().map(CartItem::getUser).toList());
     }
 
     public List<Order> getOrders() {
         return Collections.unmodifiableList(orders.stream().map(OrderedGame::getOrder).toList());
+    }
+    public List<Platform> getPlatfomrs() {
+        return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
     }
 
     @Override
