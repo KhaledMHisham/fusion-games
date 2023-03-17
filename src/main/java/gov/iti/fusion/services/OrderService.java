@@ -27,13 +27,13 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public void addGameToOrder(Game game, Order order){
+    public void addGameToOrder( Order order,Game game){
         OrderedGame orderedGame = new OrderedGame(game, order);
         orderedGameRepository.save(orderedGame);
     }
     public void addGamesToOrder(Game game, Collection<Order> orders){
         for(Order order : orders){
-            addGameToOrder(game, order);
+            addGameToOrder(order, game);
         }
     }
 }
