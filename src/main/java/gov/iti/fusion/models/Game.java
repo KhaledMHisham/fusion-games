@@ -65,13 +65,13 @@ public class Game {
     @OneToMany(mappedBy = "game")
     private Set<PlatformGame> platforms;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "minimum_spec_id", nullable = false)
     private GameSpec minimumSpec;
 
-    @OneToOne
-    @JoinColumn(name = "maximum_spec_id", nullable = false)
-    private GameSpec maximumSpec;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "recommended_spec_id", nullable = false)
+    private GameSpec recommendedSpec;
 
     public Game() {}
 
@@ -198,6 +198,21 @@ public class Game {
     }
     public List<Platform> getPlatfomrs() {
         return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
+    }
+    public GameSpec getMinimumSpec() {
+        return minimumSpec;
+    }
+
+    public void setMinimumSpec(GameSpec minimumSpec) {
+        this.minimumSpec = minimumSpec;
+    }
+
+    public GameSpec getRecommendedSpec() {
+        return recommendedSpec;
+    }
+
+    public void setRecommendedSpec(GameSpec recommendedSpec) {
+        this.recommendedSpec = recommendedSpec;
     }
 
     @Override
