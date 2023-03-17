@@ -161,6 +161,9 @@ public class Game {
     public List<Game> getWishItems() {
         return Collections.unmodifiableList(wishItems.stream().map(WishItem::getGame).toList());
     }
+    public List<Genre> getGenres() {
+        return Collections.unmodifiableList(genres.stream().map(GameGenre::getGenre).toList());
+    }
 
     public List<Game> getOwners() {
         return Collections.unmodifiableList(owners.stream().map(LibraryItem::getGame).toList());

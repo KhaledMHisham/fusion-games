@@ -144,7 +144,7 @@
                     <div class="col-6 border-start border-1 border-gold">
                         <p class="m-0 mb-1">Genres</p>
                             <p class="m-0" style="font-size:small">
-                                <c:forEach items="${game.genres}" var="genr">
+                                <c:forEach items="${game.getGenres()}" var="genr">
                                     ${genr.genre}, 
                                 </c:forEach>
                             </p>
