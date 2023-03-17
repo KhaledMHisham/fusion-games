@@ -1,19 +1,18 @@
 package gov.iti.fusion.models;
 
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+import java.util.stream.Collectors;
 
-import org.hibernate.annotations.Type;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
@@ -41,6 +40,9 @@ public class User {
     private String password;
 
     @Column(nullable = false)
+    private String country;
+
+    @Column(nullable = false)
     private String salt;
 
     @Column(name = "phonenumber", unique = true, nullable = false)
@@ -53,60 +55,26 @@ public class User {
     private String gender;
 
     @Column(nullable = false)
-    private Boolean role;
+    private Boolean isAdmin;
 
-    @OneToMany(cascade = CascadeType.PERSIST)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "orderingUser")
     private Set<Order> orders;
-    
-    // @ManyToMany(cascade = CascadeType.PERSIST)
-    @ManyToMany
-    @JoinTable(name = "library",
-                joinColumns = @JoinColumn( name = "user_id"),
-                inverseJoinColumns = @JoinColumn( name = "game_id"))
-    private Set<Game> library;
-    
-    // @ManyToMany(cascade = CascadeType.PERSIST)
-    @ManyToMany
-    @JoinTable(name = "wish_list",
-                joinColumns = @JoinColumn( name = "user_id"),
-                inverseJoinColumns = @JoinColumn( name = "game_id"))
-    private Set<Game> wishes;
 
-    // @ManyToMany(cascade = CascadeType.PERSIST)
-    @ManyToMany
-    @JoinTable(name = "cart_item",
-                joinColumns = @JoinColumn( name = "user_id"),
-                inverseJoinColumns = @JoinColumn( name = "game_id"))
-    private Set<Game> cart;
+    @OneToMany(mappedBy = "user")
+    private Set<LibraryItem> library;
+
+    @OneToMany(mappedBy = "user")
+    private Set<WishItem> wishItems;
+
+    @OneToMany(mappedBy = "user")
+    private Set<CartItem> cartItems;
 
     
     public User() {}
     
 
-    public User(String id, String username, String firstName, String lastName, String email, String password,
-            String salt, String phoneNumber, LocalDate birthDate, String gender, Boolean role, Set<Order> orders,
-            Set<Game> library, Set<Game> wishes, Set<Game> cart) {
-        this.id = id;
-        this.username = username;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-        this.password = password;
-        this.salt = salt;
-        this.phoneNumber = phoneNumber;
-        this.birthDate = birthDate;
-        this.gender = gender;
-        this.role = role;
-        this.orders = orders;
-        this.library = library;
-        this.wishes = wishes;
-        this.cart = cart;
-    }
-
-
     public User(String username, String firstName, String lastName, String email, String password, String salt, String phoneNumber,
-            LocalDate birthDate, String gender, Boolean role) {
+            LocalDate birthDate, String gender,String country, Boolean isAdmin) {
         this.username = username;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -116,7 +84,8 @@ public class User {
         this.phoneNumber = phoneNumber;
         this.birthDate = birthDate;
         this.gender = gender;
-        this.role = role;
+        this.country = country;
+        this.isAdmin = isAdmin;
     }
 
     public String getId() {
@@ -145,6 +114,14 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
     }
 
     public void setLastName(String lastName) {
@@ -191,39 +168,13 @@ public class User {
         this.gender = gender;
     }
 
-    public Boolean getRole() {
-        return role;
+    public Boolean isAdmin() {
+        return isAdmin;
     }
 
-    public void setRole(Boolean role) {
-        this.role = role;
+    public void setAdmin(Boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
-
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
-    }
-
-    public Set<Game> getLibrary() {
-        return library;
-    }
-
-    public void setLibrary(Set<Game> library) {
-        this.library = library;
-    }
-
-    public Set<Game> getCart() {
-        return cart;
-    }
-
-    public void setCart(Set<Game> cart) {
-        this.cart = cart;
-    }
-
-    
     public String getSalt() {
         return salt;
     }
@@ -232,13 +183,22 @@ public class User {
         this.salt = salt;
     }
 
-    public Set<Game> getWishes() {
-        return wishes;
+    public List<Order> getOrders() {
+        return Collections.unmodifiableList(orders.stream().toList());
     }
 
-    public void setWishes(Set<Game> wishes) {
-        this.wishes = wishes;
+    public List<Game> getWishList() {
+        return Collections.unmodifiableList(wishItems.stream().map(WishItem::getGame).toList());
     }
+
+    public List<Game> getCartItems(){
+        return Collections.unmodifiableList(cartItems.stream().map(CartItem::getGame).toList());
+    }
+
+    public List<Game> getOwnedGames(){
+            return Collections.unmodifiableList(library.stream().map(LibraryItem::getGame).toList());
+    }
+
 
     @Override
     public boolean equals(Object o) {
@@ -266,13 +226,10 @@ public class User {
         return result;
     }
 
-    // @Override
-    // public String toString() {
-    //     return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
-    //             + ", email=" + email + ", password=" + password + ", salt=" + salt + ", phoneNumber=" + phoneNumber
-    //             + ", birthDate=" + birthDate + ", gender=" + gender + ", role=" + role + "]";
-    // }
-
-    
-
+    @Override
+    public String toString() {
+        return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
+                + ", email=" + email + ", password=" + password + ", salt=" + salt + ", phoneNumber=" + phoneNumber
+                + ", birthDate=" + birthDate + ", gender=" + gender + ", isAdmin=" + isAdmin + "]";
+    }
 }

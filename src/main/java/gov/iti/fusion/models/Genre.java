@@ -1,21 +1,16 @@
 package gov.iti.fusion.models;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.GenreType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name="genres")
-public class Genre {
+public class Genre{
     @Id
     @UuidGenerator(style = Style.TIME)
     private String id;
@@ -25,15 +20,15 @@ public class Genre {
     @Column(unique = true, nullable = false)
     private GenreType genre;
 
-    @ManyToMany(mappedBy = "genres")
-    private Set<Game> games;
+    @OneToMany(mappedBy = "genre")
+    private Set<GameGenre> gameGenres;
 
-    public Genre() {
-    }
-    public Genre(GenreType genre, Set<Game> games) {
+    public Genre() {}
+
+    public Genre(GenreType genre, Set<GameGenre> gameGenres) {
         this.genre = genre;
-        this.games = games;
-    }   
+        this.gameGenres = gameGenres;
+    }
     public Genre(GenreType genre) {
         this.genre = genre;
     }    
@@ -50,11 +45,8 @@ public class Genre {
     public void setGenre(GenreType genre) {
         this.genre = genre;
     }
-    public Set<Game> getGames() {
-        return games;
-    }
-    public void setGames(Set<Game> games) {
-        this.games = games;
+    public List<Game> getGames() {
+        return Collections.unmodifiableList(gameGenres.stream().map(GameGenre::getGame).toList());
     }
     @Override
     public String toString() {

@@ -1,17 +1,12 @@
 package gov.iti.fusion.models;
 
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.PlatformType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name="platforms")
@@ -24,12 +19,12 @@ public class Platform {
     @Column(unique = true, nullable = false)
     private PlatformType type;
 
-    @ManyToMany(mappedBy = "platforms")
-    private Set<Game> games;
+    @OneToMany(mappedBy = "platform")
+    private Set<PlatformGame> platformGames;
 
-    public Platform(PlatformType type, Set<Game> games) {
+    public Platform(PlatformType type, Set<PlatformGame> platformGames) {
         this.type = type;
-        this.games = games;
+        this.platformGames = platformGames;
     }
 
     public Platform(PlatformType type) {
@@ -55,17 +50,9 @@ public class Platform {
         this.type = type;
     }
 
+    public Platform() {}
 
-    public Set<Game> getGames() {
-        return games;
+    public List<Game> getPlatformGames(){
+        return Collections.unmodifiableList( platformGames.stream().map(PlatformGame::getGame).toList());
     }
-
-
-    public void setGames(Set<Game> games) {
-        this.games = games;
-    }
-
-    public Platform() {
-    }
-
 }

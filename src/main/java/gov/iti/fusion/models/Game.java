@@ -2,19 +2,14 @@ package gov.iti.fusion.models;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+
+import jakarta.persistence.*;
 import org.hibernate.annotations.Check;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
 
 @Entity
 @Table(name="games")
@@ -41,17 +36,17 @@ public class Game {
     @Column(nullable = false)
     private String description;
 
-    @ManyToMany(mappedBy = "library")
-    private Set<User> owners;
+    @OneToMany(mappedBy = "game")
+    private Set<LibraryItem> owners;
 
-    @ManyToMany(mappedBy = "wishes")
-    private Set<User> wishes;
+    @OneToMany(mappedBy = "game")
+    private Set<WishItem> wishItems;
 
-    @ManyToMany(mappedBy = "cart")
-    private Set<User> carts;
+    @OneToMany(mappedBy = "game")
+    private Set<CartItem> carts;
 
-    @ManyToMany(mappedBy = "games")
-    private Set<Order> orders;
+    @OneToMany(mappedBy = "game")
+    private Set<OrderedGame> orders;
 
     @Column( name = "release_date", nullable = false)
     @Check(constraints = "release_date <= CURRENT_DATE")
@@ -61,65 +56,23 @@ public class Game {
     @JoinColumn(name = "discount_id")
     private Discount discount;
 
-    @ManyToMany
-    private Set<Genre> genres;
+    @OneToMany(mappedBy = "game")
+    private Set<GameGenre> genres;
 
-    @ManyToMany
-    @JoinTable(name = "platforms_games",
-                joinColumns = @JoinColumn(name = "game_id"),
-                inverseJoinColumns = @JoinColumn(name = "platform_id"))
-    private Set<Platform> platforms;
+    @OneToMany(mappedBy = "game")
+    private Set<PlatformGame> platforms;
     
     public Game() {}
 
-    
-    public Game(String id, String name, Double price, String developer, String publisher, String pictureUrl,
-            String description, Set<User> owners, Set<User> wishes, Set<User> carts, Set<Order> orders,
-            LocalDate releaseDate, Discount discount, Set<Genre> genres, Set<Platform> platforms) {
-        this.id = id;
+    public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
         this.name = name;
         this.price = price;
         this.developer = developer;
         this.publisher = publisher;
         this.pictureUrl = pictureUrl;
         this.description = description;
-        this.owners = owners;
-        this.wishes = wishes;
-        this.carts = carts;
-        this.orders = orders;
         this.releaseDate = releaseDate;
-        this.discount = discount;
-        this.genres = genres;
-        this.platforms = platforms;
     }
-
-
-    public Game(String name, Double price, LocalDate releaseDate, String pictureUrl, String description, String developer, String publisher,
-        Discount discount) {
-        this.name = name;
-        this.price = price;
-        this.releaseDate = releaseDate;
-        this.pictureUrl = pictureUrl;
-        this.description = description;
-        this.developer = developer;
-        this.publisher = publisher;
-        this.discount = discount;
-    }
-
-    public Game(String name, Double price, String description, Discount discount, Set<Genre> genres, LocalDate releaseDate,
-            String developer, String publisher, String pictureUrl, Set<Platform> platforms) {
-        this.name = name;
-        this.price = price;
-        this.description = description;
-        this.discount = discount;
-        this.genres= genres;
-        this.releaseDate = releaseDate;
-        this.developer = developer;
-        this.publisher = publisher;
-        this.pictureUrl = pictureUrl;
-        this.platforms = platforms;
-    }
-
 
     public String getId() {
         return id;
@@ -169,27 +122,13 @@ public class Game {
     public void setDiscount(Discount discount) {
         this.discount = discount;
     }
-
-
-    public Set<Genre> getGenre() {
-        return genres;
-    }
-
-
-    public void setGenre(Set<Genre> genres) {
-        this.genres = genres;
-    }
-
-
     public LocalDate getReleaseDate() {
         return releaseDate;
     }
 
-
     public void setReleaseDate(LocalDate releaseDate) {
         this.releaseDate = releaseDate;
     }
-
 
     public String getDeveloper() {
         return developer;
@@ -215,60 +154,24 @@ public class Game {
         return pictureUrl;
     }
 
-
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
     }
 
-
-    public Set<Platform> getPlatforms() {
-        return platforms;
+    public List<Game> getWishItems() {
+        return Collections.unmodifiableList(wishItems.stream().map(WishItem::getGame).toList());
     }
 
-
-    public void setPlatforms(Set<Platform> platforms) {
-        this.platforms = platforms;
+    public List<Game> getOwners() {
+        return Collections.unmodifiableList(owners.stream().map(LibraryItem::getGame).toList());
     }
 
-    
-    public Set<User> getOwners() {
-        return owners;
+    public List<Game> getCarts() {
+        return Collections.unmodifiableList(carts.stream().map(CartItem::getGame).toList());
     }
 
-    public void setOwners(Set<User> owners) {
-        this.owners = owners;
-    }
-
-    public Set<User> getWishes() {
-        return wishes;
-    }
-
-    public void setWishes(Set<User> wishes) {
-        this.wishes = wishes;
-    }
-
-    public Set<User> getCarts() {
-        return carts;
-    }
-
-    public void setCarts(Set<User> carts) {
-        this.carts = carts;
-    }
-
-    public Set<Order> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(Set<Order> orders) {
-        this.orders = orders;
-    }
-
-    public Set<Genre> getGenres() {
-        return genres;
-    }
-
-    public void setGenres(Set<Genre> genres) {
-        this.genres = genres;
+    public List<Order> getOrders() {
+        return Collections.unmodifiableList(orders.stream().map(OrderedGame::getOrder).toList());
     }
 
     @Override
