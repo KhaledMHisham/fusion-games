@@ -24,6 +24,10 @@ public class Game {
     @Column(nullable = false)
     private Double price; 
 
+    @ManyToOne
+    @JoinColumn(name = "discount_id")
+    private Discount discount;
+
     @Column(nullable = false)
     private String developer;
     
@@ -35,6 +39,9 @@ public class Game {
 
     @Column(nullable = false)
     private String description;
+
+    @Column(name = "name_price",nullable = false)
+    private Double netPrice;
 
     @OneToMany(mappedBy = "game")
     private Set<LibraryItem> owners;
@@ -52,16 +59,14 @@ public class Game {
     @Check(constraints = "release_date <= CURRENT_DATE")
     private LocalDate releaseDate;
 
-    @ManyToOne
-    @JoinColumn(name = "discount_id")
-    private Discount discount;
-
     @OneToMany(mappedBy = "game")
     private Set<GameGenre> genres;
 
     @OneToMany(mappedBy = "game")
     private Set<PlatformGame> platforms;
     
+    
+
     public Game() {}
 
     public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
@@ -72,6 +77,7 @@ public class Game {
         this.pictureUrl = pictureUrl;
         this.description = description;
         this.releaseDate = releaseDate;
+        netPrice = price;
     }
 
     public String getId() {
@@ -101,6 +107,10 @@ public class Game {
 
     public void setPrice(Double price) {
         this.price = price;
+        if(discount!=null)
+            netPrice = price - (price * discount.getType().getDiscount()/100);
+        else
+            netPrice = price;
     }
 
 
@@ -121,6 +131,7 @@ public class Game {
 
     public void setDiscount(Discount discount) {
         this.discount = discount;
+        netPrice = price - (price * discount.getType().getDiscount()/100);
     }
     public LocalDate getReleaseDate() {
         return releaseDate;
@@ -156,6 +167,9 @@ public class Game {
 
     public void setPictureUrl(String pictureUrl) {
         this.pictureUrl = pictureUrl;
+    }
+    public Double getNetPrice() {
+        return netPrice;
     }
 
     public List<User> getWishingUsers() {

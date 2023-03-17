@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
     <link href="css/home-page.css" rel="stylesheet" />
+    <link href="css/header.css" rel="stylesheet" />
 
 </head>
 
@@ -185,8 +186,7 @@
                                 <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
                             </div>
                             <div class="col-2">
-                                <p class="text-white mx-3"> &dollar;${game.price -
-                                    (game.price*game.discount.getType().getDiscount()/100)} </p>
+                                <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
                             </div>
                         </div>
                     </c:when>

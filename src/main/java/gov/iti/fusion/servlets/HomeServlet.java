@@ -15,7 +15,9 @@ import com.google.gson.Gson;
 import gov.iti.fusion.models.Discount;
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Genre;
+import gov.iti.fusion.models.Order;
 import gov.iti.fusion.models.Platform;
+import gov.iti.fusion.models.User;
 import gov.iti.fusion.models.enums.DiscountType;
 import gov.iti.fusion.models.enums.GenreType;
 import gov.iti.fusion.models.enums.PlatformType;
@@ -23,7 +25,9 @@ import gov.iti.fusion.persistence.repositories.GameRepository;
 import gov.iti.fusion.services.DiscountService;
 import gov.iti.fusion.services.GameService;
 import gov.iti.fusion.services.GenreService;
+import gov.iti.fusion.services.OrderService;
 import gov.iti.fusion.services.PlatformService;
+import gov.iti.fusion.services.UserService;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityManager;
 import jakarta.servlet.ServletConfig;
@@ -62,10 +66,12 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GameService gameService = new GameService(request);
 
-        
+        // UserService userService = new UserService(request);
         // DiscountService discountService = new DiscountService(request);
         // PlatformService platformService = new PlatformService(request);
         // GenreService genreService = new GenreService(request);
+        // OrderService orderService = new OrderService(request);
+
 
         // Set<Game> mainGames =  new HashSet<>();
         // Set<Platform> platforms =  new HashSet<>();
@@ -89,32 +95,60 @@ public class HomeServlet extends HttpServlet {
         // Genre mmo = new Genre(GenreType.MMO);
         // Genre puzzle = new Genre(GenreType.PUZZLE);
 
+        // discountService.save(classic);
+        // discountService.save(free);
+        // discountService.save(premium);
+      
+        
 
         // genres.add(action);
-        // Game game1 = new Game("Assassin'ss Creed Valhalla Standard Edition",10.0,"war game using wolfs",classic
-        // ,genres,LocalDate.now(),"rahma","rahma","images/hellblade.jpg",platforms);
-        // genres.add(fighting);
-        // Game game2 = new Game("Assassin'sss Creed Valhalla Standard Edition",10.0,"war game using wolfs",free
-        // ,genres,LocalDate.now(),"rahma","rahma","images/12.webp",platforms);
+        // Game game1 = new Game("Assassinss Creed Valhalla Standard Edition",10.0,"rahma"
+        // ,"rahma","images/hellblade.jpg","war game using wolfs",LocalDate.now());
+        // gameService.addGenresToGame(game1,genres);
+        // gameService.addPlatformsToGame(game1, platforms);
+        // game1.setDiscount(premium);
+        // Game game2 = new Game("Assassinsss Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.now());
         // genres.add(adventure);
-        // Game game3 = new Game("Assassin'ssss Creed Valhallrea Standard Edition",10.0,"war game using wolfs",classic
-        // ,genres,LocalDate.now(),"rahma","rahma","images/1.webp",platforms);
+        // gameService.addGenresToGame(game2,genres);
+        // gameService.addPlatformsToGame(game2, platforms);
+        // game2.setDiscount(classic);
+        // Game game3 = new Game("Assassinssss Creed Valhallrea Standard Edition",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.now());
         // genres.add(horror);
-        // genres.remove(fighting);
-        // genres.remove(adventure);
-        // Game game4 = new Game("Assassinn's Creed Valhalla Standard Edition",10.0,"war game using wolfs",premium
-        // ,genres,LocalDate.now(),"rahma","rahma","images/1.jpg",platforms);
+        // gameService.addGenresToGame(game3,genres);
+        // gameService.addPlatformsToGame(game3, platforms);
+        // game3.setDiscount(premium);
+        // Game game4 = new Game("Assassinns Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.now());
         // genres.add(puzzle);
-        // Game game5 = new Game("Assasswin'ss Creed Valhalla Standard Edition",10.0,"war game using wolfs",premium
-        // ,genres,LocalDate.now(),"rahma","rahma","images/heldlblade.jpg",platforms);
-        // Game game6 = new Game("Assassin'sss Creedd Valhalla Standard Edition",10.0,"war game using wolfs",free
-        // ,genres,LocalDate.now(),"rahma","rahma","images/1232.webp",platforms);
-        // Game game7 = new Game("Assassin'ssss Creed Valhalla Standard Edition",10.0,"war game using wolfs",free
-        // ,genres,LocalDate.now(),"rahma","rahma","images/1.fwebp",platforms);
+        // gameService.addGenresToGame(game4,genres);
+        // gameService.addPlatformsToGame(game4, platforms);
+        // Game game5 = new Game("Assasswin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/heldlblade.jpg","war game using wolfs",LocalDate.now());
+        // gameService.addGenresToGame(game5,genres);
+        // gameService.addPlatformsToGame(game5, platforms);
+        // Game game6 = new Game("Assassin sss Creedd Valhalla Standard Edition",10.0,"rahma","rahma","images/1232.webp","war game using wolfs",LocalDate.now());
+        // gameService.addGenresToGame(game6,genres);
+        // gameService.addPlatformsToGame(game6, platforms);
+        // game6.setDiscount(free);
+        // Game game7 = new Game("Assassin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.fwebp","war game using wolfs",LocalDate.now());
         // genres.remove(puzzle);
         // genres.add(mmo);
-        // Game game8= new Game("Assassinn's Creed Vaalhalla Standard Edition",10.0,"war game using wolfs",free
-        // ,genres,LocalDate.now(),"rahma","rahma","images/1.jsepg",platforms);
+        // genres.add(fighting);
+        // gameService.addGenresToGame(game7,genres);
+        // gameService.addPlatformsToGame(game7, platforms);
+        // game7.setDiscount(free);
+        // Game game8= new Game("Assassinn Creed Vaalhalla Standard Ediition",10.0,"rahma","rahma","images/1.jsepg","war game using wolfs",LocalDate.now());
+        // gameService.addGenresToGame(game8,genres);
+        // gameService.addPlatformsToGame(game8, platforms);
+
+
+        // // platformService.save(linux);
+        // // platformService.save(windows);
+        // // platformService.save(xbox);
+        // // genreService.save(action);
+        // // genreService.save(puzzle);
+        // // genreService.save(mmo);
+        // // genreService.save(horror);
+        // // genreService.save(fighting);
+        // // genreService.save(adventure);
 
         // mainGames.add(game1);
         // mainGames.add(game2);
@@ -125,34 +159,46 @@ public class HomeServlet extends HttpServlet {
         // mainGames.add(game7);
         // mainGames.add(game8);
 
+         
+
+        // // gameService.save(game1);
+        // // gameService.save(game2);
+        // // gameService.save(game3);
+        // // gameService.save(game4);
+        // // gameService.save(game5);
+        // // gameService.save(game6);
+        // // gameService.save(game7);
+        // // gameService.save(game8);
+
+        // User user = new User();
+        // user.setUsername("khaledhisham");
+        // user.setFirstName("khaled");
+        // user.setLastName("hisham");
+        // user.setPassword("password");
+        // user.setCountry("Egypt");
+        // user.setSalt("SALT");
+        // user.setPassword("PASSWORD");
+        // user.setPhoneNumber("01278158298");
+        // user.setGender("Male");
+        // user.setEmail("Khaled@gmail.com");
+        // user.setAdmin(true);
+        // user.setBirthDate(LocalDate.now());
         
-
-        // discountService.save(classic);
-        // discountService.save(free);
-        // discountService.save(premium);
-        // platformService.save(linux);
-        // platformService.save(windows);
-        // platformService.save(xbox);
-        // genreService.save(action);
-        // genreService.save(puzzle);
-        // genreService.save(mmo);
-        // genreService.save(horror);
-        // genreService.save(fighting);
-        // genreService.save(adventure);
-
+        // userService.save(user);
         
-        // linux.setGames(mainGames);
-        // //discount1.setGames(mainGames);
-        // action.setGames(mainGames);
+        // Order order = new Order();
+        // order.setCreatedAt(LocalDate.now());
+        // order.setTotalPrice(20000.0);
+        // order.setOrderingUser(user);
 
-        // gameService.save(game1);
-        // gameService.save(game2);
-        // gameService.save(game3);
-        // gameService.save(game4);
-        // gameService.save(game5);
-        // gameService.save(game6);
-        // gameService.save(game7);
-        // gameService.save(game8);
+        // orderService.addGameToOrder(order, game1);
+        // orderService.addGameToOrder(order, game2);
+        // orderService.addGameToOrder(order, game3);
+
+        // userService.addGameToCart(user, game1);
+        // userService.addGameToCart(user, game2);
+        // userService.addGameToCart(user, game3);
+        
 
         List<Game> allGames = new ArrayList<>();
         List<Game> gamesWithoutDiscount = new ArrayList<>();
@@ -162,14 +208,14 @@ public class HomeServlet extends HttpServlet {
 
         allGames = gameService.findAllGames();
         gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
-        if(gamesWithoutDiscount.size()>12)
+        if(gamesWithoutDiscount.size()>15)
             gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
 
         new5Games = gameService.findTopNewer(4);
         free2Games = gameService.findFreeGames(2);
         gamesOnSale = gameService.findGamesOnSale();
 
-        if(gamesOnSale.size()>12)
+        if(gamesOnSale.size()>15)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);

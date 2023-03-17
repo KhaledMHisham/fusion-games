@@ -208,8 +208,7 @@
               <div class="d-flex justify-content-start align-items-start h-100 m-2">
                 <h6> starting at </h6>
                 <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price}</del></h5>
-                <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].price - (newReleases[0].price *
-                  newReleases[0].discount.getType().getDiscount()/100)} </h5>
+                <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice()}</h5>
               </div>     
               <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
               <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
@@ -246,7 +245,7 @@
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
           <h3 class="text-gold ">BestSellers</h3>
-          <c:if test="${fn:length(gamesOnSale) > 3}" >
+          <c:if test="${fn:length(allGames) > 3}" >
           <div class="row arrows-BestSellerList">
             <div class="arrow mx-2 arrow-left-BestSellerList">
               <i class="fas fa-chevron-left"></i>
@@ -274,8 +273,7 @@
                       <c:when test="${not empty game.getDiscount()}">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
                     <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                    <p class="text-white mx-3"> &dollar;${game.price - (game.price *
-                      game.discount.getType().getDiscount()/100)} </p>
+                    <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
                     </c:when>
                     <c:otherwise>
                       <h4 class="text-white mx-3">&dollar;${game.price}</h4>
@@ -385,8 +383,7 @@
                   <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
                     <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                    <p class="text-white mx-3"> &dollar;${game.price - (game.price *
-                      game.discount.getType().getDiscount()/100)} </p>
+                    <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
                   </div>
                 </div>
               </a>
