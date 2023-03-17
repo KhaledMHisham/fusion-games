@@ -10,6 +10,7 @@ import jakarta.servlet.ServletRequestListener;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import org.jose4j.jwt.JwtClaims;
+import org.jose4j.jwt.MalformedClaimException;
 import org.jose4j.jwt.consumer.InvalidJwtException;
 
 import java.net.UnknownHostException;
@@ -26,17 +27,15 @@ public class RequestListener implements ServletRequestListener  {
         if(cookie != null){
             try {
                 JwtClaims jwtClaims = JWTManagerSingleton.INSTANCE.validateToken(cookie.getValue(), httpServletRequest.getRemoteAddr());
-                User user = new User();
-                user.setUsername(jwtClaims.getClaimValueAsString("username"));
-                user.setEmail(jwtClaims.getClaimValueAsString("email"));
-                user.setPhoneNumber(jwtClaims.getClaimValueAsString("phone_number"));
-                user.setGender(jwtClaims.getClaimValueAsString("gender"));
+                User user = entityManager.find(User.class, jwtClaims.getSubject());
                 httpServletRequest.setAttribute("user", user);
             } catch (InvalidJwtException e) {
                 System.out.println("Invalid Token in Request Listener");
             } catch (UnknownHostException e) {
                 System.out.println("Unknown Host in Request Listener");
                 throw new RuntimeException();
+            } catch (MalformedClaimException e) {
+                throw new RuntimeException(e);
             }
         }
     }

@@ -40,7 +40,7 @@ public class Game {
     @Column(nullable = false)
     private String description;
 
-    @Column(name = "name_price",nullable = false)
+    @Column(name = "net_price",nullable = false)
     private Double netPrice;
 
     @OneToMany(mappedBy = "game")
@@ -64,8 +64,14 @@ public class Game {
 
     @OneToMany(mappedBy = "game")
     private Set<PlatformGame> platforms;
-    
-    
+
+    @OneToOne
+    @JoinColumn(name = "minimum_spec_id", nullable = false)
+    private GameSpec minimumSpec;
+
+    @OneToOne
+    @JoinColumn(name = "maximum_spec_id", nullable = false)
+    private GameSpec maximumSpec;
 
     public Game() {}
 
@@ -77,7 +83,7 @@ public class Game {
         this.pictureUrl = pictureUrl;
         this.description = description;
         this.releaseDate = releaseDate;
-        netPrice = price;
+        this.netPrice = price;
     }
 
     public String getId() {
