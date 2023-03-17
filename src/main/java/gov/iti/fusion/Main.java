@@ -4,17 +4,15 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-import gov.iti.fusion.models.Discount;
-import gov.iti.fusion.models.Game;
-import gov.iti.fusion.models.Genre;
-import gov.iti.fusion.models.Platform;
+import gov.iti.fusion.models.*;
 import gov.iti.fusion.models.enums.DiscountType;
 import gov.iti.fusion.models.enums.GenreType;
 import gov.iti.fusion.models.enums.PlatformType;
-import gov.iti.fusion.services.DiscountService;
-import gov.iti.fusion.services.GameService;
-import gov.iti.fusion.services.GenreService;
-import gov.iti.fusion.services.PlatformService;
+import gov.iti.fusion.persistence.connection.JpaManagerSingleton;
+import gov.iti.fusion.services.*;
+import jakarta.ejb.Local;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
 
 public class Main {
     public static void main(String[] args) {
@@ -111,7 +109,52 @@ public class Main {
         // gameService.save(game7);
         // gameService.save(game8);
 
+        User user = new User();
+        user.setUsername("khaledhisham");
+        user.setFirstName("khaled");
+        user.setLastName("hisham");
+        user.setPassword("password");
+        user.setCountry("Egypt");
+        user.setSalt("SALT");
+        user.setPassword("PASSWORD");
+        user.setPhoneNumber("01278158298");
+        user.setGender("Male");
+        user.setEmail("Khaled@gmail.com");
+        user.setAdmin(true);
+        user.setBirthDate(LocalDate.now());
 
+        EntityManager em = JpaManagerSingleton.INSTANCE.getEntityManagerFactory().createEntityManager();
+        em.getTransaction().begin();
+        em.persist(user);
+        em.getTransaction().commit();
+
+         Game game1 = new Game("Assassin'ss Creed Valhalla Standard Edition",10.0,"war game using wolfs"
+         ,"rahma","images/hellblade.jpg","rahma",LocalDate.now());
+         Game game2 = new Game("Assassin'sss Creed Valhalla Standard Edition",10.0,"war game using wolfs"
+         ,"rahma","images/12.webp","rahma",LocalDate.now());
+         Game game3 = new Game("Assassin'ssss Creed Valhallrea Standard Edition",10.0,"war game using wolfs"
+         ,"rahma","images/1.webp","rahma",LocalDate.now());
+
+
+        em.getTransaction().begin();
+        em.persist(game1);
+        em.persist(game2);
+        em.persist(game3);
+        em.getTransaction().commit();
+
+        LibraryItem libraryItem1 = new LibraryItem(user, game1);
+        LibraryItem libraryItem2 = new LibraryItem(user, game2);
+        LibraryItem libraryItem3 = new LibraryItem(user, game3);
+
+        em.getTransaction().begin();
+        em.persist(libraryItem1);
+        em.persist(libraryItem2);
+        em.persist(libraryItem3);
+        em.getTransaction().commit();
+
+        em.refresh(user);
+
+        System.out.println(user.getOwnedGames());
 
     }
 }

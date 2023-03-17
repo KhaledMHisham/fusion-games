@@ -1,7 +1,10 @@
 package gov.iti.fusion.models;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 import java.util.Set;
-import java.util.UUID;
+
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.DiscountType;
@@ -20,20 +23,20 @@ public class Discount {
     @Id
     @UuidGenerator(style = Style.TIME)
     private String id;
-
     @Column(unique = true, nullable = false)
     @Enumerated(EnumType.ORDINAL)
     private DiscountType type;
-
     @OneToMany(mappedBy = "discount")
     private Set<Game> games;
-
     public Discount(DiscountType type) {
         this.type = type;
     }
+    public Discount() {}
 
-    public Discount() {
+    public void setId(String id) {
+        this.id = id;
     }
+
     public String getId() {
         return id;
     }
@@ -42,19 +45,11 @@ public class Discount {
         return type;
     }
 
-    public Set<Game> getGames() {
-        return games;
+    public List<Game> getGames() {
+        return Collections.unmodifiableList(games.stream().toList());
     }
-
     public void setType( DiscountType type) {
         this.type = type;
-    }
-
-    public void setGames(Set<Game> games) {
-        this.games = games;
-    }
-    public void setId(String id) {
-        this.id = id;
     }
 
     @Override

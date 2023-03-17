@@ -25,6 +25,7 @@ public abstract class CrudRepository<T, Id> {
         transaction.begin();
         entityManager.persist(obj);
         transaction.commit();
+        entityManager.refresh(obj);
         return obj;
     }
 

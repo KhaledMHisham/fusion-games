@@ -46,6 +46,46 @@
     <url-pattern>/register</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.LoginServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EmailValidationServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.validation.servlets.EmailValidationServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>EmailValidationServlet</servlet-name>
+    <url-pattern>/validate/email</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>UsernameValidationServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.validation.servlets.UsernameValidationServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UsernameValidationServlet</servlet-name>
+    <url-pattern>/validate/username</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PhoneNumberValidationServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.validation.servlets.PhoneNumberValidationServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>PhoneNumberValidationServlet</servlet-name>
+    <url-pattern>/validate/phonenumber</url-pattern>
+  </servlet-mapping>
+
 
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>

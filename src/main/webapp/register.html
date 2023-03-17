@@ -8,7 +8,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="css/signUpStyle.css" />
+  <link rel="stylesheet" href="css/register.css" />
 
 </head>
 
@@ -31,85 +31,91 @@
                 <h2 class="text-gold fw-bold mb-2 text-uppercase">Sign-Up</h2>
                 <br>
                 <div class="form-outline mb-4">
-                  <input type="text" id="first_name" name="first_name" class="form-control text-white p-2 mx-2" />
-                  <label class="form-label text-gold input-label" for="first_name" aria-required="true">First
+                  <input type="text" id="first-name" name="first-name" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label" for="first-name" aria-required="true">First
                     name</label>
-                  <span id="first-name-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <span id="first-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="text" id="last_name" name="last_name" class="form-control text-white p-2 mx-2" />
-                  <label class="form-label text-gold input-label " for="last_name" aria-required="true">Last
+                  <input type="text" id="last-name" name="last-name" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label " for="last-name" aria-required="true">Last
                     name</label>
-                  <span id="last-name-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <span id="last-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
                 </div>
                 <div class="form-outline mb-4">
                   <input type="text" id="username" name="username" class="form-control text-white p-2 mx-2" />
                   <label class="form-label text-gold input-label" for="username" aria-required="true">User Name</label>
-                  <span id="username-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <span id="username-error" style="font-size: 10px;" class="float-end text-danger"></span>
                 </div>
                 <div class="form-outline mb-4">
                   <input type="email" id="email" name="email" class="form-control text-white p-2 mx-2" />
                   <label class="form-label text-gold input-label" for="email" aria-required="true">Email Address</label>
-                  <span id="email-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <span id="email-error" style="font-size: 10px;" class="float-end text-danger"></span>
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="text" id="phonenumber" name="phonenumber" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label" for="phonenumber" aria-required="true">Phone Number</label>
+                  <span id="phonenumber-error" style="font-size: 10px;" class="float-end text-danger"></span>
                 </div>
 
                 <div class="form-outline  mb-4">
                   <input type="password" id="password" name="password" class="form-control text-white p-2 mx-2" />
                   <label class="form-label text-gold input-label" for="password">Password</label>
-                  <span id="password-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <span id="password-error" style="font-size: 10px;" class="float-end text-danger"></span>
                 </div>
                 <div class="form-outline  mb-4">
-                  <input type="password" id="confirm_password" name="confirm_password"
+                  <input type="password" id="confirm-password" name="confirm-password"
                     class="form-control text-white p-2 mx-2" />
-                  <label class="form-label text-gold input-label" for="confirm_password">Confirm Password</label>
-                  <span id="confirm-password-error" style="font-size: 10px;" class="float-end text-danger">
-                    Name must be between 8 and 12 characters.
-                  </span>
+                  <label class="form-label text-gold input-label" for="confirm-password">Confirm Password</label>
+                  <span id="confirm-password-error" style="font-size: 10px;" class="float-end text-danger"></span>
+                </div>
+                <div class="container mb-4">
+                  <div class="row border border-1 border-gold p-2">
+                    <div class="col-4 text-start border-1 border-end border-gold">
+                      <span class="text-gold" style="font-size: 15px;">Gender</span>
+                    </div>
+                    <div class="col-4 d-flex flex-row align-items-center">
+                      <input type="radio" id="male" name="gender" value="male">
+                      <label for="male" style="font-size: 12px;" class="text-gold">Male</label>
+                    </div>
+                    <div class="col-4 d-flex flex-row align-items-center">
+                      <input type="radio" id="female" name="gender" value="female">
+                      <label for="female" style="font-size: 12px;" class="text-gold">Female</label>
+                    </div>
+                  </div>
+                  <span id="gender-error" style="font-size: 10px;" class="text-danger float-end"></span>
                 </div>
 
-
-
-                <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Forgot password?</a></p> -->
 
                 <div class="row">
                   <div class="col-6">
-                    <select id="country" name="country" class="demo-default form-control bg-date border-gold col-6">
-                      <option class="form-control bg-date border border-gold rounded-2 text-gold" value="country"
+                    <select id="country" name="country" class="bg-date rounded-1 border-gold col-6">
+                      <option class="bg-black border border-gold rounded-2 text-muted option-hover" value="country"
                         selected>Select country</option>
-                      <option value="AF">Afghanistan</option>
-                      <option value="AL">Albania</option>
-                      <option value="DZ">Algeria</option>
-                      <option value="CM">Cameroon</option>
-                      <option value="CA">Canada</option>
-                      <option value="DJ">Djibouti</option>
-                      <option value="EG">Egypt</option>
+                      <option class="bg-black text-white option-hover" value="AF">Afghanistan</option>
+                      <option class="bg-black text-white option-hover" value="AL">Albania</option>
+                      <option class="bg-black text-white option-hover" value="DZ">Algeria</option>
+                      <option class="bg-black text-white option-hover" value="CM">Cameroon</option>
+                      <option class="bg-black text-white option-hover" value="CA">Canada</option>
+                      <option class="bg-black text-white option-hover" value="DJ">Djibouti</option>
+                      <option class="bg-black text-white option-hover" value="EG">Egypt</option>
                     </select>
+                    <span id="country-error" style="font-size: 10px;" class="text-danger"></span>
                   </div>
                   <div class="col-6">
                     <div class="row">
                       <div class="input-group date" id="datepicker">
                         <input type="date" class="form-control bg-date border border-gold rounded-2 text-gold"
-                          id="date" />
+                          id="birth-date" />
                       </div>
-                      <label style="font-size: 10px;" class="float-end text-danger" aria-required="true">
-                        Name must be between 8 and 12 characters.
-                      </label>
                     </div>
+                    <span id="birth-date-error" style="font-size: 10px;" class="text-danger"></span>
                   </div>
                   <br>
                   <div class="col-12">
-                    <button class="btn btn-outline-light btn-lg px-4 text-gold border-gold m-4 w-75" type="submit">Sign-up</button>
+                    <button class="btn btn-outline-light btn-lg px-4 text-gold border-gold m-4 w-75" type="button" onclick="signUp()">Sign-up</button>
                     <div class="d-flex justify-content-center text-center mt-4 pt-1">
                       <a href="#!" class="text-white"><i class="fab fa-facebook-f fa-lg text-gold"></i></a>
                       <a href="#!" class="text-white"><i class="fab fa-twitter fa-lg mx-4 px-2 text-gold"></i></a>
@@ -133,14 +139,14 @@
   </section>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
-
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script>
+<script type="text/javascript"src="js/register.js"></script>
+<!-- <script>
   $(function () {
     $('#datepicker').datepicker();
   });
-</script>
+</script> -->
 
 </html>
