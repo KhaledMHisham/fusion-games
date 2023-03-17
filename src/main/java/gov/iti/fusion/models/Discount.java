@@ -32,6 +32,12 @@ public class Discount {
         this.type = type;
     }
 
+    public Discount(String id, DiscountType type, Set<Game> games) {
+        this.id = id;
+        this.type = type;
+        this.games = games;
+    }
+
     public Discount() {
     }
     public String getId() {

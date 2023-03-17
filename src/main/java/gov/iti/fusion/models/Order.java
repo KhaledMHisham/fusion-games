@@ -70,9 +70,36 @@ public class Order {
         this.totalPrice = totalPrice;
     }
 
-    @Override
-    public String toString() {
-        return "Order [id=" + id + ", createdAt=" + createdAt + ", totalPrice=" + totalPrice + "]";
+    // @Override
+    // public String toString() {
+    //     return "Order [id=" + id + ", createdAt=" + createdAt + ", totalPrice=" + totalPrice + "]";
+    // }
+
+    public Order() {
+    }
+
+    public Order(String id, LocalDate createdAt, Double totalPrice, User orderingUser, Set<Game> games) {
+        this.id = id;
+        this.createdAt = createdAt;
+        this.totalPrice = totalPrice;
+        this.orderingUser = orderingUser;
+        this.games = games;
+    }
+
+    public User getOrderingUser() {
+        return orderingUser;
+    }
+
+    public void setOrderingUser(User orderingUser) {
+        this.orderingUser = orderingUser;
+    }
+
+    public Set<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(Set<Game> games) {
+        this.games = games;
     }
     
     

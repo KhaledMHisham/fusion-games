@@ -82,6 +82,28 @@ public class User {
 
     
     public User() {}
+    
+
+    public User(String id, String username, String firstName, String lastName, String email, String password,
+            String salt, String phoneNumber, LocalDate birthDate, String gender, Boolean role, Set<Order> orders,
+            Set<Game> library, Set<Game> wishes, Set<Game> cart) {
+        this.id = id;
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.password = password;
+        this.salt = salt;
+        this.phoneNumber = phoneNumber;
+        this.birthDate = birthDate;
+        this.gender = gender;
+        this.role = role;
+        this.orders = orders;
+        this.library = library;
+        this.wishes = wishes;
+        this.cart = cart;
+    }
+
 
     public User(String username, String firstName, String lastName, String email, String password, String salt, String phoneNumber,
             LocalDate birthDate, String gender, Boolean role) {
@@ -244,11 +266,13 @@ public class User {
         return result;
     }
 
-    @Override
-    public String toString() {
-        return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
-                + ", email=" + email + ", password=" + password + ", salt=" + salt + ", phoneNumber=" + phoneNumber
-                + ", birthDate=" + birthDate + ", gender=" + gender + ", role=" + role + "]";
-    }
+    // @Override
+    // public String toString() {
+    //     return "User [id=" + id + ", username=" + username + ", firstName=" + firstName + ", lastName=" + lastName
+    //             + ", email=" + email + ", password=" + password + ", salt=" + salt + ", phoneNumber=" + phoneNumber
+    //             + ", birthDate=" + birthDate + ", gender=" + gender + ", role=" + role + "]";
+    // }
+
+    
 
 }

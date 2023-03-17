@@ -12,6 +12,15 @@
     transform: scale(1);
 
 }
+.icon-hover:hover {
+    border-color: #e4a11b !important;
+    background-color: white !important;
+}
+
+.icon-hover:hover i {
+    color: #e4a11b !important;
+}
+
 
 .form-check-input[type=checkbox]:checked {
     background-color: #e4a11b;
@@ -24,14 +33,6 @@
     height: 22px;
 }
 
-.icon-hover:hover {
-    border-color: #e4a11b !important;
-    background-color: white !important;
-}
-
-.icon-hover:hover i {
-    color: #e4a11b !important;
-}
 
 .form-check-input[type=checkbox]:checked:after {
 
@@ -49,8 +50,6 @@
 
 .form-check-input[type=checkbox]:focus {
     color: #e4a11b !important;
-
-
 }
 .pagination{
     --mdb-pagination-active-bg:#e4a11b;
@@ -68,7 +67,16 @@
 .card{
     min-height: 430px;
 }
-.card-title{
-    min-height: 48;
-}
+/* .btn-white.active .btn-white:active, .btn-white:active:focus, .btn-white.active:focus {
+    background-color: #e4a11b;
+    border-color: #e4a11b;
+  } */
+  .btn-white {
+    --mdb-btn-bg: #fff;
+    --mdb-btn-color: #000;
+    --mdb-btn-hover-bg: #e4a11b;
+    --mdb-btn-hover-color: #000;
+    --mdb-btn-active-bg: #e4a11b;
+    --mdb-btn-active-color: #000;
+  } 
 

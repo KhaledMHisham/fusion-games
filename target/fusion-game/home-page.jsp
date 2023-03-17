@@ -76,7 +76,6 @@
                   
               
               <div class="resultBox">
-          
               </div>
             </div>
             <button id="search-button" type="button" class="btn btn-gold shadow-0">
@@ -271,7 +270,6 @@
                     <c:choose>
                       <c:when test="${game.discount.getType().getDiscount()==100}">
                         <h5 class="text-white mx-3">Free Game</h5>
-  
                       </c:when>
                       <c:when test="${not empty game.getDiscount()}">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
@@ -279,7 +277,6 @@
                     <p class="text-white mx-3"> &dollar;${game.price - (game.price *
                       game.discount.getType().getDiscount()/100)} </p>
                     </c:when>
-                   
                     <c:otherwise>
                       <h4 class="text-white mx-3">&dollar;${game.price}</h4>
                     </c:otherwise>

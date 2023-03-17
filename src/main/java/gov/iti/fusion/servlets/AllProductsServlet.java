@@ -57,27 +57,19 @@ public class AllProductsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
  
         GameService gameService = new GameService(request);
+        GenreService genreService = new GenreService(request);
       
-        List<Game> gamesWithoutDiscount = new ArrayList<>();
-        List<Game> new5Games = new ArrayList<>();
-        List<Game> free2Games = new ArrayList<>();
-        List<Game> gamesOnSale = new ArrayList<>();
+        List<Game> allGames = new ArrayList<>();
+        List<Genre> allGenres = new ArrayList<>();
 
-        gamesWithoutDiscount =  gameService.findAllGames();
-        if(gamesWithoutDiscount.size()>12)
-            gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
-        new5Games = gameService.findTopNewer(4);
-        free2Games = gameService.findFreeGames(2);
-        gamesOnSale = gameService.findGamesOnSale();
-        
-        if(gamesOnSale.size()>12)
-            gamesOnSale = getRandomElements(gameService.findGamesOnSale());
-        request.setAttribute("weHave",gamesWithoutDiscount);
-        request.setAttribute("newReleases",new5Games);
-        request.setAttribute("freeGames",free2Games);
-        request.setAttribute("gamesOnSale",gamesOnSale);
+
+        allGames =  gameService.findAllGames();
+        allGenres = genreService.findAllGenre(); 
+       
+        request.setAttribute("allGames",allGames);
+        request.setAttribute("allGenre",allGenres);
+       
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
-        System.out.println(gamesOnSale.size()+"===================================================================");
         request.getRequestDispatcher("all-products-page.jsp").forward(request, response);
     }
     public List<Game>getRandomElements(List<Game> list)

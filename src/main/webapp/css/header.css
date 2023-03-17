@@ -14,7 +14,7 @@
 
  .resultBox{
    left: 0px;
-   top: 80px;
+   top:35px;
    width: 250%;
    position: absolute;
    left: 0;
@@ -31,7 +31,7 @@
  
  .searchInput.active .resultBox{
    padding: 10px 8px;
-   opacity: 1;
+   opacity: 0.8;
    pointer-events: auto;
  }
  
@@ -56,7 +56,7 @@
    right: 0px;
    left: 0px;
    top: 0px;
-   height: 55px;
+   height: 34px;
    width: 55px;
    /* text-align: center; */
    font-size: 15px;

@@ -75,13 +75,14 @@
             <label id="search-label" class="form-label text-gold search-label"
               for="search-form">Search</label>
               
-          <button id="search-button" type="button" class="btn btn-gold shadow-0">
-            <i class="fas fa-search"></i>
-          </button>
+          
           <div class="resultBox">
       
           </div>
         </div>
+        <button id="search-button" type="button" class="btn btn-gold shadow-0">
+          <i class="fas fa-search"></i>
+        </button>
        
       </div>
       <!-- Right elements -->
@@ -178,36 +179,12 @@
                   aria-labelledby="headingTwo">
                   <div class="accordion-body">
                     <div>
-                      <!-- Checked checkbox -->
+                      <c:forEach items="${allGenre}" var="genre">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked />
-                        <label class="form-check-label" for="flexCheckChecked1">Action</label>
+                        <label class="form-check-label" for="flexCheckChecked1">${genre.genre.genre}</label>
                       </div>
-                      <!-- Checked checkbox -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked />
-                        <label class="form-check-label" for="flexCheckChecked2">Comedy</label>
-                      </div>
-                      <!-- Checked checkbox -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked />
-                        <label class="form-check-label" for="flexCheckChecked3">Fantazy</label>
-                      </div>
-                      <!-- Checked checkbox -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked4" checked />
-                        <label class="form-check-label" for="flexCheckChecked4">Fighting</label>
-                      </div>
-                      <!-- Default checkbox -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">Horror</label>
-                      </div>
-                      <!-- Default checkbox -->
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-                        <label class="form-check-label" for="flexCheckDefault">Strategy</label>
-                      </div>
+                      </c:forEach>
                     </div>
                   </div>
                 </div>
@@ -223,26 +200,26 @@
                 <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse show"
                   aria-labelledby="headingThree">
                   <div class="accordion-body">
-                    <div class="range">
+                    <!-- <div class="range">
                       <input type="range" class="form-range" id="customRange1" />
-                    </div>
+                    </div> -->
                     <div class="row mb-3">
                       <div class="col-6">
-                        <p class="mb-0">
+                        <!-- <p class="mb-0">
                           Min
-                        </p>
+                        </p> -->
                         <div class="form-outline">
-                          <input type="number" id="typeNumber" class="form-control" />
-                          <label class="form-label text-white" for="typeNumber">$0</label>
+                          <input type="number" id="typeNumber" min="0" class="text-white form-control" />
+                          <label class="form-label text-white" for="typeNumber">Min</label>
                         </div>
                       </div>
                       <div class="col-6">
-                        <p class="mb-0">
+                        <!-- <p class="mb-0">
                           Max
-                        </p>
+                        </p> -->
                         <div class="form-outline">
-                          <input type="number" id="typeNumber" class="form-control" />
-                          <label class="form-label text-white" for="typeNumber">$1,0000</label>
+                          <input type="number" id="typeNumber" min="0" class="form-label text-white form-control" />
+                          <label class="form-label text-white" for="typeNumber">Max</label>
                         </div>
                       </div>
                     </div>
@@ -260,7 +237,7 @@
                 </h2>
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
                   aria-labelledby="headingThree">
-                  <div class="accordion-body">
+                  <div class=" accordion-body">
                     <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked
                       autocomplete="off" />
                     <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">15%</label>
@@ -274,6 +251,20 @@
                       autocomplete="off" />
                     <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">100%</label>
                   </div>
+                  <!-- <div class="btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-white mb-1 px-1 " style="width: 60px;" for="btn-check1"></label>
+                      <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1"  autocomplete="off">15%
+                    
+                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">
+                      <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2"  autocomplete="off">15%
+                    </label>
+                    <label class="btn btn-white mb-1 px-1 " style="width: 60px;" for="btn-check3">
+                      <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3"  autocomplete="off">15%
+                    </label>
+                    <label class="btn btn-white mb-1 px-1 " style="width: 60px;" for="btn-check4">
+                      <input type="checkbox" class="btn-check border justify-content-center" id="btn-check4"  autocomplete="off">15%
+                    </label>
+                  </div> -->
                 </div>
               </div>
               <div class="accordion-item">
@@ -367,7 +358,7 @@
         <div class="col-lg-9">
 
           <div class="row">
-            <c:forEach items="${weHave}" var="game">
+            <c:forEach items="${allGames}" var="game">
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card my-3 shadow-0 bg-black border ">
                 <a href="product?name=${game.name}">
@@ -376,10 +367,20 @@
                     <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                     <h5 class="card-title text-white mx-3">${game.name}</h5>
                   <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
+                    <c:choose>
+                      <c:when test="${game.discount.getType().getDiscount()==100}">
+                        <h5 class="text-white mx-3">Free Game</h5>
+                      </c:when>
+                      <c:when test="${not empty game.getDiscount()}">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
                     <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
                     <p class="text-white mx-3"> &dollar;${game.price - (game.price *
                       game.discount.getType().getDiscount()/100)} </p>
+                    </c:when>
+                    <c:otherwise>
+                      <h4 class="text-white mx-3">&dollar;${game.price}</h4>
+                    </c:otherwise>
+                    </c:choose>
                   </div>
                   </div>
                 </a>

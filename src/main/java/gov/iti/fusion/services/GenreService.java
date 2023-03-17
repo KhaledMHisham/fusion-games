@@ -23,6 +23,9 @@ public class GenreService {
     public Genre findById(String id){
         return genreRepository.findById(Genre.class, id);
     }
+    public List<Genre> findAllGenre(){
+        return genreRepository.findAll(Genre.class);
+    }
     public Integer groupGameWithGenre(GenreType genreType){
         return genreRepository.groupGameWithGenre(genreType);
     }

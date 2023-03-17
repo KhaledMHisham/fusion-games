@@ -68,24 +68,24 @@
       <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top mb-3 p-2">
         <!-- Container wrapper -->
         <div class="container justify-content-center justify-content-md-between">
-          <!-- <div class="col-lg-5">
+          <div class="col-lg-5">
             <div class="input-group">
               <div  id="search-autocomplete" class="searchInput form-outline ">
                 <input type="search" class="form-control  text-gold " />
                 <label id="search-label" class="form-label text-gold search-label"
                   for="search-form">Search</label>
                   
-              <button id="search-button" type="button" class="btn btn-gold shadow-0">
-                <i class="fas fa-search"></i>
-              </button>
+              
               <div class="resultBox">
-          
               </div>
             </div>
-           
+            <button id="search-button" type="button" class="btn btn-gold shadow-0">
+              <i class="fas fa-search"></i>
+            </button>
           </div>
-           Right elements 
-        </div> -->
+          <!-- Right elements -->
+        </div>    
+        <div>       
         <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
             data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -93,40 +93,42 @@
           </button>
          
           <!-- Collapsible wrapper -->
-          <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-            <!-- Left links -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                  data-mdb-toggle="dropdown" aria-expanded="false">
-                  Categories
-                </a>
-                <!-- Dropdown menu -->
-                <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                  <li>
-                    <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                  </li>
-                </ul>
-              </li>
-    
-              <li class="nav-item">
-                <a class="nav-link text-white" href="home">Discover</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="all-products">Browse</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Menu name</a>
-              </li>
-            </ul>
-            <!-- Left links -->
-          </div>
+         
+        </div> 
+        <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+                data-mdb-toggle="dropdown" aria-expanded="false">
+                Categories
+              </a>
+              <!-- Dropdown menu -->
+              <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">Action</a>
+                </li>
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">RPG</a>
+                </li>
+                <li>
+                  <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
+                </li>
+              </ul>
+            </li>
+  
+            <li class="nav-item">
+              <a class="nav-link text-white" href="home">Discover</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="all-products">Browse</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Menu name</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
         </div>
         <!-- Container wrapper -->
       </nav>
@@ -422,6 +424,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
+    <script type="text/javascript" src="js/header.js"></script>
+
 </body>
 
 </html>

@@ -18,7 +18,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="games")
-public class Game implements Serializable{
+public class Game {
     @Id
     @UuidGenerator(style = Style.TIME)
     private String id;
@@ -71,6 +71,28 @@ public class Game implements Serializable{
     private Set<Platform> platforms;
     
     public Game() {}
+
+    
+    public Game(String id, String name, Double price, String developer, String publisher, String pictureUrl,
+            String description, Set<User> owners, Set<User> wishes, Set<User> carts, Set<Order> orders,
+            LocalDate releaseDate, Discount discount, Set<Genre> genres, Set<Platform> platforms) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.developer = developer;
+        this.publisher = publisher;
+        this.pictureUrl = pictureUrl;
+        this.description = description;
+        this.owners = owners;
+        this.wishes = wishes;
+        this.carts = carts;
+        this.orders = orders;
+        this.releaseDate = releaseDate;
+        this.discount = discount;
+        this.genres = genres;
+        this.platforms = platforms;
+    }
+
 
     public Game(String name, Double price, LocalDate releaseDate, String pictureUrl, String description, String developer, String publisher,
         Discount discount) {

@@ -155,7 +155,13 @@ body {
     color: #f5b80f !important;
     background-color: rgb(53, 52, 52) !important;
 }
-
+/* .card{
+    min-height: 430px;
+} */
+/* .card-footer{
+    position: inherit;
+    bottom: -25px;
+} */
 .card-banner {
     min-height: 400px;
     background-size: cover;
