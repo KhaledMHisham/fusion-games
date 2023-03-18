@@ -26,6 +26,9 @@ public class GameService {
         return gameRepository.save(game);
     }
 
+    public Game findById(String id){
+        return gameRepository.findById(Game.class,id);
+    }
     public Game findGameByName(String name){
         return gameRepository.findGameByName(name);
     }
@@ -48,7 +51,9 @@ public class GameService {
     public List<Game> findGamesOnSale(){
         return gameRepository.findGamesOnSale();
     }
-
+    public List<Game> findMostOrderedGames(int limit){
+        return gameRepository.findMostOrderedGames(limit);
+    }
     public void addPlatformToGame(Game game, Platform platform){
         PlatformGame platformGame = new PlatformGame(game, platform);
         platformGameRepository.save(platformGame);

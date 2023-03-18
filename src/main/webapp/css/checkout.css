@@ -33,7 +33,7 @@ body {
 }
 
 .search-label {
-    background-color: rgb(53, 52, 52);
+    /* background-color: rgb(0, 0, 0); */
     z-index: 1;
     padding: 0 5px;
     transform: translateY(10%);
@@ -92,7 +92,6 @@ body {
     color: gold !important;
 } */
 /****************************** NAVABR LINK / ITEMS HOVERS ***************************/
-
 #search-input:focus+#search-label {
     color: #f5b80f !important;
 }
