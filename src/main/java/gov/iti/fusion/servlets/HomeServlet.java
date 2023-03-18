@@ -102,22 +102,22 @@ public class HomeServlet extends HttpServlet {
         
 
         // genres.add(action);
-        // Game game1 = new Game("Assassinss Creed Valhalla Standard Edition",10.0,"rahma"
+        // Game game1 = new Game("Subway",10.0,"rahma"
         // ,"rahma","images/hellblade.jpg","war game using wolfs",LocalDate.now());
         // gameService.addGenresToGame(game1,genres);
         // gameService.addPlatformsToGame(game1, platforms);
         // game1.setDiscount(premium);
-        // Game game2 = new Game("Assassinsss Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.now());
+        // Game game2 = new Game("Pubg",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.now());
         // genres.add(adventure);
         // gameService.addGenresToGame(game2,genres);
         // gameService.addPlatformsToGame(game2, platforms);
         // game2.setDiscount(classic);
-        // Game game3 = new Game("Assassinssss Creed Valhallrea Standard Edition",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.now());
+        // Game game3 = new Game("Sudden Attack",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.now());
         // genres.add(horror);
         // gameService.addGenresToGame(game3,genres);
         // gameService.addPlatformsToGame(game3, platforms);
         // game3.setDiscount(premium);
-        // Game game4 = new Game("Assassinns Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.now());
+        // Game game4 = new Game("Wolf Team",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.now());
         // genres.add(puzzle);
         // gameService.addGenresToGame(game4,genres);
         // gameService.addPlatformsToGame(game4, platforms);
@@ -190,10 +190,35 @@ public class HomeServlet extends HttpServlet {
         // order.setCreatedAt(LocalDate.now());
         // order.setTotalPrice(20000.0);
         // order.setOrderingUser(user);
+        // Order order2 = new Order();
+        // order2.setCreatedAt(LocalDate.now());
+        // order2.setTotalPrice(20000.0);
+        // order2.setOrderingUser(user);
+        // Order order3 = new Order();
+        // order3.setCreatedAt(LocalDate.now());
+        // order3.setTotalPrice(20000.0);
+        // order3.setOrderingUser(user);
+        // Order order4 = new Order();
+        // order4.setCreatedAt(LocalDate.now());
+        // order4.setTotalPrice(20000.0);
+        // order4.setOrderingUser(user);
 
         // orderService.addGameToOrder(order, game1);
         // orderService.addGameToOrder(order, game2);
         // orderService.addGameToOrder(order, game3);
+
+        // orderService.addGameToOrder(order2, game1);
+        // orderService.addGameToOrder(order2, game5);
+        // orderService.addGameToOrder(order2, game3);
+
+        // orderService.addGameToOrder(order3, game1);
+        // orderService.addGameToOrder(order3, game4);
+        // orderService.addGameToOrder(order3, game3);
+
+        // orderService.addGameToOrder(order4, game1);
+        // orderService.addGameToOrder(order4, game2);
+
+
 
         // userService.addGameToCart(user, game1);
         // userService.addGameToCart(user, game2);
@@ -205,6 +230,7 @@ public class HomeServlet extends HttpServlet {
         List<Game> new5Games = new ArrayList<>();
         List<Game> free2Games = new ArrayList<>();
         List<Game> gamesOnSale = new ArrayList<>();
+        List<Game> mostOrderdGame = new ArrayList<>();
 
         allGames = gameService.findAllGames();
         gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
@@ -217,11 +243,15 @@ public class HomeServlet extends HttpServlet {
 
         if(gamesOnSale.size()>15)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
+
+        mostOrderdGame = gameService.findMostOrderedGames(12);
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);
         request.setAttribute("newReleases",new5Games);
         request.setAttribute("freeGames",free2Games);
         request.setAttribute("gamesOnSale",gamesOnSale);
+        request.setAttribute("mostSold",mostOrderdGame);
+        // System.out.println(mostOrderdGame);
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
         System.out.println(gamesOnSale.size()+"===================================================================");
         request.getRequestDispatcher("home-page.jsp").forward(request, response);

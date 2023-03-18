@@ -244,8 +244,8 @@
       <div class="container my-5">
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
-          <h3 class="text-gold ">BestSellers</h3>
-          <c:if test="${fn:length(allGames) > 3}" >
+          <h3 class="text-gold ">Most Sold</h3>
+          <c:if test="${fn:length(mostSold) > 3}" >
           <div class="row arrows-BestSellerList">
             <div class="arrow mx-2 arrow-left-BestSellerList">
               <i class="fas fa-chevron-left"></i>
@@ -257,7 +257,7 @@
         </c:if>
         </div>
         <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy-BestSellerList " style="position: relative;">
-          <c:forEach items="${allGames}" var="game">
+          <c:forEach items="${mostSold}" var="game">
             <div class="m-2 col-lg-3 col-md-6 col-sm-6">
             <div class="card my-2 shadow-0 bg-black border">
               <a href="product?name=${game.name}" class="">
@@ -272,8 +272,8 @@
                       </c:when>
                       <c:when test="${not empty game.getDiscount()}">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
-                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                    <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                    <h5 class="text-muted mx-3"> <del>&dollar;${game.price}</del></h5>
+                    <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()}</h4>
                     </c:when>
                     <c:otherwise>
                       <h4 class="text-white mx-3">&dollar;${game.price}</h4>
@@ -382,8 +382,8 @@
                   <h5 class="card-title text-white mx-3">${game.name}</h5>
                   <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
-                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                    <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                    <h5 class="text-muted mx-3"> <del>&dollar;${game.price}</del></h5>
+                    <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()} </h4>
                   </div>
                 </div>
               </a>
