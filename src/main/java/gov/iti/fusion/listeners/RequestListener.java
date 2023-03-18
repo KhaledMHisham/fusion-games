@@ -37,6 +37,7 @@ public class RequestListener implements ServletRequestListener  {
             } catch (MalformedClaimException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
+                throw new RuntimeException(e);
             }
         }
     }

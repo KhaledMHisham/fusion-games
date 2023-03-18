@@ -25,6 +25,10 @@
     color: #f5b80f !important;
 }
 
+.form-outline{
+    width: 100% !important;
+}
+
 .form-notch .form-notch-middle {
     border-color: #f5b80f !important;
 }
