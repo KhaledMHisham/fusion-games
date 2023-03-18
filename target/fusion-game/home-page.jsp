@@ -244,8 +244,8 @@
       <div class="container my-5">
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
-          <h3 class="text-gold ">Most Sold</h3>
-          <c:if test="${fn:length(mostSold) > 3}" >
+          <h3 class="text-gold ">Most Purchased</h3>
+          <c:if test="${fn:length(mostPurchased) > 3}" >
           <div class="row arrows-BestSellerList">
             <div class="arrow mx-2 arrow-left-BestSellerList">
               <i class="fas fa-chevron-left"></i>
@@ -257,7 +257,7 @@
         </c:if>
         </div>
         <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy-BestSellerList " style="position: relative;">
-          <c:forEach items="${mostSold}" var="game">
+          <c:forEach items="${mostPurchased}" var="game">
             <div class="m-2 col-lg-3 col-md-6 col-sm-6">
             <div class="card my-2 shadow-0 bg-black border">
               <a href="product?name=${game.name}" class="">

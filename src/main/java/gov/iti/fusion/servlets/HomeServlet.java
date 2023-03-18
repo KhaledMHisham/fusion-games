@@ -184,6 +184,7 @@ public class HomeServlet extends HttpServlet {
         // user.setBirthDate(LocalDate.now());
         
         // userService.save(user);
+        // //User user = userService.findUserbyEmail("rm1742@fayoum.edu");
         
         // Order order = new Order();
         // order.setCreatedAt(LocalDate.now());
@@ -249,7 +250,7 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("newReleases",new5Games);
         request.setAttribute("freeGames",free2Games);
         request.setAttribute("gamesOnSale",gamesOnSale);
-        request.setAttribute("mostSold",mostOrderdGame);
+        request.setAttribute("mostPurchased",mostOrderdGame);
         // System.out.println(mostOrderdGame);
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
         System.out.println(gamesOnSale.size()+"===================================================================");

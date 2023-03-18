@@ -86,6 +86,26 @@
     <url-pattern>/validate/phonenumber</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.AddToCartServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddToCartServlet</servlet-name>
+    <url-pattern>/user/add-to-cart</url-pattern>
+  </servlet-mapping>
+  <servlet>
+
+    <servlet-name>AddToWishListServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.AddToWishListServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AddToWishListServlet</servlet-name>
+    <url-pattern>/user/add-to-wish-list</url-pattern>
+  </servlet-mapping>
+
 
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>

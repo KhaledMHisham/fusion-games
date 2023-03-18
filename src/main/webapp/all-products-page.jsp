@@ -384,9 +384,20 @@
                   </div>
                 </a>
                 <div class="card-footer px-2">
-                  <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                  <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                  <c:choose>
+                    <c:when test="${user ne null}">
+                    <a onclick='addToCart("${game.id}")' id="add-to-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                    <a onclick='addToWishList("${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
                     <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+
+                  </c:when>
+                  <c:otherwise>
+                    <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                    <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+
+                  </c:otherwise>
+                  </c:choose>
                 </div>
               </div>
             </div>
@@ -567,6 +578,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
   <script type="text/javascript" src="js/header.js"></script>
+  <script type="text/javascript" src="js/add-to-cart.js"></script>
 
 </body>
 

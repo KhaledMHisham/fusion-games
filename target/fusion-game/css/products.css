@@ -14,7 +14,6 @@
 }
 .icon-hover:hover {
     border-color: #e4a11b !important;
-    background-color: white !important;
 }
 
 .icon-hover:hover i {
@@ -79,4 +78,3 @@
     --mdb-btn-active-bg: #e4a11b;
     --mdb-btn-active-color: #000;
   } 
-
