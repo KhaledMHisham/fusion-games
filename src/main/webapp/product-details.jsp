@@ -183,10 +183,10 @@
                                 </h6>
                             </div>
                             <div class="col-2">
-                                <p class="text-white mx-3"> <del>&dollar;${game.price}</del></p>
+                                <h5 class="text-white mx-3"> <del>&dollar;${game.price}</del></h5>
                             </div>
                             <div class="col-2">
-                                <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                                <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()} </h4>
                             </div>
                         </div>
                     </c:when>

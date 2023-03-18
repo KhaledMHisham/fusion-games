@@ -373,8 +373,8 @@
                       </c:when>
                       <c:when test="${not empty game.getDiscount()}">
                     <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span></h6>
-                    <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                    <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                    <h5 class="text-muted mx-3"> <del>&dollar;${game.price}</del></h5>
+                    <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()} </h4>
                     </c:when>
                     <c:otherwise>
                       <h4 class="text-white mx-3">&dollar;${game.price}</h4>
