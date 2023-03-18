@@ -24,7 +24,7 @@ public class RequestListener implements ServletRequestListener  {
         EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManagerFactory().createEntityManager();
         httpServletRequest.setAttribute("EntityManager", entityManager);
         httpServletRequest.setAttribute("user", null);
-        if(cookie != null){
+        if(cookie != null){ 
             try {
                 JwtClaims jwtClaims = JWTManagerSingleton.INSTANCE.validateToken(cookie.getValue(), httpServletRequest.getRemoteAddr());
                 User user = entityManager.find(User.class, jwtClaims.getSubject());

@@ -18,119 +18,8 @@
     <body class="bg-black">
 
       <!--Main Navigation-->
-      <header class="header-top">
-        <!-- Jumbotron -->
-        <div class=" p-3 text-center bg-main header">
-          <div class="container">
-            <div class="row gy-3">
-              <!-- Left elements -->
-              <div class="col-lg-2 col-sm-4 col-4">
-                <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
-                  <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
-                </a>
-              </div>
-              <!-- Left elements -->
-              <!-- Center elements -->
-              <div class="order-lg-last col-lg-5 col-sm-8 col-8">
-                <div class="d-flex float-end">
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
-                  </a>
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
-                  </a>
-                  <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                    class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
-                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">My cart</p>
-                  </a>
-                </div>
-              </div>
-              <!-- Center elements -->
+      <jsp:include page="header.jsp" />
 
-              <!-- Right elements -->
-              
-          
-          </div>
-        </div>
-        <!-- Jumbotron -->
-
-        <!-- Navbar -->
-       
-       
-        <!-- Navbar -->
-      </header>
-      <nav class=" nav-bar justify-content-center navbar navbar-expand-lg navbar-dark bg-black sticky-top mb-3 p-2">
-        <!-- Container wrapper -->
-        <div class="container justify-content-center justify-content-md-between">
-          <div class="col-lg-5">
-            <div class="input-group">
-              <div  id="search-autocomplete" class="searchInput form-outline ">
-                <input type="search" class="form-control  text-gold " />
-                <label id="search-label" class="form-label text-gold search-label"
-                  for="search-form">Search</label>
-                  
-              
-              <div class="resultBox">
-              </div>
-            </div>
-            <button id="search-button" type="button" class="btn btn-gold shadow-0">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-          <!-- Right elements -->
-        </div>    
-        <div>       
-        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
-            data-mdb-target="#navbarLeftAlignExample" aria-controls="navbarLeftAlignExample" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <i class="fas fa-bars"></i>
-          </button>
-         
-          <!-- Collapsible wrapper -->
-         
-        </div> 
-        <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
-          <!-- Left links -->
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
-                data-mdb-toggle="dropdown" aria-expanded="false">
-                Categories
-              </a>
-              <!-- Dropdown menu -->
-              <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item bg-black text-white" href="#">Action</a>
-                </li>
-                <li>
-                  <a class="dropdown-item bg-black text-white" href="#">RPG</a>
-                </li>
-                <li>
-                  <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a>
-                </li>
-              </ul>
-            </li>
-  
-            <li class="nav-item">
-              <a class="nav-link text-white" href="home">Discover</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="all-products">Browse</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Menu name</a>
-            </li>
-          </ul>
-          <!-- Left links -->
-        </div>
-        </div>
-        <!-- Container wrapper -->
-      </nav>
       <!-- <div class="page-offset"></div> -->
       <!--  intro  -->
 
@@ -284,10 +173,27 @@
                 </div>
               </a>
               <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                <c:choose>
+                  <c:when test="${user ne null}">
+                    <c:choose>
+                      <c:when test="${user.getCartItems().contains(game)}">
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                      </c:otherwise>
+                    </c:choose>
+                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                </c:when>
+                <c:otherwise>
+                  <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                  <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                    <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                </c:otherwise>
+                </c:choose>
               </div>
+
             </div>
           </div>
         </c:forEach>
@@ -315,9 +221,25 @@
                     </div>
                   </a>
                   <div class="card-footer px-2">
-                    <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                    <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                        class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    <c:choose>
+                      <c:when test="${user ne null}">
+                        <c:choose>
+                          <c:when test="${user.getCartItems().contains(game)}">
+                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                          </c:when>
+                          <c:otherwise>
+                            <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                          </c:otherwise>
+                        </c:choose>
+                      <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    </c:when>
+                    <c:otherwise>
+                      <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                      <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    </c:otherwise>
+                    </c:choose>
                   </div>
                 </div>
               </div>
@@ -388,10 +310,27 @@
                 </div>
               </a>
               <div class="card-footer px-2">
-                <a href="#" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                <a href="#!" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0"><i
-                    class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                <c:choose>
+                  <c:when test="${user ne null}">
+                    <c:choose>
+                      <c:when test="${user.getCartItems().contains(game)}">
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                      </c:otherwise>
+                    </c:choose>
+                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                </c:when>
+                <c:otherwise>
+                  <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                  <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                    <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                </c:otherwise>
+                </c:choose>
               </div>
+
             </div>
           </div>
         </c:forEach>
@@ -598,6 +537,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/home-page.js"></script>
       <script type="text/javascript" src="js/header.js"></script>
+      <script type="text/javascript" src="js/add-to-cart.js"></script>
 
     </body>
 
