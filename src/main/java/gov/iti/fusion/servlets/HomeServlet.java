@@ -159,8 +159,7 @@ public class HomeServlet extends HttpServlet {
         // mainGames.add(game7);
         // mainGames.add(game8);
 
-         
-
+    
         // // gameService.save(game1);
         // // gameService.save(game2);
         // // gameService.save(game3);

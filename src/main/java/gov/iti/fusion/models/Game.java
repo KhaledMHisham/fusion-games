@@ -40,7 +40,7 @@ public class Game {
     @Column(nullable = false)
     private String description;
 
-    @Column(name = "name_price",nullable = false)
+    @Column(name = "net_price",nullable = false)
     private Double netPrice;
 
     @OneToMany(mappedBy = "game")
