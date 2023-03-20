@@ -114,7 +114,7 @@
 
   <servlet-mapping>
     <servlet-name>CartServlet</servlet-name>
-    <url-pattern>/user/cart</url-pattern>
+    <url-pattern>/cart</url-pattern>
   </servlet-mapping>
 
   <listener>

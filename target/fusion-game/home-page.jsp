@@ -55,7 +55,7 @@
                 <strong>${game.name}</strong>
               </h1>
               <p>
-                <strong>Best & free games in our website</strong>
+                <strong>${game.description}</strong>
               </p>
               <p class="mb-4 d-none d-md-block">
                 <!-- <strong>The most comprehensive tutorial for the Bootstrap 5. Loved by over 3 000 000 users. Video and
@@ -63,7 +63,7 @@
                   available. Create your own, stunning website.</strong> -->
               </p>
 
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+              <a target="_blank" href="all-products"
                 class="btn btn-outline-white btn-lg">Browse
                 <i class="fas fa-graduation-cap ms-2"></i>
               </a>
@@ -98,10 +98,18 @@
                 <h6> starting at </h6>
                 <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price}</del></h5>
                 <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice()}</h5>
-              </div>     
-              <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
-              <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
-
+              </div>
+               <c:choose>
+               <c:when test="${user ne null}">
+              <a onclick='buyNowGameBanner()' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
+              <a onclick='addToCartGameBanner(this)' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
+              <input hidden type="text" value="${newReleases[0].id}" id="bannerGameId">
+              </c:when>
+              <c:otherwise>
+               <a class="btn btn-warning shadow-0 relative-bottom " href="login"> Buy Now </a>
+               <a class="btn btn-dark hover-zoom shadow-0 " href="login"> Add to cart </a>
+               </c:otherwise>
+              </c:choose>
             </div>
           </div>
 
@@ -111,7 +119,7 @@
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
               <c:forEach items="${newReleases}" var="game">
-                <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
+                <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}","${game.id}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
                   <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                     <div class="card-body">
                       <div class="d-flex align-items-center">
@@ -263,8 +271,23 @@
                 <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
                   <h3 class="text-white">100% off</h3>
                   <h5 class="text-white">${game.name}</h5>  
-                  <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
-                  <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
+                   <c:choose>
+                    <c:when test="${user ne null}">
+                   <a onclick='addToCart(this,"${game.id}")' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
+                     <c:choose>
+                     <c:when test="${user.getCartItems().contains(game)}">
+                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark hover-zoom shadow-0 " >View In Cart</a>
+                     </c:when>
+                     <c:otherwise>
+                   <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
+                   </c:otherwise>
+                   </c:choose>
+                   </c:when>
+                   <c:otherwise>
+                    <a class="btn btn-warning shadow-0 relative-bottom " href="login"> Buy Now </a>
+                    <a class="btn btn-dark hover-zoom shadow-0 " href="login"> Add to cart </a>
+                    </c:otherwise>
+                   </c:choose>
                   </div>
               </a>
             </div>

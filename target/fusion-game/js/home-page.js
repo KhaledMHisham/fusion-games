@@ -50,8 +50,10 @@ document.querySelector('.arrow-right-BestSellerList').addEventListener('click', 
 
 
 //function onClickGameCard
-
- function onClickGame(th,gameName,gamePrice,gameDiscount){
+const params = new URLSearchParams(window.location.search);
+console.log(params);
+var gameBannerId=document.getElementById("bannerGameId").value;
+ function onClickGame(th,gameName,gamePrice,gameDiscount,gameId){
    //var text = th.firstChild.firstChild.childNodes.img.getAttribute('src');
    //document.getElementById("card-banner").style.backgroundImage = "url(images/hellblade.jpg)";
    var gameImgSrc = th.querySelector("#img-src").getAttribute('src');
@@ -63,4 +65,26 @@ document.querySelector('.arrow-right-BestSellerList').addEventListener('click', 
    document.getElementById("game-name").innerText = gameName;
    document.getElementById("game-price").innerText = "$"+gamePrice;
    document.getElementById("game-net-price").innerText = "$"+(gamePrice - (gameDiscount/100));
+   gameBannerId = gameId;
  }
+ function buyNowGameBanner(){
+ if(gameBannerId!=null)
+    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameBannerId}));
+
+ }
+function addToCartGameBanner(element){
+ if(gameBannerId!=null)
+    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameBannerId}),sucessAddedToCart(element));
+
+ }
+ function sucessAddedToCart(element){
+     console.log("success");
+     console.log(element.getAttribute("id"));
+     element.removeAttribute("onclick");
+     element.innerText = "View In Cart";
+     element.setAttribute("onclick","viewInCart()");
+     // btn.ariaDisabled;
+ }
+function viewInCart(){
+    window.location.href="cart.jsp";
+}

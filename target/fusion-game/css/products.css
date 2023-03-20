@@ -60,6 +60,9 @@
     --mdb-btn-hover-bg: transparent;
     --mdb-btn-hover-color: #e4a11b;
 }
+.btn:hover {
+    color: black;
+    }
 :root {
     --mdb-primary: #e4a11b !important;
 }
