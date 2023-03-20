@@ -5,7 +5,6 @@
 .accordion {
     --mdb-accordion-bg: rgb(0, 0, 0) !important;
     --mdb-accordion-color: rgb(255, 255, 255) !important;
-
 }
 
 .sidebar:hover {
@@ -14,7 +13,7 @@
 }
 .icon-hover:hover {
     border-color: #e4a11b !important;
-    background-color: white !important;
+    color: #000;
 }
 
 .icon-hover:hover i {
@@ -61,6 +60,9 @@
     --mdb-btn-hover-bg: transparent;
     --mdb-btn-hover-color: #e4a11b;
 }
+.btn:hover {
+    color: black;
+    }
 :root {
     --mdb-primary: #e4a11b !important;
 }
@@ -79,4 +81,3 @@
     --mdb-btn-active-bg: #e4a11b;
     --mdb-btn-active-color: #000;
   } 
-

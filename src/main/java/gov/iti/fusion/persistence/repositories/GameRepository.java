@@ -42,5 +42,12 @@ public class GameRepository extends CrudRepository<Game, String>{
         Query query = entityManager.createQuery(jpql, List.class);
         return ((List<Game>) query.getResultList());
     }
-    
+    public List<Game> findMostOrderedGames(int limit){
+
+        String jpql = "select g from Game g"+ 
+                        " join(SELECT og.id.gameId ogid, count(og.id.gameId) coun FROM OrderedGame og"+
+                        " group by (og.id.gameId)) c on c.ogid = g.id order by c.coun desc ";
+        Query query = entityManager.createQuery(jpql, List.class);
+        return ((List<Game>) query.setMaxResults(limit).getResultList());
+    }
 }

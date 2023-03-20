@@ -65,14 +65,6 @@ public class Game {
     @OneToMany(mappedBy = "game")
     private Set<PlatformGame> platforms;
 
-    @OneToOne
-    @JoinColumn(name = "minimum_spec_id", nullable = false)
-    private GameSpec minimumSpec;
-
-    @OneToOne
-    @JoinColumn(name = "maximum_spec_id", nullable = false)
-    private GameSpec maximumSpec;
-
     public Game() {}
 
     public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
