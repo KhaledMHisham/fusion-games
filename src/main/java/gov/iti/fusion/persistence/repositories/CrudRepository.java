@@ -5,10 +5,12 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityTransaction;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.persistence.Query;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 public abstract class CrudRepository<T, Id> {
 
     protected EntityManager entityManager;
+    // protected CriteriaBuilder criteriaBuilder;
     
     protected CrudRepository(HttpServletRequest request) {
         this.entityManager = (EntityManager) request.getAttribute("EntityManager");

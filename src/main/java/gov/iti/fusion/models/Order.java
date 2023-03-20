@@ -33,9 +33,10 @@ public class Order {
     private Set<OrderedGame> orderedGames;
 
     
-    public Order(LocalDate createdAt, Double totalPrice) {
+    public Order(LocalDate createdAt, Double totalPrice, Set<OrderedGame> orderedGames) {
         this.createdAt = createdAt;
         this.totalPrice = totalPrice;
+        this.orderedGames= orderedGames;
     }
 
     public Order() {}
