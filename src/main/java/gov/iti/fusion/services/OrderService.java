@@ -28,23 +28,19 @@ public class OrderService {
     }
 
     public void addGameToOrder( Order order,Game game){
-        Double totlPrice = 0d;
+
         OrderedGame orderedGame = new OrderedGame(game, order);
-        totlPrice+=game.getNetPrice();
-        order.setTotalPrice(totlPrice);
+        Double totalPrice= order.getTotalPrice();
+        totalPrice+=game.getNetPrice();
+        order.setTotalPrice(totalPrice);
         orderedGameRepository.save(orderedGame);
 
     }
 
     
     public void addGamesToOrder(Order order, List<Game> games){
-        Double totlPrice = 0d;
-
         for(Game game : games){
             addGameToOrder(order, game);
-            // totlPrice+=game.getPrice();
-            totlPrice+=game.getNetPrice();
         }
-        order.setTotalPrice(totlPrice);
     }
 }

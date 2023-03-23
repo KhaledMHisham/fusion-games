@@ -76,6 +76,7 @@ public class Game {
         this.description = description;
         this.releaseDate = releaseDate;
         this.netPrice = netPrice;
+
     }
 
     public String getId() {
@@ -156,6 +157,10 @@ public class Game {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public void setGenres(Set<GameGenre> genres) {
+        this.genres = genres;
     }
 
     public String getPictureUrl() {

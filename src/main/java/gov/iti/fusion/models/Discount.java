@@ -33,12 +33,10 @@ public class Discount {
     }
     public Discount() {}
 
-    public Discount(String id, DiscountType type, Set<Game> games) {
-        this.id = id;
+    public Discount(DiscountType type, Set<Game> games) {
         this.type = type;
         this.games = games;
     }
-
 
     public void setId(String id) {
         this.id = id;
