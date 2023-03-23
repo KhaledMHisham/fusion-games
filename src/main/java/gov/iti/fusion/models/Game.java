@@ -11,7 +11,6 @@ import org.hibernate.annotations.Check;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="games")
@@ -59,7 +58,6 @@ public class Game {
 
     @Column( name = "release_date", nullable = false)
     @Check(constraints = "release_date <= CURRENT_DATE")
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "game")

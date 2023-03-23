@@ -10,6 +10,7 @@ function sucessAddedToCart(element){
     console.log(element.getAttribute("id"));
     element.removeAttribute("onclick");
     element.innerText = "View In Cart";
+    element.classList.add("view-in-cart");
     element.setAttribute("onclick","viewInCart()");
     // btn.ariaDisabled;
 }

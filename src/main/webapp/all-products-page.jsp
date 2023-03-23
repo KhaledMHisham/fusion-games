@@ -13,13 +13,13 @@
   <link href="css/home-page.css" rel="stylesheet" />
   <link href="css/products.css" rel="stylesheet" />
   <link href="css/header.css" rel="stylesheet" />
+  <link href="css/add-to-cart.css" rel="stylesheet" />
 
 </head>
 
 <body class="bg-black">
   <c:if test="${user ne null}">
     <input id="user" hidden value="${user}" />
-
   </c:if>
   <!--Main Navigation-->
   <jsp:include page="header.jsp" />
@@ -210,7 +210,7 @@
                     <c:when test="${user ne null}">
                       <c:choose>
                         <c:when test="${user.getCartItems().contains(game)}">
-                          <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                          <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold view-in-cart float-start w-75 text-cart">View In Cart</a>
                         </c:when>
                         <c:otherwise>
                           <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>

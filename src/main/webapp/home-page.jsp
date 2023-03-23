@@ -13,6 +13,7 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
       <link href="css/home-page.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
+      <link href="css/add-to-cart.css" rel="stylesheet" />
     </head>
 
     <body class="bg-black">
@@ -182,7 +183,7 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn view-in-cart btn-gold float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -230,7 +231,7 @@
                       <c:when test="${user ne null}">
                         <c:choose>
                           <c:when test="${user.getCartItems().contains(game)}">
-                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold view-in-cart float-start w-75 text-cart">View In Cart</a>
                           </c:when>
                           <c:otherwise>
                             <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -273,7 +274,7 @@
                    <a onclick='addToCart(this,"${game.id}")' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                      <c:choose>
                      <c:when test="${user.getCartItems().contains(game)}">
-                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark hover-zoom shadow-0 " >View In Cart</a>
+                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark view-in-cart hover-zoom shadow-0 " >View In Cart</a>
                      </c:when>
                      <c:otherwise>
                    <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
@@ -334,7 +335,7 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold view-in-cart float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>

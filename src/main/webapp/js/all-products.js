@@ -3,7 +3,9 @@ var discounts = [];
 var platforms = [];
 var minPrice = document.getElementById("min-price").value;
 var maxPrice = document.getElementById("max-price").value;
-var user = document.getElementById("user").value;
+var user = null;
+if( document.getElementById("user"))
+    user = document.getElementById("user").value;
 console.log(user);
 filterGenre();
 filterDiscount();
