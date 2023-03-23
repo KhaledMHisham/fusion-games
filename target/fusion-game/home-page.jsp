@@ -112,10 +112,7 @@
               </c:choose>
             </div>
           </div>
-
           <span style="width: 0px; "></span>
-
-          
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
               <c:forEach items="${newReleases}" var="game">

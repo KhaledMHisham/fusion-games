@@ -103,39 +103,39 @@ public class HomeServlet extends HttpServlet {
 
         // genres.add(action);
         // Game game1 = new Game("Subway",10.0,"rahma"
-        // ,"rahma","images/hellblade.jpg","war game using wolfs",LocalDate.now());
+        // ,"rahma","images/hellblade.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
         // gameService.addGenresToGame(game1,genres);
         // gameService.addPlatformsToGame(game1, platforms);
         // game1.setDiscount(premium);
-        // Game game2 = new Game("Pubg",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.now());
+        // Game game2 = new Game("Pubg",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
         // genres.add(adventure);
         // gameService.addGenresToGame(game2,genres);
         // gameService.addPlatformsToGame(game2, platforms);
         // game2.setDiscount(classic);
-        // Game game3 = new Game("Sudden Attack",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.now());
+        // Game game3 = new Game("Sudden Attack",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
         // genres.add(horror);
         // gameService.addGenresToGame(game3,genres);
         // gameService.addPlatformsToGame(game3, platforms);
         // game3.setDiscount(premium);
-        // Game game4 = new Game("Wolf Team",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.now());
+        // Game game4 = new Game("Wolf Team",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
         // genres.add(puzzle);
         // gameService.addGenresToGame(game4,genres);
         // gameService.addPlatformsToGame(game4, platforms);
-        // Game game5 = new Game("Assasswin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/heldlblade.jpg","war game using wolfs",LocalDate.now());
+        // Game game5 = new Game("Assasswin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/heldlblade.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
         // gameService.addGenresToGame(game5,genres);
         // gameService.addPlatformsToGame(game5, platforms);
-        // Game game6 = new Game("Assassin sss Creedd Valhalla Standard Edition",10.0,"rahma","rahma","images/1232.webp","war game using wolfs",LocalDate.now());
+        // Game game6 = new Game("Assassin sss Creedd Valhalla Standard Edition",10.0,"rahma","rahma","images/1232.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
         // gameService.addGenresToGame(game6,genres);
         // gameService.addPlatformsToGame(game6, platforms);
         // game6.setDiscount(free);
-        // Game game7 = new Game("Assassin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.fwebp","war game using wolfs",LocalDate.now());
+        // Game game7 = new Game("Assassin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.fwebp","war game using wolfs",LocalDate.of(2023, 3, 21));
         // genres.remove(puzzle);
         // genres.add(mmo);
         // genres.add(fighting);
         // gameService.addGenresToGame(game7,genres);
         // gameService.addPlatformsToGame(game7, platforms);
         // game7.setDiscount(free);
-        // Game game8= new Game("Assassinn Creed Vaalhalla Standard Ediition",10.0,"rahma","rahma","images/1.jsepg","war game using wolfs",LocalDate.now());
+        // Game game8= new Game("Assassinn Creed Vaalhalla Standard Ediition",10.0,"rahma","rahma","images/1.jsepg","war game using wolfs",LocalDate.of(2023, 3, 21));
         // gameService.addGenresToGame(game8,genres);
         // gameService.addPlatformsToGame(game8, platforms);
 
@@ -181,25 +181,25 @@ public class HomeServlet extends HttpServlet {
         // user.setGender("Male");
         // user.setEmail("Khaled@gmail.com");
         // user.setAdmin(true);
-        // user.setBirthDate(LocalDate.now());
+        // user.setBirthDate(LocalDate.of(2023, 3, 21));
         
         // userService.save(user);
         // //User user = userService.findUserbyEmail("rm1742@fayoum.edu");
         
         // Order order = new Order();
-        // order.setCreatedAt(LocalDate.now());
+        // order.setCreatedAt(LocalDate.of(2023, 3, 21));
         // order.setTotalPrice(20000.0);
         // order.setOrderingUser(user);
         // Order order2 = new Order();
-        // order2.setCreatedAt(LocalDate.now());
+        // order2.setCreatedAt(LocalDate.of(2023, 3, 21));
         // order2.setTotalPrice(20000.0);
         // order2.setOrderingUser(user);
         // Order order3 = new Order();
-        // order3.setCreatedAt(LocalDate.now());
+        // order3.setCreatedAt(LocalDate.of(2023, 3, 21));
         // order3.setTotalPrice(20000.0);
         // order3.setOrderingUser(user);
         // Order order4 = new Order();
-        // order4.setCreatedAt(LocalDate.now());
+        // order4.setCreatedAt(LocalDate.of(2023, 3, 21));
         // order4.setTotalPrice(20000.0);
         // order4.setOrderingUser(user);
 

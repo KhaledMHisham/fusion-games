@@ -54,6 +54,7 @@ const params = new URLSearchParams(window.location.search);
 console.log(params);
 var gameBannerId=document.getElementById("bannerGameId").value;
  function onClickGame(th,gameName,gamePrice,gameDiscount,gameId){
+  
    //var text = th.firstChild.firstChild.childNodes.img.getAttribute('src');
    //document.getElementById("card-banner").style.backgroundImage = "url(images/hellblade.jpg)";
    var gameImgSrc = th.querySelector("#img-src").getAttribute('src');

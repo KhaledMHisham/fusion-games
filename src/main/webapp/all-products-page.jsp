@@ -17,7 +17,10 @@
 </head>
 
 <body class="bg-black">
+  <c:if test="${user ne null}">
+    <input id="user" hidden value="${user}" />
 
+  </c:if>
   <!--Main Navigation-->
   <jsp:include page="header.jsp" />
 
@@ -35,27 +38,7 @@
           <!-- Collapsible wrapper -->
           <div class="collapse d-lg-block bg-black border border-gold mb-5" id="navbarSupportedContent">
             <div class="accordion" id="accordionPanelsStayOpenExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button bg-black text-gold " type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#panelsStayOpen-collapseOne" aria-expanded="true"
-                    aria-controls="panelsStayOpen-collapseOne">
-                    Badges
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show"
-                  aria-labelledby="headingOne">
-                  <div class="accordion-body">
-                    <ul class="list-unstyled">
-                      <li><a href="#" class="text-white">Electronics </a></li>
-                      <li><a href="#" class="text-white">Home items </a></li>
-                      <li><a href="#" class="text-white">Underwears </a></li>
-                      <li><a href="#" class="text-white">Shoes for men </a></li>
-                      <li><a href="#" class="text-white">Accessories </a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+        
               <div class="accordion-item">
                 <h2 class="accordion-header" id="headingTwo">
                   <button class="accordion-button bg-black text-gold" type="button" data-mdb-toggle="collapse"
@@ -70,7 +53,8 @@
                     <div>
                       <c:forEach items="${allGenre}" var="genre">
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked />
+                        <input onclick="filterGenre(this)" class="form-check-input" 
+                        type="checkbox" name="genre" value="${genre.genre.genre}" id="flexCheckChecked1" checked />
                         <label class="form-check-label" for="flexCheckChecked1">${genre.genre.genre}</label>
                       </div>
                       </c:forEach>
@@ -98,7 +82,7 @@
                           Min
                         </p> -->
                         <div class="form-outline">
-                          <input type="number" id="typeNumber" min="0" class="text-white form-control" />
+                          <input  placeholder="Card Number" type="number" id="min-price" min="0" value="0" class="text-white form-control" />
                           <label class="form-label text-white" for="typeNumber">Min</label>
                         </div>
                       </div>
@@ -107,12 +91,12 @@
                           Max
                         </p> -->
                         <div class="form-outline">
-                          <input type="number" id="typeNumber" min="0" class="form-label text-white form-control" />
+                          <input  type="number" id="max-price" min="0" value="1000" class="form-label text-white form-control" />
                           <label class="form-label text-white" for="typeNumber">Max</label>
                         </div>
                       </div>
                     </div>
-                    <a href="#" class="card-btn btn btn-gold w-100 hover-shadow text-cart">Apply</a>
+                    <a onclick="filterPrice(this)" class="card-btn btn btn-gold w-100 hover-shadow text-cart">Apply</a>
                   </div>
                 </div>
               </div>
@@ -127,18 +111,23 @@
                 <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
                   aria-labelledby="headingThree">
                   <div class=" accordion-body">
-                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check1" checked
+                    <input onclick="filterDiscount(this)" type="checkbox" name="discount" value="15"
+                    class="btn-check border justify-content-center" id="btn-check1" checked
                       autocomplete="off" />
                     <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">15%</label>
-                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check2" checked
+                    <input onclick="filterDiscount(this)" type="checkbox" name="discount" 
+                    class="btn-check border justify-content-center" id="btn-check2" checked value="50"
                       autocomplete="off" />
                     <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">50%</label>
-                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check3" checked
+                    <input onclick="filterDiscount(this)" type="checkbox" name="discount" 
+                    class="btn-check border justify-content-center" id="btn-check3" checked value="85"
                       autocomplete="off" />
                     <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">85%</label>
-                    <input type="checkbox" class="btn-check border justify-content-center" id="btn-check4" checked
+                    <input onclick="filterDiscount(this)" type="checkbox" name="discount" 
+                    class="btn-check border justify-content-center" id="btn-check4" checked value="100"
                       autocomplete="off" />
-                    <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check4">100%</label>
+                    <label onclick="filterDiscount(this)" class="btn btn-white mb-1 px-1" 
+                    style="width: 60px;" for="btn-check4">100%</label>
                   </div>
                 </div>
               </div>
@@ -156,18 +145,26 @@
                     <div>
                       <!-- Checked checkbox -->
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" checked />
+                        <input onclick="filterPlatform(this)" class="form-check-input" name="platform" type="checkbox" value="Windows"
+                         id="flexCheckChecked1" checked />
                         <label class="form-check-label" for="flexCheckChecked1">Windows OS</label>
                       </div>
                       <!-- Checked checkbox -->
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked2" checked />
+                        <input onclick="filterPlatform(this)" class="form-check-input" name="platform" type="checkbox" value="Mac OS" 
+                        id="flexCheckChecked2" checked />
                         <label class="form-check-label" for="flexCheckChecked2">Mac OS</label>
                       </div>
                       <!-- Checked checkbox -->
                       <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" checked />
+                        <input onclick="filterPlatform(this)" class="form-check-input" name="platform" type="checkbox" value="Linux"
+                         id="flexCheckChecked3" checked />
                         <label class="form-check-label" for="flexCheckChecked3">Linux OS</label>
+                      </div>
+                      <div class="form-check">
+                        <input onclick="filterPlatform(this)" class="form-check-input" name="platform" type="checkbox" value="XBOX" 
+                        id="flexCheckChecked3" checked />
+                        <label class="form-check-label" for="flexCheckChecked3">XBOX</label>
                       </div>
                       <!-- Checked checkbox -->
 
@@ -175,64 +172,14 @@
                   </div>
                 </div>
               </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button bg-black text-gold" type="button" data-mdb-toggle="collapse"
-                    data-mdb-target="#panelsStayOpen-collapseFive" aria-expanded="false"
-                    aria-controls="panelsStayOpen-collapseFive">
-                    Ratings
-                  </button>
-                </h2>
-                <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse show"
-                  aria-labelledby="headingThree">
-                  <div class="accordion-body">
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                      <label class="form-check-label" for="flexCheckDefault">
-                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
-                          class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                      </label>
-                    </div>
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                      <label class="form-check-label" for="flexCheckDefault">
-                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
-                          class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-secondary"></i>
-                      </label>
-                    </div>
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                      <label class="form-check-label" for="flexCheckDefault">
-                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
-                          class="fas fa-star text-warning"></i><i class="fas fa-star text-secondary"></i>
-                        <i class="fas fa-star text-secondary"></i>
-                      </label>
-                    </div>
-                    <!-- Default checkbox -->
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked />
-                      <label class="form-check-label" for="flexCheckDefault">
-                        <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
-                          class="fas fa-star text-secondary"></i><i class="fas fa-star text-secondary"></i>
-                        <i class="fas fa-star text-secondary"></i>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
+
             </div>
           </div>
         </div>
         <!-- sidebar -->
         <!-- content -->
         <div class="col-lg-9">
-
-          <div class="row">
+          <div id="game-grid-container" class="row">
             <c:forEach items="${allGames}" var="game">
             <div class="col-lg-4 col-md-6 col-sm-6">
               <div class="card my-3 shadow-0 bg-black border ">
@@ -283,9 +230,6 @@
               </div>
             </div>
             </c:forEach>
-            
-            
-          
           </div>
           <hr />
           <!-- Pagination -->
@@ -460,6 +404,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
   <script type="text/javascript" src="js/header.js"></script>
   <script type="text/javascript" src="js/add-to-cart.js"></script>
+  <script type="text/javascript" src="js/all-products.js"></script>
 
 </body>
 

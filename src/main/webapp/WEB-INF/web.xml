@@ -117,6 +117,16 @@
     <url-pattern>/cart</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>FilterGamesServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.FilterGamesServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>FilterGamesServlet</servlet-name>
+    <url-pattern>/user/filter-games</url-pattern>
+  </servlet-mapping>
+
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
   </listener>

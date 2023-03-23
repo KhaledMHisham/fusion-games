@@ -28,13 +28,13 @@
                  </c:choose>
                   
               </a>
-              <a href="https://github.com/mdbootstrap/bootstrap-material-design"
-                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+              <a href="cart"
+                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" > <i
                   class="fas fa-heart m-1 me-md-2 text-gold"></i>
                 <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
               </a>
               <a href="cart"
-                class="py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                   class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
                 <p class="d-none d-md-block mb-0 text-gold">My cart</p>
               </a>
@@ -112,7 +112,7 @@
             <a class="nav-link " href="all-products">Browse</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Menu name</a>
+            <a class="nav-link" href="cart">Library</a>
           </li>
         </ul>
         <!-- Left links -->
