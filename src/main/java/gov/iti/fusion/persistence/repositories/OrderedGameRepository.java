@@ -9,4 +9,5 @@ public class OrderedGameRepository extends CrudRepository<OrderedGame, OrderedGa
         super(request);
     }
 
+    
 }

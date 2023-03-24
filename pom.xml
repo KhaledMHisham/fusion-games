@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>gov.iti.fusion</groupId>
-  <artifactId>fusion-game</artifactId>
+  <artifactId>module-info</artifactId>
   <version>1.0</version>
   <packaging>war</packaging>
 
@@ -90,6 +90,21 @@
       <version>2.8.9</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>2.15.0-rc1</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.json.bind</groupId>
+      <artifactId>jakarta.json.bind-api</artifactId>
+      <version>3.0.0</version>
+      </dependency>
+      <dependency>
+          <groupId>org.eclipse</groupId>
+          <artifactId>yasson</artifactId>
+          <version>3.0.2</version>
+          </dependency>
   </dependencies>
 
   <build>

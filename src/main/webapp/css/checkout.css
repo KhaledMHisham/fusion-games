@@ -8,7 +8,7 @@ body {
     width: 100%;
     overflow-x: hidden;
     color: rgb(245, 245, 245);
-    background: rgb(53, 52, 52);
+    background: rgb(0, 0, 0);
 }
 
 /****************************** GOLD THEME ***************************/
@@ -17,7 +17,7 @@ body {
 }
 
 .bg-gold {
-    background-color: #f5b80f !important;
+    color: #f5b80f !important
 }
 
 .border-gold {
@@ -27,12 +27,9 @@ body {
 .btn-gold {
     background-color: #f5b80f !important;
 }
-.btn:hover {
-    color: black;
-    }
 
 .bg-main {
-    background: rgb(53, 52, 52) !important;
+    background: rgb(53, 52, 52);
 }
 
 .search-label {
@@ -41,6 +38,8 @@ body {
     padding: 0 5px;
     transform: translateY(10%);
 }
+
+
 
 /****************************** GOLD THEME ***************************/
 /****************************** FORM NOTCHES **************************/
@@ -55,9 +54,7 @@ body {
 .form-notch .form-notch-trailing {
     border-color: #f5b80f !important;
 }
-.form-outline{
-    width: auto !important;
-}
+
 .form-outline .form-control:focus~.form-notch .form-notch-leading {
     border-color: #f5b80f !important;
     box-shadow: none;
@@ -85,13 +82,6 @@ body {
     color: #f5b80f !important;
 }
 
-.account-control-item:hover  {
-    background-color: #f5b80f !important;
-}
-
-.account-control-item:hover p{
-    color: black;
-}
 /****************************** ICON HOVERS ***************************/
 
 /****************************** NAVABR LINK / ITEMS HOVERS ***************************/
@@ -103,7 +93,6 @@ body {
     color: gold !important;
 } */
 /****************************** NAVABR LINK / ITEMS HOVERS ***************************/
-
 #search-input:focus+#search-label {
     color: #f5b80f !important;
 }
@@ -114,12 +103,12 @@ body {
 }
 
 .page-offset {
-    margin: 200px;
+    margin: 170px;
 }
 
 .card:hover {
     transform: scale(1.02);
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.12), 0 4px 8px rgba(255, 255, 255, 0.06);
+    box-shadow: 0 10px 20px -10px rgba(255, 255, 255, 0.12), 0 4px 8px rgba(255, 255, 255, 0.06);
     color: goldenrod;
 }
 
@@ -142,11 +131,11 @@ body {
 }
 
 .arrow-left {
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .arrow-right {
-    margin-left: 2px;
+    margin-left: 10px;
 }
 
 .text-cart {
@@ -158,31 +147,75 @@ body {
     color: #f5b80f !important;
     background-color: rgb(53, 52, 52) !important;
 }
-/* .card{
-    min-height: 430px;
-} */
-/* .card-footer{
-    position: inherit;
-    bottom: -25px;
-} */
+
+.form-card-style{
+    border-color: #f5b80f;
+    border-width: 2px;
+    border-radius: 50%;
+}
 .card-banner {
-    min-height: 400px;
+    min-height: 200px;
     background-size: cover;
     background-position: center;
     width: 100%;
     background-repeat: no-repeat;
-    /* top: 50%; */
-    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8) 0%, rgba(128, 128, 128, 0.5) 50%, transparent 100%);
-    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(128, 128, 128, 1) 50%, transparent 100%);
-    background-image: url(../images/12.webp);
+    top: 50%;
+    -webkit-mask-image: linear-gradient(black, transparent);
+    mask-image: linear-gradient(black, transparent);
+    background-image: url(../images/1.webp);
 }
 
-.card-banner-desc{
-    bottom: 15%;
+.btn-gold {
+    align-items: center;
 }
-.banner-desc{
-    bottom: 5%;
+.text-white{
+    color: #ffff;
 }
+.checkout-style:hover {
+    transform: scale(1);
+}
+.bg-main2 {
+    background: rgb(0, 0, 0);
+}
+.text-white{
+    color : #ffff;
+}
+.cart-info-style{
+   padding: 1.5rem!important;
+   box-sizing: border-box;
+}
+.keep-me-up-checkbtn {
+
+    background-color: #332d2d;
+    border: 0.125rem solid #f5b80f;
+}
+.keep-me-up-checkbtn[type=checkbox]:checked:after {
+    display: block;
+    transform: rotate(45deg) /*!rtl:ignore;; */;
+    width: 0.375rem;
+    height: 0.8125rem;
+    border: 0.125rem solid #f5b80f;
+    border-top: 0;
+    border-left: 0 /*!rtl:ignore;; */;
+    margin-left: 0.25rem;
+    margin-top: -1px;
+    background-color: transparent;
+}
+
+.keep-me-up-checkbtn[type=checkbox]:checked {
+    background-image: none;
+    background-color: #332d2d;
+}
+.form-check-input[type=checkbox]:checked:focus {
+    background-color: #332d2d;
+}
+.form-check-input:checked {
+    border-color: #f5b80f;
+}
+.checout-border{
+    border-radius : 2%;
+}
+
 
 
 

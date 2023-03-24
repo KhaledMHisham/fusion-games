@@ -7,6 +7,8 @@ import java.util.UUID;
 import com.mysql.cj.x.protobuf.MysqlxCrud.Limit;
 
 import gov.iti.fusion.models.Game;
+import gov.iti.fusion.models.Genre;
+import gov.iti.fusion.models.User;
 import jakarta.persistence.Query;
 import jakarta.servlet.http.HttpServletRequest;
 
@@ -42,5 +44,20 @@ public class GameRepository extends CrudRepository<Game, String>{
         Query query = entityManager.createQuery(jpql, List.class);
         return ((List<Game>) query.getResultList());
     }
-    
+    public List<Game> findMostOrderedGames(int limit){
+
+        String jpql = "select g from Game g"+ 
+                        " join(SELECT og.id.gameId ogid, count(og.id.gameId) coun FROM OrderedGame og"+
+                        " group by (og.id.gameId)) c on c.ogid = g.id order by c.coun desc ";
+        Query query = entityManager.createQuery(jpql, List.class);
+        return ((List<Game>) query.setMaxResults(limit).getResultList());
+    }
+    public List<Game> findRecomendedGamesForUser(User user,int limit){
+        List<Game> wishListUserGames = user.getWishList();
+        List<Genre> genresWishGames = wishListUserGames.stream().flatMap(g -> g.getGenres().stream()).toList(); 
+        String jpql = "SELECT g FROM Game g JOIN g.genres.genre genr WHERE genr IN (:genres) ";
+        Query query = entityManager.createQuery(jpql, List.class);
+        query.setParameter("genres", genresWishGames);
+        return ((List<Game>) query.setMaxResults(limit).getResultList());
+    }
 }

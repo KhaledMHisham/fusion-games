@@ -1,0 +1,22 @@
+.btn-black{
+    border: var(--mdb-border-width) var(--mdb-border-style) var(--mdb-border-color)!important;
+    background-color: black !important;
+
+}
+.btn-black:hover{
+        color: #f5b80f !important;
+}
+
+.hover-black:hover {
+    color: black !important;
+}
+
+.cart-icon:hover {
+    color: #f5b80f !important;
+}
+.cart-icon {
+    cursor: pointer;
+}
+
+
+

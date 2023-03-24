@@ -244,6 +244,172 @@ public class HomeServlet extends HttpServlet {
 //        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
 //        System.out.println(gamesOnSale.size()+"===================================================================");
 //        request.getRequestDispatcher("home-page.jsp").forward(request, response);
+        // genres.add(action);
+        // Game game1 = new Game("Subway",10.0,"rahma"
+        // ,"rahma","images/hellblade.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // gameService.addGenresToGame(game1,genres);
+        // gameService.addPlatformsToGame(game1, platforms);
+        // game1.setDiscount(premium);
+        // Game game2 = new Game("Pubg",10.0,"rahma","rahma","images/12.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // genres.add(adventure);
+        // gameService.addGenresToGame(game2,genres);
+        // gameService.addPlatformsToGame(game2, platforms);
+        // game2.setDiscount(classic);
+        // Game game3 = new Game("Sudden Attack",10.0,"rahma","rahma","images/1.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // genres.add(horror);
+        // gameService.addGenresToGame(game3,genres);
+        // gameService.addPlatformsToGame(game3, platforms);
+        // game3.setDiscount(premium);
+        // Game game4 = new Game("Wolf Team",10.0,"rahma","rahma","images/1.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // genres.add(puzzle);
+        // gameService.addGenresToGame(game4,genres);
+        // gameService.addPlatformsToGame(game4, platforms);
+        // Game game5 = new Game("Assasswin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/heldlblade.jpg","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // gameService.addGenresToGame(game5,genres);
+        // gameService.addPlatformsToGame(game5, platforms);
+        // Game game6 = new Game("Assassin sss Creedd Valhalla Standard Edition",10.0,"rahma","rahma","images/1232.webp","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // gameService.addGenresToGame(game6,genres);
+        // gameService.addPlatformsToGame(game6, platforms);
+        // game6.setDiscount(free);
+        // Game game7 = new Game("Assassin Creed Valhalla Standard Edition",10.0,"rahma","rahma","images/1.fwebp","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // genres.remove(puzzle);
+        // genres.add(mmo);
+        // genres.add(fighting);
+        // gameService.addGenresToGame(game7,genres);
+        // gameService.addPlatformsToGame(game7, platforms);
+        // game7.setDiscount(free);
+        // Game game8= new Game("Assassinn Creed Vaalhalla Standard Ediition",10.0,"rahma","rahma","images/1.jsepg","war game using wolfs",LocalDate.of(2023, 3, 21));
+        // gameService.addGenresToGame(game8,genres);
+        // gameService.addPlatformsToGame(game8, platforms);
+
+
+        // // platformService.save(linux);
+        // // platformService.save(windows);
+        // // platformService.save(xbox);
+        // // genreService.save(action);
+        // // genreService.save(puzzle);
+        // // genreService.save(mmo);
+        // // genreService.save(horror);
+        // // genreService.save(fighting);
+        // // genreService.save(adventure);
+
+        // mainGames.add(game1);
+        // mainGames.add(game2);
+        // mainGames.add(game3);
+        // mainGames.add(game4);
+        // mainGames.add(game5);
+        // mainGames.add(game6);
+        // mainGames.add(game7);
+        // mainGames.add(game8);
+
+    
+        // // gameService.save(game1);
+        // // gameService.save(game2);
+        // // gameService.save(game3);
+        // // gameService.save(game4);
+        // // gameService.save(game5);
+        // // gameService.save(game6);
+        // // gameService.save(game7);
+        // // gameService.save(game8);
+
+        // User user = new User();
+        // user.setUsername("khaledhisham");
+        // user.setFirstName("khaled");
+        // user.setLastName("hisham");
+        // user.setPassword("password");
+        // user.setCountry("Egypt");
+        // user.setSalt("SALT");
+        // user.setPassword("PASSWORD");
+        // user.setPhoneNumber("01278158298");
+        // user.setGender("Male");
+        // user.setEmail("Khaled@gmail.com");
+        // user.setAdmin(true);
+        // user.setBirthDate(LocalDate.of(2023, 3, 21));
+        
+        // userService.save(user);
+        // //User user = userService.findUserbyEmail("rm1742@fayoum.edu");
+        
+        // Order order = new Order();
+        // order.setCreatedAt(LocalDate.of(2023, 3, 21));
+        // order.setTotalPrice(20000.0);
+        // order.setOrderingUser(user);
+        // Order order2 = new Order();
+        // order2.setCreatedAt(LocalDate.of(2023, 3, 21));
+        // order2.setTotalPrice(20000.0);
+        // order2.setOrderingUser(user);
+        // Order order3 = new Order();
+        // order3.setCreatedAt(LocalDate.of(2023, 3, 21));
+        // order3.setTotalPrice(20000.0);
+        // order3.setOrderingUser(user);
+        // Order order4 = new Order();
+        // order4.setCreatedAt(LocalDate.of(2023, 3, 21));
+        // order4.setTotalPrice(20000.0);
+        // order4.setOrderingUser(user);
+
+        // orderService.addGameToOrder(order, game1);
+        // orderService.addGameToOrder(order, game2);
+        // orderService.addGameToOrder(order, game3);
+
+        // orderService.addGameToOrder(order2, game1);
+        // orderService.addGameToOrder(order2, game5);
+        // orderService.addGameToOrder(order2, game3);
+
+        // orderService.addGameToOrder(order3, game1);
+        // orderService.addGameToOrder(order3, game4);
+        // orderService.addGameToOrder(order3, game3);
+
+        // orderService.addGameToOrder(order4, game1);
+        // orderService.addGameToOrder(order4, game2);
+
+
+
+        // userService.addGameToCart(user, game1);
+        // userService.addGameToCart(user, game2);
+        // userService.addGameToCart(user, game3);
+        
+
+        List<Game> allGames = new ArrayList<>();
+        List<Game> gamesWithoutDiscount = new ArrayList<>();
+        List<Game> new5Games = new ArrayList<>();
+        List<Game> free2Games = new ArrayList<>();
+        List<Game> gamesOnSale = new ArrayList<>();
+        List<Game> mostOrderdGame = new ArrayList<>();
+        List<Game> recomndedGames = new ArrayList<>();
+
+
+        allGames = gameService.findAllGames();
+        gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
+        // if(gamesWithoutDiscount.size()>15)
+        //     gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
+
+        new5Games = gameService.findTopNewer(4);
+        free2Games = gameService.findFreeGames(2);
+        gamesOnSale = gameService.findGamesOnSale();
+
+
+        if(request.getAttribute("user") != null){
+            recomndedGames = gameService.findRecomendedGamesForUser((User)request.getAttribute("user"), 4);
+            //recomndedGames.stream().flatMap(g->g.getGenres().stream().map(ge->ge.getGenre().getGenre())).forEach(g->System.out.println(g));
+        }else{
+            recomndedGames = getRandomElements(allGames);
+            recomndedGames = recomndedGames.subList(0, 4);
+        }
+
+        if(gamesOnSale.size()>15)
+            gamesOnSale = getRandomElements(gameService.findGamesOnSale());
+
+        mostOrderdGame = gameService.findMostOrderedGames(12);
+        request.setAttribute("allGames",allGames);
+        request.setAttribute("weHave",gamesWithoutDiscount);
+        request.setAttribute("newReleases",new5Games);
+        request.setAttribute("freeGames",free2Games);
+        request.setAttribute("gamesOnSale",gamesOnSale);
+        request.setAttribute("mostPurchased",mostOrderdGame);
+        request.setAttribute("recomndedGames",recomndedGames);
+        // System.out.println(mostOrderdGame);
+        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
+        System.out.println(gamesOnSale.size()+"===================================================================");
+        request.getRequestDispatcher("home-page.jsp").forward(request, response);
     }
     public List<Game>getRandomElements(List<Game> list)
     {

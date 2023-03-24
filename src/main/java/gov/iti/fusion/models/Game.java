@@ -11,6 +11,7 @@ import org.hibernate.annotations.Check;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 
+
 @Entity
 @Table(name="games")
 public class Game {
@@ -86,6 +87,15 @@ public class Game {
         this.description = description;
         this.releaseDate = releaseDate;
         this.netPrice = price;
+        try {
+            releaseDate.getClass().getField("year").setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public String getId() {

@@ -24,7 +24,7 @@ public class RequestListener implements ServletRequestListener  {
         EntityManager entityManager = JpaManagerSingleton.INSTANCE.getEntityManagerFactory().createEntityManager();
         httpServletRequest.setAttribute("EntityManager", entityManager);
         httpServletRequest.setAttribute("user", null);
-        if(cookie != null){
+        if(cookie != null){ 
             try {
                 JwtClaims jwtClaims = JWTManagerSingleton.INSTANCE.validateToken(cookie.getValue(), httpServletRequest.getRemoteAddr());
                 User user = entityManager.find(User.class, jwtClaims.getSubject());
@@ -35,6 +35,8 @@ public class RequestListener implements ServletRequestListener  {
                 System.out.println("Unknown Host in Request Listener");
                 throw new RuntimeException();
             } catch (MalformedClaimException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
                 throw new RuntimeException(e);
             }
         }
