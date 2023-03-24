@@ -48,26 +48,26 @@ public class Game {
     private Double netPrice;
 
     @OneToMany(mappedBy = "game")
-    private Set<LibraryItem> libraryItems;
+    private Set<LibraryItem> owners;
 
     @OneToMany(mappedBy = "game")
     private Set<WishItem> wishItems;
 
     @OneToMany(mappedBy = "game")
-    private Set<CartItem> cartItems;
+    private Set<CartItem> carts;
 
     @OneToMany(mappedBy = "game")
-    private Set<OrderedGame> orderedGames;
+    private Set<OrderedGame> orders;
 
     @Column( name = "release_date", nullable = false)
     @Check(constraints = "release_date <= CURRENT_DATE")
     private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "game")
-    private Set<GameGenre> gameGenres;
+    private Set<GameGenre> genres;
 
     @OneToMany(mappedBy = "game")
-    private Set<PlatformGame> platformGames;
+    private Set<PlatformGame> platforms;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "minimum_spec_id", nullable = false)
@@ -76,6 +76,7 @@ public class Game {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "recommended_spec_id", nullable = false)
     private GameSpec recommendedSpec;
+
     public Game() {}
 
     public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
@@ -201,22 +202,22 @@ public class Game {
         return Collections.unmodifiableList(wishItems.stream().map(WishItem::getUser).toList());
     }
     public List<Genre> getGenres() {
-        return Collections.unmodifiableList(gameGenres.stream().map(GameGenre::getGenre).toList());
+        return Collections.unmodifiableList(genres.stream().map(GameGenre::getGenre).toList());
     }
 
     public List<User> getOwners() {
-        return Collections.unmodifiableList(libraryItems.stream().map(LibraryItem::getUser).toList());
+        return Collections.unmodifiableList(owners.stream().map(LibraryItem::getUser).toList());
     }
 
     public List<User> getUsersFromCarts() {
-        return Collections.unmodifiableList(cartItems.stream().map(CartItem::getUser).toList());
+        return Collections.unmodifiableList(carts.stream().map(CartItem::getUser).toList());
     }
 
     public List<Order> getOrders() {
-        return Collections.unmodifiableList(orderedGames.stream().map(OrderedGame::getOrder).toList());
+        return Collections.unmodifiableList(orders.stream().map(OrderedGame::getOrder).toList());
     }
     public List<Platform> getPlatfomrs() {
-        return Collections.unmodifiableList(platformGames.stream().map(PlatformGame::getPlatform).toList());
+        return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
     }
     public GameSpec getMinimumSpec() {
         return minimumSpec;
@@ -235,7 +236,7 @@ public class Game {
     }
 
     public Set<LibraryItem> getLibraryItems() {
-        return libraryItems;
+        return owners;
     }
 
     public Set<WishItem> getWishItems() {
@@ -243,25 +244,25 @@ public class Game {
     }
 
     public Set<CartItem> getCartItems() {
-        return cartItems;
+        return carts;
     }
 
     public Set<OrderedGame> getOrderedGames() {
-        return orderedGames;
+        return orders;
     }
 
     public Set<PlatformGame> getPlatformGames() {
-        return platformGames;
+        return platforms;
     }
 
     public Set<GameGenre> getGameGenres() {
-        return gameGenres;
+        return genres;
     }
 
     @Override
     public String toString() {
         return "Game [id=" + id + ", name=" + name + ", price=" + price + ", developer=" + developer + ", publisher="
                 + publisher + ", pictureUrl=" + pictureUrl + ", description=" + description + ", releaseDate="
-                + releaseDate + ", discount=" + discount + ", genres=" + gameGenres + ", platforms=" + platformGames + "]";
+                + releaseDate + ", discount=" + discount + ", genres=" + genres + ", platforms=" + platforms + "]";
     }
 }
