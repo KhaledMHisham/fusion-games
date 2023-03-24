@@ -30,7 +30,7 @@
             <div class="col-10">
 
               <div class="d-flex justify-content-between align-items-center mb-4">
-                <h3 class="fw-normal mb-0 text-black">Owned Games</h3>
+                <h3 class="fw-normal mb-0 text-gold">Owned Games</h3>
                 <div>
                   <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
                         class="fas fa-angle-down mt-1"></i></a></p>
