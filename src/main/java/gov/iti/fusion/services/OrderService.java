@@ -7,7 +7,7 @@ import gov.iti.fusion.persistence.repositories.OrderRepository;
 import gov.iti.fusion.persistence.repositories.OrderedGameRepository;
 import jakarta.servlet.http.HttpServletRequest;
 
-import java.util.Collection;
+import java.util.List;
 
 public class OrderService {
 
@@ -28,10 +28,17 @@ public class OrderService {
     }
 
     public void addGameToOrder( Order order,Game game){
+
         OrderedGame orderedGame = new OrderedGame(game, order);
+        Double totalPrice= order.getTotalPrice();
+        totalPrice+=game.getNetPrice();
+        order.setTotalPrice(totalPrice);
         orderedGameRepository.save(orderedGame);
+
     }
-    public void addGamesToOrder(Order order, Collection<Game> games){
+
+    
+    public void addGamesToOrder(Order order, List<Game> games){
         for(Game game : games){
             addGameToOrder(order, game);
         }

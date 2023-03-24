@@ -9,6 +9,7 @@ import jakarta.persistence.Query;
 public abstract class CrudRepository<T, Id> {
 
     protected EntityManager entityManager;
+    // protected CriteriaBuilder criteriaBuilder;
     
     protected CrudRepository(HttpServletRequest request) {
         this.entityManager = (EntityManager) request.getAttribute("EntityManager");

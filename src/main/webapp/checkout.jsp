@@ -220,9 +220,6 @@
         </div>
 
 
-
-
-
           <!-- Checkout -->
         </div>
         <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end text-gold">
@@ -290,22 +287,6 @@
       </div>
     </div>
   </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

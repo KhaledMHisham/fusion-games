@@ -1,0 +1,105 @@
+.input-style {
+    color: #f5b80f !important;
+}
+
+.form-notch .form-notch-middle {
+    border-color: #f5b80f !important;
+}
+
+.form-notch .form-notch-leading {
+    border-color: #f5b80f !important;
+}
+
+.form-notch .form-notch-trailing {
+    border-color: #f5b80f !important;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+    border-color: #f5b80f !important;
+    box-shadow: none;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+    border-color: #f5b80f !important;
+    box-shadow: none;
+    border-top: 0px;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+    border-color: #f5b80f !important;
+    box-shadow: none;
+}
+
+.border-gold {
+    border-color: #f5b80f !important;
+}
+
+.border-gold2 {
+    border-color: #f5b80f !important;
+
+}
+
+.border-white {
+    border-color: #ffff !important;
+    border-width: 3cm;
+
+}
+
+.bg-white {
+    background-color: #ffff;
+    /* width: 1px; */
+    border-color: #ffff;
+    border-width: 1px;
+}
+
+
+.input-label {
+    background-color: #332d2d;
+    z-index: 1;
+    padding: 0px;
+    transform: translateY(5%);
+}
+
+.button-gold {
+    background-color: #f5b80f !important;
+    color: white;
+}
+
+.btn-gold {
+    background-color: #f5b80f !important;
+}
+
+.text-gold {
+    color: #f5b80f !important;
+}
+
+.margining {
+    margin-right: 0%;
+    margin-top: 1%;
+}
+
+.context-border {
+    margin-left: 3%;
+}
+
+.border-margin {
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.btn-gold {
+    color: #f5b80f;
+}
+
+@media (min-width: 410px) {
+    .flexy {
+
+        flex: 0 0 auto;
+        width: 20%;
+    }
+}
+
+.font-size {
+    font-size: 100%;
+}
+

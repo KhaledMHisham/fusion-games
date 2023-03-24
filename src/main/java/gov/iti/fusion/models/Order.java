@@ -24,8 +24,8 @@ public class Order {
     @Column(name = "total_price", nullable = false)
     private Double totalPrice;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", nullable = true)
     private User orderingUser;
 
 
@@ -33,9 +33,14 @@ public class Order {
     private Set<OrderedGame> orderedGames;
 
     
-    public Order(LocalDate createdAt, Double totalPrice) {
+    // public Order(LocalDate createdAt, Double totalPrice) {
+    //     this.createdAt = createdAt;
+    //     this.totalPrice = totalPrice;
+    // }
+
+    public Order( LocalDate createdAt) {
         this.createdAt = createdAt;
-        this.totalPrice = totalPrice;
+       
     }
 
     public Order() {}

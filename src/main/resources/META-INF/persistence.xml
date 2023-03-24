@@ -3,16 +3,20 @@
     xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
     version="3.0">
     <persistence-unit name="fusion" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
         <class>gov.iti.fusion.models.Game</class>
         <class>gov.iti.fusion.models.Genre</class>
         <class>gov.iti.fusion.models.Discount</class>
         <class>gov.iti.fusion.models.Platform</class>
         <properties>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fusion_games"/>
-            <property name="jakarta.persistence.jdbc.user" value="fusion"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:mysql://localhost/fusion_games"/>
+            <property name="jakarta.persistence.jdbc.user" value="sara"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-            <property name="jakarta.persistence.jdbc.password" value="fusion"/>
-            <!-- <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/> -->
+            <property name="jakarta.persistence.jdbc.password" value="1234"/>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="drop-and-create"/>-->
+            <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
+
             <property name="hibernate.show_sql" value="true" />
             <property name="hibernate.format_sql" value="true" />
             </properties>

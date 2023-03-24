@@ -26,6 +26,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>orderPage</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.OrderServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>orderPage</servlet-name>
+    <url-pattern>/order</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>ProductsDetails</servlet-name>
     <servlet-class>gov.iti.fusion.servlets.ProductDetailsServlet</servlet-class>
   </servlet>

@@ -13,6 +13,11 @@ public class OrderedGameId implements Serializable {
     @Column(name = "game_id", nullable = false)
     private String gameId;
 
+    public OrderedGameId(String gameId, String orderId) {
+        this.gameId = gameId;
+        this.orderId = orderId;
+    }
+
     @Column(name = "order_id", nullable = false)
     private String orderId;
 

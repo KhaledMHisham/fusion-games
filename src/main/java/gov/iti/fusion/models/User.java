@@ -69,6 +69,9 @@ public class User {
     @OneToMany(mappedBy = "user")
     private Set<CartItem> cartItems;
 
+    @Column (name= "credit_Limit")
+    private Double creditLimit;
+
     
     public User() {}
     
@@ -194,6 +197,16 @@ public class User {
     public List<Game> getCartItems(){
         return Collections.unmodifiableList(cartItems.stream().map(CartItem::getGame).toList());
     }
+
+    public Double getCreditLimit() {
+        return creditLimit;
+    }
+
+
+    public void setCreditLimit(Double creditLimit) {
+        this.creditLimit = creditLimit;
+    }
+
 
     public List<Game> getOwnedGames(){
             return Collections.unmodifiableList(library.stream().map(LibraryItem::getGame).toList());

@@ -75,7 +75,7 @@ public class Game {
 
     public Game() {}
 
-    public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
+    public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, Double netPrice,LocalDate releaseDate) {
         this.name = name;
         this.price = price;
         this.developer = developer;
@@ -83,7 +83,8 @@ public class Game {
         this.pictureUrl = pictureUrl;
         this.description = description;
         this.releaseDate = releaseDate;
-        this.netPrice = price;
+        this.netPrice = netPrice;
+
     }
 
     public String getId() {
@@ -166,6 +167,9 @@ public class Game {
         this.publisher = publisher;
     }
 
+    public void setGenres(Set<GameGenre> genres) {
+        this.genres = genres;
+    }
 
     public String getPictureUrl() {
         return pictureUrl;
@@ -181,23 +185,25 @@ public class Game {
     public List<User> getWishingUsers() {
         return Collections.unmodifiableList(wishItems.stream().map(WishItem::getUser).toList());
     }
+
+
     public List<Genre> getGenres() {
         return Collections.unmodifiableList(genres.stream().map(GameGenre::getGenre).toList());
     }
+
 
     public List<User> getOwners() {
         return Collections.unmodifiableList(owners.stream().map(LibraryItem::getUser).toList());
     }
 
+
     public List<User> getUsersFromCarts() {
         return Collections.unmodifiableList(carts.stream().map(CartItem::getUser).toList());
     }
 
+
     public List<Order> getOrders() {
         return Collections.unmodifiableList(orders.stream().map(OrderedGame::getOrder).toList());
-    }
-    public List<Platform> getPlatfomrs() {
-        return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
     }
 
     @Override
