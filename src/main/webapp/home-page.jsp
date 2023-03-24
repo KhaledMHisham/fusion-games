@@ -87,7 +87,10 @@
       <div class="container">
         <div class="row justify-content-around mx-2 my-5">
           <header class="mb-4">
+            <c:if test="${user ne null}">
             <h3 class="text-gold">Just For You</h3>
+          </c:if>
+         
           </header>
 
           <div class="position-relative col-lg-7 col-md-12 col-sm-12">
@@ -116,7 +119,7 @@
           <span style="width: 0px; "></span>
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
-              <c:forEach items="${newReleases}" var="game">
+              <c:forEach items="${recomndedGames}" var="game">
                 <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}","${game.id}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
                   <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                     <div class="card-body">
@@ -139,7 +142,7 @@
       <div class="container my-5">
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
-          <h3 class="text-gold ">Most Purchased</h3>
+          <h3 class="text-gold ">Most Popular</h3>
           <c:if test="${fn:length(mostPurchased) > 3}" >
           <div class="row arrows-BestSellerList">
             <div class="arrow mx-2 arrow-left-BestSellerList">

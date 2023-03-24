@@ -231,15 +231,26 @@ public class HomeServlet extends HttpServlet {
         List<Game> free2Games = new ArrayList<>();
         List<Game> gamesOnSale = new ArrayList<>();
         List<Game> mostOrderdGame = new ArrayList<>();
+        List<Game> recomndedGames = new ArrayList<>();
+
 
         allGames = gameService.findAllGames();
         gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
-        if(gamesWithoutDiscount.size()>15)
-            gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
+        // if(gamesWithoutDiscount.size()>15)
+        //     gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
 
         new5Games = gameService.findTopNewer(4);
         free2Games = gameService.findFreeGames(2);
         gamesOnSale = gameService.findGamesOnSale();
+
+
+        if(request.getAttribute("user") != null){
+            recomndedGames = gameService.findRecomendedGamesForUser((User)request.getAttribute("user"), 4);
+            //recomndedGames.stream().flatMap(g->g.getGenres().stream().map(ge->ge.getGenre().getGenre())).forEach(g->System.out.println(g));
+        }else{
+            recomndedGames = getRandomElements(allGames);
+            recomndedGames = recomndedGames.subList(0, 4);
+        }
 
         if(gamesOnSale.size()>15)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
@@ -251,6 +262,7 @@ public class HomeServlet extends HttpServlet {
         request.setAttribute("freeGames",free2Games);
         request.setAttribute("gamesOnSale",gamesOnSale);
         request.setAttribute("mostPurchased",mostOrderdGame);
+        request.setAttribute("recomndedGames",recomndedGames);
         // System.out.println(mostOrderdGame);
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
         System.out.println(gamesOnSale.size()+"===================================================================");

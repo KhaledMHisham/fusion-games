@@ -54,6 +54,9 @@ public class GameService {
     public List<Game> findMostOrderedGames(int limit){
         return gameRepository.findMostOrderedGames(limit);
     }
+    public List<Game> findRecomendedGamesForUser(User user ,int limit){
+        return gameRepository.findRecomendedGamesForUser(user,limit);
+    }
     public void addPlatformToGame(Game game, Platform platform){
         PlatformGame platformGame = new PlatformGame(game, platform);
         platformGameRepository.save(platformGame);
