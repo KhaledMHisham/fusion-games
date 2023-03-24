@@ -1,39 +1,160 @@
 body {
-    background-color: #fbfbfb;
-  }
-  @media (min-width: 991.98px) {
-    main {
-      padding-left: 240px;
-    }
-  }
-  
-  /* Sidebar */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    padding: 58px 0 0; /* Height of navbar */
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
-    width: 240px;
-    z-index: 600;
-  }
-  
-  @media (max-width: 991.98px) {
-    .sidebar {
-      width: 100%;
-    }
-  }
-  .sidebar .active {
-    border-radius: 5px;
-    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
-  }
-  
-  .sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: 0.5rem;
-    overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  }
+  margin: 0;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  width: 100%;
+  overflow-x: hidden;
+  color: rgb(245, 245, 245);
+  background: rgb(53, 52, 52);
+}
+
+/****************************** GOLD THEME ***************************/
+.text-gold {
+  color: #f5b80f !important;
+}
+
+.bg-gold {
+  background-color: #f5b80f !important;
+}
+
+.border-gold {
+  border-color: #f5b80f !important;
+}
+
+.btn-gold {
+  background-color: #f5b80f !important;
+}
+
+.bg-main {
+  background: rgb(53, 52, 52) !important;
+}
+
+.search-label {
+  /* background-color: rgb(0, 0, 0); */
+  z-index: 1;
+  padding: 0 5px;
+  transform: translateY(10%);
+}
+
+/****************************** GOLD THEME ***************************/
+/****************************** FORM NOTCHES **************************/
+.form-notch .form-notch-middle {
+  border-color: #f5b80f !important;
+}
+
+.form-notch .form-notch-leading {
+  border-color: #f5b80f !important;
+}
+
+.form-notch .form-notch-trailing {
+  border-color: #f5b80f !important;
+}
+.form-outline{
+  width: auto !important;
+}
+.form-outline .form-control:focus~.form-notch .form-notch-leading {
+  border-color: #f5b80f !important;
+  box-shadow: none;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-middle {
+  border-color: #f5b80f !important;
+  box-shadow: none;
+  border-top: 0px;
+}
+
+.form-outline .form-control:focus~.form-notch .form-notch-trailing {
+  border-color: #f5b80f !important;
+  box-shadow: none;
+}
+
+/****************************** FORM NOTCHES **************************/
+
+/****************************** ICON HOVERS ***************************/
+.icon-hover:hover {
+  border-color: #f5b80f !important;
+}
+
+.icon-hover:hover i {
+  color: #f5b80f !important;
+}
+
+.account-control-item:hover  {
+  background-color: #f5b80f !important;
+}
+
+.account-control-item:hover p{
+  color: black;
+}
+/****************************** ICON HOVERS ***************************/
+
+/****************************** NAVABR LINK / ITEMS HOVERS ***************************/
+/* .navbar-link:hover .text-white{
+  color: gold !important;
+}
+
+.categories-dropdown .dropdown-item:hover{
+  color: gold !important;
+} */
+/****************************** NAVABR LINK / ITEMS HOVERS ***************************/
+
+#search-input:focus+#search-label {
+  color: #f5b80f !important;
+}
+
+.categories-dropdown *:hover {
+  color: #f5b80f !important;
+  background-color: rgb(53, 52, 52) !important;
+}
+
+.page-offset {
+  margin: 200px;
+}
+
+.edit-btn{
+  background-color: white !important;
+  color: black !important;
+}
+
+.edit-btn:hover{
+  background-color: white !important;
+  color: black !important;
+  --mdb-btn-active-bg : white !important;
+}
+
+.custom-file-upload {
+  border: 1px solid #f5b80f;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f5b80f;
+}
+
+.custom-file-upload:hover {
+  background-color: #f5b80f;
+}
+
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #1C1C1E;
+  border: 2px solid #DAA520;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+  border-radius: 10%;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #DAA520;
+  box-shadow: 0 0 0 2px #DAA520 inset;
+  border: 2px solid #DAA520;
+  border-radius: 10%;
+  /* gold border */
+}

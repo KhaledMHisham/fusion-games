@@ -11,6 +11,7 @@ import org.hibernate.annotations.Check;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 
+
 @Entity
 @Table(name="games")
 public class Game {
@@ -36,6 +37,9 @@ public class Game {
 
     @Column(unique = true, nullable = false)
     private String pictureUrl;
+
+    @Column(unique = true, nullable = false)
+    private String gameFileUrl;
 
     @Column(nullable = false)
     private String description;
@@ -65,13 +69,13 @@ public class Game {
     @OneToMany(mappedBy = "game")
     private Set<PlatformGame> platforms;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "minimum_spec_id", nullable = false)
     private GameSpec minimumSpec;
 
-    @OneToOne
-    @JoinColumn(name = "maximum_spec_id", nullable = false)
-    private GameSpec maximumSpec;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "recommended_spec_id", nullable = false)
+    private GameSpec recommendedSpec;
 
     public Game() {}
 
@@ -84,6 +88,15 @@ public class Game {
         this.description = description;
         this.releaseDate = releaseDate;
         this.netPrice = price;
+        try {
+            releaseDate.getClass().getField("year").setAccessible(true);
+        } catch (NoSuchFieldException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (SecurityException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
     }
 
     public String getId() {
@@ -110,6 +123,13 @@ public class Game {
         return price;
     }
 
+    public String getGameFileUrl() {
+        return gameFileUrl;
+    }
+
+    public void setGameFileUrl(String gameFileUrl) {
+        this.gameFileUrl = gameFileUrl;
+    }
 
     public void setPrice(Double price) {
         this.price = price;
@@ -199,6 +219,45 @@ public class Game {
     public List<Platform> getPlatfomrs() {
         return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
     }
+    public GameSpec getMinimumSpec() {
+        return minimumSpec;
+    }
+
+    public void setMinimumSpec(GameSpec minimumSpec) {
+        this.minimumSpec = minimumSpec;
+    }
+
+    public GameSpec getRecommendedSpec() {
+        return recommendedSpec;
+    }
+
+    public void setRecommendedSpec(GameSpec recommendedSpec) {
+        this.recommendedSpec = recommendedSpec;
+    }
+
+    public Set<LibraryItem> getLibraryItems() {
+        return owners;
+    }
+
+    public Set<WishItem> getWishItems() {
+        return wishItems;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return carts;
+    }
+
+    public Set<OrderedGame> getOrderedGames() {
+        return orders;
+    }
+
+    public Set<PlatformGame> getPlatformGames() {
+        return platforms;
+    }
+
+    public Set<GameGenre> getGameGenres() {
+        return genres;
+    }
 
     @Override
     public String toString() {
@@ -206,7 +265,4 @@ public class Game {
                 + publisher + ", pictureUrl=" + pictureUrl + ", description=" + description + ", releaseDate="
                 + releaseDate + ", discount=" + discount + ", genres=" + genres + ", platforms=" + platforms + "]";
     }
-
-
-
 }

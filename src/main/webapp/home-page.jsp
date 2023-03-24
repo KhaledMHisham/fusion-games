@@ -13,6 +13,7 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
       <link href="css/home-page.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
+      <link href="css/add-to-cart.css" rel="stylesheet" />
     </head>
 
     <body class="bg-black">
@@ -55,7 +56,7 @@
                 <strong>${game.name}</strong>
               </h1>
               <p>
-                <strong>Best & free games in our website</strong>
+                <strong>${game.description}</strong>
               </p>
               <p class="mb-4 d-none d-md-block">
                 <!-- <strong>The most comprehensive tutorial for the Bootstrap 5. Loved by over 3 000 000 users. Video and
@@ -63,7 +64,7 @@
                   available. Create your own, stunning website.</strong> -->
               </p>
 
-              <a target="_blank" href="https://mdbootstrap.com/education/bootstrap/"
+              <a target="_blank" href="all-products"
                 class="btn btn-outline-white btn-lg">Browse
                 <i class="fas fa-graduation-cap ms-2"></i>
               </a>
@@ -86,7 +87,10 @@
       <div class="container">
         <div class="row justify-content-around mx-2 my-5">
           <header class="mb-4">
+            <c:if test="${user ne null}">
             <h3 class="text-gold">Just For You</h3>
+          </c:if>
+         
           </header>
 
           <div class="position-relative col-lg-7 col-md-12 col-sm-12">
@@ -98,24 +102,29 @@
                 <h6> starting at </h6>
                 <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price}</del></h5>
                 <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice()}</h5>
-              </div>     
-              <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
-              <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
-
+              </div>
+               <c:choose>
+               <c:when test="${user ne null}">
+              <a onclick='buyNowGameBanner()' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
+              <a onclick='addToCartGameBanner(this)' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
+              <input hidden type="text" value="${newReleases[0].id}" id="bannerGameId">
+              </c:when>
+              <c:otherwise>
+               <a class="btn btn-warning shadow-0 relative-bottom " href="login"> Buy Now </a>
+               <a class="btn btn-dark hover-zoom shadow-0 " href="login"> Add to cart </a>
+               </c:otherwise>
+              </c:choose>
             </div>
           </div>
-
           <span style="width: 0px; "></span>
-
-          
           <section class="mx-3 col-xl-4 col-lg-4 col-md-12 col-sm-12">
             <div class="list-group">
-              <c:forEach items="${newReleases}" var="game">
-                <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
+              <c:forEach items="${recomndedGames}" var="game">
+                <div id="game1" onclick='onClickGame(this,"${game.name}","${game.price}","${game.discount.getType().getDiscount()}","${game.id}")' class="col-xl-10 col-lg-10 col-md-8 col-sm-10 mb-2">
                   <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                     <div class="card-body">
                       <div class="d-flex align-items-center">
-                        <img id="img-src" src="images/hellblade.jpg" alt="" style="width:100px; height:100px" class="fa-square " />
+                        <img id="img-src" src="images/hellblade.jpg" alt="" style="width:120px; height:120px" class="fa-square " />
                         <div class="ms-3">
                           <p id="clicked-game-name" class="fw-bold mb-1">${game.name}</p>
                         </div>
@@ -133,7 +142,7 @@
       <div class="container my-5">
 
         <div class="d-flex flex-row justify-content-between align-items-center mb-3">
-          <h3 class="text-gold ">Most Purchased</h3>
+          <h3 class="text-gold ">Most Popular</h3>
           <c:if test="${fn:length(mostPurchased) > 3}" >
           <div class="row arrows-BestSellerList">
             <div class="arrow mx-2 arrow-left-BestSellerList">
@@ -177,14 +186,24 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-black btn-gold float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>
                     </c:choose>
-                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    <c:choose>
+                      <c:when test="${user.getWishList().contains(game)}">
+                    <a onclick='addToWishList(this,"${game.id}")'
+                      class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToWishList(this,"${game.id}")'
+                        class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                      </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
                   <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -225,14 +244,24 @@
                       <c:when test="${user ne null}">
                         <c:choose>
                           <c:when test="${user.getCartItems().contains(game)}">
-                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                           </c:when>
                           <c:otherwise>
                             <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                           </c:otherwise>
                         </c:choose>
-                      <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                      <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                        <c:choose>
+                          <c:when test="${user.getWishList().contains(game)}">
+                        <a onclick='addToWishList(this,"${game.id}")'
+                          class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                          <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                          </c:when>
+                          <c:otherwise>
+                            <a onclick='addToWishList(this,"${game.id}")'
+                            class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                            <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                          </c:otherwise>
+                        </c:choose>
                     </c:when>
                     <c:otherwise>
                       <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -257,14 +286,29 @@
           </header>
           <div class="row position-relative gy-4">
             <c:forEach items="${freeGames}" var="game">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-sm-12">
               <a href="product?name=${game.name}">
                 <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
                 <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
                   <h3 class="text-white">100% off</h3>
                   <h5 class="text-white">${game.name}</h5>  
-                  <button class="btn btn-warning shadow-0 relative-bottom " href="#"> Buy Now </button>
-                  <button class="btn btn-dark hover-zoom shadow-0 " href="#"> Add to cart </button>
+                   <c:choose>
+                    <c:when test="${user ne null}">
+                   <a onclick='addToCart(this,"${game.id}")' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
+                     <c:choose>
+                     <c:when test="${user.getCartItems().contains(game)}">
+                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark btn-black hover-zoom shadow-0 " >View In Cart</a>
+                     </c:when>
+                     <c:otherwise>
+                   <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
+                   </c:otherwise>
+                   </c:choose>
+                   </c:when>
+                   <c:otherwise>
+                    <a class="btn btn-warning shadow-0 relative-bottom " href="login"> Buy Now </a>
+                    <a class="btn btn-dark hover-zoom shadow-0 " href="login"> Add to cart </a>
+                    </c:otherwise>
+                   </c:choose>
                   </div>
               </a>
             </div>
@@ -314,14 +358,24 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>
                     </c:choose>
-                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    <c:choose>
+                      <c:when test="${user.getWishList().contains(game)}">
+                    <a onclick='addToWishList(this,"${game.id}")'
+                      class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToWishList(this,"${game.id}")'
+                        class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                      </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
                   <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -337,57 +391,6 @@
         </div>
       </div>
       </div>
-        <div class="container">
-          <div class="px-4 pt-3 border">
-            <div class="row pt-1">
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-thumbs-up fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Reasonable prices</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-plane fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Worldwide shopping</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-star fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Best ratings</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-phone-alt fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Help center</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
     </main>
 
       <!-- Footer -->

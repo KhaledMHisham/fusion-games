@@ -1,5 +1,6 @@
 package gov.iti.fusion.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import gov.iti.fusion.models.Discount;
@@ -21,5 +22,8 @@ public class DiscountService {
     public Discount findById(String id){
         return discountRepository.findById(Discount.class, id);
     }
-  
+
+    public List<Discount> findAll(){
+        return discountRepository.findAll(Discount.class);
+    }
 }

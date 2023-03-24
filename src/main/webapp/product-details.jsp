@@ -27,7 +27,7 @@
                 <div class="row justify-content-around">
                     <div class="col-lg-7 col-md-7 col-sm-12 p-3">
                         <img class="img-fluid rounded-5" src="images/hellblade.jpg">
-                        <p class="pt-3">${game.description}.</p>
+                        <p class="pt-3">${game.description}</p>
                         <!-- <p class="pt-3"><c:out value="${game.genres}"/></p> -->
                         <div class="row pt-1">
                             <div class="col-6 border-start border-1 border-gold">
