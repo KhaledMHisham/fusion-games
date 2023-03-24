@@ -124,7 +124,7 @@ public class EditGameServlet extends HttpServlet {
         gameInfo.addProperty("id", game.getId());
         gameInfo.addProperty("name", game.getName());
         gameInfo.addProperty("price", game.getPrice());
-        gameInfo.addProperty("discount", game.getDiscount().getId());
+        gameInfo.addProperty("discount", game.getDiscount() != null? game.getDiscount().getId() : "NONE");
         gameInfo.addProperty("developer", game.getDeveloper());
         gameInfo.addProperty("publisher", game.getPublisher());
         gameInfo.addProperty("description", game.getDescription());

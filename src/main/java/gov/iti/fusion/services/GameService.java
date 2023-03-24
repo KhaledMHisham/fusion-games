@@ -38,9 +38,6 @@ public class GameService {
     public Game findGameByName(String name){
         return gameRepository.findGameByName(name);
     }
-    public Game findById(String id){
-        return gameRepository.findById(Game.class, id);
-    }
     public Game deleteById(String id){
         Game game = gameRepository.findById(Game.class, id);
         clearGenresFromGame(game);
