@@ -138,6 +138,16 @@
     <url-pattern>/library-games</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>UserWishListServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.UserWishListServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UserWishListServlet</servlet-name>
+    <url-pattern>/wish-games</url-pattern>
+  </servlet-mapping>
+
 
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>

@@ -7,7 +7,7 @@
         <div class="row gy-3">
           <!-- Left elements -->
           <div class="col-lg-2 col-sm-4 col-4">
-            <a href="https://mdbootstrap.com/" target="_blank" class="float-start">
+            <a href=""  class="float-start">
               <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
             </a>
           </div>
@@ -16,7 +16,7 @@
           <div class="order-lg-last col-lg-5 col-sm-8 col-8">
             <div class="d-flex float-end">
               <a href="login"
-                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
+                class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                   class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                  <c:choose>
                     <c:when test="${user ne null}">
@@ -28,7 +28,7 @@
                  </c:choose>
                   
               </a>
-              <a href="cart"
+              <a href="wish-games"
                 class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" > <i
                   class="fas fa-heart m-1 me-md-2 text-gold"></i>
                 <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>

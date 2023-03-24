@@ -2,6 +2,9 @@
 function addToCart(element,gameId){
     $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameId}), sucessAddedToCart(element));
 }
+function addToCartFromWishList(element,gameId){
+    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameId}), sucessAdded(element));
+}
 function addToWishList(element ,gameId){
     console.log(element);
     console.log(element.classList)
@@ -29,6 +32,13 @@ function sucessAddedToCart(element){
     element.removeAttribute("onclick");
     element.innerText = "View In Cart";
     element.classList.add("btn-black");
+    element.setAttribute("onclick","viewInCart()");
+    // btn.ariaDisabled;
+}
+function sucessAdded(element){
+    console.log("success");
+    element.removeAttribute("onclick");
+    element.classList.add("text-gold");
     element.setAttribute("onclick","viewInCart()");
     // btn.ariaDisabled;
 }

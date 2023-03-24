@@ -11,9 +11,12 @@
     color: black !important;
 }
 
-.heart-unchecked{
-    border: red;
+.cart-icon:hover {
+    color: #f5b80f !important;
 }
-.heart-checked{
+.cart-icon {
+    cursor: pointer;
+}
 
-}
+
+

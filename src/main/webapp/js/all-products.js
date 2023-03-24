@@ -23,6 +23,7 @@ filterGenre();
 filterDiscount();
 filterPlatform();
 filterPrice();
+
 function filterGenre(element) {
     genres = [];
     minPrice = document.getElementById("min-price").value;

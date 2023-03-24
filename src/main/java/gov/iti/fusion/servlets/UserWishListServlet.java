@@ -30,7 +30,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class UserLibraryServlet extends HttpServlet {
+public class UserWishListServlet extends HttpServlet {
     ServletConfig myConfig;
 
     @Override
@@ -65,14 +65,14 @@ public class UserLibraryServlet extends HttpServlet {
         List<Game> userGames = new ArrayList<>();
 
         User user = (User) request.getAttribute("user");
-        userGames =  user.getOwnedGames();
+        userGames =  user.getWishList();
         //userGames = gameService.findAllGames();
 
        
         request.setAttribute("allGames",userGames);
        
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
-        request.getRequestDispatcher("library-page.jsp").forward(request, response);
+        request.getRequestDispatcher("wish-page.jsp").forward(request, response);
     }
     
 }
