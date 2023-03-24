@@ -59,6 +59,9 @@ public class Discount {
         this.type = type;
     }
 
+    public String getName(){
+        return this.type.name();
+    }
     @Override
     public String toString() {
         return "Discount [id=" + id + ", type=" + type + "]";

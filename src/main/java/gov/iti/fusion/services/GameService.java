@@ -2,24 +2,30 @@ package gov.iti.fusion.services;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import gov.iti.fusion.models.*;
-import gov.iti.fusion.persistence.repositories.GameGenreRepository;
-import gov.iti.fusion.persistence.repositories.GameRepository;
-import gov.iti.fusion.persistence.repositories.PlatformGameRepository;
-import gov.iti.fusion.persistence.repositories.PlatformsRepository;
+import gov.iti.fusion.persistence.repositories.*;
 import jakarta.servlet.http.HttpServletRequest;
+import org.eclipse.tags.shaded.org.apache.xpath.operations.Or;
 
 public class GameService {
     
     private final GameRepository gameRepository;
     private final PlatformGameRepository platformGameRepository;
     private final GameGenreRepository gameGenreRepository;
-
+    private final OrderedGameRepository orderedGameRepository;
+    private final WishItemRepository wishItemRepository;
+    private final LibraryItemRepository libraryItemRepository;
+    private final CartItemRepository cartItemRepository;
     public GameService(HttpServletRequest request) {
         this.gameRepository = new GameRepository(request);
         this.platformGameRepository = new PlatformGameRepository(request);
         this.gameGenreRepository = new GameGenreRepository(request);
+        this.orderedGameRepository = new OrderedGameRepository(request);
+        this.wishItemRepository = new WishItemRepository(request);
+        this.libraryItemRepository = new LibraryItemRepository(request);
+        this.cartItemRepository = new CartItemRepository(request);
     }
 
     public Game save(Game game){
@@ -29,8 +35,17 @@ public class GameService {
     public Game findGameByName(String name){
         return gameRepository.findGameByName(name);
     }
-    
+    public Game findById(String id){
+        return gameRepository.findById(Game.class, id);
+    }
     public Game deleteById(String id){
+        Game game = gameRepository.findById(Game.class, id);
+        clearGenresFromGame(game);
+        clearPlatformsFromGame(game);
+        clearCartItemsFromGame(game);
+        clearLibraryItemsFromGame(game);
+        clearOrdersFromGame(game);
+        clearWishItemsFromGame(game);
         return gameRepository.deleteById(Game.class, id);
     }
     public List<Game> findAllGames(){
@@ -67,5 +82,42 @@ public class GameService {
         for(Genre genre  : genres){
             addGenreToGame(game, genre);
         }
+    }
+
+    public void clearGenresFromGame(Game game){
+
+        Set<GameGenre> gameGenres = game.getGameGenres();
+        gameGenres.forEach(gameGenre -> gameGenreRepository
+                                                        .deleteById(GameGenre.class, gameGenre.getId()));
+    }
+
+    public void clearPlatformsFromGame(Game game){
+        Set<PlatformGame> gamePlatforms = game.getPlatformGames();
+        gamePlatforms.forEach(platformGame -> platformGameRepository
+                                                    .deleteById(PlatformGame.class, platformGame.getId()));
+    }
+
+    public void clearOrdersFromGame(Game game){
+        Set<OrderedGame> orderedGames = game.getOrderedGames();
+        orderedGames.forEach(orderedGame -> orderedGameRepository
+                                                    .deleteById(OrderedGame.class, orderedGame.getId()));
+    }
+
+    public void clearWishItemsFromGame(Game game){
+        Set<WishItem> wishItems = game.getWishItems();
+        wishItems.forEach(wishItem -> wishItemRepository
+                                                    .deleteById(WishItem.class, wishItem.getId()));
+    }
+
+    public void clearLibraryItemsFromGame(Game game){
+        Set<LibraryItem> libraryItems = game.getLibraryItems();
+        libraryItems.forEach(libraryItem -> libraryItemRepository
+                                                    .deleteById(LibraryItem.class, libraryItem.getId()));
+    }
+
+    public void clearCartItemsFromGame(Game game){
+        Set<CartItem> cartItems = game.getCartItems();
+        cartItems.forEach(cartItem -> cartItemRepository
+                                                    .deleteById(CartItem.class, cartItem.getId()));
     }
 }

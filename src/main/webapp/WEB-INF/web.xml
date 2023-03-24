@@ -86,7 +86,69 @@
     <url-pattern>/validate/phonenumber</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>AdminServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.AdminServlet</servlet-class>
+  </servlet>
 
+  <servlet-mapping>
+    <servlet-name>AdminServlet</servlet-name>
+    <url-pattern>/admin</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+      <servlet-name>GamePictureServlet</servlet-name>
+      <servlet-class>gov.iti.fusion.servlets.game.GamePictureServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GamePictureServlet</servlet-name>
+    <url-pattern>/games/images/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>AddGameServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.game.AddGameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddGameServlet</servlet-name>
+    <url-pattern>/admin/game/add</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>EditGameServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.game.EditGameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditGameServlet</servlet-name>
+    <url-pattern>/admin/game/edit</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetGameServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.game.GetGameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetGameServlet</servlet-name>
+    <url-pattern>/admin/game</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetUserServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.user.GetUserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserServlet</servlet-name>
+    <url-pattern>/admin/user</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>DeleteGameServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.game.DeleteGameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteGameServlet</servlet-name>
+    <url-pattern>/admin/game/delete</url-pattern>
+  </servlet-mapping>
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
   </listener>

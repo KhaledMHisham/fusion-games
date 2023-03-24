@@ -1,5 +1,6 @@
 package gov.iti.fusion.services;
 
+import java.util.List;
 import java.util.UUID;
 
 import gov.iti.fusion.models.Platform;
@@ -21,5 +22,8 @@ public class PlatformService {
     public Platform findById(String id){
         return platformsRepository.findById(Platform.class, id);
     }
-  
+
+    public List<Platform> findAll(){
+        return platformsRepository.findAll(Platform.class);
+    }
 }

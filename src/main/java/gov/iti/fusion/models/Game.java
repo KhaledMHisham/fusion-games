@@ -37,6 +37,9 @@ public class Game {
     @Column(unique = true, nullable = false)
     private String pictureUrl;
 
+    @Column(unique = true, nullable = false)
+    private String gameFileUrl;
+
     @Column(nullable = false)
     private String description;
 
@@ -44,26 +47,26 @@ public class Game {
     private Double netPrice;
 
     @OneToMany(mappedBy = "game")
-    private Set<LibraryItem> owners;
+    private Set<LibraryItem> libraryItems;
 
     @OneToMany(mappedBy = "game")
     private Set<WishItem> wishItems;
 
     @OneToMany(mappedBy = "game")
-    private Set<CartItem> carts;
+    private Set<CartItem> cartItems;
 
     @OneToMany(mappedBy = "game")
-    private Set<OrderedGame> orders;
+    private Set<OrderedGame> orderedGames;
 
     @Column( name = "release_date", nullable = false)
     @Check(constraints = "release_date <= CURRENT_DATE")
     private LocalDate releaseDate;
 
     @OneToMany(mappedBy = "game")
-    private Set<GameGenre> genres;
+    private Set<GameGenre> gameGenres;
 
     @OneToMany(mappedBy = "game")
-    private Set<PlatformGame> platforms;
+    private Set<PlatformGame> platformGames;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "minimum_spec_id", nullable = false)
@@ -72,7 +75,6 @@ public class Game {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "recommended_spec_id", nullable = false)
     private GameSpec recommendedSpec;
-
     public Game() {}
 
     public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
@@ -110,6 +112,13 @@ public class Game {
         return price;
     }
 
+    public String getGameFileUrl() {
+        return gameFileUrl;
+    }
+
+    public void setGameFileUrl(String gameFileUrl) {
+        this.gameFileUrl = gameFileUrl;
+    }
 
     public void setPrice(Double price) {
         this.price = price;
@@ -182,22 +191,22 @@ public class Game {
         return Collections.unmodifiableList(wishItems.stream().map(WishItem::getUser).toList());
     }
     public List<Genre> getGenres() {
-        return Collections.unmodifiableList(genres.stream().map(GameGenre::getGenre).toList());
+        return Collections.unmodifiableList(gameGenres.stream().map(GameGenre::getGenre).toList());
     }
 
     public List<User> getOwners() {
-        return Collections.unmodifiableList(owners.stream().map(LibraryItem::getUser).toList());
+        return Collections.unmodifiableList(libraryItems.stream().map(LibraryItem::getUser).toList());
     }
 
     public List<User> getUsersFromCarts() {
-        return Collections.unmodifiableList(carts.stream().map(CartItem::getUser).toList());
+        return Collections.unmodifiableList(cartItems.stream().map(CartItem::getUser).toList());
     }
 
     public List<Order> getOrders() {
-        return Collections.unmodifiableList(orders.stream().map(OrderedGame::getOrder).toList());
+        return Collections.unmodifiableList(orderedGames.stream().map(OrderedGame::getOrder).toList());
     }
     public List<Platform> getPlatfomrs() {
-        return Collections.unmodifiableList(platforms.stream().map(PlatformGame::getPlatform).toList());
+        return Collections.unmodifiableList(platformGames.stream().map(PlatformGame::getPlatform).toList());
     }
     public GameSpec getMinimumSpec() {
         return minimumSpec;
@@ -215,13 +224,34 @@ public class Game {
         this.recommendedSpec = recommendedSpec;
     }
 
+    public Set<LibraryItem> getLibraryItems() {
+        return libraryItems;
+    }
+
+    public Set<WishItem> getWishItems() {
+        return wishItems;
+    }
+
+    public Set<CartItem> getCartItems() {
+        return cartItems;
+    }
+
+    public Set<OrderedGame> getOrderedGames() {
+        return orderedGames;
+    }
+
+    public Set<PlatformGame> getPlatformGames() {
+        return platformGames;
+    }
+
+    public Set<GameGenre> getGameGenres() {
+        return gameGenres;
+    }
+
     @Override
     public String toString() {
         return "Game [id=" + id + ", name=" + name + ", price=" + price + ", developer=" + developer + ", publisher="
                 + publisher + ", pictureUrl=" + pictureUrl + ", description=" + description + ", releaseDate="
-                + releaseDate + ", discount=" + discount + ", genres=" + genres + ", platforms=" + platforms + "]";
+                + releaseDate + ", discount=" + discount + ", genres=" + gameGenres + ", platforms=" + platformGames + "]";
     }
-
-
-
 }

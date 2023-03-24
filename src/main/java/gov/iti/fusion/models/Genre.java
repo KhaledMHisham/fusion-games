@@ -2,6 +2,7 @@ package gov.iti.fusion.models;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
@@ -52,5 +53,29 @@ public class Genre{
     public String toString() {
         return "Genre [id=" + id + ", genre=" + genre + "]";
     }
-     
+
+    public String getName(){
+        return genre.getGenre();
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Genre genre1 = (Genre) o;
+
+        if (!Objects.equals(id, genre1.id)) return false;
+        if (genre != genre1.genre) return false;
+        return Objects.equals(gameGenres, genre1.gameGenres);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (genre != null ? genre.hashCode() : 0);
+        result = 31 * result + (gameGenres != null ? gameGenres.hashCode() : 0);
+        return result;
+    }
 }

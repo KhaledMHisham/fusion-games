@@ -59,7 +59,6 @@ public class ProductDetailsServlet extends HttpServlet {
         GameService gameService = new GameService(request);
         Game game = gameService.findGameByName(request.getParameter("name"));
         request.setAttribute("game",game);
-        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
         request.getRequestDispatcher("product-details.jsp").forward(request, response);
     }
     
