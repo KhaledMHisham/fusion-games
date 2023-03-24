@@ -67,6 +67,16 @@
   </servlet-mapping>
 
   <servlet>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.Checkout</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/CheckOut</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
     <servlet-name>EmailValidationServlet</servlet-name>
     <servlet-class>gov.iti.fusion.validation.servlets.EmailValidationServlet</servlet-class>
   </servlet>

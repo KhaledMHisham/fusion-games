@@ -177,7 +177,7 @@ public class OrderServlet extends HttpServlet{
 
 
 
-    request.getRequestDispatcher("order.jsp").forward(request, response);
+    request.getRequestDispatcher("mainUserProfile.jsp").forward(request, response);
 
     }
     

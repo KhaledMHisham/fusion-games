@@ -1,3 +1,8 @@
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+        <!-- <%System.out.println(request.getAttribute("game"));%> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 
