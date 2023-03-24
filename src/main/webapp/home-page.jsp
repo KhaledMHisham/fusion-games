@@ -121,7 +121,7 @@
                   <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                     <div class="card-body">
                       <div class="d-flex align-items-center">
-                        <img id="img-src" src="images/hellblade.jpg" alt="" style="width:100px; height:100px" class="fa-square " />
+                        <img id="img-src" src="images/hellblade.jpg" alt="" style="width:120px; height:120px" class="fa-square " />
                         <div class="ms-3">
                           <p id="clicked-game-name" class="fw-bold mb-1">${game.name}</p>
                         </div>
@@ -183,14 +183,24 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn view-in-cart btn-gold float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-black btn-gold float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>
                     </c:choose>
-                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    <c:choose>
+                      <c:when test="${user.getWishList().contains(game)}">
+                    <a onclick='addToWishList(this,"${game.id}")'
+                      class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToWishList(this,"${game.id}")'
+                        class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                      </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
                   <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -231,14 +241,24 @@
                       <c:when test="${user ne null}">
                         <c:choose>
                           <c:when test="${user.getCartItems().contains(game)}">
-                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold view-in-cart float-start w-75 text-cart">View In Cart</a>
+                            <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                           </c:when>
                           <c:otherwise>
                             <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                           </c:otherwise>
                         </c:choose>
-                      <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                      <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                        <c:choose>
+                          <c:when test="${user.getWishList().contains(game)}">
+                        <a onclick='addToWishList(this,"${game.id}")'
+                          class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                          <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                          </c:when>
+                          <c:otherwise>
+                            <a onclick='addToWishList(this,"${game.id}")'
+                            class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                            <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                          </c:otherwise>
+                        </c:choose>
                     </c:when>
                     <c:otherwise>
                       <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -263,7 +283,7 @@
           </header>
           <div class="row position-relative gy-4">
             <c:forEach items="${freeGames}" var="game">
-            <div class="col-lg-6">
+            <div class="col-lg-6 col-sm-12">
               <a href="product?name=${game.name}">
                 <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
                 <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
@@ -274,7 +294,7 @@
                    <a onclick='addToCart(this,"${game.id}")' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                      <c:choose>
                      <c:when test="${user.getCartItems().contains(game)}">
-                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark view-in-cart hover-zoom shadow-0 " >View In Cart</a>
+                       <a onclick='sucessAddedToCart(this)' class="btn btn-dark btn-black hover-zoom shadow-0 " >View In Cart</a>
                      </c:when>
                      <c:otherwise>
                    <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
@@ -335,14 +355,24 @@
                   <c:when test="${user ne null}">
                     <c:choose>
                       <c:when test="${user.getCartItems().contains(game)}">
-                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold view-in-cart float-start w-75 text-cart">View In Cart</a>
+                        <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                       </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>
                     </c:choose>
-                  <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                    <c:choose>
+                      <c:when test="${user.getWishList().contains(game)}">
+                    <a onclick='addToWishList(this,"${game.id}")'
+                      class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                      </c:when>
+                      <c:otherwise>
+                        <a onclick='addToWishList(this,"${game.id}")'
+                        class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                      </c:otherwise>
+                    </c:choose>
                 </c:when>
                 <c:otherwise>
                   <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
@@ -358,57 +388,6 @@
         </div>
       </div>
       </div>
-        <div class="container">
-          <div class="px-4 pt-3 border">
-            <div class="row pt-1">
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-thumbs-up fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Reasonable prices</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-plane fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Worldwide shopping</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-star fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Best ratings</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-3 d-flex">
-                <div class="d-flex align-items-center">
-                  <div class="badge badge-warning p-2 rounded-4 me-3">
-                    <i class="fas fa-phone-alt fa-2x fa-fw"></i>
-                  </div>
-                  <span class="info">
-                    <h6 class="title">Help center</h6>
-                    <p class="mb-0">Have you ever finally just</p>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> -->
     </main>
 
       <!-- Footer -->

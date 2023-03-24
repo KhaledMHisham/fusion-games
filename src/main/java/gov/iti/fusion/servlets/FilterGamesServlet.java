@@ -86,7 +86,7 @@ public class FilterGamesServlet extends HttpServlet {
         // System.out.println("discoun" + allGames.get(0).getDiscount().getType().getDiscount());
         // System.out.println("discoun" +  discounts.contains(Integer.toString(50)));
 
-        if(discounts.size()>0)
+        //if(discounts.size()>0)
         filteredGames = filteredGames.stream().filter(g -> g.getDiscount()!=null && discounts.contains(Integer.toString((g.getDiscount().getType().getDiscount())))  ).toList();
         System.out.println("filter dis"  + filteredGames.size());
 

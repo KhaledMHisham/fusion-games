@@ -6,200 +6,69 @@
     <head>
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
-      <title>check out page</title>
+      <title>Home page style 3</title>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
-      <link href="css/checkout.css" rel="stylesheet" />
+      <link href="css/home-page.css" rel="stylesheet" />
+      <link href="css/products.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
-      
 
     </head>
+
+    <body class="bg-black">
+      <c:if test="${user ne null}">
+        <input id="user" hidden value="${user}" />
+      </c:if>
+      <!--Main Navigation-->
       <jsp:include page="header.jsp" />
-    <body>
-  
 
+      <section class="h-100 bg-black">
+        <div class="container h-100 py-5">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
 
-      <section class="bg-black py-5  bg-main">
-        <div class="container">
-          <div class="row">
-            <div class="col-xl-8 col-lg-8 mb-4 border-radius bg-main checout-border">
-
-              <!-- Checkout -->
-              <div class="shadow-0 border-gold text-gold">
-                <div class="p-4">
-                  <h5 class="card-title mb-3">Guest checkout</h5>
-                  <div class="row">
-                    <div class="col-6 mb-3">
-                      <p class="mb-0">First name</p>
-                      <div class="form-outline">
-                        <input type="text" id="fname" placeholder="Type here" class="form-control text-white" />
-                      </div>
-                    </div>
-
-                    <div class="col-6">
-                      <p class="mb-0">Last name</p>
-                      <div class="form-outline">
-                        <input type="text" id="lname" placeholder="Type here" class="form-control text-white" />
-                      </div>
-                    </div>
-
-                    <div class="col-6 mb-3">
-                      <p class="mb-0">Phone</p>
-                      <div class="form-outline">
-                        <input type="tel" id="typePhone" value="+02 " class="form-control text-white" />
-                      </div>
-                    </div>
-
-                    <div class="col-6 mb-3">
-                      <p class="mb-0">Email</p>
-                      <div class="form-outline">
-                        <input type="email" id="typeEmail" placeholder="example@gmail.com"
-                          class="form-control text-white" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-check">
-                    <input class="form-check-input keep-me-up-checkbtn" type="checkbox" value=""
-                      id="flexCheckDefault" />
-                    <label class="form-check-label" for="flexCheckDefault">Keep me up to date on news</label>
-                  </div>
-
-
-                </div>
-
-              </div>
-
-              <hr class="my-4 border-gold" />
-              <div class=" cart-info-style">
-                <!--           <div class="shadow-0 border-gold text-gold">-->
-                <!--           <div class="p-4"> -->
-                <h5 class="card-title mb-3 text-gold">Credit Card Info</h5>
-                <br>
-                <div class="text-gold">
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div class="col-6 mb-3">
-                            <p class="mb-0">Credit Card Number</p>
-                            <div class="form-outline">
-                              <input type="text" id="card-num" placeholder="Card Number"
-                                class="form-control text-white" />
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-6 mb-3">
-                          <p class="mb-0">CVV</p>
-                          <div class="form-outline">
-                            <input type="text" id="cvv-num" placeholder="CVV number" class="form-control text-white" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-6 mb-3">
-                        <p class="mb-0">Credit Holder Name</p>
-                        <div class="form-outline">
-                          <input type="text" id="owner-name" placeholder="type your name"
-                            class="form-control text-white" />
-                        </div>
-                      </div>
-                    </div>
-                    <div class="float-end">
-                      <a id="add-cart" class="card-btn btn btn-gold btn-black mx-2 my-3 float-start text-cart">Cancel</a>
-                      <a href="" class="card-btn btn btn-gold hover-black float-start my-3 text-cart">Checkout</a>
-                      <!-- <button class="btn btn-dark border btn-gold m-4">Cancel</button>
-                      <button class="btn btn-success shadow-0 border btn-gold m-4">Continue</button> -->
-                    </div>
-
-                  </div>
-
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <h3 class="fw-normal mb-0 text-black">Owned Games</h3>
+                <div>
+                  <p class="mb-0"><span class="text-muted">Sort by:</span> <a href="#!" class="text-body">price <i
+                        class="fas fa-angle-down mt-1"></i></a></p>
                 </div>
               </div>
+              <c:forEach items="${allGames}" var="game">
+                <div class="border-1 border-bottom border-gold rounded-3 mb-4">
+                  <div class="card-body p-4">
+                    <div class="row d-flex justify-content-between align-items-center">
 
+                      <div class="col-md-10 col-lg-8 col-xl-3">
+                        <a href="product?name=${game.name}">
+                          <img src="images/12.webp" class=" mb-2 img-fluid rounded-3 ">
+                        </a>
 
+                      </div>
+                      <div class="col-md-11 col-lg-9 col-xl-4">
+                        <p class="lead fw-normal mb-2">${game.name}</p>
+                        <p><span class="text-muted mx-1">Genre: </span>${game.getGenres()[0].genre.genre}<span
+                            class="mx-1 text-muted">Release Date: </span>${game.releaseDate}</p>
+                      </div>
+                      <div class="col-md-9 col-lg-7 col-xl-2 offset-lg-1">
+                        <h5 class="mb-0">$${game.price}</h5>
+                      </div>
+                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                        <a href="#!" class="text-gold"><i class="fas fa-download fa-lg"></i></a>
+                      </div>
 
-
-
-              <!-- Checkout -->
-            </div>
-            <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end text-gold">
-              <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
-                <h6 class="mb-3 text-white">Summary</h6>
-                <div class="d-flex justify-content-between">
-                  <p class="mb-2">Total price:</p>
-                  <p class="mb-2">$195.90</p>
-                </div>
-                <div class="d-flex justify-content-between">
-                  <p class="mb-2">Discount:</p>
-                  <p class="mb-2 text-danger">- $60.00</p>
-                </div>
-                <hr />
-                <div class="d-flex justify-content-between">
-                  <p class="mb-2">Total price:</p>
-                  <p class="mb-2 fw-bold">$149.90</p>
-                </div>
-
-
-                <hr />
-                <h6 class="text-dark text-white my-4">Items in cart</h6>
-                <c:forEach items="${user.getCartItems()}" var="game">
-                  <div class="d-flex align-items-center mb-4">
-                    <a href="product?name=${game.name}">
-                      <div class="me-3 position-relative">
-                      <img src="images/1 (3).png"/>
-                    </div>
-                  </a>
-                    <div class="">
-                      <a href="#" class="nav-link">
-                        ${game.name} <br />
-                      </a>
-                      <div class="price text-muted">${game.netPrice}</div>
                     </div>
                   </div>
-                </c:forEach>
-
-
-
-
-              </div>
+                </div>
+              </c:forEach>
             </div>
           </div>
         </div>
       </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      <!-- /**************************************************************************************************/ -->
-
-
-
-
-      <!-- /*****************************************************************************************************************/  -->
+      <!-- Footer -->
 
 
       <footer class="text-center text-lg-start text-muted bg-main mt-3">
@@ -341,12 +210,15 @@
           </div>
         </div>
       </footer>
-    </body>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+      <!-- Footer -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
+      <script type="text/javascript" src="js/header.js"></script>
+      <script type="text/javascript" src="js/add-to-cart.js"></script>
+      <script type="text/javascript" src="js/all-products.js"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script src="js/header.js"></script>
+    </body>
+
     </html>

@@ -4,9 +4,21 @@ var platforms = [];
 var minPrice = document.getElementById("min-price").value;
 var maxPrice = document.getElementById("max-price").value;
 var user = null;
-if( document.getElementById("user"))
+var userCartGames = null;
+var userWishGames = null;
+if( document.getElementById("user")){
     user = document.getElementById("user").value;
-console.log(user);
+    userCartGamesStr = (document.getElementById("user-cart-games").value);
+    userWishGamesStr = (document.getElementById("user-wish-games").value);
+    userCartGames = userCartGamesStr.substring(1, userCartGamesStr.length-1).split(", ");
+    userWishGames = userWishGamesStr.substring(1, userWishGamesStr.length-1).split(", ");
+    console.log(typeof(userCartGames));
+    console.log(user);
+    console.log(userCartGames);
+    console.log(userWishGames);
+}
+
+
 filterGenre();
 filterDiscount();
 filterPlatform();
@@ -44,7 +56,7 @@ function filterPlatform(element) {
     console.log($(element).val());
     requestFilterGames(genres, discounts, platforms, maxPrice, minPrice);
 }
-function filterPrice(element) {
+function filterPrice() {
     minPrice = document.getElementById("min-price").value;
     maxPrice = document.getElementById("max-price").value;
     console.log(maxPrice);
@@ -78,26 +90,60 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
                         `<h6><span class="badge bg-success mx-2 pt-2">-${game.discount}%</span>
                         </h6><p class="text-muted mx-3"><del>&dollar;${game.price}</del>
                         </p><p class="text-white mx-3">&dollar;${game.netPrice}</p>` : 
-                        `<p class="text-white mx-3">&dollar;${game.price}</p>`)}
+                        `<p class="text-white mx-3">&dollar;${game.price} </p>`)}
                   </div>
                   </div >
                 </a >
                 <div class="card-footer px-2">
-                ${user != null ? `
-                    <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                    <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                    <i class="fas fa-heart fa-lg px-1 text-white"></i>
-                    </a>
-             ` : `
+                ${
+                  user != null ?
+                   (userCartGames.includes(game.id)? `
+                        <a onclick='sucessAddedToCart(this)' id="add-cart"
+                          class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
+                      `:`
+                        <a onclick='addToCart(this,"${game.id}")' id="add-cart"
+                          class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+                      `
+                    ) 
+                    +
+                    (userWishGames.includes(game.id)? `
+                    <a onclick='addToWishList(this,"${game.id}")'
+                      class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                      <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                     `:`
+                        <a onclick='addToWishList(this,"${game.id}")'
+                        class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                        <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                      </c:otherwise>
+                    </c:choose>`
+                    )
+                    : `
                     <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                     <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                     <i class="fas fa-heart fa-lg px-1 text-white"></i></a>`}
-                </div>
+                      <i class="fas fa-heart fa-lg px-1 text-white"></i>
+                    </a>
+                  `
+                }
+              </div>
               </div >
             </div > `
+
                 $('#game-grid-container').append(newGridGames);
 
             });
         });
 }
 
+// ${user != null ? `
+
+                    
+// <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+// <a onclick='addToWishList(this,"${game.id}")' class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+// <i class="fas fa-heart fa-lg px-1 text-white"></i>
+// </a>
+
+// ` : `
+// <a href="login" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
+// <a href="login" class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+//  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>`
+// }

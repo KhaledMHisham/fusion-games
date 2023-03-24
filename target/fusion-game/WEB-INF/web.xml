@@ -127,6 +127,18 @@
     <url-pattern>/user/filter-games</url-pattern>
   </servlet-mapping>
 
+
+  <servlet>
+    <servlet-name>UserLibraryServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.UserLibraryServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>UserLibraryServlet</servlet-name>
+    <url-pattern>/library-games</url-pattern>
+  </servlet-mapping>
+
+
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
   </listener>

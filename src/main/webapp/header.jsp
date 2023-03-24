@@ -15,7 +15,7 @@
           <!-- Center elements -->
           <div class="order-lg-last col-lg-5 col-sm-8 col-8">
             <div class="d-flex float-end">
-              <a href="https://github.com/mdbootstrap/bootstrap-material-design"
+              <a href="login"
                 class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link" target="_blank"> <i
                   class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                  <c:choose>
@@ -23,7 +23,7 @@
                         <p class="d-none d-md-block mb-0 text-gold">Sign out</p>
                       </c:when>
                       <c:otherwise>
-                        <p href="login" class="d-none d-md-block mb-0 text-gold">Sign in</p>
+                        <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
                       </c:otherwise>
                  </c:choose>
                   
@@ -106,13 +106,13 @@
           </li>
 
           <li class="nav-item">
-            <a class="nav-link text-white" href="home">Discover</a>
+            <a class="nav-link text-white" href="home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="all-products">Browse</a>
+            <a class="nav-link " href="all-products">All Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="cart">Library</a>
+            <a class="nav-link" href="library-games">Library</a>
           </li>
         </ul>
         <!-- Left links -->

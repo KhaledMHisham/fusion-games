@@ -71,6 +71,11 @@ public class UserService {
         WishItem item = new WishItem(user, game);
         wishItemRepository.save(item);
     }
+    public void deleteGameFromWishList(User user, Game game){
+        WishItem wishItem = wishItemRepository.findWishItemByUserIdAndGameId(user.getId(),game.getId());
+        wishItemRepository.deleteById(WishItem.class, wishItem.getId());
+    }
+
     public void addGamesToWishList(User user, Collection<Game>  games){
         for(Game game : games){
             addGameToWishList(user, game);
