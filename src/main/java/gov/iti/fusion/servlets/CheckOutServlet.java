@@ -1,26 +1,37 @@
 package gov.iti.fusion.servlets;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.util.List;
 
-import gov.iti.fusion.models.CartItem;
+import org.jose4j.json.internal.json_simple.JSONObject;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Order;
 import gov.iti.fusion.models.User;
+import gov.iti.fusion.services.GameService;
+import gov.iti.fusion.services.OrderService;
+import gov.iti.fusion.services.UserService;
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class CheckOutServlet extends HttpServlet{
-    ServletConfig myConfig;
 
+public class CheckOutServlet extends HttpServlet {
+    ServletConfig myConfig;
 
     @Override
     public void destroy() {
         System.out.println("I am inside the destroy method");
-        
+
     }
 
     @Override
@@ -36,48 +47,53 @@ public class CheckOutServlet extends HttpServlet{
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("I am inside the init method");
-        myConfig=config;
-        
+        myConfig = config;
+
     }
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        
-        // Game game= new Game("Game of Thrones", 100.0, "FromSoftware"
-        // ,"Activision","images/game1.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 100.0, LocalDate.now());
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
 
-        User user = new User();
-        user.setUsername("SaraJaledRahma");
-        user.setFirstName("sara");
-        user.setLastName("rahma");
-        user.setPassword("password");
-        user.setCountry("Egypt");
-        user.setSalt("SALT");
-        user.setPassword("PASSWORD");
-        user.setPhoneNumber("0101177546");
-        user.setGender("female");
-        user.setEmail("Sara@hotmail1.com");
-        user.setAdmin(true);
-        user.setBirthDate(LocalDate.now());
-        user.setCreditLimit(1000.0);
-        Order order = new Order ();
-        order.setTotalPrice(900.0);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
 
-        // CartItem cart= new CartItem(user,game);
+        UserService userService = new UserService(request);
+        GameService gameService = new GameService(request);
+        OrderService orderService = new OrderService(request);
 
-        String alert = "Sorry, you exceeded you card limit!";
+        User user = (User) request.getAttribute("user");
+        List<Game> cartGames = user.getCartGames();
 
+        double totalPrice = cartGames.stream()
+                .mapToDouble(Game::getNetPrice)
+                .reduce(0.0, Double::sum);
 
-        if (order.getTotalPrice() < user.getCreditLimit()){
-            // System.out.println("sorry you exceeded you card limit");
-            response.getWriter().println("Sorry, you exceeded you card limit!");
-        }else { 
-            // request.setAttribute("cart", cart);
-            CartItem cart2 = new CartItem();
+        JsonObject responseBody = new JsonObject();
+        Gson gson = new Gson();
+        PrintWriter out = response.getWriter();
+
+        if (totalPrice > user.getCreditLimit()) {
+            responseBody.addProperty("success", "false");
+
+        } else {
+            //cart
+            userService.removeGamesFromCart(user);
+            //order
+            Order order = new Order(LocalDate.now());
+            user.setCreditLimit(user.getCreditLimit()-totalPrice);
+            order.setOrderingUser(user);
+            orderService.save(order);
+            orderService.addGamesToOrder(order, cartGames);
+            //library 
+            userService.addGamesToUserLibrary(user, cartGames);
+            responseBody.addProperty("success", "true");
         }
+        String responseBodyJson = gson.toJson(responseBody);
+        response.setStatus(200);
+        out.println(responseBodyJson);
 
 
-        request.setAttribute("alert", alert);
-        
-        request.getRequestDispatcher("checkout.jsp").forward(request, response);
-    }   
+    }
+
 }

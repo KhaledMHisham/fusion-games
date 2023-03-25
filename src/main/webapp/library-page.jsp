@@ -56,8 +56,9 @@
                         <h5 class="mb-0">$${game.price}</h5>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a href="#!" class="text-gold"><i class="fas fa-download fa-lg"></i></a>
-                      </div>
+                        <a  class="text-gold"><i
+                          class="fas fa-download cursor-pointer fa-2xl"></i></a>
+                        </div>
 
                     </div>
                   </div>
@@ -217,7 +218,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/header.js"></script>
       <script type="text/javascript" src="js/add-to-cart.js"></script>
-      <script type="text/javascript" src="js/all-products.js"></script>
 
     </body>
 

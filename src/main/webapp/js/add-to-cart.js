@@ -1,6 +1,9 @@
 
 function addToCart(element,gameId){
-    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameId}), sucessAddedToCart(element));
+    $.post("/fusion/cart",JSON.stringify({gameId:gameId}), sucessAddedToCart(element));
+}
+function addToCartFromWishList(element,gameId){
+    $.post("/fusion/cart",JSON.stringify({gameId:gameId}), sucessAdded(element));
 }
 function addToCartFromWishList(element,gameId){
     $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameId}), sucessAdded(element));

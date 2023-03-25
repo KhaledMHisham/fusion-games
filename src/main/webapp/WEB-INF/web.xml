@@ -100,24 +100,14 @@
     <servlet-name>AdminServlet</servlet-name>
     <servlet-class>gov.iti.fusion.servlets.admin.AdminServlet</servlet-class>
   </servlet>
-  
-<servlet>
-    <servlet-name>AddToCartServlet</servlet-name>
-    <servlet-class>gov.iti.fusion.servlets.AddToCartServlet</servlet-class>
-  </servlet>
-
-  <servlet-mapping>
-    <servlet-name>AddToCartServlet</servlet-name>
-    <url-pattern>/user/add-to-cart</url-pattern>
-  </servlet-mapping>
 
   <servlet>
-    <servlet-name>AddToWishListServlet</servlet-name>
-    <servlet-class>gov.iti.fusion.servlets.AddToWishListServlet</servlet-class>
+    <servlet-name>WishListServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.WishListServlet</servlet-class>
   </servlet>
 
   <servlet-mapping>
-    <servlet-name>AddToWishListServlet</servlet-name>
+    <servlet-name>WishListServlet</servlet-name>
     <url-pattern>/user/add-to-wish-list</url-pattern>
   </servlet-mapping>
 
@@ -149,7 +139,7 @@
 
   <servlet-mapping>
     <servlet-name>UserLibraryServlet</servlet-name>
-    <url-pattern>/library-games</url-pattern>
+    <url-pattern>/library-page</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -220,6 +210,20 @@
     <servlet-name>DeleteGameServlet</servlet-name>
     <url-pattern>/admin/game/delete</url-pattern>
   </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.CheckOutServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/user/checkout</url-pattern>
+  </servlet-mapping>
+
+  
+
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
   </listener>

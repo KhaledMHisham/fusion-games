@@ -1,6 +1,5 @@
 <%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-  <%System.out.println(request.getAttribute("gamesOnSale"));%>
     <!DOCTYPE html>
     <html lang="en">
 
@@ -185,9 +184,13 @@
                 <c:choose>
                   <c:when test="${user ne null}">
                     <c:choose>
-                      <c:when test="${user.getCartItems().contains(game)}">
+                      <c:when test="${user.getCartGames().contains(game)}">
                         <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-black btn-gold float-start w-75 text-cart">View In Cart</a>
                       </c:when>
+                      <c:when test="${user.getOwnedGames().contains(game)}">
+                                <a href="library-page"
+                                  class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                              </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>
@@ -243,9 +246,13 @@
                     <c:choose>
                       <c:when test="${user ne null}">
                         <c:choose>
-                          <c:when test="${user.getCartItems().contains(game)}">
+                          <c:when test="${user.getCartGames().contains(game)}">
                             <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                           </c:when>
+                          <c:when test="${user.getOwnedGames().contains(game)}">
+                                <a href="library-page"
+                                  class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                              </c:when>
                           <c:otherwise>
                             <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                           </c:otherwise>
@@ -296,9 +303,13 @@
                     <c:when test="${user ne null}">
                    <a onclick='addToCart(this,"${game.id}")' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                      <c:choose>
-                     <c:when test="${user.getCartItems().contains(game)}">
+                     <c:when test="${user.getCartGames().contains(game)}">
                        <a onclick='sucessAddedToCart(this)' class="btn btn-dark btn-black hover-zoom shadow-0 " >View In Cart</a>
                      </c:when>
+                     <c:when test="${user.getOwnedGames().contains(game)}">
+                                <a href="library-page"
+                                  class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                              </c:when>
                      <c:otherwise>
                    <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 " > Add to cart </a>
                    </c:otherwise>
@@ -357,9 +368,13 @@
                 <c:choose>
                   <c:when test="${user ne null}">
                     <c:choose>
-                      <c:when test="${user.getCartItems().contains(game)}">
+                      <c:when test="${user.getCartGames().contains(game)}">
                         <a onclick='sucessAddedToCart(this)' id="add-cart" class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
                       </c:when>
+                      <c:when test="${user.getOwnedGames().contains(game)}">
+                                <a href="library-page"
+                                  class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                              </c:when>
                       <c:otherwise>
                         <a onclick='addToCart(this,"${game.id}")' id="add-cart" class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
                       </c:otherwise>

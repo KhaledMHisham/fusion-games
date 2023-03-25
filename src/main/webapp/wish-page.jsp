@@ -57,13 +57,17 @@
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                         <c:choose>
-                          <c:when test="${user.getCartItems().contains(game)}">
+                          <c:when test="${user.getCartGames().contains(game)}">
                             <a onclick='sucessAdded(this)' class="text-gold"><i
-                                class="fas fa-cart-plus cart-icon fa-2xl"></i></a>
+                                class="fas fa-cart-plus cursor-pointer fa-2xl"></i></a>
                           </c:when>
+                          <c:when test="${user.getOwnedGames().contains(game)}">
+                            <a onclick='sucessAdded(this)'  class="text-gold"><i
+                              class="fas fa-download cursor-pointer fa-2xl"></i></a>
+                              </c:when>
                           <c:otherwise>
                             <a onclick='addToCartFromWishList(this,"${game.id}")' class="text-white"><i
-                                class="fas fa-cart-plus cart-icon fa-2xl "></i></a>
+                                class="fas fa-cart-plus cursor-pointer fa-2xl "></i></a>
                           </c:otherwise>
                         </c:choose>
 
@@ -228,7 +232,6 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/header.js"></script>
       <script type="text/javascript" src="js/add-to-cart.js"></script>
-      <script type="text/javascript" src="js/all-products.js"></script>
 
     </body>
 

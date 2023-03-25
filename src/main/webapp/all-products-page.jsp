@@ -20,8 +20,9 @@
     <body class="bg-black">
       <c:if test="${user ne null}">
         <input id="user" hidden value="${user}" />
-        <input id="user-cart-games" hidden value="${user.getCartItems().stream().map(g -> g.getId()).toList()}" />
+        <input id="user-cart-games" hidden value="${user.getCartGames().stream().map(g -> g.getId()).toList()}" />
         <input id="user-wish-games" hidden value="${user.getWishList().stream().map(g -> g.getId()).toList()}" />
+        <input id="user-library-games" hidden value="${user.getOwnedGames().stream().map(g -> g.getId()).toList()}" />
       </c:if>
       <!--Main Navigation-->
       <jsp:include page="header.jsp" />
@@ -208,11 +209,14 @@
                       <div class="card-footer px-2">
                         <c:choose>
                           <c:when test="${user ne null}">
-
                             <c:choose>
-                              <c:when test="${user.getCartItems().contains(game)}">
+                              <c:when test="${user.getCartGames().contains(game)}">
                                 <a onclick='sucessAddedToCart(this)' id="add-cart"
                                   class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
+                              </c:when>
+                              <c:when test="${user.getOwnedGames().contains(game)}">
+                                <a href="library-page"
+                                  class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
                               </c:when>
                               <c:otherwise>
                                 <a onclick='addToCart(this,"${game.id}")' id="add-cart"

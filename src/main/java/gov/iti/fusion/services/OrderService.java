@@ -27,10 +27,10 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
-    public void addGameToOrder( Order order,Game game){
 
+    public void addGameToOrder(Order order,Game game){
         OrderedGame orderedGame = new OrderedGame(game, order);
-        Double totalPrice= order.getTotalPrice();
+        Double totalPrice = order.getTotalPrice();
         totalPrice+=game.getNetPrice();
         order.setTotalPrice(totalPrice);
         orderedGameRepository.save(orderedGame);
