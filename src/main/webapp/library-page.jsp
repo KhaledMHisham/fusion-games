@@ -57,7 +57,7 @@
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
                         <a  class="text-gold"><i
-                          class="fas fa-download cart-icon fa-2xl"></i></a>
+                          class="fas fa-download cursor-pointer fa-2xl"></i></a>
                         </div>
 
                     </div>

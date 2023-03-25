@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-public class AddToWishListServlet extends HttpServlet {
+public class WishListServlet extends HttpServlet {
     ServletConfig myConfig;
 
     @Override

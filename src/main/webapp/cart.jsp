@@ -19,9 +19,9 @@
     <jsp:include page="header.jsp" />
     <c:set var="totalCartPrice" value="${  user.getCartGames().stream()
       .map(g->g.getPrice()).reduce(0.0,(a, b) -> a + b)}" />
-    <c:set var="totalCartNetPrice" value="${  user.getCartGames().stream()
+    <c:set var="totalCartNetPrice" value="${user.getCartGames().stream()
         .map(g->g.getNetPrice()).reduce(0.0,(a, b) -> a + b)}" />
-    <c:set var="totalCartDiscount" value="${(totalCartNetPrice/totalCartPrice)*100}" />
+    <c:set var="totalCartDiscount" value="${100-((totalCartNetPrice/totalCartPrice)*100)}" />
 
     <body>
 
@@ -132,23 +132,24 @@
                 <h6 class="mb-3 text-white">Summary</h6>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2">$${totalCartPrice}</p>
+                  <p id="totalCartPrice" class="mb-2">$${totalCartPrice}</p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Discount:</p>
-                  <p class="mb-2 text-danger">-${totalCartDiscount}
+                  <p id="totalCartDiscount" class="mb-2 text-danger">${totalCartDiscount}
                   </p>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2 fw-bold">$${totalCartNetPrice}</p>
+                  <p id="totalCartNetPrice" class="mb-2 fw-bold">$${totalCartNetPrice}</p>
                 </div>
                 <hr />
                 <h6 class="text-dark text-white my-4">Items in cart</h6>
-                <div class="row justify-content-between">
+                
                   <c:forEach items="${user.getCartGames()}" var="game">
-                    <div class="col-md-9 col-lg-7 col-xl-10  d-flex mb-4"> 
+                  <div class="row justify-content-between" id="${game.id}">
+                    <div class="col-md-10 col-md-10 col-lg-10 col-xl-10  d-flex mb-4"> 
                       <a href="product?name=${game.name}">
                         <div class="me-3 position-relative">
                           <img src="images/1 (3).png" />
@@ -161,12 +162,12 @@
                         <div class="price text-muted">${game.price}</div>
                       </div>
                     </div>
-                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                      <a  class="text-danger"><i
-                        class="fas fa-remove fa-2xl"></i></a>
+                    <div class="col-sm-1 col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a onclick='deleteGameFromCart("${game.id}")'  class="text-danger"><i
+                        class="fas fa-remove cursor-pointer fa-2xl"></i></a>
                       </div>
+                    </div>
                   </c:forEach>
-                </div>
 
 
 

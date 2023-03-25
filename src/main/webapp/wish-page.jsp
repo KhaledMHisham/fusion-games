@@ -59,15 +59,15 @@
                         <c:choose>
                           <c:when test="${user.getCartGames().contains(game)}">
                             <a onclick='sucessAdded(this)' class="text-gold"><i
-                                class="fas fa-cart-plus cart-icon fa-2xl"></i></a>
+                                class="fas fa-cart-plus cursor-pointer fa-2xl"></i></a>
                           </c:when>
                           <c:when test="${user.getOwnedGames().contains(game)}">
                             <a onclick='sucessAdded(this)'  class="text-gold"><i
-                              class="fas fa-download cart-icon fa-2xl"></i></a>
+                              class="fas fa-download cursor-pointer fa-2xl"></i></a>
                               </c:when>
                           <c:otherwise>
                             <a onclick='addToCartFromWishList(this,"${game.id}")' class="text-white"><i
-                                class="fas fa-cart-plus cart-icon fa-2xl "></i></a>
+                                class="fas fa-cart-plus cursor-pointer fa-2xl "></i></a>
                           </c:otherwise>
                         </c:choose>
 

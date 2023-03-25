@@ -3,12 +3,14 @@ package gov.iti.fusion.servlets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.time.LocalDate;
 import java.util.List;
 
 import org.jose4j.json.internal.json_simple.JSONObject;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Order;
@@ -66,12 +68,12 @@ public class CheckOutServlet extends HttpServlet {
                 .mapToDouble(Game::getNetPrice)
                 .reduce(0.0, Double::sum);
 
-    double dis = user.getCartGames().stream().map(g->g.getPrice()).reduce(0.0,(a, b) -> a + b);
+        JsonObject responseBody = new JsonObject();
+        Gson gson = new Gson();
+        PrintWriter out = response.getWriter();
 
-        
         if (totalPrice > user.getCreditLimit()) {
-            response.getWriter().write("{\"success\":\"false\"}");
-
+            responseBody.addProperty("success", "false");
 
         } else {
             //cart
@@ -83,10 +85,12 @@ public class CheckOutServlet extends HttpServlet {
             orderService.addGamesToOrder(order, cartGames);
             //library 
             userService.addGamesToUserLibrary(user, cartGames);
-            response.getWriter().write("{\"success\":\"true\"}");
+            responseBody.addProperty("success", "true");
         }
-
+        String responseBodyJson = gson.toJson(responseBody);
         response.setStatus(200);
+        out.println(responseBodyJson);
+
 
     }
 

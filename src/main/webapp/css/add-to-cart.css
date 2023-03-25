@@ -14,8 +14,11 @@
 .cart-icon:hover {
     color: #f5b80f !important;
 }
-.cart-icon {
+
+   
+.cursor-pointer{
     cursor: pointer;
+
 }
 
 
