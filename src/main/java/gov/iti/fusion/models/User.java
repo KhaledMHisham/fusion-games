@@ -69,21 +69,11 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<CartItem> cartItems;
 
-    @Column (name= "credit_limit")
-    private Double creditLimit;
+
 
     @Column (name= "credit_Limit")
     private Double creditLimit;
 
-    
-    public Double getCreditLimit() {
-        return creditLimit;
-    }
-
-
-    public void setCreditLimit(Double creditLimit) {
-        this.creditLimit = creditLimit;
-    }
 
 
     public User() {}

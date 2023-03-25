@@ -24,9 +24,6 @@ public class GameSpec {
     private Integer storage;
     private Integer memory;
 
-    @OneToOne (mappedBy = "gamespec")
-    private Game game;
-
     public GameSpec() {}
 
     public String getProcessor() {
