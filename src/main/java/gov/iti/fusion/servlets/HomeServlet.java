@@ -61,11 +61,11 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GameService gameService = new GameService(request);
 
-        //  UserService userService = new UserService(request);
-        //  DiscountService discountService = new DiscountService(request);
-        //  PlatformService platformService = new PlatformService(request);
-        //  GenreService genreService = new GenreService(request);
-        //  OrderService orderService = new OrderService(request);
+    //      UserService userService = new UserService(request);
+    //      DiscountService discountService = new DiscountService(request);
+    //      PlatformService platformService = new PlatformService(request);
+    //      GenreService genreService = new GenreService(request);
+    //      OrderService orderService = new OrderService(request);
 
 
     //      Set<Game> mainGames =  new HashSet<>();
@@ -192,6 +192,7 @@ public class HomeServlet extends HttpServlet {
     //     user.setGender("Male");
     //     user.setEmail("Khaled@gmail.com");
     //     user.setAdmin(true);
+    //     user.setCreditLimit(100.0);
     //     user.setBirthDate(LocalDate.of(2023, 3, 21));
         
     //     userService.save(user);
@@ -214,10 +215,9 @@ public class HomeServlet extends HttpServlet {
         free2Games = gameService.findFreeGames(2);
         gamesOnSale = gameService.findGamesOnSale();
 
-
-        if(request.getAttribute("user") != null){
-            recomndedGames = gameService.findRecomendedGamesForUser((User)request.getAttribute("user"), 4);
-            //recomndedGames.stream().flatMap(g->g.getGenres().stream().map(ge->ge.getGenre().getGenre())).forEach(g->System.out.println(g));
+        User user =(User) request.getAttribute("user");
+        if(user != null && user.getWishList().size()>3){
+            recomndedGames = gameService.findRecomendedGamesForUser(user, 4);
         }else{
             recomndedGames = getRandomElements(allGames);
             recomndedGames = recomndedGames.subList(0, 4);
@@ -227,6 +227,9 @@ public class HomeServlet extends HttpServlet {
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
 
         mostOrderdGame = gameService.findMostOrderedGames(12);
+        if(mostOrderdGame.size()==0)
+            mostOrderdGame = getRandomElements(allGames).subList(0, Math.min(allGames.size()/2,20));
+
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);
         request.setAttribute("newReleases",new5Games);

@@ -15,15 +15,9 @@ import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Genre;
 import gov.iti.fusion.models.Platform;
 import gov.iti.fusion.models.User;
-import gov.iti.fusion.models.enums.DiscountType;
-import gov.iti.fusion.models.enums.GenreType;
-import gov.iti.fusion.models.enums.PlatformType;
-import gov.iti.fusion.persistence.repositories.GameRepository;
-import gov.iti.fusion.services.DiscountService;
+
 import gov.iti.fusion.services.GameService;
-import gov.iti.fusion.services.GenreService;
-import gov.iti.fusion.services.PlatformService;
-import gov.iti.fusion.services.UserService;
+
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;

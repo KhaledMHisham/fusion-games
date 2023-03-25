@@ -11,7 +11,7 @@ public class WishItemRepository extends CrudRepository<WishItem, WishItemId> {
     public WishItemRepository(HttpServletRequest request) {
         super(request);
     }
-    public WishItem findWishItemByUserIdAndGameId(String userId,String gameId){
+    public WishItem findWishItem(String userId,String gameId){
         String jpql = "SELECT w FROM WishItem w WHERE w.user.id = :userId and w.game.id = :gameId ";
         Query query = entityManager.createQuery(jpql, WishItem.class);
         query.setParameter("userId", userId);

@@ -6,16 +6,17 @@ var maxPrice = document.getElementById("max-price").value;
 var user = null;
 var userCartGames = null;
 var userWishGames = null;
+var userLibraryGames = null;
 if( document.getElementById("user")){
     user = document.getElementById("user").value;
     userCartGamesStr = (document.getElementById("user-cart-games").value);
     userWishGamesStr = (document.getElementById("user-wish-games").value);
+    userLibraryGamesStr = (document.getElementById("user-library-games").value);
     userCartGames = userCartGamesStr.substring(1, userCartGamesStr.length-1).split(", ");
     userWishGames = userWishGamesStr.substring(1, userWishGamesStr.length-1).split(", ");
-    console.log(typeof(userCartGames));
-    console.log(user);
-    console.log(userCartGames);
-    console.log(userWishGames);
+    userLibraryGames = userLibraryGamesStr.substring(1, userLibraryGamesStr.length-1).split(", ");
+    console.log(typeof(userLibraryGames));
+    console.log(userLibraryGames);
 }
 
 
@@ -96,16 +97,16 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
                   </div >
                 </a >
                 <div class="card-footer px-2">
-                ${
-                  user != null ?
+                ${user != null ?
                    (userCartGames.includes(game.id)? `
                         <a onclick='sucessAddedToCart(this)' id="add-cart"
                           class="card-btn btn btn-gold btn-black float-start w-75 text-cart">View In Cart</a>
-                      `:`
-                        <a onclick='addToCart(this,"${game.id}")' id="add-cart"
-                          class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>
-                      `
-                    ) 
+                      `: (userLibraryGames.includes(game.id)? 
+                      ` <a href="library-page"
+                      class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                      `:`<a onclick='addToCart(this,"${game.id}")' id="add-cart"
+                      class="card-btn btn btn-gold float-start w-75 text-cart">Add to cart</a>`
+                    )) 
                     +
                     (userWishGames.includes(game.id)? `
                     <a onclick='addToWishList(this,"${game.id}")'

@@ -64,12 +64,25 @@ public class User {
     private Set<LibraryItem> library;
 
     @OneToMany(mappedBy = "user")
-    private Set<WishItem> wishItems;
+    private List<WishItem> wishItems;
 
     @OneToMany(mappedBy = "user")
-    private Set<CartItem> cartItems;
+    private List<CartItem> cartItems;
+
+    @Column (name= "credit_limit")
+    private Double creditLimit;
 
     
+    public Double getCreditLimit() {
+        return creditLimit;
+    }
+
+
+    public void setCreditLimit(Double creditLimit) {
+        this.creditLimit = creditLimit;
+    }
+
+
     public User() {}
     
 
@@ -191,8 +204,14 @@ public class User {
         return Collections.unmodifiableList(wishItems.stream().map(WishItem::getGame).toList());
     }
 
-    public List<Game> getCartItems(){
+    public List<Game> getCartGames(){
         return Collections.unmodifiableList(cartItems.stream().map(CartItem::getGame).toList());
+    }
+    public List<CartItem> getCartItems(){
+        return cartItems;
+    }
+    public List<WishItem> getWishItems(){
+        return wishItems;
     }
 
     public List<Game> getOwnedGames(){

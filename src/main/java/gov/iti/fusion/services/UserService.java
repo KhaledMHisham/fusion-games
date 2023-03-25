@@ -72,7 +72,7 @@ public class UserService {
         wishItemRepository.save(item);
     }
     public void deleteGameFromWishList(User user, Game game){
-        WishItem wishItem = wishItemRepository.findWishItemByUserIdAndGameId(user.getId(),game.getId());
+        WishItem wishItem = wishItemRepository.findWishItem(user.getId(),game.getId());
         wishItemRepository.deleteById(WishItem.class, wishItem.getId());
     }
 
@@ -82,23 +82,22 @@ public class UserService {
         }
     }
 
-    public void removeGameFromCart(User user, Game game){
-        CartItem cartItem = new CartItem(user, game);
-        cartItemRepository.deleteById(CartItem.class, cartItem.getId());
+    // public void removeGameFromCart(User user, Game game){
+    //     CartItem cartItem = new CartItem(user, game);
+    //     cartItemRepository.deleteById(CartItem.class, cartItem.getId());
+    // }
+
+    public void removeGamesFromCart(User user){
+       List<CartItem> cartItems = user.getCartItems();
+       for(CartItem cartItem : cartItems)
+            cartItemRepository.deleteById(CartItem.class, cartItem.getId());
     }
-    public void removeGamesFromCart(User user, Collection<Game>  games){
-        for(Game game : games){
-            removeGameFromCart(user, game);
-        }
+    public void removeGamesFromWishList(User user){
+        List<WishItem> wishItems = user.getWishItems();
+        for(WishItem wishItem : wishItems)
+             wishItemRepository.deleteById(WishItem.class, wishItem.getId());
     }
 
-    public void removeGameFromWishList(User user, Game game){
-        WishItem wishItem = new WishItem(user, game);
-        wishItemRepository.deleteById(WishItem.class, wishItem.getId());
-    }
-    public void removeGamesFromWishList(User user, Collection<Game> games){
-        for(Game game : games){
-            removeGameFromWishList(user, game);
-        }
-    }
+   
+    
 }

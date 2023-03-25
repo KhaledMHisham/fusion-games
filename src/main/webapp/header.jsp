@@ -127,7 +127,7 @@
           <li class="nav-item">
             <c:choose>
               <c:when test="${user ne null}">
-                <a class="nav-link" href="library-games">Library</a>
+                <a class="nav-link" href="library-page">Library</a>
               </c:when>
               <c:otherwise>
                 <a class="nav-link" href="login">Library</a>

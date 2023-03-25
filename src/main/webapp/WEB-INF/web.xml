@@ -140,7 +140,7 @@
 
   <servlet-mapping>
     <servlet-name>UserLibraryServlet</servlet-name>
-    <url-pattern>/library-games</url-pattern>
+    <url-pattern>/library-page</url-pattern>
   </servlet-mapping>
 
   <servlet>
@@ -212,6 +212,21 @@
     <servlet-name>DeleteGameServlet</servlet-name>
     <url-pattern>/admin/game/delete</url-pattern>
   </servlet-mapping>
+
+
+
+
+  <servlet-mapping>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <url-pattern>/user/checkout</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>CheckOutServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.CheckOutServlet</servlet-class>
+  </servlet>
+
   <listener>
     <listener-class>gov.iti.fusion.listeners.ContextListener</listener-class>
   </listener>

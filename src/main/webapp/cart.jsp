@@ -13,12 +13,18 @@
       <link href="css/checkout.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
-      
+
 
     </head>
-      <jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp" />
+    <c:set var="totalCartPrice" value="${  user.getCartGames().stream()
+      .map(g->g.getPrice()).reduce(0.0,(a, b) -> a + b)}" />
+    <c:set var="totalCartNetPrice" value="${  user.getCartGames().stream()
+        .map(g->g.getNetPrice()).reduce(0.0,(a, b) -> a + b)}" />
+    <c:set var="totalCartDiscount" value="${(totalCartNetPrice/totalCartPrice)*100}" />
+
     <body>
-  
+
 
 
       <section class="bg-black py-5  bg-main">
@@ -107,8 +113,10 @@
                       </div>
                     </div>
                     <div class="float-end">
-                      <a id="add-cart" class="card-btn btn btn-gold btn-black mx-2 my-3 float-start text-cart">Cancel</a>
-                      <a href="" class="card-btn btn btn-gold hover-black float-start my-3 text-cart">Checkout</a>
+                      <a id="add-cart"
+                        class="card-btn btn btn-gold btn-black mx-2 my-3 float-start text-cart">Cancel</a>
+                      <a onclick="checkOut()"
+                        class="card-btn btn btn-gold hover-black float-start my-3 text-cart">Checkout</a>
                       <!-- <button class="btn btn-dark border btn-gold m-4">Cancel</button>
                       <button class="btn btn-success shadow-0 border btn-gold m-4">Continue</button> -->
                     </div>
@@ -117,49 +125,48 @@
 
                 </div>
               </div>
-
-
-
-
-
               <!-- Checkout -->
             </div>
-            <div class="col-xl-4 col-lg-4 d-flex justify-content-center justify-content-lg-end text-gold">
+            <div class="col-xl-4 col-lg-4 d-flex justify-content-center text-gold">
               <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">
                 <h6 class="mb-3 text-white">Summary</h6>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2">$195.90</p>
+                  <p class="mb-2">$${totalCartPrice}</p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Discount:</p>
-                  <p class="mb-2 text-danger">- $60.00</p>
+                  <p class="mb-2 text-danger">-${totalCartDiscount}
+                  </p>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p class="mb-2 fw-bold">$149.90</p>
+                  <p class="mb-2 fw-bold">$${totalCartNetPrice}</p>
                 </div>
-
-
                 <hr />
                 <h6 class="text-dark text-white my-4">Items in cart</h6>
-                <c:forEach items="${user.getCartItems()}" var="game">
-                  <div class="d-flex align-items-center mb-4">
-                    <a href="product?name=${game.name}">
-                      <div class="me-3 position-relative">
-                      <img src="images/1 (3).png"/>
-                    </div>
-                  </a>
-                    <div class="">
-                      <a href="#" class="nav-link">
-                        ${game.name} <br />
+                <div class="row justify-content-between">
+                  <c:forEach items="${user.getCartGames()}" var="game">
+                    <div class="col-md-9 col-lg-7 col-xl-10  d-flex mb-4"> 
+                      <a href="product?name=${game.name}">
+                        <div class="me-3 position-relative">
+                          <img src="images/1 (3).png" />
+                        </div>
                       </a>
-                      <div class="price text-muted">${game.netPrice}</div>
+                      <div class="">
+                        <a href="#" class="nav-link">
+                          ${game.name} <br />
+                        </a>
+                        <div class="price text-muted">${game.price}</div>
+                      </div>
                     </div>
-                  </div>
-                </c:forEach>
-
+                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <a  class="text-danger"><i
+                        class="fas fa-remove fa-2xl"></i></a>
+                      </div>
+                  </c:forEach>
+                </div>
 
 
 
@@ -348,5 +355,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-<script src="js/header.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/checkout.js"></script>
+
     </html>

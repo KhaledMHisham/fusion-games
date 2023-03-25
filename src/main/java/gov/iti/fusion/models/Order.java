@@ -32,13 +32,20 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private Set<OrderedGame> orderedGames;
 
-    
+    {
+        totalPrice=0.0;
+    }
+
     public Order(LocalDate createdAt, Double totalPrice) {
         this.createdAt = createdAt;
         this.totalPrice = totalPrice;
     }
 
     public Order() {}
+
+    public Order(LocalDate createdAt) {
+        this.createdAt = createdAt;
+    }
 
     public String getId() {
         return id;
