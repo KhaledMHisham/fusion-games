@@ -61,7 +61,7 @@ function deleteGameFromCart(gameId) {
       document.getElementById(gameId).remove();
       document.getElementById("totalCartNetPrice").innerText = "$" + res.totalNetPrice;
       document.getElementById("totalCartPrice").innerText = "$"+ res.totalPrice;
-      document.getElementById("totalCartDiscount").innerText = res.totalDiscount;
+      document.getElementById("totalCartDiscount").innerText = "%"+res.totalDiscount;
     }
   });
 }

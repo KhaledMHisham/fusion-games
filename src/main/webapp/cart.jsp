@@ -136,7 +136,7 @@
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Discount:</p>
-                  <p id="totalCartDiscount" class="mb-2 text-danger">${totalCartDiscount}
+                  <p id="totalCartDiscount" class="mb-2 text-danger">%${totalCartDiscount}
                   </p>
                 </div>
                 <hr />
