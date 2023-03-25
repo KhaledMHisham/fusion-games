@@ -22,7 +22,9 @@
     <c:set var="totalCartNetPrice" value="${user.getCartGames().stream()
         .map(g->g.getNetPrice()).reduce(0.0,(a, b) -> a + b)}" />
     <c:set var="totalCartDiscount" value="${100-((totalCartNetPrice/totalCartPrice)*100)}" />
-
+    <c:if test="${fn:length(user.getCartGames()) > 0}">
+        <input hidden id="user-games" value="">
+    </c:if>
     <body>
 
 
@@ -40,29 +42,37 @@
                     <div class="col-6 mb-3">
                       <p class="mb-0">First name</p>
                       <div class="form-outline">
-                        <input type="text" id="fname" placeholder="Type here" class="form-control text-white" />
+                        <input type="text" id="first-name" placeholder="Type here" class="form-control text-white" />
+                        <span id="first-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                       </div>
                     </div>
 
                     <div class="col-6">
                       <p class="mb-0">Last name</p>
                       <div class="form-outline">
-                        <input type="text" id="lname" placeholder="Type here" class="form-control text-white" />
+                        <input type="text" id="last-name" placeholder="Type here" class="form-control text-white" />
+                        <span id="last-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                       </div>
                     </div>
 
                     <div class="col-6 mb-3">
                       <p class="mb-0">Phone</p>
                       <div class="form-outline">
-                        <input type="tel" id="typePhone" value="+02 " class="form-control text-white" />
+                        <input type="tel" id="phone" value="+02 " class="form-control text-white" />
+                        <span id="phone-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                       </div>
                     </div>
 
                     <div class="col-6 mb-3">
                       <p class="mb-0">Email</p>
                       <div class="form-outline">
-                        <input type="email" id="typeEmail" placeholder="example@gmail.com"
+                        <input type="email" id="email" placeholder="example@gmail.com"
                           class="form-control text-white" />
+                          <span id="email-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                       </div>
                     </div>
                   </div>
@@ -94,6 +104,8 @@
                             <div class="form-outline">
                               <input type="text" id="card-num" placeholder="Card Number"
                                 class="form-control text-white" />
+                                <span id="card-num-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                             </div>
                           </div>
                         </div>
@@ -101,19 +113,23 @@
                           <p class="mb-0">CVV</p>
                           <div class="form-outline">
                             <input type="text" id="cvv-num" placeholder="CVV number" class="form-control text-white" />
+                            <span id="cvv-num-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                           </div>
                         </div>
                       </div>
                       <div class="col-6 mb-3">
                         <p class="mb-0">Credit Holder Name</p>
                         <div class="form-outline">
-                          <input type="text" id="owner-name" placeholder="type your name"
+                          <input type="text" id="card-owner-name" placeholder="type your name"
                             class="form-control text-white" />
+                            <span id="card-owner-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
+
                         </div>
                       </div>
                     </div>
                     <div class="float-end">
-                      <a id="add-cart"
+                      <a onclick="cancel()" id="add-cart"
                         class="card-btn btn btn-gold btn-black mx-2 my-3 float-start text-cart">Cancel</a>
                       <a onclick="checkOut()"
                         class="card-btn btn btn-gold hover-black float-start my-3 text-cart">Checkout</a>

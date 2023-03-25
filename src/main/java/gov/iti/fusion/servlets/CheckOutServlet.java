@@ -80,6 +80,7 @@ public class CheckOutServlet extends HttpServlet {
             userService.removeGamesFromCart(user);
             //order
             Order order = new Order(LocalDate.now());
+            user.setCreditLimit(user.getCreditLimit()-totalPrice);
             order.setOrderingUser(user);
             orderService.save(order);
             orderService.addGamesToOrder(order, cartGames);

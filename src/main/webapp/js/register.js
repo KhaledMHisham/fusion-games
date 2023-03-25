@@ -12,6 +12,8 @@ const passwordInput = document.getElementById("password");
 const passwordError = document.getElementById("password-error");
 const confirmPasswordInput = document.getElementById("confirm-password");
 const confirmPasswordError = document.getElementById("confirm-password-error");
+const creditLimitInput = document.getElementById("credit-limit");
+const creditLimitError = document.getElementById("credit-limit-error");
 const birthDateInput = document.getElementById("birth-date");
 const birthDateError = document.getElementById("birth-date-error");
 const countryInput = document.getElementById("country");
@@ -51,6 +53,17 @@ function validateLastName(){
     }
     else{
         lastNameError.innerHTML = "First name is required";
+        return false;
+    }
+}
+function validateCreditLimit(){
+    const creditLimitValue = creditLimitInput.value;
+    if(creditLimitValue.length !== 0 ){
+        creditLimitError.innerHTML = "";
+        return true;
+    }
+    else{
+        creditLimitError.innerHTML = "Credit is required";
         return false;
     }
 }
@@ -209,7 +222,7 @@ async function signUp(){
     let isEmailValid = await validateEmail();
     let isPhoneNumberValid = await validatePhoneNumber();
     let isUsernameValid = await validateUsername();
-    if(validateFirstName() & validateLastName() & isUsernameValid
+    if(validateFirstName() & validateLastName() & isUsernameValid & validateCreditLimit()
         & isEmailValid & validatePassword() & validateConfirmPassword()
         & validateBirthDate() & validateCountry() & isPhoneNumberValid & validateGender()){
 
@@ -224,6 +237,7 @@ async function signUp(){
                                     phoneNumber: phoneNumberInput.value,
                                     gender: getGender(),
                                     password: passwordInput.value,
+                                    creditLimit: creditLimitInput.value,
                                     country: countryInput.value,
                                     birthDate: birthDateInput.value
                                 };
