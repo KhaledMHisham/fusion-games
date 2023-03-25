@@ -66,6 +66,26 @@ public class AddToWishListServlet extends HttpServlet {
 
     }
     
-    
+    @Override
+    protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        UserService userService = new UserService(request);
+        GameService gameService = new GameService(request);
+        Gson gson = new Gson();
+        BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        String message = "";
+        if (br != null) {
+            message = br.readLine();
+        }
+        JSONObject msg = gson.fromJson(message, JSONObject.class);
+
+        System.out.println("game id" + msg.get("gameId"));
+        Game game = gameService.findById((String) msg.get("gameId"));
+        userService.deleteGameFromWishList((User) request.getAttribute("user"),game);
+        System.out.println("deleted");
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        response.setStatus(200);
+        response.getWriter().write("{\"success\":\"success\"}");
+    }
     
 }

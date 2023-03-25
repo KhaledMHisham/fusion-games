@@ -8,6 +8,7 @@ import java.util.Set;
 import org.hibernate.annotations.UuidGenerator;
 import org.hibernate.annotations.UuidGenerator.Style;
 import gov.iti.fusion.models.enums.DiscountType;
+import jakarta.json.bind.annotation.JsonbTransient;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -27,6 +28,8 @@ public class Discount {
     @Enumerated(EnumType.ORDINAL)
     private DiscountType type;
     @OneToMany(mappedBy = "discount")
+
+    @JsonbTransient
     private Set<Game> games;
     public Discount(DiscountType type) {
         this.type = type;
@@ -57,6 +60,9 @@ public class Discount {
         this.type = type;
     }
 
+    public String getName(){
+        return this.type.name();
+    }
     @Override
     public String toString() {
         return "Discount [id=" + id + ", type=" + type + "]";

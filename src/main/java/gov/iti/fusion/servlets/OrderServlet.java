@@ -40,18 +40,18 @@ public class OrderServlet extends HttpServlet{
         
 
           
-        Game game1 = new Game("Game of Thrones", 100.0, "FromSoftware"
-            ,"Activision","images/game1.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 100.0, LocalDate.now());
-        Game game2 = new Game("chess", 200.0, "FromSoftware"
-            ,"Activision", "images/game2.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 200.0, LocalDate.now());
-        Game game3 = new Game("Shadow Die Twice",300.0,"FromSoftware"
-            ,"Activision","images/sekiro2.jpg","The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 300.0,LocalDate.now());
-        Game game4 = new Game("Bloodborne",400.0,"FromSoftware"
-            ,"Activision","images/1.webp","The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 400.0, LocalDate.now());
-        Game game5 = new Game("Cover Fire", 500.0, "FromSoftware"
-            ,"Activision","images/hellblade.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 500.0, LocalDate.now());
+        // Game game1 = new Game("Game of Thrones", 100.0, "FromSoftware"
+        //     ,"Activision","images/game1.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 100.0, LocalDate.now());
+        // Game game2 = new Game("chess", 200.0, "FromSoftware"
+        //     ,"Activision", "images/game2.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 200.0, LocalDate.now());
+        // Game game3 = new Game("Shadow Die Twice",300.0,"FromSoftware"
+        //     ,"Activision","images/sekiro2.jpg","The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 300.0,LocalDate.now());
+        // Game game4 = new Game("Bloodborne",400.0,"FromSoftware"
+        //     ,"Activision","images/1.webp","The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 400.0, LocalDate.now());
+        // Game game5 = new Game("Cover Fire", 500.0, "FromSoftware"
+        //     ,"Activision","images/hellblade.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 500.0, LocalDate.now());
         
-        game1.setDiscount(discount);
+        // game1.setDiscount(discount);
         // game2.setDiscount(discount);
         // game3.setDiscount(discount);
         // game4.setDiscount(discount);
@@ -61,22 +61,22 @@ public class OrderServlet extends HttpServlet{
         Set <GameGenre> gameGenres= new HashSet<>();
 
         genre.setGenre(GenreType.ACTION);
-        GameGenre gameGenre = new GameGenre(game1, genre);
+        // GameGenre gameGenre = new GameGenre(game1, genre);
 
         
-        gameGenres.add(gameGenre);
+        // gameGenres.add(gameGenre);
         
 
-        game1.setGenres(gameGenres);
+        // game1.setGenres(gameGenres);
         
 
 
         List<Game> games = new ArrayList<>();
-        games.add(game1);
-        games.add(game2);
-        games.add(game3); 
-        games.add(game4);
-        games.add(game5);
+        // games.add(game1);
+        // games.add(game2);
+        // games.add(game3); 
+        // games.add(game4);
+        // games.add(game5);
 
 
 
@@ -103,7 +103,7 @@ public class OrderServlet extends HttpServlet{
         // Order order3 = new Order();
         // Order order4 = new Order();
 
-        OrderedGame orderedGame1 = new OrderedGame(game1, order1);
+        // OrderedGame orderedGame1 = new OrderedGame(game1, order1);
         // OrderedGame orderedGame2 = new OrderedGame(game1, order2);
         // OrderedGame orderedGame3 = new OrderedGame(game1, order3);
         // OrderedGame orderedGame4 = new OrderedGame(game1, order4);
@@ -113,7 +113,7 @@ public class OrderServlet extends HttpServlet{
         List <OrderedGame> orderedGames = new ArrayList<>();
 
     
-        orderedGames.add(orderedGame1);
+        // orderedGames.add(orderedGame1);
         // orderedGames.add(orderedGame2);
         // orderedGames.add(orderedGame3);
         // orderedGames.add(orderedGame4);
@@ -169,7 +169,7 @@ public class OrderServlet extends HttpServlet{
      
 
     request.setAttribute("orderedGames", orderedGames);
-    request.setAttribute("orderedGame", orderedGame1);
+    // request.setAttribute("orderedGame", orderedGame1);
 
     // request.setAttribute("cart", cart);
     // request.setAttribute("discount", discount);

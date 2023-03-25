@@ -1,5 +1,6 @@
 package gov.iti.fusion.models;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
@@ -11,13 +12,23 @@ public class GameSpec {
     @Id
     @UuidGenerator(style = UuidGenerator.Style.TIME)
     private String id;
+
     private String processor;
+
+    @Column(name = "graphics_card")
     private String graphicsCard;
+
+    @Column(name = "dx_version")
     private Integer directXVersion;
+
     private Integer storage;
     private Integer memory;
 
+    @OneToOne (mappedBy = "gamespec")
+    private Game game;
+
     public GameSpec() {}
+
     public String getProcessor() {
         return processor;
     }

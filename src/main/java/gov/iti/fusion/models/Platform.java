@@ -2,6 +2,7 @@ package gov.iti.fusion.models;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import jakarta.persistence.*;
 import org.hibernate.annotations.UuidGenerator;
@@ -54,5 +55,30 @@ public class Platform {
 
     public List<Game> getPlatformGames(){
         return Collections.unmodifiableList( platformGames.stream().map(PlatformGame::getGame).toList());
+    }
+
+
+    public String getName(){
+        return this.getType().name();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Platform platform = (Platform) o;
+
+        if (!Objects.equals(id, platform.id)) return false;
+        if (type != platform.type) return false;
+        return Objects.equals(platformGames, platform.platformGames);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (platformGames != null ? platformGames.hashCode() : 0);
+        return result;
     }
 }

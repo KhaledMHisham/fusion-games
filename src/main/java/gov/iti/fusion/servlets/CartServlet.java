@@ -47,7 +47,7 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserService(request);
         GameService gameService = new GameService(request);
-        response.sendRedirect("cart.jsp");
+        request.getRequestDispatcher("cart.jsp").forward(request, response);;
        
 
     }

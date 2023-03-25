@@ -42,8 +42,8 @@ public class CheckOutServlet extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
-        Game game= new Game("Game of Thrones", 100.0, "FromSoftware"
-        ,"Activision","images/game1.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 100.0, LocalDate.now());
+        // Game game= new Game("Game of Thrones", 100.0, "FromSoftware"
+        // ,"Activision","images/game1.jpg", "The game follows a shinobi known as Wolf, who attempts to take revenge on a samurai clan that imprisoned him and kidnapped his lord.", 100.0, LocalDate.now());
 
         User user = new User();
         user.setUsername("SaraJaledRahma");
@@ -62,7 +62,7 @@ public class CheckOutServlet extends HttpServlet{
         Order order = new Order ();
         order.setTotalPrice(900.0);
 
-        CartItem cart= new CartItem(user,game);
+        // CartItem cart= new CartItem(user,game);
 
         String alert = "Sorry, you exceeded you card limit!";
 
@@ -71,7 +71,7 @@ public class CheckOutServlet extends HttpServlet{
             // System.out.println("sorry you exceeded you card limit");
             response.getWriter().println("Sorry, you exceeded you card limit!");
         }else { 
-            request.setAttribute("cart", cart);
+            // request.setAttribute("cart", cart);
             CartItem cart2 = new CartItem();
         }
 

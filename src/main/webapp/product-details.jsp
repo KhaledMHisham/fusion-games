@@ -27,7 +27,7 @@
                 <div class="row justify-content-around">
                     <div class="col-lg-7 col-md-7 col-sm-12 p-3">
                         <img class="img-fluid rounded-5" src="images/hellblade.jpg">
-                        <p class="pt-3">${game.description}.</p>
+                        <p class="pt-3">${game.description}</p>
                         <!-- <p class="pt-3"><c:out value="${game.genres}"/></p> -->
                         <div class="row pt-1">
                             <div class="col-6 border-start border-1 border-gold">
@@ -135,15 +135,15 @@
                                 <p class="text-white-50 m-0 mt-2">OS</p>
                                 <p class="m-0">Windows 10</p>
                                 <p class="text-white-50 m-0 mt-2">Processor</p>
-                                <p class="m-0">Intel Core i5-8400 OR AMD Ryzen 5 2600</p>
+                                <p class="m-0">${game.minimumSpec.processor}</p>
                                 <p class="text-white-50 m-0 mt-2">Memory</p>
-                                <p class="m-0">8 GB</p>
+                                <p class="m-0">${game.minimumSpec.memory}</p>
                                 <p class="text-white-50 m-0 mt-2">Storage</p>
-                                <p class="m-0">85 GB</p>
+                                <p class="m-0">${game.minimumSpec.storage}</p>
                                 <p class="text-white-50 m-0 mt-2">Direct X</p>
-                                <p class="m-0">DX 12</p>
+                                <p class="m-0">${game.minimumSpec.directXVersion}</p>
                                 <p class="text-white-50 m-0 mt-2">Graphics</p>
-                                <p class="m-0">NVIDIA GeForce GTX 1070 or AMD RX Vega 56</p>
+                                <p class="m-0">${game.minimumSpec.graphicsCard}</p>
                             </div>
 
                             <div class="col-5">
@@ -151,15 +151,15 @@
                                 <p class="text-white-50 m-0 mt-2">OS</p>
                                 <p class="m-0">Windows 10</p>
                                 <p class="text-white-50 m-0 mt-2">Processor</p>
-                                <p class="m-0">Intel Core i5-8400 OR AMD Ryzen 5 2600</p>
+                                <p class="m-0">${game.recommendedSpec.processor}</p>
                                 <p class="text-white-50 m-0 mt-2">Memory</p>
-                                <p class="m-0">8 GB</p>
+                                <p class="m-0">${game.recommendedSpec.memory}</p>
                                 <p class="text-white-50 m-0 mt-2">Storage</p>
-                                <p class="m-0">85 GB</p>
+                                <p class="m-0">${game.recommendedSpec.storage}</p>
                                 <p class="text-white-50 m-0 mt-2">Direct X</p>
-                                <p class="m-0">DX 12</p>
+                                <p class="m-0">${game.recommendedSpec.directXVersion}</p>
                                 <p class="text-white-50 m-0 mt-2">Graphics</p>
-                                <p class="m-0">NVIDIA GeForce GTX 1070 or AMD RX Vega 56</p>
+                                <p class="m-0">${game.recommendedSpec.graphicsCard}</p>
                             </div>
                         </div>
                     </div>

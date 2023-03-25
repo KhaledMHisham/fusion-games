@@ -2,6 +2,8 @@ package gov.iti.fusion.models;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "platforms_games")
 public class PlatformGame {
@@ -49,4 +51,23 @@ public class PlatformGame {
         this.platform = platform;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        PlatformGame that = (PlatformGame) o;
+
+        if (!Objects.equals(id, that.id)) return false;
+        if (!Objects.equals(game, that.game)) return false;
+        return Objects.equals(platform, that.platform);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (game != null ? game.hashCode() : 0);
+        result = 31 * result + (platform != null ? platform.hashCode() : 0);
+        return result;
+    }
 }
