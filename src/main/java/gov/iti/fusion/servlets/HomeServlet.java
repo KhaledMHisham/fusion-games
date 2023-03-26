@@ -231,7 +231,7 @@ public class HomeServlet extends HttpServlet {
             gamesOnSale = getRandomElements(gamesOnSale);
 
         if(mostOrderdGame.size()<5)
-            mostOrderdGame.addAll(getRandomElements(allGames).subList(0, Math.min(allGames.size(), 12)));
+            mostOrderdGame.addAll(allGames.subList(0, Math.min(allGames.size(), 12)));
 
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);

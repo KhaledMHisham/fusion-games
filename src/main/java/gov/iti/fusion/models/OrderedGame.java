@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 @Table(name = "ordered_games")
 public class OrderedGame {
     @EmbeddedId
-    private OrderedGameId id;
+    private OrderedGameId id = new OrderedGameId();
 
     @MapsId("gameId")
     @ManyToOne(fetch = FetchType.LAZY, optional = false, cascade = CascadeType.REFRESH)

@@ -77,16 +77,13 @@ public class CheckOutServlet extends HttpServlet {
             responseBody.addProperty("success", "false");
 
         } else {
-            //cart
-            userService.removeGamesFromCart(user);
-            //order
+            userService.addGamesToUserLibrary(user, cartGames);
             Order order = new Order(LocalDate.now());
             user.setCreditLimit(user.getCreditLimit()-totalPrice);
             order.setOrderingUser(user);
             orderService.save(order);
             orderService.addGamesToOrder(order, cartGames);
-            //library 
-            userService.addGamesToUserLibrary(user, cartGames);
+            userService.removeGamesFromCart(user);
             responseBody.addProperty("success", "true");
         }
         String responseBodyJson = gson.toJson(responseBody);

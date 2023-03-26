@@ -330,9 +330,9 @@
                         <c:when test="${user ne null}">
                           <c:choose>
                             <c:when test="${user.getCartGames().contains(game)}">
-                              <a onclick='addToCart(this,"${game.id}")' href="cart"
+                              <a href="cart"
                             class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
-                              <a onclick='sucessAddedToCart(this)'
+                              <a href="cart"
                                 class="btn btn-dark btn-black hover-zoom shadow-0 ">View In Cart</a>
                             </c:when>
                             <c:when test="${user.getOwnedGames().contains(game)}">
