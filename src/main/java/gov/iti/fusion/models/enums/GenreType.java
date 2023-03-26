@@ -13,7 +13,7 @@ public enum GenreType {
     FIGHTING("Fighting"),
     RACING("Racing"),
     SHOOTER("Shooter"),
-    MMO("Massively Multiplayer Online"),
+    MMO("MMO"),
     STEALTH("Stealth"),
     SURVIVAL("Survival");
 

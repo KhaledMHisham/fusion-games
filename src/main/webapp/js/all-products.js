@@ -1,12 +1,15 @@
-var genres = [];
-var discounts = [];
-var platforms = [];
+var genres = ["Action","Adventure","Role-playing","Strategy","Sports","Simulation","Puzzle","Horror",
+              "Fighting","Racing","Shooter","MMO","Stealth","Survival"];
+var discounts = ["15","50","85","100"];
+var platforms = ["Windows","Linux","Mac OS","XBOX"];
+
 var minPrice = document.getElementById("min-price").value;
 var maxPrice = document.getElementById("max-price").value;
 var user = null;
 var userCartGames = null;
 var userWishGames = null;
 var userLibraryGames = null;
+
 if( document.getElementById("user")){
     user = document.getElementById("user").value;
     userCartGamesStr = (document.getElementById("user-cart-games").value);
@@ -20,10 +23,10 @@ if( document.getElementById("user")){
 }
 
 
-filterGenre();
-filterDiscount();
-filterPlatform();
-filterPrice();
+// filterGenre();
+// filterDiscount();
+// filterPlatform();
+// filterPrice();
 
 function filterGenre(element) {
     genres = [];

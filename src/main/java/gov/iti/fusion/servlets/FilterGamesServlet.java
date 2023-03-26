@@ -19,6 +19,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -59,42 +60,47 @@ public class FilterGamesServlet extends HttpServlet {
         }
         JSONObject msg = gson.fromJson(message, JSONObject.class);
 
-        // System.out.println("genres" + msg.get("genres"));
-        // System.out.println("platforms" + msg.get("platforms"));
         System.out.println("dis" + msg.get("discounts"));
-        // System.out.println("min" + msg.get("minPrice"));
-        // System.out.println("max" + msg.get("maxPrice"));
+
         List<String> genres = (List<String>)msg.get("genres");
         List<String> discounts = (List<String>)msg.get("discounts");
         List<String> platforms = (List<String>)msg.get("platforms");
+
         Double minPrice = Double.parseDouble((String)msg.get("minPrice"));
         Double maxPrice =  Double.parseDouble((String) msg.get("maxPrice"));
 
         List<Game> allGames = gameService.findAllGames();
+        List<Game> gamesWithoutDiscount = new LinkedList<>();
+        gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
+
         List<Game> filteredGames = allGames.stream().filter(g -> g.getGenres().stream()
                                                     .map(ge->ge.getGenre().getGenre())
-                                                    .anyMatch(genres.stream().collect(Collectors.toSet())::contains)).toList();
+                                                    .anyMatch(genres.stream().collect(Collectors.toSet())::contains))
+                                                    .collect(Collectors.toCollection(ArrayList::new));
+
         
-        //System.out.println("filter GENRE"  + filteredGames.size());
         filteredGames = filteredGames.stream().filter(g -> g.getPlatfomrs().stream().map(p->p.getType().getPlatformType())
-                                                 .anyMatch(platforms.stream().collect(Collectors.toSet())::contains)).toList();
+                                                 .anyMatch(platforms.stream().collect(Collectors.toSet())::contains))
+                                                 .collect(Collectors.toCollection(ArrayList::new));
+
         
-        // System.out.println("dis" + discounts);
 
-        // System.out.println("plat" + allGames.get(0).getPlatfomrs().get(0).getType().getPlatformType());
-        // System.out.println("filter platform"  + filteredGames.size());
-        // System.out.println("discoun" + allGames.get(0).getDiscount().getType().getDiscount());
-        // System.out.println("discoun" +  discounts.contains(Integer.toString(50)));
+        filteredGames = filteredGames.stream().filter(g -> g.getDiscount()!=null && 
+        discounts.contains(Integer.toString((g.getDiscount()
+                                                .getType()
+                                              .getDiscount()))))
+                                              .collect(Collectors.toCollection(ArrayList::new));
+        if(discounts.size()==0){
+            System.out.println(gamesWithoutDiscount.size() + " game with no dis");
+            filteredGames.addAll(gamesWithoutDiscount);
+        }
+        filteredGames = filteredGames.stream().filter(g -> g.getPrice()>=minPrice && g.getPrice()<=maxPrice)
+                                                .collect(Collectors.toCollection(ArrayList::new));
 
-        //if(discounts.size()>0)
-        filteredGames = filteredGames.stream().filter(g -> g.getDiscount()!=null && discounts.contains(Integer.toString((g.getDiscount().getType().getDiscount())))  ).toList();
-        System.out.println("filter dis"  + filteredGames.size());
 
-
-        filteredGames = filteredGames.stream().filter(g -> g.getPrice()>minPrice && g.getPrice()<=maxPrice).toList();
-
+       
+       
         List<GameDto> filtereGameDtos = new ArrayList<>();
-
         for(Game game :filteredGames ){
             filtereGameDtos.add(GameMapper.entityToDTO(game));
         }

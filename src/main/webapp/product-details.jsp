@@ -13,6 +13,7 @@
             <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
             <link href="css/home-page.css" rel="stylesheet" />
             <link href="css/header.css" rel="stylesheet" />
+            <link href="css/add-to-cart.css" rel="stylesheet" />
 
         </head>
 
@@ -34,7 +35,7 @@
                                 <p class="m-0 mb-1">Genres</p>
                                 <p class="m-0" style="font-size:small">
                                     <c:forEach items="${game.getGenres()}" var="genr">
-                                        ${genr.genre},
+                                        ${genr.genre} &ThinSpace;
                                     </c:forEach>
                                 </p>
                             </div>
@@ -86,12 +87,40 @@
                                 </div>
                             </c:otherwise>
                         </c:choose>
+        <c:choose>
+            <c:when test="${user ne null}">
+                <c:choose>
+                    <c:when test="${user.getOwnedGames().contains(game)}">
+                        <a href="library-page" class="btn w-100 border-0 p-2 m-2 rounded-5 text-white btn-black">Owned</a>
+                    </c:when>
+                   
+            <c:when test="${user.getCartGames().contains(game)}">
+            <a href="cart" class="btn w-100 border-0 p-2 m-2 rounded-5 text-white btn-black"><i
+                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>View In Cart</a>
+            </c:when>
+            <c:otherwise>
+                <a onclick='buyNowGame("${game.id}")' class="btn w-100 border-0 p-2 m-2 rounded-5 text-black bg-gold">BUY NOW</a>
+            </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${user.getWishList().contains(game)}">
+                        <button onclick='addToWishList(this,"${game.id}")'  class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                    class="heart-checked fas fa-heart m-1 me-md-2 text-gold"></i>ADD TO WISHLIST</button>
+                </c:when>
+                <c:otherwise>
+                    <button onclick='addToWishList(this,"${game.id}")'  class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                    class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</button>
+                </c:otherwise>
+            </c:choose>
+            </c:when>
+                <c:otherwise>
+                    <a href="login" class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                        class="fas fa-shopping-cart m-1 me-md-2 text-white"></i>ADD TO CART</a>
+                <a href="login" class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
+                        class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</a>
+                </c:otherwise>
+            </c:choose>
 
-                        <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-black bg-gold">BUY NOW</button>
-                        <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
-                                class="fas fa-shopping-cart m-1 me-md-2 text-white"></i>ADD TO CART</button>
-                        <button class="btn w-100 border-0 p-2 m-2 rounded-5 text-white bg-main"><i
-                                class="fas fa-heart m-1 me-md-2 text-white"></i>ADD TO WISHLIST</button>
                         <div class="row px-2 pe-2">
                             <div
                                 class="col-12 d-flex flex-row justify-content-between mt-3 border-1 border-bottom border-gold">
@@ -132,8 +161,7 @@
                         <div class="row p-5">
                             <div class="mx-4 col-5">
                                 <h6 class="text-white-50 m-0 mt-2 mb-4">Minimum</h6>
-                                <p class="text-white-50 m-0 mt-2">OS</p>
-                                <p class="m-0">Windows 10</p>
+                               
                                 <p class="text-white-50 m-0 mt-2">Processor</p>
                                 <p class="m-0">${game.minimumSpec.processor}</p>
                                 <p class="text-white-50 m-0 mt-2">Memory</p>
@@ -324,6 +352,7 @@
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
             <script type="text/javascript" src="js/header.js"></script>
+            <script type="text/javascript" src="js/add-to-cart.js"></script>
 
         </body>
 

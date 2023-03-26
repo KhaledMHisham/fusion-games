@@ -70,12 +70,13 @@ var gameBannerId=document.getElementById("bannerGameId").value;
  }
  function buyNowGameBanner(){
  if(gameBannerId!=null)
-    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameBannerId}));
+    $.post("/fusion/cart",JSON.stringify({gameId:gameBannerId}),viewInCart);
 
  }
+ 
 function addToCartGameBanner(element){
  if(gameBannerId!=null)
-    $.post("/fusion/user/add-to-cart",JSON.stringify({gameId:gameBannerId}),sucessAddedToCart(element));
+    $.post("/fusion/cart",JSON.stringify({gameId:gameBannerId}),sucessAddedToCart(element));
 
  }
  function sucessAddedToCart(element){
@@ -87,5 +88,5 @@ function addToCartGameBanner(element){
      // btn.ariaDisabled;
  }
 function viewInCart(){
-    window.location.href="cart.jsp";
+    window.location.href="cart";
 }

@@ -37,42 +37,42 @@
                 </div>
               </div>
               <c:forEach items="${allGames}" var="game">
-                <div class="border-1 border-bottom border-gold rounded-3 mb-4">
+                <div id="${game.id}" class="border-1 border-bottom border-gold rounded-3 mb-4">
                   <div class="card-body p-4">
                     <div class="row d-flex justify-content-between align-items-center">
-
                       <div class="col-md-10 col-lg-8 col-xl-3">
                         <a href="product?name=${game.name}">
                           <img src="images/12.webp" class=" mb-2 img-fluid rounded-3 ">
                         </a>
-
                       </div>
                       <div class="col-md-11 col-lg-9 col-xl-4">
                         <p class="lead fw-normal mb-2">${game.name}</p>
                         <p><span class="text-muted mx-1">Genre: </span>${game.getGenres()[0].genre.genre}<span
                             class="mx-1 text-muted">Release Date: </span>${game.releaseDate}</p>
                       </div>
-                      <div class="col-md-9 col-lg-7 col-xl-2 offset-lg-1">
+                      <div class="col-md-7 col-lg-5 col-xl-1 offset-lg-1">
                         <h5 class="mb-0">$${game.price}</h5>
                       </div>
-                      <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1 text-end">
                         <c:choose>
                           <c:when test="${user.getCartGames().contains(game)}">
                             <a onclick='sucessAdded(this)' class="text-gold"><i
-                                class="fas fa-cart-plus cursor-pointer fa-2xl"></i></a>
+                                class="fas fa-cart-shopping cursor-pointer fa-lg"></i></a>
                           </c:when>
                           <c:when test="${user.getOwnedGames().contains(game)}">
                             <a onclick='sucessAdded(this)'  class="text-gold"><i
-                              class="fas fa-download cursor-pointer fa-2xl"></i></a>
+                              class="fas fa-download cursor-pointer fa-lg"></i></a>
                               </c:when>
                           <c:otherwise>
                             <a onclick='addToCartFromWishList(this,"${game.id}")' class="text-white"><i
-                                class="fas fa-cart-plus cursor-pointer fa-2xl "></i></a>
+                                class="fas fa-cart-plus cursor-pointer fa-lg "></i></a>
                           </c:otherwise>
                         </c:choose>
-
                       </div>
-
+                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1 text-end">
+                        <a onclick='deleteFromWishList("${game.id}")' class="text-danger"><i
+                          class="fas fa-trash-can cursor-pointer fa-lg "></i></a>
+                        </div>
                     </div>
 
                   </div>
