@@ -328,18 +328,20 @@
                       <h5 class="text-white">${game.name}</h5>
                       <c:choose>
                         <c:when test="${user ne null}">
-                          <a onclick='addToCart(this,"${game.id}")' href="cart"
-                            class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                           <c:choose>
                             <c:when test="${user.getCartGames().contains(game)}">
+                              <a onclick='addToCart(this,"${game.id}")' href="cart"
+                            class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                               <a onclick='sucessAddedToCart(this)'
                                 class="btn btn-dark btn-black hover-zoom shadow-0 ">View In Cart</a>
                             </c:when>
                             <c:when test="${user.getOwnedGames().contains(game)}">
                               <a href="library-page"
-                                      class="btn btn-dark btn-black hover-zoom shadow-0 ">Owned</a>
+                                      class="btn btn-dark btn-black hover-zoom shadow-0 w-75">Owned</a>
                             </c:when>
                             <c:otherwise>
+                              <a onclick='addToCart(this,"${game.id}")' href="cart"
+                            class="btn btn-warning shadow-0 relative-bottom "> Buy Now </a>
                               <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 "> Add
                                 to cart </a>
                             </c:otherwise>
