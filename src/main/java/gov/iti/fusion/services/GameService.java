@@ -55,10 +55,12 @@ public class GameService {
         return gameRepository.findAll(Game.class);
     }   
     public List<Game> findTopNewer(int limit){
-        return gameRepository.findTopNewer(limit);
+        List<Game> games = gameRepository.findTopNewer();
+        return games.subList(0,Math.min(games.size(), limit));
     }   
     public List<Game> findFreeGames(int limit){
-        return gameRepository.findFreeGames(limit);
+        List<Game> games = gameRepository.findFreeGames();
+        return games.subList(0,Math.min(games.size(), limit));
     }  
     public List<Game> findGamesWithNoDiscount(){
         return gameRepository.findGamesWithNoDiscount();
@@ -67,10 +69,13 @@ public class GameService {
         return gameRepository.findGamesOnSale();
     }
     public List<Game> findMostOrderedGames(int limit){
-        return gameRepository.findMostOrderedGames(limit);
+        List<Game> games = gameRepository.findMostOrderedGames();
+        return games.subList(0,Math.min(games.size(), limit)); 
     }
+
     public List<Game> findRecomendedGamesForUser(User user ,int limit){
-        return gameRepository.findRecomendedGamesForUser(user,limit);
+         List<Game> games = gameRepository.findRecomendedGamesForUser(user);
+        return games.subList(0,Math.min(games.size(), limit));
     }
     public void addPlatformToGame(Game game, Platform platform){
         PlatformGame platformGame = new PlatformGame(game, platform);

@@ -54,15 +54,9 @@ const params = new URLSearchParams(window.location.search);
 console.log(params);
 var gameBannerId=document.getElementById("bannerGameId").value;
  function onClickGame(th,gameName,gamePrice,gameDiscount,gameId){
-  
-   //var text = th.firstChild.firstChild.childNodes.img.getAttribute('src');
-   //document.getElementById("card-banner").style.backgroundImage = "url(images/hellblade.jpg)";
    var gameImgSrc = th.querySelector("#img-src").getAttribute('src');
-  //  var gameName =th.querySelector("#clicked-game-name").innerText;
-  //  var gamePrice = th.querySelector("#clicked-game-price").innerText;
-  //  var gameNetPrice = th.querySelector("#clicked-game-net-price").innerText;
    console.log(gameName);
-   document.getElementById("card-banner").style.backgroundImage = "url("+gameImgSrc+")";
+   document.querySelector("#card-banner").querySelector("img").setAttribute("src",gameImgSrc);
    document.getElementById("game-name").innerText = gameName;
    document.getElementById("game-price").innerText = "$"+gamePrice;
    document.getElementById("game-net-price").innerText = "$"+(gamePrice - (gameDiscount/100));

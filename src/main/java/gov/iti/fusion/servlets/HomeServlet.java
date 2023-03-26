@@ -205,31 +205,30 @@ public class HomeServlet extends HttpServlet {
         List<Game> gamesOnSale = new ArrayList<>();
         List<Game> mostOrderdGame = new ArrayList<>();
         List<Game> recomndedGames = new ArrayList<>();
+        User user =(User) request.getAttribute("user");
+
 
 
         allGames = gameService.findAllGames();
-        gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
-        // if(gamesWithoutDiscount.size()>15)
-        //     gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
-
         new5Games = gameService.findTopNewer(4);
         free2Games = gameService.findFreeGames(2);
         gamesOnSale = gameService.findGamesOnSale();
+        mostOrderdGame = gameService.findMostOrderedGames(12);
+        gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
 
-        User user =(User) request.getAttribute("user");
+
+        if(gamesWithoutDiscount.size()>15)
+            gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
+      
+
         if(user != null && user.getWishList().size()>3){
             recomndedGames = gameService.findRecomendedGamesForUser(user, 4);
         }else{
             recomndedGames = getRandomElements(allGames);
             recomndedGames = recomndedGames.subList(0, 4);
         }
-
-        if(gamesOnSale.size()>15)
+        if(gamesOnSale.size()>30)
             gamesOnSale = getRandomElements(gameService.findGamesOnSale());
-
-        mostOrderdGame = gameService.findMostOrderedGames(12);
-        if(mostOrderdGame.size()==0)
-            mostOrderdGame = getRandomElements(allGames).subList(0, Math.min(allGames.size()/2,20));
 
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);

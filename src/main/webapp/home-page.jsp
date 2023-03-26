@@ -92,7 +92,9 @@
             </header>
 
             <div class="position-relative col-lg-7 col-md-12 col-sm-12">
-              <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
+              <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray ">
+                <img src="images/12.webp" width="100%" height="700px" class="card-img-top ">
+              </div>
               <div id="card-banner-desc" class="card-banner-desc position-absolute m-4" style="max-width: 60%;">
                 <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
                 <h3 id="game-name">${newReleases[0].name}</h3>
@@ -314,11 +316,13 @@
             <header class="mb-4">
               <h3 class="text-gold">Free Games</h3>
             </header>
-            <div class="row position-relative gy-4">
+            <div class="row">
               <c:forEach items="${freeGames}" var="game">
-                <div class="col-lg-6 col-sm-12">
+                <div class="row col-xl-6 col-md-12 col-sm-12 col-lg-6 position-relative gy-4">
                   <a href="product?name=${game.name}">
-                    <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100"></div>
+                    <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100">
+                      <img src="images/12.webp" class="card-img-top " style="aspect-ratio: 3 / 2">
+                    </div>
                     <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
                       <h3 class="text-white">100% off</h3>
                       <h5 class="text-white">${game.name}</h5>
@@ -333,7 +337,7 @@
                             </c:when>
                             <c:when test="${user.getOwnedGames().contains(game)}">
                               <a href="library-page"
-                                class="card-btn btn btn-gold btn-black float-start w-75 text-cart">Owned</a>
+                                      class="btn btn-dark btn-black hover-zoom shadow-0 ">Owned</a>
                             </c:when>
                             <c:otherwise>
                               <a onclick='addToCart(this,"${game.id}")' class="btn btn-dark hover-zoom shadow-0 "> Add
@@ -348,9 +352,10 @@
                       </c:choose>
                     </div>
                   </a>
-                </div>
-              </c:forEach>
             </div>
+            </c:forEach>
+          </div>
+
             <!-- col.// -->
           </div>
           <!-- row.// -->

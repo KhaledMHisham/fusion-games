@@ -24,15 +24,15 @@ public class GameRepository extends CrudRepository<Game, String>{
         query.setParameter("name", name);
         return (Game) query.getSingleResult();
     }
-    public List<Game> findTopNewer(int limit){
+    public List<Game> findTopNewer(){
         String jpql = "SELECT g FROM Game g order by g.releaseDate desc";
         Query query = entityManager.createQuery(jpql, List.class);
-        return ((List<Game>) query.setMaxResults(limit).getResultList());
+        return (List<Game>) query.getResultList();
     }
-    public List<Game> findFreeGames(int limit){
+    public List<Game> findFreeGames(){
         String jpql = "SELECT g FROM Game g where g.discount.type = DiscountType.FREE  order by g.releaseDate desc";
         Query query = entityManager.createQuery(jpql, List.class);
-        return ((List<Game>) query.setMaxResults(limit).getResultList());
+        return ((List<Game>) query.getResultList());
     }
     public List<Game> findGamesWithNoDiscount(){
         String jpql = "SELECT g FROM Game g where g.discount is null";
@@ -44,20 +44,20 @@ public class GameRepository extends CrudRepository<Game, String>{
         Query query = entityManager.createQuery(jpql, List.class);
         return ((List<Game>) query.getResultList());
     }
-    public List<Game> findMostOrderedGames(int limit){
+    public List<Game> findMostOrderedGames(){
 
         String jpql = "select g from Game g"+ 
                         " join(SELECT og.id.gameId ogid, count(og.id.gameId) coun FROM OrderedGame og"+
                         " group by (og.id.gameId)) c on c.ogid = g.id order by c.coun desc ";
         Query query = entityManager.createQuery(jpql, List.class);
-        return ((List<Game>) query.setMaxResults(limit).getResultList());
+        return ((List<Game>) query.getResultList());
     }
-    public List<Game> findRecomendedGamesForUser(User user,int limit){
+    public List<Game> findRecomendedGamesForUser(User user){
         List<Game> wishListUserGames = user.getWishList();
         List<Genre> genresWishGames = wishListUserGames.stream().flatMap(g -> g.getGenres().stream()).toList(); 
         String jpql = "SELECT g FROM Game g JOIN g.genres.genre genr WHERE genr IN (:genres) ";
         Query query = entityManager.createQuery(jpql, List.class);
         query.setParameter("genres", genresWishGames);
-        return ((List<Game>) query.setMaxResults(limit).getResultList());
+        return ((List<Game>) query.getResultList());
     }
 }

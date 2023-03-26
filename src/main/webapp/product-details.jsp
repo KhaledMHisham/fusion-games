@@ -161,7 +161,6 @@
                         <div class="row p-5">
                             <div class="mx-4 col-5">
                                 <h6 class="text-white-50 m-0 mt-2 mb-4">Minimum</h6>
-                            
                                 <p class="text-white-50 m-0 mt-2">Processor</p>
                                 <p class="m-0">${game.minimumSpec.processor}</p>
                                 <p class="text-white-50 m-0 mt-2">Memory</p>
