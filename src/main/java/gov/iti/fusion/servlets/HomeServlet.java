@@ -216,7 +216,7 @@ public class HomeServlet extends HttpServlet {
         gamesOnSale = gameService.findGamesOnSale();
 
         User user =(User) request.getAttribute("user");
-        if(user != null && user.getWishList().size()>3){
+        if(user != null && user.getWishList().size() > 3){
             recomndedGames = gameService.findRecomendedGamesForUser(user, 4);
         }else{
             recomndedGames = getRandomElements(allGames);

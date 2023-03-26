@@ -3,6 +3,7 @@ package gov.iti.fusion.validation.servlets;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import gov.iti.fusion.models.User;
 import gov.iti.fusion.services.UserService;
 import jakarta.persistence.NoResultException;
 import jakarta.servlet.ServletException;
@@ -28,7 +29,12 @@ public class PhoneNumberValidationServlet extends HttpServlet {
         response.setStatus(200);
         JsonObject responseBody = new JsonObject();
 
-        if (phoneNumber.isEmpty()){
+        User currentUser = (User) request.getAttribute("user");
+        if(currentUser != null && currentUser.getPhoneNumber().equals(phoneNumber)){
+            responseBody.addProperty("status", "valid");
+            responseBody.addProperty("message", "");
+        }
+        else if (phoneNumber.isEmpty()){
             responseBody.addProperty("status", "invalid");
             responseBody.addProperty("message", "");
         }

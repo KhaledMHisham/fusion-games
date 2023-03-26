@@ -30,7 +30,12 @@ public class EmailValidationServlet extends HttpServlet {
             response.setStatus(200);
             JsonObject responseBody = new JsonObject();
 
-            if (email.isEmpty()){
+            User currentUser = (User) request.getAttribute("user");
+            if(currentUser != null && currentUser.getEmail().equals(email)){
+                responseBody.addProperty("status", "valid");
+                responseBody.addProperty("message", "");
+            }
+            else if (email.isEmpty()){
                 responseBody.addProperty("status", "invalid");
                 responseBody.addProperty("message", "");
             }

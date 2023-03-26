@@ -213,7 +213,6 @@
     <servlet-name>CheckOutServlet</servlet-name>
     <url-pattern>/user/checkout</url-pattern>
   </servlet-mapping>
-
   
 
   <listener>
@@ -223,5 +222,23 @@
   <listener>
     <listener-class>gov.iti.fusion.listeners.RequestListener</listener-class>
   </listener>
+
+  <servlet>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.UserProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserProfileServlet</servlet-name>
+    <url-pattern>/user/profile</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>GetUserDataServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.GetUserDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetUserDataServlet</servlet-name>
+    <url-pattern>/user</url-pattern>
+  </servlet-mapping>
 
 </web-app>

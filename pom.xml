@@ -104,7 +104,7 @@
           <groupId>org.eclipse</groupId>
           <artifactId>yasson</artifactId>
           <version>3.0.2</version>
-          </dependency>
+      </dependency>
   </dependencies>
 
   <build>
