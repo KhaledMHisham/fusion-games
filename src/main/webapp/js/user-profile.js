@@ -12,26 +12,12 @@ const passwordInput = document.getElementById("password");
 const passwordError = document.getElementById("password-error");
 const confirmPasswordInput = document.getElementById("confirm-password");
 const confirmPasswordError = document.getElementById("confirm-password-error");
-const creditLimitInput = document.getElementById("credit-limit");
-const creditLimitError = document.getElementById("credit-limit-error");
 const birthDateInput = document.getElementById("birth-date");
 const birthDateError = document.getElementById("birth-date-error");
 const countryInput = document.getElementById("country");
 const countryError = document.getElementById("country-error");
-const genderInput = document.getElementsByName("gender");
-const genderError = document.getElementById("gender-error");
-
-function getGender() {
-    let genderValue;
-    for (let i = 0; i < genderInput.length; i++) {
-      if (genderInput[i].checked) {
-        genderValue = genderInput[i].value;
-        break;
-      }
-    }
-    return genderValue;
-}
-
+const creditInput = document.getElementById("credit");
+const creditError = document.getElementById("credit-error");
 
 function validateFirstName(){
     const firstNameValue = firstNameInput.value;
@@ -53,17 +39,6 @@ function validateLastName(){
     }
     else{
         lastNameError.innerHTML = "First name is required";
-        return false;
-    }
-}
-function validateCreditLimit(){
-    const creditLimitValue = creditLimitInput.value;
-    if(creditLimitValue.length !== 0 ){
-        creditLimitError.innerHTML = "";
-        return true;
-    }
-    else{
-        creditLimitError.innerHTML = "Credit is required";
         return false;
     }
 }
@@ -164,6 +139,20 @@ function validatePassword(){
     }
 }
 
+function validateCreditLimit(){
+    const creditLimitValue = creditInput.value;
+    const regex = /[0-9]{3,6}/;
+    if(regex.test(creditLimitValue)){
+        creditError.innerHTML = "";
+        return true;
+    }
+    else{
+        creditError.innerHTML = "Credit limit must be a 6-digit number";
+        return false;
+    }
+}
+
+
 function validateConfirmPassword(){
     const confirmPasswordValue = confirmPasswordInput.value;
     if(confirmPasswordValue == passwordInput.value){
@@ -207,27 +196,58 @@ function validateBirthDate() {
     }
 }
 
-function validateGender() {
-    const gender = getGender();
-    console.log(gender);
-    if(gender != undefined){
-        genderError.innerHTML = "";
-        return true 
+function propagateCountry(data){
+    for (let i = 0; i < countryInput.options.length; i++) {
+        const option = countryInput.options[i];
+        if (option.value === data.country) {
+            countryInput.selectedIndex = i;
+            break;
+        }
     }
-    genderError.innerHTML = "Gender is required";
-    return false;
 }
 
-async function signUp(){
+function getUserData(){
+    const url = "http://localhost:8888/fusion/user";
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    fetch(url, options)
+        .then(response => {
+            if (response.ok) {
+                console.log(response);
+                return response.json();
+            } else {
+                throw new Error("Request failed.");
+            }
+        })
+        .then(data => {
+            usernameInput.value = data.username;
+            firstNameInput.value = data.firstName;
+            lastNameInput.value = data.lastName;
+            emailInput.value = data.email;
+            creditInput.value = data.creditLimit;
+            phoneNumberInput.value = data.phoneNumber;
+            birthDateInput.value = new Date(Date.parse(data.birthDate)).toISOString().slice(0,10);
+            propagateCountry(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
+}
+
+async function editProfile(){
     let isEmailValid = await validateEmail();
     let isPhoneNumberValid = await validatePhoneNumber();
     let isUsernameValid = await validateUsername();
-    if(validateFirstName() & validateLastName() & isUsernameValid & validateCreditLimit()
+    if(validateFirstName() & validateLastName() & isUsernameValid
         & isEmailValid & validatePassword() & validateConfirmPassword()
-        & validateBirthDate() & validateCountry() & isPhoneNumberValid & validateGender()){
+        & validateBirthDate() & validateCountry() & isPhoneNumberValid & validateCreditLimit()){
 
             
-            const url = "http://localhost:8888/fusion/register";
+            const url = "http://localhost:8888/fusion/user/profile";
 
             const requestBody =  {
                                     firstName: firstNameInput.value,
@@ -235,11 +255,10 @@ async function signUp(){
                                     username: usernameInput.value,
                                     email: emailInput.value,
                                     phoneNumber: phoneNumberInput.value,
-                                    gender: getGender(),
                                     password: passwordInput.value,
-                                    creditLimit: creditLimitInput.value,
                                     country: countryInput.value,
-                                    birthDate: birthDateInput.value
+                                    birthDate: birthDateInput.value,
+                                    creditLimit: creditInput.value
                                 };
             
                 const options = {
@@ -262,7 +281,7 @@ async function signUp(){
                     })
                     .then(data => {
                         console.log(data);
-                        window.location.href = "login";
+                        window.location.href = "./profile";
                     })
                     .catch(error => {
                         console.error(error);
@@ -280,3 +299,6 @@ usernameInput.addEventListener("blur", validateUsername);
 passwordInput.addEventListener("blur", validatePassword);
 confirmPasswordInput.addEventListener("blur", validateConfirmPassword);
 phoneNumberInput.addEventListener("blur", validatePhoneNumber);
+creditInput.addEventListener("blur", validateCreditLimit);
+
+window.onload = getUserData;

@@ -8,8 +8,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
-    <link href="css/home-page.css" rel="stylesheet" />
-    <link href="css/user-profile.css" rel="stylesheet"/>
+    <link href="../css/home-page.css" rel="stylesheet" />
+    <link href="../css/user-profile.css" rel="stylesheet"/>
 </head>
 
 <body class="bg-black">
@@ -41,12 +41,14 @@
                         <h3>Account Information</h3>
                     </div>
                     <div class="col-lg-6 col-md-6 col-sm-12 ">
-                        <div class="input-group">
-                            <div class="form-outline mt-2">
-                                <input type="text" id="username" class="form-control text-gold"/>
-                                <label id="username-label" class="form-label text-gold bg-main search-label"
-                                    for="username">Username</label>
+                        <div class="input-group d-flex flex-column">
+                            <div class="form-outline mt-2 d-flex flex-column">
+                                <label id="username-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                       for="username">Username</label>
+                                <input type="text" id="username" class=" bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
+
                             </div>
+                            <span id="username-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                         </div>
                     </div>
                 </div>
@@ -54,43 +56,47 @@
                     <div class="col-6 d-flex flex-column justify-content-between">
                         <div class="row">
                             <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="text" id="first-name" class="form-control text-gold"/>
-                                        <label id="first-name-label" class="form-label text-gold bg-main search-label"
-                                            for="first-name">First Name</label>
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="first-name-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="first-name">First Name</label>
+                                        <input type="text" id="first-name" class=" bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="first-name-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="text" id="email" class="form-control text-gold"/>
-                                        <label id="email-label" class="form-label text-gold bg-main search-label"
-                                            for="email">Email Address</label>
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="email-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="email">Email Address</label>
+                                        <input type="text" id="email" class=" bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="email-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="password" id="password" class="form-control text-gold"/>
-                                        <label id="password-label" class="form-label text-gold bg-main search-label"
-                                            for="password">Password</label>
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="password-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="password">Password</label>
+                                        <input type="password" id="password" class=" bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="password-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
                             </div>
                             <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="text" id="phonenumber" class="form-control text-gold"/>
-                                        <label id="phonenumber-label" class="form-label text-gold bg-main search-label"
-                                            for="phonenumber">Phone Number</label>
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="phonenumber-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="phonenumber">Phone Number</label>
+                                        <input type="text" id="phonenumber" class="bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="phonenumber-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
                             </div>
-                            <div class="col-12 mb-3">
-                                <select id="country" name="country" class="text-gold rounded-1 border-gold col-6 bg-main p-2">
+                            <div class="col-12">
+                                <select id="country" name="country" class="text-white rounded-1 border-gold col-6 bg-main mt-2 p-2">
                                     <option class="bg-black border border-gold rounded-2 text-muted option-hover" value="country"
                                       selected>Select country</option>
                                     <option class="bg-black text-white option-hover" value="AF">Afghanistan</option>
@@ -101,51 +107,65 @@
                                     <option class="bg-black text-white option-hover" value="DJ">Djibouti</option>
                                     <option class="bg-black text-white option-hover" value="EG">Egypt</option>
                                   </select>
-                                  <span id="country-error" style="font-size: 10px;" class="text-danger"></span>
                             </div>
+                            <span id="country-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                         </div>
                     </div>
-                    <div class="col-6 d-flex flex-column justify-content-between .g-col">
-                        <div class="row"></div>
-                            <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="text" id="last-name" class="form-control text-gold"/>
-                                        <label id="last-name-label" class="form-label text-gold bg-main search-label"
-                                            for="last-name">Last Name</label>
+                    <div class="col-6 d-flex flex-column justify-content-between">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="last-name-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="last-name">Last Name</label>
+                                        <input type="text" id="last-name" class="bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="last-name-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
-                            </div> 
-                            <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="text" id="credit" class="form-control text-gold"/>
-                                        <label id="credit-label" class="form-label text-gold bg-main search-label"
-                                            for="credit">Credit</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
+                                        <label id="credit-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="credit">Credit</label>
+                                        <input type="text" id="credit" name="credit" class="bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="credit-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
-                            </div>   
-                            <div class="col-12 mb-3">
-                                <div class="input-group">
-                                    <div class="form-outline">
-                                        <input type="password" id="confirm-password" class="form-control text-gold"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="input-group d-flex flex-column">
+                                    <div class="form-outline d-flex flex-column">
                                         <label id="confirm-password-label" class="form-label text-gold bg-main search-label"
-                                            for="confirm-password">Confirm Password</label>
+                                               for="confirm-password">Confirm Password</label>
+                                        <input type="password" id="confirm-password" class="bg-main border-1 border-gold text-white p-1 pt-2 pb-2"/>
                                     </div>
+                                    <span id="confirm-password-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
-                            </div> 
-                            <div class="col-12 mb-3">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
                                 <div class="row">
-                                  <div class="input-group date" id="datepicker">
-                                    <input type="date" class="form-control bg-main border border-gold rounded-2 text-gold"
-                                      id="birth-date" />
-                                  </div>
+                                    <div class="date" id="datepicker">
+                                        <label id="birth-date-label" class="form-label text-gold bg-main search-label" style="font-size: 14px;"
+                                               for="birth-date">Birth Date</label>
+                                        <input type="date" class="form-control bg-main border border-gold rounded-2 text-white p-2 pt-2 pb-2"
+                                               id="birth-date" />
+                                    </div>
+                                    <span id="birth-date-error" style="font-size: 10px;" class="text-end text-danger m-0"></span>
                                 </div>
-                                <span id="birth-date-error" style="font-size: 10px;" class="text-danger"></span>
-                            </div> 
-                            <div class="col-12 mb-3">
-                                <button class="btn btn-outline-light text-black btn-gold border-gold w-100" type="button" onclick="editProfile()">Submit</button>
-                            </div>   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <button class="btn btn-outline-light text-black btn-gold border-gold w-100  mt-2 p-2" type="button" onclick="editProfile()">Submit</button>
+                            </div>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -303,7 +323,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
-    <script type="text/javascript" src="js/home-page.js"></script>
+    <script type="text/javascript" src="../js/home-page.js"></script>
+    <script type="text/javascript" src="../js/user-profile.js"></script>
 </body>
 
 </html>
