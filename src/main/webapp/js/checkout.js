@@ -13,6 +13,8 @@ const cvvNumError = document.getElementById("cvv-num-error");
 const cardOwnerNameInput = document.getElementById("card-owner-name");
 const cardOwnerNameError = document.getElementById("card-owner-name-error");
 const userGames = document.getElementById("user-games");
+const myModal = document.querySelector('#exampleModal');
+var myModalEl = new bootstrap.Modal(myModal);
 
 function validateFirstName() {
   const firstNameValue = firstNameInput.value;
@@ -100,25 +102,35 @@ function checkOut() {
   console.log(userGames);
   if (userGames && validateFirstName() && validateLastName() && validateEmail()
     && validatePhone() && validateCreditNum() && validateCVV()
-    && validateCreditowner() ) {
+    && validateCreditowner())
+    {
     $.post("/fusion/user/checkout",
       function success(isSuccess) {
-        console.log(isSuccess);
-        var result = JSON.parse(JSON.stringify(isSuccess));
+        console.log(isSuccess.success);
+        var result = isSuccess
         console.log(result);
-        if (result.success === "true") {
+        if (result.success == "true") {
           window.location.href = "library-page"
         }
         else {
-          alert('Sorry you exceeded you card limit');
+          myModalEl.show();
 
         }
       }, "json");
   }
-  else{
+  else {
     console.log("error")
   }
 }
+
+function hide() {
+  console.log("ni")
+  myModalEl.hide();
+}
+function backHome() {
+  window.location.href="home";
+}
+
 
 function deleteGameFromCart(gameId) {
   $.ajax({
@@ -128,7 +140,7 @@ function deleteGameFromCart(gameId) {
     dataType: "json", //set data
     success: function sucessDeleted(result) {
       console.log(gameId);
-      const res = JSON.parse(JSON.stringify(result));
+      const res = result;
       console.log(res.totalPrice);
 
       document.getElementById(gameId).remove();

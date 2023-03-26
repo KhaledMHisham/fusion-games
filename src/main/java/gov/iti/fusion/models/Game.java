@@ -86,7 +86,7 @@ public class Game {
 
     //revomed realseDate should be rewitten before they discover what i did
 
-    public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, Double netPrice, LocalDate releaseDate) {
+    public Game(String name, Double price, String developer, String publisher, String pictureUrl, String description, LocalDate releaseDate) {
         this.name = name;
         this.price = price;
         this.developer = developer;

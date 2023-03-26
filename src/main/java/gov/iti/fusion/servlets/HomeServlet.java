@@ -228,7 +228,10 @@ public class HomeServlet extends HttpServlet {
             recomndedGames = recomndedGames.subList(0, 4);
         }
         if(gamesOnSale.size()>30)
-            gamesOnSale = getRandomElements(gameService.findGamesOnSale());
+            gamesOnSale = getRandomElements(gamesOnSale);
+
+        if(mostOrderdGame.size()<5)
+            mostOrderdGame.addAll(getRandomElements(allGames).subList(0, Math.min(allGames.size(), 12)));
 
         request.setAttribute("allGames",allGames);
         request.setAttribute("weHave",gamesWithoutDiscount);

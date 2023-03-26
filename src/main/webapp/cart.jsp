@@ -31,7 +31,7 @@
       <section class="bg-black py-5  bg-main">
         <div class="container">
           <div class="row">
-            <div class="col-xl-8 col-lg-8 mb-4 border-radius bg-main checout-border">
+            <div class="col-xl-8 col-lg-8 mb-4 border-radius bg-main checkout-border">
 
               <!-- Checkout -->
               <div class="shadow-0 border-gold text-gold">
@@ -141,6 +141,21 @@
                 </div>
               </div>
               <!-- Checkout -->
+              <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                    </div>
+                    <div class="modal-body">Please, Recahrge Your Balance Before Checkout </div>
+                    <div class="modal-footer">
+                      <button onclick="hide()" type="button" class="btn btn-black">Close</button>
+                      <button onclick="backHome()" type="button" class="btn btn-gold">Back To Home</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             </div>
             <div class="col-xl-4 col-lg-4 d-flex justify-content-center text-gold">
               <div class="ms-lg-4 mt-4 mt-lg-0" style="max-width: 320px;">

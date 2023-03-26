@@ -211,8 +211,18 @@ body {
 .form-check-input:checked {
     border-color: #f5b80f;
 }
-.checout-border{
+.checkout-border{
     border-radius : 2%;
+}
+.modal-header{
+    border-bottom: transparent;
+}
+.modal-footer{
+    border-top: transparent;
+}
+
+.modal-content {
+    background-color: #332d2d;
 }
 
 

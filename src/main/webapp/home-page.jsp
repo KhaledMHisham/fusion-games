@@ -93,7 +93,7 @@
 
             <div class="position-relative col-lg-7 col-md-12 col-sm-12">
               <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray ">
-                <img src="images/12.webp" width="100%" height="700px" class="card-img-top ">
+                <img src="images/12.webp" width="100%" height="600px" class="card-img-top ">
               </div>
               <div id="card-banner-desc" class="card-banner-desc position-absolute m-4" style="max-width: 60%;">
                 <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
@@ -127,7 +127,7 @@
                     <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
-                          <img id="img-src" src="images/hellblade.jpg" alt="" style="width:120px; height:120px"
+                          <img id="img-src" src="images/hellblade.jpg" alt="" style="width:120px; height:100px"
                             class="fa-square " />
                           <div class="ms-3">
                             <p id="clicked-game-name" class="fw-bold mb-1">${game.name}</p>
