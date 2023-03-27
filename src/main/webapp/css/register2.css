@@ -4,7 +4,7 @@
     color: #f5b80f;
 }
 .text-gold{
-  color: #f5b80f !important;
+  color: #ffffff !important;
 }
 .btn-gold {
     background-color: #f5b80f !important;
@@ -31,14 +31,8 @@
 }
     
     .arrow :hover {
-        background: #352d2d;
-        /* border: 2px solid #f5b80f;
-        border-radius: 50%; */
-        width: 30px;
-        height: 30px;
-        /* justify-content: center;
-        align-items: center;
-        padding-top: 3px; */
+        transform: scale(1.2);
+
     
     }
     
