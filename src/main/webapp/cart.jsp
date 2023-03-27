@@ -6,13 +6,15 @@
     <head>
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
-      <title>check out page</title>
+      <title>Fusion</title>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
       <link href="css/checkout.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
+      <link rel="shortcut icon" href="images/phoenix.png" type="image/x-icon" />
+
 
     </head>
     <jsp:include page="header.jsp" />
