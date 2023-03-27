@@ -30,7 +30,7 @@ public class Order {
 
 
     @OneToMany(mappedBy = "order")
-    private Set<OrderedGame> orderedGames;
+    private List<OrderedGame> orderedGames;
 
     
     // public Order(LocalDate createdAt, Double totalPrice) {
@@ -87,6 +87,9 @@ public class Order {
 
     public List<Game> getOrderedGames() {
         return Collections.unmodifiableList(orderedGames.stream().map(OrderedGame::getGame).toList());
+    }
+    public List<OrderedGame> getOrderedGamesItem() {
+        return Collections.unmodifiableList(orderedGames);
     }
     @Override
     public String toString() {

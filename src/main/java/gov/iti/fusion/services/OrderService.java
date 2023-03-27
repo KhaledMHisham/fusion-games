@@ -3,6 +3,7 @@ package gov.iti.fusion.services;
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Order;
 import gov.iti.fusion.models.OrderedGame;
+import gov.iti.fusion.models.User;
 import gov.iti.fusion.persistence.repositories.OrderRepository;
 import gov.iti.fusion.persistence.repositories.OrderedGameRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,5 +43,8 @@ public class OrderService {
         for(Game game : games){
             addGameToOrder(order, game);
         }
+    }
+    public List<Order> getUserOrders(User user){
+        return user.getOrders();
     }
 }

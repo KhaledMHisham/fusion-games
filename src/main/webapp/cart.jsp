@@ -23,9 +23,9 @@
     <c:set var="totalCartNetPrice" value="${user.getCartGames().stream()
         .map(g->g.getNetPrice()).reduce(0.0,(a, b) -> a + b)}" />
     <c:set var="totalCartDiscount" value="${100-((totalCartNetPrice/totalCartPrice)*100)}" />
-    <c:if test="${fn:length(user.getCartGames()) > 0}">
+    <!-- <c:if test="${fn:length(user.getCartGames()) > 0}">
         <input hidden id="user-games" value="">
-    </c:if>
+    </c:if> -->
     <body>
 
 

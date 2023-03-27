@@ -113,22 +113,15 @@
                     <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse show"
                       aria-labelledby="headingThree">
                       <div class=" accordion-body">
-                        <input onclick="filterDiscount(this)" type="checkbox" name="discount" value="15"
-                          class="btn-check border justify-content-center" id="btn-check1" checked autocomplete="off" />
-                        <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check1">15%</label>
-                        <input onclick="filterDiscount(this)" type="checkbox" name="discount"
-                          class="btn-check border justify-content-center" id="btn-check2" checked value="50"
-                          autocomplete="off" />
-                        <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check2">50%</label>
-                        <input onclick="filterDiscount(this)" type="checkbox" name="discount"
-                          class="btn-check border justify-content-center" id="btn-check3" checked value="85"
-                          autocomplete="off" />
-                        <label class="btn btn-white mb-1 px-1" style="width: 60px;" for="btn-check3">85%</label>
-                        <input onclick="filterDiscount(this)" type="checkbox" name="discount"
-                          class="btn-check border justify-content-center" id="btn-check4" checked value="100"
-                          autocomplete="off" />
-                        <label onclick="filterDiscount(this)" class="btn btn-white mb-1 px-1" style="width: 60px;"
-                          for="btn-check4">100%</label>
+                        <div class="row align-content-center ">
+                          <c:forEach items="${allDiscounts}" var="dis">
+                            <input onclick="filterDiscount(this)" type="checkbox" name="discount"
+                              value="${dis.type.discount}" class="btn-check border justify-content-center"
+                              id="${dis.type}" checked autocomplete="off" />
+                            <label class="btn btn-white mb-1 mx-1 px-1" style="width: 60px;"
+                              for="${dis.type}">${dis.type.discount}%</label>
+                          </c:forEach>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -145,29 +138,14 @@
                       <div class="accordion-body">
                         <div>
                           <!-- Checked checkbox -->
-                          <div class="form-check">
-                            <input onclick="filterPlatform(this)" class="form-check-input" name="platform"
-                              type="checkbox" value="Windows" id="flexCheckChecked1" checked />
-                            <label class="form-check-label" for="flexCheckChecked1">Windows OS</label>
-                          </div>
-                          <!-- Checked checkbox -->
-                          <div class="form-check">
-                            <input onclick="filterPlatform(this)" class="form-check-input" name="platform"
-                              type="checkbox" value="Mac OS" id="flexCheckChecked2" checked />
-                            <label class="form-check-label" for="flexCheckChecked2">Mac OS</label>
-                          </div>
-                          <!-- Checked checkbox -->
-                          <div class="form-check">
-                            <input onclick="filterPlatform(this)" class="form-check-input" name="platform"
-                              type="checkbox" value="Linux" id="flexCheckChecked3" checked />
-                            <label class="form-check-label" for="flexCheckChecked3">Linux OS</label>
-                          </div>
-                          <div class="form-check">
-                            <input onclick="filterPlatform(this)" class="form-check-input" name="platform"
-                              type="checkbox" value="XBOX" id="flexCheckChecked3" checked />
-                            <label class="form-check-label" for="flexCheckChecked3">XBOX</label>
-                          </div>
-                          <!-- Checked checkbox -->
+                          <c:forEach items="${allPlatforms}" var="plat">
+                            <div class="form-check">
+                              <input onclick="filterPlatform(this)" class="form-check-input" name="platform"
+                                type="checkbox" value="${plat.type.getPlatformType()}" id="flexCheckChecked1" checked />
+                              <label class="form-check-label"
+                                for="flexCheckChecked1">${plat.type.getPlatformType()}</label>
+                            </div>
+                          </c:forEach>
 
                         </div>
                       </div>
@@ -228,14 +206,14 @@
 
                             <c:choose>
                               <c:when test="${user.getWishList().contains(game)}">
-                            <a onclick='addToWishList(this,"${game.id}")'
-                              class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                              <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
+                                <a onclick='addToWishList(this,"${game.id}")'
+                                  class="heart-checked btn btn-light border border-gold mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                                  <i class="fas fa-heart fa-lg px-1 text-gold"></i></a>
                               </c:when>
                               <c:otherwise>
                                 <a onclick='addToWishList(this,"${game.id}")'
-                                class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
-                                <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
+                                  class="btn btn-light border mx-1 px-2 pt-2 float-end icon-hover bg-black shadow-0">
+                                  <i class="fas fa-heart fa-lg px-1 text-white"></i></a>
                               </c:otherwise>
                             </c:choose>
                           </c:when>

@@ -12,7 +12,8 @@ const cvvNumInput = document.getElementById("cvv-num");
 const cvvNumError = document.getElementById("cvv-num-error");
 const cardOwnerNameInput = document.getElementById("card-owner-name");
 const cardOwnerNameError = document.getElementById("card-owner-name-error");
-const userGames = document.getElementById("user-games");
+
+// const userGames = document.getElementById("user-games");
 const myModal = document.querySelector('#exampleModal');
 var myModalEl = new bootstrap.Modal(myModal);
 
@@ -99,8 +100,8 @@ function validateCreditowner() {
 
 function checkOut() {
   //validation 
-  console.log(userGames);
-  if (userGames && validateFirstName() && validateLastName() && validateEmail()
+  // console.log(userGames);
+  if (validateFirstName() && validateLastName() && validateEmail()
     && validatePhone() && validateCreditNum() && validateCVV()
     && validateCreditowner())
     {

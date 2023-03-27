@@ -58,16 +58,21 @@ public class AllProductsServlet extends HttpServlet {
  
         GameService gameService = new GameService(request);
         GenreService genreService = new GenreService(request);
+        PlatformService platformService = new PlatformService(request);
+        DiscountService discountService = new DiscountService(request);
       
         List<Game> allGames = new ArrayList<>();
         List<Genre> allGenres = new ArrayList<>();
-
+        List<Platform> allPlatforms = platformService.findAll();
+        List<Discount> allDiscounts = discountService.findAll();
 
         allGames =  gameService.findAllGames();
         allGenres = genreService.findAllGenre(); 
        
         request.setAttribute("allGames",allGames);
         request.setAttribute("allGenre",allGenres);
+        request.setAttribute("allPlatforms", allPlatforms);
+        request.setAttribute("allDiscounts", allDiscounts);
        
         // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
         request.getRequestDispatcher("all-products-page.jsp").forward(request, response);

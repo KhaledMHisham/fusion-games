@@ -72,7 +72,7 @@ public class CheckOutServlet extends HttpServlet {
         Gson gson = new Gson();
         PrintWriter out = response.getWriter();
 
-        if (totalPrice > user.getCreditLimit()) {
+        if (totalPrice > user.getCreditLimit() || user.getCartGames().size()<1) {
             responseBody.addProperty("success", "false");
 
         } else {

@@ -26,7 +26,6 @@
                     <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
                   </c:otherwise>
                 </c:choose>
-
               </a>
               <c:choose>
                 <c:when test="${user ne null}">

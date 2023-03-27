@@ -251,6 +251,16 @@
 
   
   <servlet>
+    <servlet-name>UserOrdersServlet</servlet-name>
+    <servlet-class>gov.iti.fusion.servlets.admin.user.UserOrdersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserOrdersServlet</servlet-name>
+    <url-pattern>/user-orders</url-pattern>
+  </servlet-mapping>
+
+  
+  <servlet>
     <servlet-name>ErrorHandlerServlet</servlet-name>
     <servlet-class>gov.iti.fusion.servlets.ErrorHandlerServlet</servlet-class>
   </servlet>
@@ -263,10 +273,10 @@
     <error-code>404</error-code>
     <location>/error-404.html</location> 
 </error-page>
-<error-page> 
+<!-- <error-page> 
   <exception-type>java.lang.Exception</exception-type> 
   <location>/error-404.html</location>
-</error-page>
+</error-page> -->
 
 
 </web-app>

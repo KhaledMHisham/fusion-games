@@ -37,18 +37,18 @@ const minimumDXVersionInput = document.getElementById('edit-minimum-dxversion');
 const editGameId = document.getElementById("edit-id");
 
 
-function getGames(){
+function getGames() {
     const url = new URL("http://localhost:8888/fusion/admin/game");
     url.searchParams.append("time", new Date().getTime);
-  
+
     const options = {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
     };
-  
-  
+
+
     fetch(url, options)
         .then(response => {
             if (response.ok) {
@@ -61,8 +61,8 @@ function getGames(){
             mainSectionTitle.innerHTML = "GAMES";
             tableTitle.innerHTML = "GAMES";
             mainTableBody.innerHTML = "";
-            for(let i = 0; i < data.length; ++i){
-                if(data[i].discount == null){
+            for (let i = 0; i < data.length; ++i) {
+                if (data[i].discount == null) {
                     mainTableBody.innerHTML += `
                     <tr class="border-bottom border-1 border-gold">
                         <td>
@@ -104,7 +104,7 @@ function getGames(){
                     </tr>
                     `;
                 }
-                else{
+                else {
                     mainTableBody.innerHTML += `
                     <tr class="border-bottom border-1 border-gold">
                         <td>
@@ -152,20 +152,20 @@ function getGames(){
         .catch(error => {
             console.error(error);
         });
-  }
+}
 
-  function getUsers(){
+function getUsers() {
     const url = new URL("http://localhost:8888/fusion/admin/user");
     url.searchParams.append("time", new Date().getTime);
-  
+
     const options = {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
     };
-  
-  
+
+
     fetch(url, options)
         .then(response => {
             if (response.ok) {
@@ -191,10 +191,14 @@ function getGames(){
                                             <td>
                                                 <p class="fw-normal mb-1 text-white">CREDIT LIMIT</p>
                                             </td>
+                                            <td>
+                                                <p class="fw-normal mb-1 text-white">Orders</p>
+                                            </td>
                                         </tr>
                                     `;
-            for(let i = 0; i < data.length; ++i){
+            for (let i = 0; i < data.length; ++i) {
                 mainTableBody.innerHTML += `
+                                                <a href="home">
                                                 <tr class="border-bottom border-1 border-gold">
                                                     <td>
                                                         <p class="fw-normal mb-1 text-white">${data[i].username}</p>
@@ -208,20 +212,26 @@ function getGames(){
                                                     <td>
                                                         <p class="fw-normal mb-1 text-white">${data[i].creditLimit}$</p>
                                                     </td>
+                                                    <td>
+                                                        <a class="btn btn-gold text-black 
+                                                        hover-overlay border-gold p-1 w-75" 
+                                                        type="button" href="user-orders?userId=${data[i].id}"">orders</a>
+                                                    </td>
                                                 </tr>
-                                            ` 
+                                                </a>
+                                            `
             }
         })
         .catch(error => {
             console.error(error);
         });
-  }
+}
 
-function deleteGame(gameId){
+function deleteGame(gameId) {
     const url = new URL("http://localhost:8888/fusion/admin/game/delete");
 
     const requestBody = {
-        gameId : gameId
+        gameId: gameId
     };
 
     const options = {
@@ -242,58 +252,58 @@ function deleteGame(gameId){
             }
         })
         .then(data => {
-                console.log(data);
+            console.log(data);
         })
         .catch(error => {
             console.error(error);
         });
 }
 
-function getGameDetails(gameId){
-  console.log(gameId);
-  const url = new URL("http://localhost:8888/fusion/admin/game/edit");
-  url.searchParams.append("gameId", gameId)
+function getGameDetails(gameId) {
+    console.log(gameId);
+    const url = new URL("http://localhost:8888/fusion/admin/game/edit");
+    url.searchParams.append("gameId", gameId)
 
-  const options = {
-      method: "GET",
-      headers: {
-          "Content-Type": "application/json"
-      }
-  };
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
 
 
-  fetch(url, options)
-      .then(response => {
-          if (response.ok) {
-              return response.json();
-          } else {
-              throw new Error("Request failed.");
-          }
-      })
-      .then(data => {
-          editGameId.value = data.gameInfo.id;
-          propagateGameInfo(data);
-          propagateDiscount(data);
-          propagateGenres(data);
-          propagatePlatforms(data);
-          propagateMinimumSpec(data);
-          propagateRecommendedSpec(data);
-      })
-      .catch(error => {
-          console.error(error);
-      });
+    fetch(url, options)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error("Request failed.");
+            }
+        })
+        .then(data => {
+            editGameId.value = data.gameInfo.id;
+            propagateGameInfo(data);
+            propagateDiscount(data);
+            propagateGenres(data);
+            propagatePlatforms(data);
+            propagateMinimumSpec(data);
+            propagateRecommendedSpec(data);
+        })
+        .catch(error => {
+            console.error(error);
+        });
 }
 
 
-function propagateGameInfo(data){
+function propagateGameInfo(data) {
     editGameNameInput.value = data.gameInfo.name;
-    editReleaseDateInput.value = new Date(Date.parse(data.gameInfo.releaseDate)).toISOString().slice(0,10);
+    editReleaseDateInput.value = new Date(Date.parse(data.gameInfo.releaseDate)).toISOString().slice(0, 10);
     editDeveloperInput.value = data.gameInfo.developer;
     editPriceInput.value = data.gameInfo.price;
     editPublisherInput.value = data.gameInfo.publisher;
     descriptionInput.value = data.gameInfo.description;
 }
-function propagateDiscount(data){
+function propagateDiscount(data) {
     for (let i = 0; i < editDiscountInput.options.length; i++) {
         const option = editDiscountInput.options[i];
         if (option.value === data.gameInfo.discount) {
@@ -303,7 +313,7 @@ function propagateDiscount(data){
     }
 }
 
-function propagateGenres(data){
+function propagateGenres(data) {
     editGenresInputs.forEach((checkbox) => {
         if (data.genres.includes(checkbox.value)) {
             checkbox.checked = true;
@@ -311,7 +321,7 @@ function propagateGenres(data){
     });
 }
 
-function propagatePlatforms(data){
+function propagatePlatforms(data) {
     editPlatformsInputs.forEach((checkbox) => {
         if (data.platforms.includes(checkbox.value)) {
             checkbox.checked = true;
@@ -319,7 +329,7 @@ function propagatePlatforms(data){
     });
 }
 
-function propagateMinimumSpec(data){
+function propagateMinimumSpec(data) {
     minimumProcessorInput.value = data.minimumSpec.cpu;
     minimumGPUInput.value = data.minimumSpec.gpu;
     minimumRAMInput.value = data.minimumSpec.ram;
@@ -327,7 +337,7 @@ function propagateMinimumSpec(data){
     minimumDXVersionInput.value = data.minimumSpec.dxVersion;
 }
 
-function propagateRecommendedSpec(data){
+function propagateRecommendedSpec(data) {
     recommendedProcessorInput.value = data.recommendedSpec.cpu;
     recommendedGPUInput.value = data.recommendedSpec.gpu;
     recommendedRAMInput.value = data.recommendedSpec.ram;
@@ -336,3 +346,9 @@ function propagateRecommendedSpec(data){
 }
 
 window.onload = getGames;
+
+// function viewUserOrders(userId){
+//     console.log(userId);
+//     $.post("/fusion/user/user-orders",
+//         JSON.stringify({userId:userId}));
+// }

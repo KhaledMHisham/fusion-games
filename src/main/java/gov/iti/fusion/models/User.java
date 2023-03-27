@@ -69,8 +69,6 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<CartItem> cartItems;
 
-
-
     @Column (name= "credit_Limit")
     private Double creditLimit;
 
@@ -220,6 +218,11 @@ public class User {
     public List<Game> getOwnedGames(){
             return Collections.unmodifiableList(library.stream().map(LibraryItem::getGame).toList());
     }
+    
+    public List<OrderedGame> getOrderedGames(){
+        return Collections.unmodifiableList(orders.stream().flatMap(order -> order.getOrderedGamesItem().stream()).toList());
+}
+
 
 
     @Override
