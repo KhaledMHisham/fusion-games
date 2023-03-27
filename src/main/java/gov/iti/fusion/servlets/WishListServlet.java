@@ -3,6 +3,8 @@ package gov.iti.fusion.servlets;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.jose4j.json.internal.json_simple.JSONObject;
 
@@ -86,6 +88,22 @@ public class WishListServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         response.setStatus(200);
         response.getWriter().write("{\"success\":\"success\"}");
+    }
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (request.getAttribute("user") != null) {
+
+            GameService gameService = new GameService(request);
+            List<Game> userGames = new ArrayList<>();
+            User user = (User) request.getAttribute("user");
+            userGames = user.getWishList();
+            request.setAttribute("allGames", userGames);
+            // System.out.println(new
+            // GenreService(request).groupGameWithGenre(GenreType.ACTION));
+            request.getRequestDispatcher("wish-page.jsp").forward(request, response);
+        } else
+            response.sendRedirect("login");
     }
     
 }

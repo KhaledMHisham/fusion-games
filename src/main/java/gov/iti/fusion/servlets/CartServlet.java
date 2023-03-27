@@ -50,7 +50,10 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserService userService = new UserService(request);
         GameService gameService = new GameService(request);
-        request.getRequestDispatcher("cart.jsp").forward(request, response);;
+        if(request.getAttribute("user")!=null)
+            request.getRequestDispatcher("cart.jsp").forward(request, response);
+        else
+            response.sendRedirect("login");
        
 
     }

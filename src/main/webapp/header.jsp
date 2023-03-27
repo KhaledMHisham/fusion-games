@@ -30,7 +30,7 @@
               </a>
               <c:choose>
                 <c:when test="${user ne null}">
-                  <a href="wish-games" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                  <a href="wish-list" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                       class="fas fa-heart m-1 me-md-2 text-gold"></i>
                 </c:when>
                 <c:otherwise>

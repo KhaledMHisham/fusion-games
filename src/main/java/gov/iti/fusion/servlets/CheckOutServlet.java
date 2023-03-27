@@ -24,7 +24,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-
 public class CheckOutServlet extends HttpServlet {
     ServletConfig myConfig;
 
@@ -79,7 +78,7 @@ public class CheckOutServlet extends HttpServlet {
         } else {
             userService.addGamesToUserLibrary(user, cartGames);
             Order order = new Order(LocalDate.now());
-            user.setCreditLimit(user.getCreditLimit()-totalPrice);
+            user.setCreditLimit(user.getCreditLimit() - totalPrice);
             order.setOrderingUser(user);
             orderService.save(order);
             orderService.addGamesToOrder(order, cartGames);
@@ -90,7 +89,15 @@ public class CheckOutServlet extends HttpServlet {
         response.setStatus(200);
         out.println(responseBodyJson);
 
+    }
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (request.getAttribute("user") != null)
+            request.getRequestDispatcher("cart.jsp").forward(request, response);
+        else
+            response.sendRedirect("login");
     }
 
 }

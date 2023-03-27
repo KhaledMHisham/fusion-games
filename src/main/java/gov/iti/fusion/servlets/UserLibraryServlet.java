@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-
 import gov.iti.fusion.models.Discount;
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Genre;
@@ -36,7 +35,7 @@ public class UserLibraryServlet extends HttpServlet {
     @Override
     public void destroy() {
         System.out.println("I am inside the destroy method");
-        
+
     }
 
     @Override
@@ -52,27 +51,23 @@ public class UserLibraryServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("I am inside the init method");
-        myConfig=config;
-        
+        myConfig = config;
+
     }
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
-        GameService gameService = new GameService(request);
-        // UserService userService = new UserService(request);
-        
-      
-        List<Game> userGames = new ArrayList<>();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (request.getAttribute("user") != null) {
+            List<Game> userGames = new ArrayList<>();
 
-        User user = (User) request.getAttribute("user");
-        userGames =  user.getOwnedGames();
-        //userGames = gameService.findAllGames();
+            User user = (User) request.getAttribute("user");
+            userGames = user.getOwnedGames();
 
-       
-        request.setAttribute("allGames",userGames);
-       
-        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
-        request.getRequestDispatcher("library-page.jsp").forward(request, response);
+            request.setAttribute("allGames", userGames);
+            request.getRequestDispatcher("library-page.jsp").forward(request, response);
+        } else
+            response.sendRedirect("login");
     }
-    
+
 }

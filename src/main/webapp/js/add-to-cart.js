@@ -12,13 +12,13 @@ function addToWishList(element ,gameId){
     console.log(element);
     console.log(element.classList)
     if(!element.classList.contains("heart-checked")){
-        $.post("/fusion/user/add-to-wish-list",JSON.stringify({gameId:gameId}), sucessAddedToWishList(element));
+        $.post("/fusion/wish-list",JSON.stringify({gameId:gameId}), sucessAddedToWishList(element));
     }
     else{
         //$.delete("/fusion/user/add-to-wish-list",JSON.stringify({gameId:gameId}), sucessDeletedFromWishList(element));
         $.ajax({
             type: "DELETE", //we are using GET method to get data from server side
-            url: '/fusion/user/add-to-wish-list', // get the route value
+            url: '/fusion/wish-list', // get the route value
             data: JSON.stringify({gameId:gameId}), //set data
             success: sucessDeletedFromWishList(element)
         });
@@ -30,7 +30,7 @@ function addToWishList(element ,gameId){
 function deleteFromWishList(gameId){
     $.ajax({
         type: "DELETE", //we are using GET method to get data from server side
-        url: '/fusion/user/add-to-wish-list', // get the route value
+        url: '/fusion/wish-list', // get the route value
         data: JSON.stringify({gameId:gameId}), //set data
         success: deletedFromWishList(gameId)
     });

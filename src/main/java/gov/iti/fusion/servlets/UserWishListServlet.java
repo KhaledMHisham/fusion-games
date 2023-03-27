@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-
 import gov.iti.fusion.models.Discount;
 import gov.iti.fusion.models.Game;
 import gov.iti.fusion.models.Genre;
@@ -30,7 +29,7 @@ public class UserWishListServlet extends HttpServlet {
     @Override
     public void destroy() {
         System.out.println("I am inside the destroy method");
-        
+
     }
 
     @Override
@@ -46,27 +45,25 @@ public class UserWishListServlet extends HttpServlet {
     @Override
     public void init(ServletConfig config) throws ServletException {
         System.out.println("I am inside the init method");
-        myConfig=config;
-        
+        myConfig = config;
+
     }
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
- 
-        GameService gameService = new GameService(request);
-        // UserService userService = new UserService(request);
-        
-      
-        List<Game> userGames = new ArrayList<>();
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        if (request.getAttribute("user") != null) {
 
-        User user = (User) request.getAttribute("user");
-        userGames =  user.getWishList();
-        //userGames = gameService.findAllGames();
-
-       
-        request.setAttribute("allGames",userGames);
-       
-        // System.out.println(new GenreService(request).groupGameWithGenre(GenreType.ACTION));
-        request.getRequestDispatcher("wish-page.jsp").forward(request, response);
+            GameService gameService = new GameService(request);
+            List<Game> userGames = new ArrayList<>();
+            User user = (User) request.getAttribute("user");
+            userGames = user.getWishList();
+            request.setAttribute("allGames", userGames);
+            // System.out.println(new
+            // GenreService(request).groupGameWithGenre(GenreType.ACTION));
+            request.getRequestDispatcher("wish-page.jsp").forward(request, response);
+        } else
+            response.sendRedirect("login");
     }
-    
+
 }
