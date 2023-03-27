@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/register2.css" />
+</head>
+<body>
+
+<section class="h-100 bg-dark">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card bg-main card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img src="images/sekrio.jpg"
+                alt="Sample photo" class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+            </div>
+            
+            <div class="col-xl-6">
+             
+              <div class="card-body p-md-5 text-gold">
+                <div class="arrow arrow-left circle align-left arrow">
+                  <i class="fas fa-chevron-left"></i>
+                </div>
+                <h3 class="mb-5 text-center text-uppercase">Fusion Registration</h3>
+
+                <div class="row">
+                  <div class="col-md-6 ">
+                    <div class="form-outline">
+                      <input type="text" id="first-name" name="first-name" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label" for="first-name" aria-required="true">First
+                    name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-outline">
+                      <input type="text" id="last-name" name="last-name" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label " for="last-name" aria-required="true">Last
+                    name</label>
+                    </div>
+                  </div>
+                  <span id="first-name-error" style="font-size: 10px;" class="col-md-6 mb-4 float-end text-danger">5</span>
+                  <span id="last-name-error" style="font-size: 10px;" class="col-md-6 mb-4 float-end text-danger">56</span>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 ">
+                    <div class="form-outline">
+                      <input type="text" id="username" name="username" class="form-control text-white p-2 mx-2" />
+                      <label class="form-label text-gold input-label" for="username" aria-required="true">User Name</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-outline">
+                      <input type="text" id="phonenumber" name="phonenumber" class="form-control text-white p-2 mx-2" />
+                      <label class="form-label text-gold input-label" for="phonenumber" aria-required="true">Phone Number</label>
+                    </div>
+                  </div>
+                  <span id="username-error" style="font-size: 10px;" class="col-md-6 mb-4 float-end text-danger">5</span>
+                  <span id="phonenumber-error" style="font-size: 10px;" class="col-md-6 mb-4 float-end text-danger">56</span>
+
+                </div>
+
+                <div class="form-outline mb-4">
+                  <input type="email" id="email" name="email" class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label" for="email" aria-required="true">Email Address</label>
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="number" min="0" id="credit-limit" name="credit-limit"
+                  class="form-control text-white p-2 mx-2" />
+                <label class="form-label text-gold input-label" for="credit-limit">Credit Limit</label>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 ">
+                    <div class="form-outline">
+                      <input type="password" id="password" name="password" class="form-control text-white p-2 mx-2" />
+                      <label class="form-label text-gold input-label" for="password">Password</label>
+                    </div>
+                  </div>
+                  <div class="col-md-6 ">
+                    <div class="form-outline">
+                      <input type="password" id="confirm-password" name="confirm-password"
+                    class="form-control text-white p-2 mx-2" />
+                  <label class="form-label text-gold input-label" for="confirm-password">Confirm Password</label>
+                    </div>
+                  </div>
+                  </div>
+                  <span id="password-error" style="font-size: 10px;" class="col-md-6  mb-4 float-end text-danger">87</span>
+                  <span id="confirm-password-error" style="font-size: 10px;" class="col-md-6 mb-4 float-end text-danger">598</span>
+                  
+                <div class="row mx-5 w-75 justify-content-between align-items-center">
+                  <div class="row mx-4 border border-1 border-gold p-2">
+                    <div class="col-3 text-start border-1 border-end border-gold">
+                      <span class="text-gold" style="font-size: 15px;">Gender</span>
+                    </div>
+                    <div class="col-4 d-flex flex-row align-items-center">
+                      <input type="radio" id="male" name="gender" value="male">
+                      <label for="male" class="mx-1 text-gold">Male</label>
+                    </div>
+                    <div class="col-4 d-flex flex-row align-items-center">
+                      <input type="radio" id="female" name="gender" value="female">
+                      <label for="female"  class="mx-1 text-gold">Female</label>
+                    </div>
+                  </div>
+                  <span id="gender-error" style="font-size: 10px;" class="text-danger mx-4 mb-4 float-end">645</span>
+                
+                  <div class="col-6 justify-content-center">
+                    <select id="country" name="country" class=" w-100 bg-transparent text-gold p-2 rounded-1 border-gold col-6">
+                      <option class="bg-black border border-gold rounded-2 text-muted option-hover" value="country"
+                        selected>Select country</option>
+                      <option class="bg-black text-white option-hover" value="AF">Afghanistan</option>
+                      <option class="bg-black text-white option-hover" value="AL">Albania</option>
+                      <option class="bg-black text-white option-hover" value="DZ">Algeria</option>
+                      <option class="bg-black text-white option-hover" value="CM">Cameroon</option>
+                      <option class="bg-black text-white option-hover" value="CA">Canada</option>
+                      <option class="bg-black text-white option-hover" value="DJ">Djibouti</option>
+                      <option class="bg-black text-white option-hover" value="EG">Egypt</option>
+                    </select>
+                    <span id="country-error" style="font-size: 10px;" class="text-danger"></span>
+                  </div>
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="input-group date" id="datepicker">
+                        <input type="date" class="form-control p-2 bg-transparent border border-gold rounded-1 text-gold"
+                          id="birth-date" />
+                      </div>
+                    </div>
+                    <span id="birth-date-error" style="font-size: 10px;" class="text-danger"></span>
+                  </div>
+                  <br>
+                  <div class="mx-2 col-12 justify-content-around">
+                    <button class="btn btn-gold btn-lg px-4 text-black hover-overlay border-gold mx-4 mt-4 mb-2 w-75" type="button" onclick="signUp()">Sign-up</button>
+                    <div>
+                      <div class= "mx-4 text-center">
+                      <p class=" text-gold">Already Have an Account! <a href="login.html"
+                          class="text-white-50 fw-bold"> Login </a>
+                        <!-- </p> -->
+                        </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript"src="js/register.js"></script>
+
+</html>

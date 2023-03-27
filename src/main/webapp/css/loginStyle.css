@@ -19,6 +19,9 @@
 .bg-main{
     background-color: black;
 }
+.bg-gold {
+    background-color: #f5b80f !important;
+}
 
 .input-style{ 
     color:#f5b80f !important;

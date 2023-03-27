@@ -1,0 +1,45 @@
+.bg-main {
+    background-color: #332d2d;
+    box-shadow: none;
+    color: #f5b80f;
+}
+.text-gold{
+  color: #f5b80f !important;
+}
+.btn-gold {
+    background-color: #f5b80f !important;
+}
+.btn-gold:hover {
+    color: black;
+}
+.circle {
+
+
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #352d2d;
+    color: #f5b80f;
+    font-size: 20px;
+    display: flex;
+    border: 1px solid transparent;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 30%);
+
+}
+    
+    .arrow :hover {
+        background: #352d2d;
+        /* border: 2px solid #f5b80f;
+        border-radius: 50%; */
+        width: 30px;
+        height: 30px;
+        /* justify-content: center;
+        align-items: center;
+        padding-top: 3px; */
+    
+    }
+    
+    
