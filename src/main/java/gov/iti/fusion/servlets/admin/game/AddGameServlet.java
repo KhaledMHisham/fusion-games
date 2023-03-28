@@ -63,7 +63,7 @@ public class AddGameServlet extends HttpServlet {
         game.setPublisher((String) extractPartData(request, "add-publisher"));
         game.setDescription((String) extractPartData(request, "add-description"));
         game.setPictureUrl("games/images/" + uuid +".png");
-        game.setGameFileUrl("games/files" + uuid);
+        game.setGameFileUrl("games/files/" + uuid);
         GameMultipartFormUtils.saveGameImageToDisk(request, uuid+".png", "add-game-picture");
         GameMultipartFormUtils.saveFileToDisk(request, uuid,"add-game-files");
         game.setMinimumSpec(extractMinimumGameSpec(request));

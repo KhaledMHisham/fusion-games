@@ -163,6 +163,10 @@ public class Game {
 
 
     public void setDiscount(Discount discount) {
+        if(discount == null){
+            netPrice = price;
+            return;
+        }
         this.discount = discount;
         netPrice = price - (price * discount.getType().getDiscount()/100);
     }

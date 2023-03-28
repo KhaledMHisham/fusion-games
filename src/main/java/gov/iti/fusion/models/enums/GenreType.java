@@ -15,6 +15,8 @@ public enum GenreType {
     SHOOTER("Shooter"),
     MMO("MMO"),
     STEALTH("Stealth"),
+    OPENWORLD("OpenWorld"),
+    NARRATION("Narration"),
     SURVIVAL("Survival");
 
     private final String genre;

@@ -1,10 +1,8 @@
 package gov.iti.fusion.servlets.admin.game;
 
 import com.google.gson.*;
-import gov.iti.fusion.models.Game;
-import gov.iti.fusion.models.GameSpec;
-import gov.iti.fusion.models.Genre;
-import gov.iti.fusion.models.Platform;
+import gov.iti.fusion.models.*;
+import gov.iti.fusion.models.enums.DiscountType;
 import gov.iti.fusion.services.DiscountService;
 import gov.iti.fusion.services.GameService;
 import gov.iti.fusion.services.GenreService;
@@ -49,6 +47,13 @@ public class EditGameServlet extends HttpServlet {
     }
 
     private void updateGameFromRequest(HttpServletRequest request, Game currentGame, DiscountService discountService) throws ServletException, IOException {
+        String discountId = (String) GameMultipartFormUtils.extractPartData(request, "edit-discount");
+        if(discountId.equals("NONE")){
+            currentGame.setDiscount(null);
+        }
+        else{
+            currentGame.setDiscount(discountService.findById(discountId));
+        }
         currentGame.setName((String) GameMultipartFormUtils.extractPartData(request, "edit-game-name"));
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         String releaseDate = (String) GameMultipartFormUtils.extractPartData(request, "edit-release-date");
@@ -56,7 +61,6 @@ public class EditGameServlet extends HttpServlet {
         currentGame.setReleaseDate(localDate);
         currentGame.setDeveloper((String) GameMultipartFormUtils.extractPartData(request, "edit-developer"));
         currentGame.setPrice(Double.valueOf((String) Objects.requireNonNull(GameMultipartFormUtils.extractPartData(request, "edit-price"))));
-        currentGame.setDiscount(discountService.findById((String) GameMultipartFormUtils.extractPartData(request, "edit-discount")));
         currentGame.setPublisher((String) GameMultipartFormUtils.extractPartData(request, "edit-publisher"));
         currentGame.setDescription((String) GameMultipartFormUtils.extractPartData(request, "edit-description"));
         updateGamePictureFromRequest(request, currentGame);

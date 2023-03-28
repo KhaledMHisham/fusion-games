@@ -62,38 +62,40 @@ public class HomeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         GameService gameService = new GameService(request);
 
-    //      UserService userService = new UserService(request);
-    //      DiscountService discountService = new DiscountService(request);
-    //      PlatformService platformService = new PlatformService(request);
-    //      GenreService genreService = new GenreService(request);
-    //      OrderService orderService = new OrderService(request);
+//          UserService userService = new UserService(request);
+//          DiscountService discountService = new DiscountService(request);
+//          PlatformService platformService = new PlatformService(request);
+//          GenreService genreService = new GenreService(request);
+//          OrderService orderService = new OrderService(request);
 
 
-    //      Set<Game> mainGames =  new HashSet<>();
-    //      Set<Platform> platforms =  new HashSet<>();
-    //      Set<Genre> genres =  new HashSet<>();
+//          Set<Game> mainGames =  new HashSet<>();
+//          Set<Platform> platforms =  new HashSet<>();
+//          Set<Genre> genres =  new HashSet<>();
 
-    //      Discount classic = new Discount(DiscountType.CLASSIC);
-    //      Discount free = new Discount(DiscountType.FREE);
-    //      Discount premium = new Discount(DiscountType.PREMIUM);
+//          Discount classic = new Discount(DiscountType.CLASSIC);
+//          Discount free = new Discount(DiscountType.FREE);
+//          Discount premium = new Discount(DiscountType.PREMIUM);
 
-    //      Platform linux =  new Platform(PlatformType.LINUX);
-    //      Platform windows =  new Platform(PlatformType.WINDOWS);
-    //      Platform xbox =  new Platform(PlatformType.XBOX);
-    //      platforms.add(linux);
-    //      platforms.add(windows);
-    //      platforms.add(xbox);
+//          Platform linux =  new Platform(PlatformType.LINUX);
+//          Platform windows =  new Platform(PlatformType.WINDOWS);
+//          Platform xbox =  new Platform(PlatformType.XBOX);
+//          platforms.add(linux);
+//          platforms.add(windows);
+//          platforms.add(xbox);
 
-    //      Genre action = new Genre(GenreType.ACTION);
-    //      Genre adventure = new Genre(GenreType.ADVENTURE);
-    //      Genre fighting = new Genre(GenreType.FIGHTING);
-    //      Genre horror = new Genre(GenreType.HORROR);
-    //      Genre mmo = new Genre(GenreType.MMO);
-    //      Genre puzzle = new Genre(GenreType.PUZZLE);
+//          Genre action = new Genre(GenreType.ACTION);
+//          Genre adventure = new Genre(GenreType.ADVENTURE);
+//          Genre fighting = new Genre(GenreType.FIGHTING);
+//          Genre horror = new Genre(GenreType.HORROR);
+//          Genre mmo = new Genre(GenreType.MMO);
+//          Genre puzzle = new Genre(GenreType.PUZZLE);
+//          Genre openWorld = new Genre(GenreType.OPENWORLD);
+//          Genre narration = new Genre(GenreType.NARRATION);
 
-    //      discountService.save(classic);
-    //      discountService.save(free);
-    //      discountService.save(premium);
+//          discountService.save(classic);
+//          discountService.save(free);
+//          discountService.save(premium);
 
 
 
@@ -160,17 +162,17 @@ public class HomeServlet extends HttpServlet {
     //     gameService.addPlatformsToGame(game8, platforms);
 
 
-    //       platformService.save(linux);
-    //       platformService.save(windows);
-    //       platformService.save(xbox);
-    //       genreService.save(action);
-    //       genreService.save(puzzle);
-    //       genreService.save(mmo);
-    //       genreService.save(horror);
-    //       genreService.save(fighting);
-    //       genreService.save(adventure);
-
-
+//           platformService.save(linux);
+//           platformService.save(windows);
+//           platformService.save(xbox);
+//           genreService.save(action);
+//           genreService.save(puzzle);
+//           genreService.save(mmo);
+//           genreService.save(horror);
+//           genreService.save(fighting);
+//           genreService.save(adventure);
+//           genreService.save(narration);
+//           genreService.save(openWorld);
     
     //     gameService.save(game1);
     //     gameService.save(game2);
