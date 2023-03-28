@@ -10,8 +10,10 @@
                     <a href="#" target="_blank" class="text-gold h2">
                         Fusion
                     </a>
-                    <p class="mt-1 text-gold"> © 2023 Copyright - ITI-FusionGames.gov.eg
+                    <p class="mt-1 text-gold">
+                        &copy; 2023 Copyright: ITI-Fusion-Games.eg
                     </p>
+                
                 </div>
                 <!-- Grid column -->
 
