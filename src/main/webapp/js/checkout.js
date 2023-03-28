@@ -82,7 +82,7 @@ function validateCreditNum() {
 function validateCVV() {
   const regex = /^[0-9]{3,4}$/;
   const cvvNumValue = cvvNumInput.value;
-  if (regex(cvvNumValue)) {
+  if (regex.test(cvvNumValue)) {
     cvvNumError.innerHTML = "";
     return true;
   }
