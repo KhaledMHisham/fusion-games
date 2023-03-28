@@ -21,7 +21,7 @@ public class UserProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User currentUser = (User) req.getAttribute("user");
         if(currentUser != null){
-            req.getRequestDispatcher("../user-profile.html").forward(req, resp);
+            req.getRequestDispatcher("../user-profile.jsp").forward(req, resp);
         }
         else{
             resp.sendRedirect("../login");
