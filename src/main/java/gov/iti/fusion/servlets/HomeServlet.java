@@ -225,7 +225,7 @@ public class HomeServlet extends HttpServlet {
             recomndedGames = gameService.findRecomendedGamesForUser(user, 4);
         }else{
             recomndedGames = getRandomElements(allGames);
-            recomndedGames = recomndedGames.subList(0, 4);
+            recomndedGames = recomndedGames.subList(0, Math.min(allGames.size(), 4));
         }
         if(gamesOnSale.size()>30)
             gamesOnSale = getRandomElements(gamesOnSale);
