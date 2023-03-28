@@ -58,10 +58,9 @@
                         <h5 class="mb-0">$${game.price}</h5>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a  class="text-gold"><i
+                        <a  class="bg-transparent border-0 shadow-0 text-gold" href='http://localhost:8888/fusion/${game.gameFileUrl}' target="_blank"><i
                           class="fas fa-download cursor-pointer fa-2xl"></i></a>
-                        </div>
-
+                      </div>
                     </div>
                   </div>
                 </div>
