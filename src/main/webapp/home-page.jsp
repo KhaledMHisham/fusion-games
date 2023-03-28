@@ -95,22 +95,22 @@
 
             <div class="position-relative col-lg-7 col-md-12 col-sm-12">
               <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray ">
-                <img src="${newReleases[0].pictureUrl}" width="100%" height="600px" class="card-img-top ">
+                <img src="${recomndedGames[0].pictureUrl}" width="100%" height="600px" class="card-img-top ">
               </div>
               <div id="card-banner-desc" class="card-banner-desc position-absolute m-4" style="max-width: 60%;">
                 <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
-                <h3 id="game-name">${newReleases[0].name}</h3>
+                <h3 id="game-name">${recomndedGames[0].name}</h3>
                 <div class="d-flex justify-content-start align-items-start h-100 m-2">
                   <h6> starting at </h6>
-                  <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price.intValue()}</del></h5>
-                  <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice().intValue()}</h5>
+                  <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${recomndedGames[0].price.intValue()}</del></h5>
+                  <h5 id="game-net-price" class="text-white mx-3"> &dollar;${recomndedGames[0].getNetPrice().intValue()}</h5>
                 </div>
                 <c:choose>
                   <c:when test="${user ne null}">
                     <a onclick='buyNowGameBanner()' href="cart" class="btn btn-warning shadow-0 relative-bottom "> Buy
                       Now </a>
                     <a onclick='addToCartGameBanner(this)' class="btn btn-dark hover-zoom shadow-0 "> Add to cart </a>
-                    <input hidden type="text" value="${newReleases[0].id}" id="bannerGameId">
+                    <input hidden type="text" value="${recomndedGames[0].id}" id="bannerGameId">
                   </c:when>
                   <c:otherwise>
                     <a class="btn btn-warning shadow-0 relative-bottom " href="login"> Buy Now </a>
