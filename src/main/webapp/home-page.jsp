@@ -50,7 +50,7 @@
           <div class=" carousel-inner">
             <c:forEach items="${newReleases}" var="game">
               <div class="carousel-item active">
-                <img src="images/hellblade.jpg" class="d-block w-100" alt="Wild Landscape" />
+                <img src="${game.pictureUrl}" class="d-block w-100" alt="Wild Landscape" />
                 <div class="mask" style="background-color: rgba(0, 0, 0, 0.4)"></div>
                 <div class="carousel-caption d-none d-sm-block mb-5">
                   <h1 class="mb-4">
@@ -95,7 +95,7 @@
 
             <div class="position-relative col-lg-7 col-md-12 col-sm-12">
               <div id="card-banner" class="d-flex rounded-5 align-items-end card-banner bg-gray ">
-                <img src="images/12.webp" width="100%" height="600px" class="card-img-top ">
+                <img src="${newReleases[0].pictureUrl}" width="100%" height="600px" class="card-img-top ">
               </div>
               <div id="card-banner-desc" class="card-banner-desc position-absolute m-4" style="max-width: 60%;">
                 <!-- <h3 class="text-white">Best products &amp; brands in our store at 80% off</h3> -->
@@ -129,7 +129,7 @@
                     <div class="card card-list shadow-0 bg-black hover-shadow-soft">
                       <div class="card-body">
                         <div class="d-flex align-items-center">
-                          <img id="img-src" src="images/hellblade.jpg" alt="" style="width:120px; height:100px"
+                          <img id="img-src" src="${game.pictureUrl}" alt="" style="width:120px; height:100px"
                             class="fa-square " />
                           <div class="ms-3">
                             <p id="clicked-game-name" class="fw-bold mb-1">${game.name}</p>
@@ -177,7 +177,7 @@
               <div class="m-2 col-lg-3 col-md-6 col-sm-6">
                 <div class="card my-2 shadow-0 bg-black border">
                   <a href="product?name=${game.name}" class="">
-                    <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
+                    <img src="${games.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                       <h5 class="card-title text-white mx-3">${game.name}</h5>
@@ -257,7 +257,7 @@
                 <div class="col-lg-4 col-xl-4 col-md-6 col-sm-6">
                   <div class="card my-3 shadow-0 bg-black border ">
                     <a href="product?name=${game.name}">
-                      <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2">
+                      <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                       <div class="card-body p-0 pt-2">
                         <p class="text-gold mx-3 mb-2">Base Game</p>
                         <h5 class="card-title text-white mx-3">${game.name}</h5>
@@ -323,7 +323,7 @@
                 <div class="row col-xl-6 col-md-12 col-sm-12 col-lg-6 position-relative gy-4">
                   <a href="product?name=${game.name}">
                     <div class="card d-flex rounded-5 align-items-end card-banner bg-gray h-100">
-                      <img src="images/12.webp" class="card-img-top " style="aspect-ratio: 3 / 2">
+                      <img src="${game.pictureUrl}" class="card-img-top " style="aspect-ratio: 3 / 2">
                     </div>
                     <div class=" position-absolute banner-desc m-4" style="max-width: 60%;">
                       <h3 class="text-white">100% off</h3>
@@ -400,7 +400,7 @@
               <div class="m-2 col-lg-3 col-md-6 col-sm-6">
                 <div class="card my-2 shadow-0 bg-black border">
                   <a href="product?name=${game.name}" class="">
-                    <img src="images/12.webp" class="card-img-top" style="aspect-ratio: 3 / 2">
+                    <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                       <h5 class="card-title text-white mx-3">${game.name}</h5>

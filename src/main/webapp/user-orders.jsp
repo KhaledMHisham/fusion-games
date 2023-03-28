@@ -15,6 +15,8 @@
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
 
+
+     
     </head>
 
     <body class="bg-black">
@@ -34,31 +36,69 @@
                         class="fas fa-angle-down mt-1"></i></a></p>
                 </div>
               </div>
-              <c:forEach items="${clientOrdersGames}" var="orderGame">
-                <div id="${game.id}" class="border-1 border-bottom border-gold rounded-3 mb-4">
-                  <div class="card-body p-4">
-                    <div class="row d-flex justify-content-between align-items-center">
-                      <div class="col-md-10 col-lg-8 col-xl-3">
-                        <a href="product?name=${orderGame.game.name}">
-                          <img src="images/12.webp" class=" mb-2 img-fluid rounded-3 ">
-                        </a>
-                      </div>
-                      <div class="col-md-11 col-lg-9 col-xl-4">
-                        <p class=" lead mb-2">${orderGame.order.id}</p>
-                      </div>
-                      <div class="col-md-7 col-lg-5 col-xl-1 offset-lg-1">
-                        <h5 class="mb-0">$${orderGame.order.totalPrice}</h5>
-                      </div>
-                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1 text-end">
-                        
-                      </div>
-                      <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1 text-end">
-                        <h5 class="mb-0">${orderGame.order.createdAt}</h5>
-                        </div>
-                    </div>
+              <c:forEach items="${clientOrders}" var="order">
+                <section class="h-100 gradient-custom">
+                  <div class="container py-5 h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                      <div class="col-lg-10 col-xl-8">
+                        <div class="bg-dark " style="border-radius: 10px;">
+                          <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                              <p class="lead fw-normal mb-0 text-gold" >Receipt</p>
+                            </div>
+                            <!-- Games -->
+                            <c:set var="orderNetPrice" value="0" scope="page" />
+                            <c:set var="orderTotalPrice" value="0" scope="page" />
+                            <c:forEach items="${order.getOrderedGames()}" var="game">
+                              <c:set var="orderTotalPrice" value="${orderTotalPrice + game.price}" scope="page"/>
+                              <c:set var="orderNetPrice" value="${orderNetPrice + game.netPrice}" scope="page"/>
+                              <div class="shadow-0 mb-4">
+                              <div class="card-body">
+                                <div class="row">
+                                  <div class="col-md-4 col-xl-3 col-lg-4">
+                                    <img src="${game.pictureUrl}"
+                                      class="img-fluid" alt="Phone">
+                                  </div>
+                                  <div class="col-md-4 col-lg-4 col-xl-5 text-center d-flex justify-content-center align-items-center">
+                                    <p class="text-gold mb-0">${game.name}</p>
+                                  </div>
+                    
+                                  <div class="col-md-2 col-xl-2 col-lg-2 text-center d-flex justify-content-center align-items-center">
+                                    <p class="text-muted mb-0 small">Genre: ${game.getGenres()[0].genre.genre}</p>
+                                  </div>
+                                  <div class="col-md-2 col-xl-2 col-lg-2  text-center d-flex justify-content-center align-items-center">
+                                    <p class="text-muted mb-0 small"><span><del>${game.price}</del>&ThickSpace;</span>$${game.netPrice}</p>
+                                  </div>
+                                </div>
+                                <hr class="mb-4 opacity-1 text-gold">
+                              </div>
+                            </div>
+                          
+                            </c:forEach>
+                            <c:set var="totalOrderDiscount" value="${100-((orderNetPrice/orderTotalPrice)*100)}" />
+                            <div class="d-flex justify-content-between pt-2">
+                              <p class="fw-bold mb-1">Order Details</p>
+                              <p class="text-muted mb-0"><span class="fw-bold me-4">Total Price</span>$${order.totalPrice}</p>
+                            </div>
+                            <div class="d-flex justify-content-between pt-2">
+                              <p class="text-white mb-0">Invoice Date: <span class="text-muted">${order.createdAt}</span></p>
 
+                              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span>${totalOrderDiscount.intValue()}%</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <p class="text-white mb-0">OrderId:  <span class="text-muted">${order.id}</span></p>
+
+                            </div>
+                          </div>
+                          <div class="card-footer border-0 rounded-bottom p-2 bg-gold">
+                            <p class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">
+                              Total paid: <span class=" mb-0 ms-2">$${order.totalPrice}</span></p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </section>
               </c:forEach>
             </div>
           </div>

@@ -1,19 +1,21 @@
-<%@taglib prefix="c" uri="jakarta.tags.core" %>
+  <%@taglib prefix="c" uri="jakarta.tags.core" %>
   <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+  <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
     <!DOCTYPE html>
     <html lang="en">
 
     <head>
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
-      <title>Fusion</title>
+      <title>Fusion Cart</title>
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
       <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
       <link href="css/checkout.css" rel="stylesheet" />
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
-      <link rel="shortcut icon" href="images/phoenix.png" type="image/x-icon" />
+      <link rel="shortcut icon" href="images/phoenix.png" type="image/x-icon"/>
 
 
     </head>
@@ -23,18 +25,15 @@
     <c:set var="totalCartNetPrice" value="${user.getCartGames().stream()
         .map(g->g.getNetPrice()).reduce(0.0,(a, b) -> a + b)}" />
     <c:set var="totalCartDiscount" value="${100-((totalCartNetPrice/totalCartPrice)*100)}" />
+
     <!-- <c:if test="${fn:length(user.getCartGames()) > 0}">
         <input hidden id="user-games" value="">
     </c:if> -->
     <body>
-
-
-
       <section class="bg-black py-5  bg-main">
         <div class="container">
           <div class="row">
             <div class="col-xl-8 col-lg-8 mb-4 border-radius bg-main checkout-border">
-
               <!-- Checkout -->
               <div class="shadow-0 border-gold text-gold">
                 <div class="p-4">
@@ -45,10 +44,8 @@
                       <div class="form-outline">
                         <input type="text" id="first-name" placeholder="Type here" class="form-control text-white" />
                         <span id="first-name-error" style="font-size: 10px;" class="float-end text-danger"></span>
-
                       </div>
                     </div>
-
                     <div class="col-6">
                       <p class="mb-0">Last name</p>
                       <div class="form-outline">
@@ -164,17 +161,16 @@
                 <h6 class="mb-3 text-white">Summary</h6>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p id="totalCartPrice" class="mb-2">$${totalCartPrice}</p>
+                  <p id="totalCartPrice" class="mb-2">$${totalCartPrice.intValue()}</p>
                 </div>
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Discount:</p>
-                  <p id="totalCartDiscount" class="mb-2 text-danger">%${totalCartDiscount}
-                  </p>
+                  <p id="totalCartDiscount" class="mb-2 text-danger">%<c:out value="${totalCartDiscount.intValue()}"/></p>
                 </div>
                 <hr />
                 <div class="d-flex justify-content-between">
                   <p class="mb-2">Total price:</p>
-                  <p id="totalCartNetPrice" class="mb-2 fw-bold">$${totalCartNetPrice}</p>
+                  <p id="totalCartNetPrice" class="mb-2 fw-bold">$${totalCartNetPrice.intValue()}</p>
                 </div>
                 <hr />
                 <h6 class="text-dark text-white my-4">Items in cart</h6>
@@ -184,7 +180,7 @@
                     <div class="col-md-10 col-md-10 col-lg-10 col-xl-10  d-flex mb-4"> 
                       <a href="product?name=${game.name}">
                         <div class="me-3 position-relative">
-                          <img src="images/1 (3).png" />
+                          <img src="${game.pictureUrl}" width="100px" />
                         </div>
                       </a>
                       <div class="">
