@@ -18,8 +18,9 @@ const myModal = document.querySelector('#exampleModal');
 var myModalEl = new bootstrap.Modal(myModal);
 
 function validateFirstName() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const firstNameValue = firstNameInput.value;
-  if (firstNameValue.length !== 0) {
+  if (regex.test(firstNameValue)) {
     firstNameError.innerHTML = "";
     return true;
   }
@@ -30,8 +31,9 @@ function validateFirstName() {
 }
 
 function validateLastName() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const lastNameValue = lastNameInput.value;
-  if (lastNameValue.length !== 0) {
+  if (regex.test(lastNameValue)) {
     lastNameError.innerHTML = "";
     return true;
   }
@@ -41,8 +43,9 @@ function validateLastName() {
   }
 }
 function validateEmail() {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const emailValue = emailInput.value;
-  if (emailValue.length !== 0) {
+  if (regex.test(emailValue)) {
     emailError.innerHTML = "";
     return true;
   }
@@ -52,8 +55,9 @@ function validateEmail() {
   }
 }
 function validatePhone() {
+  const regex = /^01[0-2]{1}[0-9]{8}$/;
   const phoneValue = phoneInput.value;
-  if (phoneValue.length !== 0) {
+  if (regex.test(phoneValue)) {
     phoneError.innerHTML = "";
     return true;
   }
@@ -64,8 +68,9 @@ function validatePhone() {
 }
 
 function validateCreditNum() {
+  const regex = /^(?:4[0-9]{12}(?:[0-9]{3})?|5[1-5][0-9]{14}|3[47][0-9]{13}|3(?:0[0-5]|[68][0-9])[0-9]{11}|6(?:011|5[0-9]{2})[0-9]{12}|(?:2131|1800|35\d{3})\d{11})$/;
   const cardNumValue = cardNumInput.value;
-  if (cardNumValue.length !== 0) {
+  if (regex.test(cardNumValue)) {
     cardNumError.innerHTML = "";
     return true;
   }
@@ -75,8 +80,9 @@ function validateCreditNum() {
   }
 }
 function validateCVV() {
+  const regex = /^[0-9]{3,4}$/;
   const cvvNumValue = cvvNumInput.value;
-  if (cvvNumValue.length !== 0) {
+  if (regex(cvvNumValue)) {
     cvvNumError.innerHTML = "";
     return true;
   }
@@ -86,8 +92,9 @@ function validateCVV() {
   }
 }
 function validateCreditowner() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const cardOwnerNameValue = cardOwnerNameInput.value;
-  if (cardOwnerNameValue.length !== 0) {
+  if (regex.test(cardOwnerNameValue)) {
     cardOwnerNameError.innerHTML = "";
     return true;
   }
