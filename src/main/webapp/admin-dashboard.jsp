@@ -176,7 +176,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>Recommended</h5>
+                                                <h5 class="mb-2" >Recommended</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
@@ -246,7 +246,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>Minimum</h5>
+                                                <h5 class="mb-3">Minimum</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
@@ -470,7 +470,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5 class="mb-1">Recommended</h5>
+                                                <h5 class="mt-2 mb-3">Recommended</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
