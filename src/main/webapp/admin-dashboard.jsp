@@ -35,11 +35,6 @@
                         <i class="fas fa-users fa-fw me-3"></i><span>Users</span>
                     </button>
                     <button type="button"
-                        class="account-control-item list-group-item bg-main text-white list-group-item-action px-3 border-0"
-                        aria-current="true">
-                        <i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span>
-                    </button>
-                    <button type="button"
                         onclick="getGames()"
                         class="account-control-item list-group-item bg-main text-white list-group-item-action px-3 border-0"
                         aria-current="true">

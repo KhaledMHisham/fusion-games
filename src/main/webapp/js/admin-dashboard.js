@@ -119,7 +119,7 @@ function getGames() {
                         </td>
                         <td>
                             <p></p>
-                            <p class="fw-normal mb-1 text-white"><s>${data[i].netPrice}</s> ${data[i].price}</p>
+                            <p class="fw-normal mb-1 text-white"><s>${data[i].price}</s> ${parseInt(data[i].netPrice)}$</p>
                         </td>
                         <td>
                             <p></p>
@@ -192,7 +192,7 @@ function getUsers() {
                                                 <p class="fw-normal mb-1 text-white">CREDIT LIMIT</p>
                                             </td>
                                             <td>
-                                                <p class="fw-normal mb-1 text-white">Orders</p>
+                                                <p class="fw-normal mb-1 text-white">History</p>
                                             </td>
                                         </tr>
                                     `;
@@ -215,7 +215,7 @@ function getUsers() {
                                                     <td>
                                                         <a class="btn btn-gold text-black 
                                                         hover-overlay border-gold p-1 w-75" 
-                                                        type="button" href="user-orders?userId=${data[i].id}"">orders</a>
+                                                        type="button" href="user-orders?userId=${data[i].id}"">History</a>
                                                     </td>
                                                 </tr>
                                                 </a>
