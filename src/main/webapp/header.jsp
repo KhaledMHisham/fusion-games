@@ -16,18 +16,20 @@
           <!-- Center elements -->
           <div class="order-lg-last col-lg-5 col-sm-6 col-8">
             <div class="d-flex float-end">
-              <a href="login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                  class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                <c:choose>
-                  <c:when test="${user ne null}">
-                    <p class="d-none d-md-block mb-0 text-gold">Sign out</p>
-                  </c:when>
-                  <c:otherwise>
+              <c:choose>
+                <c:when test="${user ne null}">
+                  <a href="http://localhost:8888/fusion/logout" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                      class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                        <p class="d-none d-md-block mb-0 text-gold">Sign out</p>
+                  </a>
+                </c:when>
+                <c:otherwise>
+                  <a href="http://localhost:8888/fusion/login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                          class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                     <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
                   </c:otherwise>
                 </c:choose>
               </a>
-
             </div>
           </div>
           <!-- Center elements -->

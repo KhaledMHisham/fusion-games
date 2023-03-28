@@ -325,6 +325,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
     <script type="text/javascript" src="../js/home-page.js"></script>
     <script type="text/javascript" src="../js/user-profile.js"></script>
+    <script type="text/javascript" src="../js/logout.js"></script>
 </body>
 
 </html>
