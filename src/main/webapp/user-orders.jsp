@@ -15,6 +15,8 @@
       <link href="css/header.css" rel="stylesheet" />
       <link href="css/add-to-cart.css" rel="stylesheet" />
 
+
+     
     </head>
 
     <body class="bg-black">
@@ -45,9 +47,11 @@
                               <p class="lead fw-normal mb-0 text-gold" >Receipt</p>
                             </div>
                             <!-- Games -->
-                            <c:set var="discount" value="0" scope="page" />
+                            <c:set var="orderNetPrice" value="0" scope="page" />
+                            <c:set var="orderTotalPrice" value="0" scope="page" />
                             <c:forEach items="${order.getOrderedGames()}" var="game">
-                              <c:set var="discount" value="${discount + game.discount.type.discount}" scope="page"/>
+                              <c:set var="orderTotalPrice" value="${orderTotalPrice + game.price}" scope="page"/>
+                              <c:set var="orderNetPrice" value="${orderNetPrice + game.netPrice}" scope="page"/>
                               <div class="shadow-0 mb-4">
                               <div class="card-body">
                                 <div class="row">
@@ -71,13 +75,15 @@
                             </div>
                           
                             </c:forEach>
+                            <c:set var="totalOrderDiscount" value="${100-((orderNetPrice/orderTotalPrice)*100)}" />
                             <div class="d-flex justify-content-between pt-2">
                               <p class="fw-bold mb-1">Order Details</p>
                               <p class="text-muted mb-0"><span class="fw-bold me-4">Total Price</span>$${order.totalPrice}</p>
                             </div>
                             <div class="d-flex justify-content-between pt-2">
                               <p class="text-white mb-0">Invoice Date: <span class="text-muted">${order.createdAt}</span></p>
-                              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span>${discount}%</p>
+
+                              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span>${totalOrderDiscount.intValue()}%</p>
                             </div>
                             <div class="d-flex justify-content-between">
                               <p class="text-white mb-0">OrderId:  <span class="text-muted">${order.id}</span></p>

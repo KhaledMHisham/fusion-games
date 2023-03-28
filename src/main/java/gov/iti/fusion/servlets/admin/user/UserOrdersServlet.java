@@ -107,7 +107,7 @@ public class UserOrdersServlet extends HttpServlet {
         request.setAttribute("clientOrdersGames", orderedGames);
         request.setAttribute("clientOrders", userOrders);
         request.setAttribute("client", client);
-        request.getRequestDispatcher("user-orders2.jsp").forward(request, response);
+        request.getRequestDispatcher("user-orders.jsp").forward(request, response);
 
     }
     
