@@ -27,7 +27,7 @@ public class GetUserServlet extends HttpServlet {
             userJson.addProperty("username", user.getUsername());
             userJson.addProperty("email", user.getEmail());
             userJson.addProperty("country", user.getCountry());
-            userJson.addProperty("creditLimit", 5000);
+            userJson.addProperty("creditLimit", user.getCreditLimit());
             jsonArray.add(userJson);
         });
         response.setStatus(200);

@@ -27,30 +27,7 @@
                   </c:otherwise>
                 </c:choose>
               </a>
-              <c:choose>
-                <c:when test="${user ne null}">
-                  <a href="wish-list" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                </c:when>
-                <c:otherwise>
-                  <a href="login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                      class="fas fa-heart m-1 me-md-2 text-gold"></i>
-                </c:otherwise>
-              </c:choose>
-              <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
-              </a>
-              <c:choose>
-                <c:when test="${user ne null}">
-                  <a href="cart" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                </c:when>
-                <c:otherwise>
-                  <a href="login" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                      class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
-                </c:otherwise>
-              </c:choose>
-              <p class="d-none d-md-block mb-0 text-gold">My cart</p>
-              </a>
+
             </div>
           </div>
           <!-- Center elements -->
@@ -130,10 +107,39 @@
               </c:when>
               <c:otherwise>
                 <a class="nav-link" href="login">Library</a>
-
               </c:otherwise>
             </c:choose>
           </li>
+          <li class="nav-item">
+            <c:choose>
+              <c:when test="${user ne null}">
+                <a href="wish-list" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                    class="fas fa-heart m-1 me-md-2 text-gold"></i>
+              </c:when>
+              <c:otherwise>
+                <a href="login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                    class="fas fa-heart m-1 me-md-2 text-gold"></i>
+              </c:otherwise>
+            </c:choose>
+            <p class="d-none d-md-block mb-0 text-gold">Wishlist</p>
+            </a>
+
+          </li>
+          <li class="nav-item">
+            <c:choose>
+              <c:when test="${user ne null}">
+                <a href="cart" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
+              </c:when>
+              <c:otherwise>
+                <a href="login" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                    class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
+              </c:otherwise>
+            </c:choose>
+            <p class="d-none d-md-block mb-0 text-gold">My cart</p>
+            </a>
+          </li>
+
         </ul>
         <!-- Left links -->
       </div>
