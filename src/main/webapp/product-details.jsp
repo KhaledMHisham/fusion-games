@@ -74,10 +74,10 @@
                                         </h6>
                                     </div>
                                     <div class="col-2">
-                                        <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
+                                        <p class="text-muted mx-3"> <del>&dollar;${game.price.intValue()}</del></p>
                                     </div>
                                     <div class="col-2">
-                                        <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                                        <p class="text-white mx-3"> &dollar;${game.getNetPrice().intValue()} </p>
                                     </div>
                                 </div>
                             </c:when>
@@ -85,7 +85,7 @@
 
                             <c:otherwise>
                                 <div class="col-2">
-                                    <h5 class="text-white mx-3">&dollar;${game.price}</h5>
+                                    <h5 class="text-white mx-3">&dollar;${game.price.intValue()}</h5>
                                 </div>
                             </c:otherwise>
                         </c:choose>

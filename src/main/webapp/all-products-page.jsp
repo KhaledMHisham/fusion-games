@@ -176,11 +176,11 @@
                                 <h6><span
                                     class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
                                 </h6>
-                                <p class="text-muted mx-3"> <del>&dollar;${game.price}</del></p>
-                                <p class="text-white mx-3"> &dollar;${game.getNetPrice()} </p>
+                                <p class="text-muted mx-3"> <del>&dollar;${game.price.intValue()}</del></p>
+                                <p class="text-white mx-3"> &dollar;${game.getNetPrice().intValue()} </p>
                               </c:when>
                               <c:otherwise>
-                                <p class="text-white mx-3">&dollar;${game.price}</p>
+                                <p class="text-white mx-3">&dollar;${game.price.intValue()}</p>
                               </c:otherwise>
                             </c:choose>
                           </div>

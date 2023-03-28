@@ -102,8 +102,8 @@
                 <h3 id="game-name">${newReleases[0].name}</h3>
                 <div class="d-flex justify-content-start align-items-start h-100 m-2">
                   <h6> starting at </h6>
-                  <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price}</del></h5>
-                  <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice()}</h5>
+                  <h5 class="text-muted mx-3"> <del id="game-price">&dollar;${newReleases[0].price.intValue()}</del></h5>
+                  <h5 id="game-net-price" class="text-white mx-3"> &dollar;${newReleases[0].getNetPrice().intValue()}</h5>
                 </div>
                 <c:choose>
                   <c:when test="${user ne null}">
@@ -177,7 +177,7 @@
               <div class="m-2 col-lg-3 col-md-6 col-sm-6">
                 <div class="card my-2 shadow-0 bg-black border">
                   <a href="product?name=${game.name}" class="">
-                    <img src="${games.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
+                    <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                       <h5 class="card-title text-white mx-3">${game.name}</h5>
@@ -190,11 +190,11 @@
                             <h6><span
                                 class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
                             </h6>
-                            <h5 class="text-muted mx-3"> <del>&dollar;${game.price}</del></h5>
-                            <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()}</h4>
+                            <h5 class="text-muted mx-3"> <del>&dollar;${game.price.intValue()}</del></h5>
+                            <h4 class="text-white mx-3"> &dollar;${game.getNetPrice().intValue()}</h4>
                           </c:when>
                           <c:otherwise>
-                            <h4 class="text-white mx-3">&dollar;${game.price}</h4>
+                            <h4 class="text-white mx-3">&dollar;${game.price.intValue()}</h4>
                           </c:otherwise>
                         </c:choose>
 
@@ -262,7 +262,7 @@
                         <p class="text-gold mx-3 mb-2">Base Game</p>
                         <h5 class="card-title text-white mx-3">${game.name}</h5>
                         <div class="d-flex justify-content-end align-items-start h-100 m-2">
-                          <h5 class=" text-gold mx-3">&dollar;${game.price}</h5>
+                          <h5 class=" text-gold mx-3">&dollar;${game.price.intValue()}</h5>
                         </div>
                       </div>
                     </a>
@@ -407,8 +407,8 @@
                       <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                         <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
                         </h6>
-                        <h5 class="text-muted mx-3"> <del>&dollar;${game.price}</del></h5>
-                        <h4 class="text-white mx-3"> &dollar;${game.getNetPrice()} </h4>
+                        <h5 class="text-muted mx-3"> <del>&dollar;${game.price.intValue()}</del></h5>
+                        <h4 class="text-white mx-3"> &dollar;${game.getNetPrice().intValue()} </h4>
                       </div>
                     </div>
                   </a>

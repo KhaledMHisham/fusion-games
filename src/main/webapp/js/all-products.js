@@ -96,9 +96,9 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
                           <p class="text-white mx-3">Free Game</p>` : 
                           (game.discount != null ? 
                           `<h6><span class="badge bg-success mx-2 pt-2">-${game.discount}%</span>
-                          </h6><p class="text-muted mx-3"><del>&dollar;${game.price}</del>
-                          </p><p class="text-white mx-3">&dollar;${game.netPrice}</p>` : 
-                          `<p class="text-white mx-3">&dollar;${game.price} </p>`)}
+                          </h6><p class="text-muted mx-3"><del>&dollar;${parseInt(game.price)}</del>
+                          </p><p class="text-white mx-3">&dollar;${parseInt(game.netPrice)}</p>` : 
+                          `<p class="text-white mx-3">&dollar;${parseInt(game.price)} </p>`)}
                         </div>
                       </div >
                       </a >

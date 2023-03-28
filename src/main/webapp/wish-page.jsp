@@ -51,7 +51,7 @@
                             class="mx-1 text-muted">Release Date: </span>${game.releaseDate}</p>
                       </div>
                       <div class="col-md-7 col-lg-5 col-xl-1 offset-lg-1">
-                        <h5 class="mb-0">$${game.price}</h5>
+                        <h5 class="mb-0">$${game.price.intValue()}</h5>
                       </div>
                       <div class="col-sm-2 col-md-2 col-lg-2 col-xl-1 text-end">
                         <c:choose>
