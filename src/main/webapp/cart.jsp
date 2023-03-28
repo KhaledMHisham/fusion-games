@@ -184,7 +184,7 @@
                     <div class="col-md-10 col-md-10 col-lg-10 col-xl-10  d-flex mb-4"> 
                       <a href="product?name=${game.name}">
                         <div class="me-3 position-relative">
-                          <img src="images/1 (3).png" />
+                          <img src="${game.pictureUrl}" />
                         </div>
                       </a>
                       <div class="">

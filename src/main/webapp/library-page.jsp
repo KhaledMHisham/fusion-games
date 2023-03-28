@@ -45,7 +45,7 @@
 
                       <div class="col-md-10 col-lg-8 col-xl-3">
                         <a href="product?name=${game.name}">
-                          <img src="images/12.webp" class=" mb-2 img-fluid rounded-3 ">
+                          <img src="${game.pictureUrl}" class=" mb-2 img-fluid rounded-3 ">
                         </a>
 
                       </div>

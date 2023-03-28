@@ -52,7 +52,7 @@
                               <div class="card-body">
                                 <div class="row">
                                   <div class="col-md-4 col-xl-3 col-lg-4">
-                                    <img src="images/hellblade.jpg"
+                                    <img src="${game.pictureUrl}"
                                       class="img-fluid" alt="Phone">
                                   </div>
                                   <div class="col-md-4 col-lg-4 col-xl-5 text-center d-flex justify-content-center align-items-center">
