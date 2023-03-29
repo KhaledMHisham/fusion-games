@@ -152,18 +152,22 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
 //   document.body.appendChild(script);
 // }
 
-function pagination() { 
-const itemsPerPage = 9; // Number of items to show per page
-const itemsContainer = document.getElementById('game-grid-container');
-const items = itemsContainer.querySelectorAll('.item');
-const paginationContainer = document.getElementById('pagination');
-const totalPages = Math.ceil(items.length / itemsPerPage); // Total number of pages
+function pagination(filteredGames) { 
+let itemsPerPage = 9; // Number of items to show per page
+let itemsContainer = document.getElementById('game-grid-container');
+let items=null;
+if(filteredGames!=null)
+    items = filteredGames ;
+else
+    items = itemsContainer.querySelectorAll('.item');
+let paginationContainer = document.getElementById('pagination');
+let totalPages = Math.ceil(items.length / itemsPerPage); // Total number of pages
 
 console.log(items.length);
 // Function to show items for the specified page
 function showPage(pageNumber) {
-  const startIndex = (pageNumber - 1) * itemsPerPage;
-  const endIndex = startIndex + itemsPerPage;
+  let startIndex = (pageNumber - 1) * itemsPerPage;
+  let endIndex = startIndex + itemsPerPage;
   items.forEach((item, index) => {
     if (index >= startIndex && index < endIndex) {
       item.style.display = 'block';
