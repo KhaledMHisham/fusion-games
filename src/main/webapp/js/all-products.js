@@ -85,7 +85,7 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
             $.each(filteredGames, function (index, game) {
                 var newGridGames =
                  `
-                  <div class="col-lg-4 col-md-6 col-sm-6">
+                  <div class="col-lg-4 col-md-6 col-sm-6 item">
                     <div class="card my-3 shadow-0 bg-black border ">
                       <a href="product?name=${game.name}">
                         <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
@@ -152,14 +152,10 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
 //   document.body.appendChild(script);
 // }
 
-function pagination(filteredGames) { 
-let itemsPerPage = 9; // Number of items to show per page
+function pagination() { 
+let itemsPerPage = 2; // Number of items to show per page
 let itemsContainer = document.getElementById('game-grid-container');
-let items=null;
-if(filteredGames!=null)
-    items = filteredGames ;
-else
-    items = itemsContainer.querySelectorAll('.item');
+let items = itemsContainer.querySelectorAll('.item');
 let paginationContainer = document.getElementById('pagination');
 let totalPages = Math.ceil(items.length / itemsPerPage); // Total number of pages
 
