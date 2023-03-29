@@ -160,7 +160,7 @@
             <div class="col-lg-9">
               <div id="game-grid-container" class="row">
                 <c:forEach items="${allGames}" var="game">
-                  <div class="col-lg-4 col-md-12 col-sm-12">
+                  <div class="col-lg-4 col-md-12 col-sm-12 item">
                     <div class="card my-3 shadow-0 bg-black border ">
                       <a href="product?name=${game.name}">
                         <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
@@ -233,22 +233,21 @@
               <hr />
               <!-- Pagination -->
               <nav aria-label="Page navigation example" class="d-flex justify-content-center mt-3">
-                <ul class="pagination">
-                  <li class="page-item ">
+                <ul  id="pagination" class="pagination">
+                  <!-- <li class="page-item ">
                     <a class="page-link" href="#" aria-label="Previous">
                       <span aria-hidden="true">&laquo;</span>
                     </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item active"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item"><a class="page-link" href="#">5</a></li>
-                  <li class="page-item">
+                  </li> -->
+                  <!-- <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                  </li> -->
+                 
+                  <!-- <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
                       <span aria-hidden="true">&raquo;</span>
                     </a>
-                  </li>
+                  </li> -->
                 </ul>
               </nav>
               <!-- Pagination -->
@@ -266,6 +265,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
       <script type="text/javascript" src="js/header.js"></script>
       <script type="text/javascript" src="js/add-to-cart.js"></script>
+      <!-- <script id="pagination-script" type="text/javascript" src="js/pagination.js"></script> -->
       <script type="text/javascript" src="js/all-products.js"></script>
 
     </body>
