@@ -66,7 +66,7 @@
                   </p>
 
                   <a target="_blank" href="all-products" class="btn btn-outline-white btn-lg">Browse
-                    <i class="fas fa-graduation-cap ms-2"></i>
+                    <i class="fas fa-anchor ms-2"></i>
                   </a>
                 </div>
               </div>
