@@ -67,8 +67,10 @@ function getGames() {
                     <tr class="border-bottom border-1 border-gold">
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="${data[i].pictureUrl}" alt=""
-                                    style="width: 60px; height: 60px" class="rounded-2" />
+                                <a href="product?name=${data[i].name}">
+                                    <img src="${data[i].pictureUrl}" alt=""
+                                        style="width: 60px; height: 60px" class="rounded-2" />
+                                </a>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1 text-gold">${data[i].name}</p>
                                     <p class="text-white mb-0">BASE GAME</p>
@@ -109,8 +111,10 @@ function getGames() {
                     <tr class="border-bottom border-1 border-gold">
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="${data[i].pictureUrl}" alt=""
-                                    style="width: 60px; height: 60px" class="rounded-2" />
+                                <a href="product?name=${data[i].name}">
+                                    <img src="${data[i].pictureUrl}" alt=""
+                                        style="width: 60px; height: 60px" class="rounded-2" />
+                                </a>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1 text-gold">${data[i].name}</p>
                                     <p class="text-white mb-0">BASE GAME</p>
