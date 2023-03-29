@@ -153,7 +153,7 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
 // }
 
 function pagination() { 
-const itemsPerPage = 5; // Number of items to show per page
+const itemsPerPage = 9; // Number of items to show per page
 const itemsContainer = document.getElementById('game-grid-container');
 const items = itemsContainer.querySelectorAll('.item');
 const paginationContainer = document.getElementById('pagination');
