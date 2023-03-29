@@ -100,7 +100,7 @@
                           <div class="col-6 mb-3">
                             <p class="mb-0">Credit Card Number</p>
                             <div class="form-outline">
-                              <input type="text" id="card-num" placeholder="Card Number"
+                              <input type="text" id="card-num" placeholder="1111-1111-1111-1111"
                                 class="form-control text-white" />
                                 <span id="card-num-error" style="font-size: 10px;" class="float-end text-danger"></span>
 
@@ -110,7 +110,7 @@
                         <div class="col-6 mb-3">
                           <p class="mb-0">CVV</p>
                           <div class="form-outline">
-                            <input type="text" id="cvv-num" placeholder="CVV number" class="form-control text-white" />
+                            <input type="text" id="cvv-num" placeholder="123" class="form-control text-white" />
                             <span id="cvv-num-error" style="font-size: 10px;" class="float-end text-danger"></span>
 
                           </div>
