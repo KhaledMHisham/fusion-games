@@ -81,10 +81,10 @@
     --mdb-btn-active-bg: #e4a11b;
     --mdb-btn-active-color: #000;
   } 
-  .page-link:focus {
+  /* .page-link:focus {
     z-index: 3;
     color: transparent; 
     background-color:transparent;
     outline: none; 
     box-shadow: transparent;
-}
+} */
