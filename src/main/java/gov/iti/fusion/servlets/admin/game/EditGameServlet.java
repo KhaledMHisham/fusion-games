@@ -47,11 +47,15 @@ public class EditGameServlet extends HttpServlet {
     }
 
     private void updateGameFromRequest(HttpServletRequest request, Game currentGame, DiscountService discountService) throws ServletException, IOException {
+        User cuurentUser = (User) request.getAttribute("user");
+        if(cuurentUser==null || !cuurentUser.isAdmin())
+            throw new RuntimeException();
+
         String discountId = (String) GameMultipartFormUtils.extractPartData(request, "edit-discount");
-        if(discountId.equals("NONE")){
+        if (discountId.equals("NONE")) {
             currentGame.setDiscount(null);
         }
-        else{
+        else {
             currentGame.setDiscount(discountService.findById(discountId));
         }
         currentGame.setName((String) GameMultipartFormUtils.extractPartData(request, "edit-game-name"));

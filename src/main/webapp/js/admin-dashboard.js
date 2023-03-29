@@ -67,8 +67,10 @@ function getGames() {
                     <tr class="border-bottom border-1 border-gold">
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="${data[i].pictureUrl}" alt=""
-                                    style="width: 60px; height: 60px" class="rounded-2" />
+                                <a href="product?name=${data[i].name}">
+                                    <img src="${data[i].pictureUrl}" alt=""
+                                        style="width: 60px; height: 60px" class="rounded-2" />
+                                </a>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1 text-gold">${data[i].name}</p>
                                     <p class="text-white mb-0">BASE GAME</p>
@@ -109,8 +111,10 @@ function getGames() {
                     <tr class="border-bottom border-1 border-gold">
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="${data[i].pictureUrl}" alt=""
-                                    style="width: 60px; height: 60px" class="rounded-2" />
+                                <a href="product?name=${data[i].name}">
+                                    <img src="${data[i].pictureUrl}" alt=""
+                                        style="width: 60px; height: 60px" class="rounded-2" />
+                                </a>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1 text-gold">${data[i].name}</p>
                                     <p class="text-white mb-0">BASE GAME</p>
@@ -119,7 +123,7 @@ function getGames() {
                         </td>
                         <td>
                             <p></p>
-                            <p class="fw-normal mb-1 text-white"><s>${data[i].netPrice}</s> ${data[i].price}</p>
+                            <p class="fw-normal mb-1 text-white"><s>${data[i].price}</s> ${parseInt(data[i].netPrice)}$</p>
                         </td>
                         <td>
                             <p></p>
@@ -192,7 +196,7 @@ function getUsers() {
                                                 <p class="fw-normal mb-1 text-white">CREDIT LIMIT</p>
                                             </td>
                                             <td>
-                                                <p class="fw-normal mb-1 text-white">Orders</p>
+                                                <p class="fw-normal mb-1 text-white">History</p>
                                             </td>
                                         </tr>
                                     `;
@@ -215,7 +219,7 @@ function getUsers() {
                                                     <td>
                                                         <a class="btn btn-gold text-black 
                                                         hover-overlay border-gold p-1 w-75" 
-                                                        type="button" href="user-orders?userId=${data[i].id}"">orders</a>
+                                                        type="button" href="user-orders?userId=${data[i].id}"">History</a>
                                                     </td>
                                                 </tr>
                                                 </a>

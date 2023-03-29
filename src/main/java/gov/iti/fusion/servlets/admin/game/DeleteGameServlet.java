@@ -2,6 +2,7 @@ package gov.iti.fusion.servlets.admin.game;
 
 import com.google.gson.JsonParser;
 import com.google.gson.JsonObject;
+import gov.iti.fusion.models.User;
 import gov.iti.fusion.services.GameService;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
@@ -12,6 +13,11 @@ import java.io.PrintWriter;
 public class DeleteGameServlet extends HttpServlet {
     @Override
     protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        User cuurentUser = (User) request.getAttribute("user");
+        if(cuurentUser==null || !cuurentUser.isAdmin())
+            throw new RuntimeException();
+
         PrintWriter out = response.getWriter();
         GameService gameService = new GameService(request);
 

@@ -30,6 +30,9 @@ public class AddGameServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User cuurentUser = (User) request.getAttribute("user");
+        if(cuurentUser==null || !cuurentUser.isAdmin())
+            throw new RuntimeException();
 
         GameService gameService = new GameService(request);
         GenreService genreService = new GenreService(request);
