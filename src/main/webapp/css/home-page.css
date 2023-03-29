@@ -187,13 +187,12 @@ body {
     display:inline-block;
   }
 
-  .box {
-        width : 270px;
-          overflow:hidden;
-          display:inline-block;
-          text-overflow: ellipsis;
-          white-space: nowrap;;
+  .box{
+    flex: 1;
 
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
 
