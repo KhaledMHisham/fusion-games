@@ -16,6 +16,10 @@ import java.util.List;
 public class GetUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        User cuurentUser = (User) request.getAttribute("user");
+        if(cuurentUser==null || !cuurentUser.isAdmin())
+            throw new RuntimeException();
+
         UserService userService = new UserService(request);
         PrintWriter out = response.getWriter();
 

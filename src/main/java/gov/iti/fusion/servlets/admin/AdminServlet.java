@@ -1,9 +1,6 @@
 package gov.iti.fusion.servlets.admin;
 
-import gov.iti.fusion.models.Discount;
-import gov.iti.fusion.models.Game;
-import gov.iti.fusion.models.Genre;
-import gov.iti.fusion.models.Platform;
+import gov.iti.fusion.models.*;
 import gov.iti.fusion.services.DiscountService;
 import gov.iti.fusion.services.GameService;
 import gov.iti.fusion.services.GenreService;
@@ -22,7 +19,10 @@ public class AdminServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        GameService gameService = new GameService(request);
+        User cuurentUser = (User) request.getAttribute("user");
+        if(cuurentUser==null || !cuurentUser.isAdmin())
+            throw new RuntimeException();
+
         GenreService genreService = new GenreService(request);
         PlatformService platformService = new PlatformService(request);
         DiscountService discountService = new DiscountService(request);
@@ -36,10 +36,5 @@ public class AdminServlet extends HttpServlet {
         request.setAttribute("allDiscounts", allDiscounts);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("admin-dashboard.jsp");
         requestDispatcher.forward(request,response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

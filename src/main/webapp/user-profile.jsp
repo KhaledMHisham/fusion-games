@@ -8,6 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
+    <link href="../css/header.css" rel="stylesheet" />
     <link href="../css/home-page.css" rel="stylesheet" />
     <link href="../css/user-profile.css" rel="stylesheet"/>
     <link rel="shortcut icon" href="images/phoenix.png" type="image/x-icon" />
@@ -180,10 +181,12 @@
 
     <!-- Footer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/solid.min.js"></script>
     <script type="text/javascript" src="../js/home-page.js"></script>
     <script type="text/javascript" src="../js/user-profile.js"></script>
+    <script type="text/javascript" src="../js/header.js"></script>
     <script type="text/javascript" src="../js/logout.js"></script>
 </body>
 
