@@ -55,8 +55,9 @@ function validateEmail() {
   }
 }
 function validatePhone() {
-  const regex = /^01[0-2]{1}[0-9]{8}$/;
+  const regex = /^\+20 1[0125][0-9]{8}$/;
   const phoneValue = phoneInput.value;
+  console.log(phoneValue);
   if (regex.test(phoneValue)) {
     phoneError.innerHTML = "";
     return true;

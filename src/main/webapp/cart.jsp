@@ -37,7 +37,7 @@
               <!-- Checkout -->
               <div class="shadow-0 border-gold text-gold">
                 <div class="p-4">
-                  <h5 class="card-title mb-3">Guest checkout</h5>
+                  <h5 class="card-title mb-3">Checkout</h5>
                   <div class="row">
                     <div class="col-6 mb-3">
                       <p class="mb-0">First name</p>
@@ -58,7 +58,7 @@
                     <div class="col-6 mb-3">
                       <p class="mb-0">Phone</p>
                       <div class="form-outline">
-                        <input type="tel" id="phone" value="+02 " class="form-control text-white" />
+                        <input type="tel" id="phone" value="+20 " class="form-control text-white" />
                         <span id="phone-error" style="font-size: 10px;" class="float-end text-danger"></span>
 
                       </div>
