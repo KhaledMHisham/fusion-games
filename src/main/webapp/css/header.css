@@ -62,4 +62,15 @@
    color: #fafafb;
    cursor: pointer;
  }
+.margin-left{
+  margin-left: 20% !important;
 
+}
+/* .font-size{
+  font-size: 20px;
+} */
+
+
+.Same{
+  display:inline-block;
+}

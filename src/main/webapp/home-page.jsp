@@ -22,7 +22,7 @@
       <!--Main Navigation-->
       <jsp:include page="header.jsp" />
 
-      <!-- <div class="page-offset"></div> -->
+      <!-- <div class="page-offset"></div> c-->
       <!--  intro  -->
 
       <!-- intro -->

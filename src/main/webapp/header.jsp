@@ -4,13 +4,23 @@
     <!-- Jumbotron -->
     <div class=" p-3 text-center bg-main header">
       <div class="container">
-        <div class="row gy-3">
+        <div class="row justify-content-between gy-3">
+
           <!-- Left elements -->
           <div class="col-lg-2 col-sm-4 col-4">
             <a href="" class="float-start">
-              <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/phoenix.png" height="50">
+              <img class="rounded-circle" style="aspect-ratio: 1/1;" src="images/logo5.jpeg" height="50">
             </a>
+            
+              <!-- <p class="margin-left d-none d-md-block mb-0 text-gold p-3">
+                Distribution
+              </p>
+              <p class="margin-left same d-none d-md-block mb-0 text-gold p-3">
+                Support
+              </p> -->
           </div>
+          <!-- <a href="" class="float-start"> -->
+          <!-- </a> -->
           <div class="order-lg-last col-lg-2 col-sm-2 col-8"></div>
           <!-- Left elements -->
           <!-- Center elements -->
@@ -18,15 +28,19 @@
             <div class="d-flex float-end">
               <c:choose>
                 <c:when test="${user ne null}">
-                  <a href="http://localhost:8888/fusion/logout" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                  <a href="http://localhost:8888/fusion/logout" class="me-12 py-1 px-3 nav-link align-items-center navbar-link"> <i
                       class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                         <p class="d-none d-md-block mb-0 text-gold">Sign out</p>
                   </a>
+                  <a href="http://localhost:8888/fusion/logout" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
+                    <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block mb-0 text-gold">Profile</p>
+                  </a>
                 </c:when>
                 <c:otherwise>
-                  <a href="http://localhost:8888/fusion/login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
-                          class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
-                    <p class="d-none d-md-block mb-0 text-gold">Sign in</p>
+                  <a href="http://localhost:8888/fusion/login" class="me-12 py-1 px-3 nav-link align-items-center navbar-link"> 
+                    <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
+                    <p class="d-none d-md-block me-md-2 mb-0 text-gold">Sign in</p>
                   </c:otherwise>
                 </c:choose>
               </a>
