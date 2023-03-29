@@ -90,25 +90,6 @@
       <div class="collapse navbar-collapse" id="navbarLeftAlignExample">
         <!-- Left links -->
         <ul class="margin-left navbar-nav me-auto mb-2 mb-lg-0 align-items-end">
-          <!-- <li class="nav-item dropdown"> -->
-            <!-- <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" -->
-              <!-- data-mdb-toggle="dropdown" aria-expanded="false"> -->
-              <!-- Categories -->
-            <!-- </a> -->
-            <!-- Dropdown menu -->
-            <!-- <ul class="dropdown-menu categories-dropdown" aria-labelledby="navbarDropdown"> -->
-              <!-- <li> -->
-                <!-- <a class="dropdown-item bg-black text-white" href="#">Action</a> -->
-              <!-- </li> -->
-              <!-- <li> -->
-                <!-- <a class="dropdown-item bg-black text-white" href="#">RPG</a> -->
-              <!-- </li> -->
-              <!-- <li> -->
-                <!-- <a class="dropdown-item bg-black text-white" href="#">Souls-Like</a> -->
-              <!-- </li> -->
-            <!-- </ul> -->
-          <!-- </li> --> 
-
           <li class="nav-item">
             <a class="nav-link text-white" href="home">Home</a>
           </li>
