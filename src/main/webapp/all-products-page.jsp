@@ -166,7 +166,7 @@
                         <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                         <div class="card-body p-0 pt-2">
                           <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                          <h5 class="card-title text-white mx-3">${game.name}</h5>
+                          <h5 class="card-title text-white mx-3 box">${game.name}</h5>
                           <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                             <c:choose>
                               <c:when test="${game.discount.getType().getDiscount()==100}">

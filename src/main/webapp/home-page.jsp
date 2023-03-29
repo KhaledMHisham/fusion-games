@@ -180,7 +180,7 @@
                     <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                      <h5 class="card-title text-white mx-3">${game.name}</h5>
+                      <h5 class="card-title text-white mx-3 box">${game.name}</h5>
                       <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                         <c:choose>
                           <c:when test="${game.discount.getType().getDiscount()==100}">
@@ -260,7 +260,7 @@
                       <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                       <div class="card-body p-0 pt-2">
                         <p class="text-gold mx-3 mb-2">Base Game</p>
-                        <h5 class="card-title text-white mx-3">${game.name}</h5>
+                        <h5 class="card-title text-white mx-3 box">${game.name}</h5>
                         <div class="d-flex justify-content-end align-items-start h-100 m-2">
                           <h5 class=" text-gold mx-3">&dollar;${game.price.intValue()}</h5>
                         </div>
@@ -403,7 +403,7 @@
                     <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                     <div class="card-body p-0 pt-2">
                       <p class="text-gold mx-3 mb-2"> BASE GAME</p>
-                      <h5 class="card-title text-white mx-3">${game.name}</h5>
+                      <h5 class="card-title text-white mx-3 box">${game.name}</h5>
                       <div class="d-flex justify-content-start align-items-start h-100 mx-2 mt-3">
                         <h6><span class="badge bg-success mx-2 pt-2">-${game.discount.getType().getDiscount()}%</span>
                         </h6>
