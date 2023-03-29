@@ -219,7 +219,7 @@ public class HomeServlet extends HttpServlet {
         gamesWithoutDiscount =  gameService.findGamesWithNoDiscount();
 
 
-        if(gamesWithoutDiscount.size()>15)
+        if(gamesWithoutDiscount.size()>9)
             gamesWithoutDiscount = getRandomElements(gamesWithoutDiscount);
       
 
