@@ -87,7 +87,7 @@ function requestFilterGames(genres, discounts, platforms, maxPrice, minPrice) {
                   <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="card my-3 shadow-0 bg-black border ">
                       <a href="product?name=${game.name}">
-                        <img src="images/hellblade.jpg" class="card-img-top" style="aspect-ratio: 3 / 2">
+                        <img src="${game.pictureUrl}" class="card-img-top" style="aspect-ratio: 3 / 2">
                         <div class="card-body p-0 pt-2">
                         <p class="text-gold mx-3 mb-2"> BASE GAME</p>
                         <h5 class="card-title text-white mx-3">${game.name}</h5>

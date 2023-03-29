@@ -6,7 +6,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
     <meta charset="UTF-8">
-    <title>Fusion</title>
+    <title>Fusion Admin</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.css" rel="stylesheet" />
@@ -33,11 +33,6 @@
                         class="account-control-item list-group-item bg-main text-white list-group-item-action px-3 border-0"
                         aria-current="true">
                         <i class="fas fa-users fa-fw me-3"></i><span>Users</span>
-                    </button>
-                    <button type="button"
-                        class="account-control-item list-group-item bg-main text-white list-group-item-action px-3 border-0"
-                        aria-current="true">
-                        <i class="fas fa-chart-bar fa-fw me-3"></i><span>Orders</span>
                     </button>
                     <button type="button"
                         onclick="getGames()"
@@ -71,7 +66,7 @@
                                                         <input type="text" 
                                                             id="add-game-name"
                                                             class="form-control text-white"
-                                                            name="add-game-name"/>
+                                                            name="add-game-name" required/>
                                                         <label id="add-game-name-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-game-name">Game name</label>
@@ -81,14 +76,14 @@
                                                     <input type="date"
                                                         class="form-control bg-dark border border-gold rounded-2 text-white"
                                                         id="add-release-date"
-                                                        name="add-release-date"/>
+                                                        name="add-release-date" required/>
                                                 </div>
                                                 <div class="input-group">
                                                     <div class="form-outline mt-3 " style="width:100% !important">
                                                         <input type="text" 
                                                                 id="add-developer"
                                                                 class="form-control text-white"
-                                                                name="add-developer"/>
+                                                                name="add-developer" required/>
                                                         <label id="add-developer-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-developer">Developer</label>
@@ -98,7 +93,7 @@
                                                     <div class="form-outline mt-3" style="width:100% !important">
                                                         <input type="text" id="add-price"
                                                             class="form-control text-white" 
-                                                            name="add-price"/>
+                                                            name="add-price" required/>
                                                         <label id="add-price-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-price">Price</label>
@@ -114,7 +109,7 @@
                                                             class="form-control text-white bg-dark custom-file-upload"
                                                             style="display: none;"
                                                             id="add-game-files"
-                                                            name="add-game-files" />
+                                                            name="add-game-files" required/>
                                                         <label class="mx-1 text-white" style="font-size: 10px;">Game
                                                             Files</label>
                                                     </div>
@@ -127,7 +122,7 @@
                                                             class="form-control text-white bg-dark custom-file-upload"
                                                             style="display: none;"
                                                             id="add-game-picture"
-                                                            name="add-game-picture" />
+                                                            name="add-game-picture" required/>
                                                         <label class="mx-1 text-white" style="font-size: 10px;">Game
                                                             Picture</label>
                                                     </div>
@@ -136,14 +131,14 @@
                                                     <div class="form-outline mt-3" style="width:100% !important">
                                                         <input type="text" id="add-publisher"
                                                             class="form-control text-white"
-                                                            name="add-publisher" />
+                                                            name="add-publisher" required/>
                                                         <label id="add-publisher-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-publisher">Publisher</label>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <select id="add-discount" name="add-discount"
+                                                    <select id="add-discount" name="add-discount" required
                                                         class="bg-dark rounded-1 border-gold border-1 shadow-0 col-6 w-100 p-2 text-white mt-3">
                                                         <option class="bg-dark text-white option-hover" value="NONE">
                                                             NONE
@@ -181,7 +176,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>Recommended</h5>
+                                                <h5 class="mt-2 mb-3" >Recommended</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
@@ -189,7 +184,7 @@
                                                         <input type="text" 
                                                                 id="add-recommended-processor"
                                                                 name="add-recommended-processor"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-recommended-processor-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-recommended-processor">Processor</label>
@@ -202,7 +197,7 @@
                                                         <input type="text" 
                                                                 id="add-recommended-gpu"
                                                                 name="add-recommended-gpu"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-recommended-gpu-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-recommended-gpu">GPU</label>
@@ -215,7 +210,7 @@
                                                         <input type="text" 
                                                             id="add-recommended-ram"
                                                             name="add-recommended-ram"
-                                                            class="form-control text-white" />
+                                                            class="form-control text-white" required/>
                                                         <label id="add-recommended-ram-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-recommended-ram">RAM</label>
@@ -228,7 +223,7 @@
                                                         <input type="text" 
                                                             id="add-recommended-storage"
                                                             name="add-recommended-storage"
-                                                            class="form-control text-white" />
+                                                            class="form-control text-white" required/>
                                                         <label id="add-recommended-storage-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-recommended-storage">Storage</label>
@@ -241,7 +236,7 @@
                                                         <input type="text" 
                                                                 id="add-recommended-dxversion"
                                                                 name="add-recommended-dxversion"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-recommended-dxversion-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-recommended-dxversion">DX Version</label>
@@ -251,7 +246,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5>Minimum</h5>
+                                                <h5 class="mb-3">Minimum</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
@@ -259,7 +254,7 @@
                                                         <input type="text" 
                                                                 id="add-minimum-processor"
                                                                 name="add-minimum-processor"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-minimum-processor-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-minimum-processor">Processor</label>
@@ -272,7 +267,7 @@
                                                         <input type="text" 
                                                                 id="add-minimum-gpu"
                                                                 name="add-minimum-gpu"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-minimum-gpu-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-minimum-gpu">GPU</label>
@@ -285,7 +280,7 @@
                                                         <input type="text" 
                                                                 id="add-minimum-ram"
                                                                 name="add-minimum-ram"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-minimum-ram-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-minimum-ram">RAM</label>
@@ -298,7 +293,7 @@
                                                         <input type="text" 
                                                                 id="add-minimum-storage"
                                                                 name="add-minimum-storage"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-minimum-storage-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-minimum-storage">Storage</label>
@@ -311,7 +306,7 @@
                                                         <input type="text" 
                                                                 id="add-minimum-dxversion"
                                                                 name="add-minimum-dxversion"
-                                                                class="form-control text-white" />
+                                                                class="form-control text-white" required/>
                                                         <label id="add-minimum-dxversion-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-minimum-dxversion">DX Version</label>
@@ -326,7 +321,7 @@
                                                         <textarea type="text" 
                                                                     id="add-description"
                                                                     name="add-description"
-                                                                    class="form-control text-white"></textarea>
+                                                                    class="form-control text-white" required></textarea>
                                                         <label id="add-description-label"
                                                             class="form-label text-white bg-dark search-label"
                                                             for="add-description">Description</label>
@@ -365,7 +360,7 @@
                                                         <input type="text"
                                                                id="edit-game-name"
                                                                class="form-control text-white"
-                                                               name="edit-game-name"/>
+                                                               name="edit-game-name" required/>
                                                         <label id="edit-game-name-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-game-name">Game name</label>
@@ -375,14 +370,14 @@
                                                     <input type="date"
                                                            class="form-control bg-dark border border-gold rounded-2 text-white"
                                                            id="edit-release-date"
-                                                           name="edit-release-date"/>
+                                                           name="edit-release-date" required/>
                                                 </div>
                                                 <div class="input-group">
                                                     <div class="form-outline mt-3 " style="width:100% !important">
                                                         <input type="text"
                                                                id="edit-developer"
                                                                class="form-control text-white"
-                                                               name="edit-developer"/>
+                                                               name="edit-developer" required/>
                                                         <label id="edit-developer-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-developer">Developer</label>
@@ -392,7 +387,7 @@
                                                     <div class="form-outline mt-3" style="width:100% !important">
                                                         <input type="text" id="edit-price"
                                                                class="form-control text-white"
-                                                               name="edit-price"/>
+                                                               name="edit-price" required/>
                                                         <label id="edit-price-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-price">Price</label>
@@ -430,14 +425,14 @@
                                                     <div class="form-outline mt-3" style="width:100% !important">
                                                         <input type="text" id="edit-publisher"
                                                                class="form-control text-white"
-                                                               name="edit-publisher" />
+                                                               name="edit-publisher" required/>
                                                         <label id="edit-publisher-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-publisher">Publisher</label>
                                                     </div>
                                                 </div>
                                                 <div>
-                                                    <select id="edit-discount" name="edit-discount"
+                                                    <select id="edit-discount" name="edit-discount" required
                                                             class="bg-dark rounded-1 border-gold border-1 shadow-0 col-6 w-100 p-2 text-white mt-3">
                                                         <option class="bg-dark text-white option-hover" value="NONE">
                                                                 NONE
@@ -475,7 +470,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12">
-                                                <h5 class="mb-1">Recommended</h5>
+                                                <h5 class="mt-2 mb-3">Recommended</h5>
                                             </div>
                                             <div class="col-6">
                                                 <div class="input-group">
@@ -483,7 +478,7 @@
                                                         <input type="text"
                                                                id="edit-recommended-processor"
                                                                name="edit-recommended-processor"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-recommended-processor-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-recommended-processor">Processor</label>
@@ -496,7 +491,7 @@
                                                         <input type="text"
                                                                id="edit-recommended-gpu"
                                                                name="edit-recommended-gpu"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-recommended-gpu-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-recommended-gpu">GPU</label>
@@ -509,7 +504,7 @@
                                                         <input type="text"
                                                                id="edit-recommended-ram"
                                                                name="edit-recommended-ram"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-recommended-ram-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-recommended-ram">RAM</label>
@@ -522,7 +517,7 @@
                                                         <input type="text"
                                                                id="edit-recommended-storage"
                                                                name="edit-recommended-storage"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-recommended-storage-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-recommended-storage">Storage</label>
@@ -535,7 +530,7 @@
                                                         <input type="text"
                                                                id="edit-recommended-dxversion"
                                                                name="edit-recommended-dxversion"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-recommended-dxversion-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-recommended-dxversion">DX Version</label>
@@ -553,7 +548,7 @@
                                                         <input type="text"
                                                                id="edit-minimum-processor"
                                                                name="edit-minimum-processor"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-minimum-processor-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-minimum-processor">Processor</label>
@@ -566,7 +561,7 @@
                                                         <input type="text"
                                                                id="edit-minimum-gpu"
                                                                name="edit-minimum-gpu"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-minimum-gpu-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-minimum-gpu">GPU</label>
@@ -579,7 +574,7 @@
                                                         <input type="text"
                                                                id="edit-minimum-ram"
                                                                name="edit-minimum-ram"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-minimum-ram-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-minimum-ram">RAM</label>
@@ -592,7 +587,7 @@
                                                         <input type="text"
                                                                id="edit-minimum-storage"
                                                                name="edit-minimum-storage"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-minimum-storage-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-minimum-storage">Storage</label>
@@ -605,7 +600,7 @@
                                                         <input type="text"
                                                                id="edit-minimum-dxversion"
                                                                name="edit-minimum-dxversion"
-                                                               class="form-control text-white" />
+                                                               class="form-control text-white" required/>
                                                         <label id="edit-minimum-dxversion-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-minimum-dxversion">DX Version</label>
@@ -620,7 +615,7 @@
                                                         <textarea type="text"
                                                                   id="edit-description"
                                                                   name="edit-description"
-                                                                  class="form-control text-white"></textarea>
+                                                                  class="form-control text-white" required></textarea>
                                                         <label id="edit-description-label"
                                                                class="form-label text-white bg-dark search-label"
                                                                for="edit-description">Description</label>
@@ -670,151 +665,8 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted bg-main mt-3">
-        <!-- Section: Links  -->
-        <section class="">
-            <div class="container text-center text-md-start pt-4 pb-4">
-                <!-- Grid row -->
-                <div class="row mt-3">
-                    <!-- Grid column -->
-                    <div class="col-12 col-lg-3 col-sm-12 mb-2">
-                        <!-- Content -->
-                        <a href="https://mdbootstrap.com/" target="_blank" class="text-gold h2">
-                            MDB
-                        </a>
-                        <p class="mt-1 text-gold">
-                            © 2023 Copyright: MDBootstrap.com
-                        </p>
-                    </div>
-                    <!-- Grid column -->
+    <jsp:include page="footer.jsp" />
 
-                    <!-- Grid column -->
-                    <div class="col-6 col-sm-4 col-lg-2">
-                        <!-- Links -->
-                        <h6 class="text-uppercase text-gold fw-bold mb-2">
-                            Store
-                        </h6>
-                        <ul class="list-unstyled mb-4">
-                            <li><a class="text-white" href="#">About us</a></li>
-                            <li><a class="text-white" href="#">Find store</a></li>
-                            <li><a class="text-white" href="#">Categories</a></li>
-                            <li><a class="text-white" href="#">Blogs</a></li>
-                        </ul>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-6 col-sm-4 col-lg-2">
-                        <!-- Links -->
-                        <h6 class="text-uppercase text-gold fw-bold mb-2">
-                            Information
-                        </h6>
-                        <ul class="list-unstyled mb-4">
-                            <li><a class="text-white" href="#">Help center</a></li>
-                            <li><a class="text-white" href="#">Money refund</a></li>
-                            <li><a class="text-white" href="#">Shipping info</a></li>
-                            <li><a class="text-white" href="#">Refunds</a></li>
-                        </ul>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-6 col-sm-4 col-lg-2">
-                        <!-- Links -->
-                        <h6 class="text-uppercase text-gold fw-bold mb-2">
-                            Support
-                        </h6>
-                        <ul class="list-unstyled mb-4">
-                            <li><a class="text-white" href="#">Help center</a></li>
-                            <li><a class="text-white" href="#">Documents</a></li>
-                            <li><a class="text-white" href="#">Account restore</a></li>
-                            <li><a class="text-white" href="#">My orders</a></li>
-                        </ul>
-                    </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                    <div class="col-12 col-sm-12 col-lg-3">
-                        <!-- Links -->
-                        <h6 class="text-uppercase text-gold fw-bold mb-2">Newsletter</h6>
-                        <p class="text-white">Stay in touch with latest updates about our products and offers</p>
-                        <div class="input-group mb-3">
-                            <input type="email" class="form-control border border-gold bg-dark text-gold shadow-0"
-                                placeholder="Email" aria-label="Email" aria-describedby="button-addon2">
-                            <button class="btn btn-gold border border-gold shadow-0" type="button" id="button-addon2"
-                                data-mdb-ripple-color="dark">
-                                Join
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Grid column -->
-                </div>
-                <!-- Grid row -->
-            </div>
-        </section>
-        <!-- Section: Links  -->
-
-        <div class="">
-            <div class="container">
-                <div class="d-flex justify-content-between py-4 border-top border-gold">
-                    <!--- payment --->
-                    <div>
-                        <i class="fab fa-lg fa-cc-visa text-gold"></i>
-                        <i class="fab fa-lg fa-cc-mastercard text-gold"></i>
-                        <i class="fab fa-lg fa-cc-paypal text-gold"></i>
-                    </div>
-                    <!--- payment --->
-
-                    <!--- language selector --->
-                    <div class="dropdown dropup">
-                        <a class="dropdown-toggle text-gold" href="#" id="Dropdown" role="button"
-                            data-mdb-toggle="dropdown" aria-expanded="false"> <i
-                                class="flag-united-kingdom flag m-0 me-1"></i>English </a>
-
-                        <ul class="dropdown-menu language-dropdown dropdown-menu-end bg-dark"
-                            aria-labelledby="Dropdown">
-                            <li>
-                                <a class="dropdown-item text-gold" href="#"><i
-                                        class="flag-united-kingdom flag"></i>English <i
-                                        class="fa fa-check text-success ms-2"></i></a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li>
-                                <a class="dropdown-item  text-white" href="#"><i class="flag-poland flag"></i>Polski</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i class="flag-china flag"></i>中文</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i class="flag-japan flag"></i>日本語</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i
-                                        class="flag-germany flag"></i>Deutsch</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i
-                                        class="flag-france flag"></i>Français</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i class="flag-spain flag"></i>Español</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i class="flag-russia flag"></i>Русский</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item text-white" href="#"><i
-                                        class="flag-portugal flag"></i>Português</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--- language selector --->
-                </div>
-            </div>
-        </div>
-    </footer>
     <!-- Footer -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

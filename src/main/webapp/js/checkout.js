@@ -18,8 +18,9 @@ const myModal = document.querySelector('#exampleModal');
 var myModalEl = new bootstrap.Modal(myModal);
 
 function validateFirstName() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const firstNameValue = firstNameInput.value;
-  if (firstNameValue.length !== 0) {
+  if (regex.test(firstNameValue)) {
     firstNameError.innerHTML = "";
     return true;
   }
@@ -30,8 +31,9 @@ function validateFirstName() {
 }
 
 function validateLastName() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const lastNameValue = lastNameInput.value;
-  if (lastNameValue.length !== 0) {
+  if (regex.test(lastNameValue)) {
     lastNameError.innerHTML = "";
     return true;
   }
@@ -41,8 +43,9 @@ function validateLastName() {
   }
 }
 function validateEmail() {
+  const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const emailValue = emailInput.value;
-  if (emailValue.length !== 0) {
+  if (regex.test(emailValue)) {
     emailError.innerHTML = "";
     return true;
   }
@@ -52,8 +55,10 @@ function validateEmail() {
   }
 }
 function validatePhone() {
+  const regex = /^\+20 1[0125][0-9]{8}$/;
   const phoneValue = phoneInput.value;
-  if (phoneValue.length !== 0) {
+  console.log(phoneValue);
+  if (regex.test(phoneValue)) {
     phoneError.innerHTML = "";
     return true;
   }
@@ -64,8 +69,10 @@ function validatePhone() {
 }
 
 function validateCreditNum() {
+  const regex = /^([0-9]{4}-){3}[0-9]{4}$/
+
   const cardNumValue = cardNumInput.value;
-  if (cardNumValue.length !== 0) {
+  if (regex.test(cardNumValue)) {
     cardNumError.innerHTML = "";
     return true;
   }
@@ -75,8 +82,9 @@ function validateCreditNum() {
   }
 }
 function validateCVV() {
+  const regex = /^[0-9]{3,4}$/;
   const cvvNumValue = cvvNumInput.value;
-  if (cvvNumValue.length !== 0) {
+  if (regex.test(cvvNumValue)) {
     cvvNumError.innerHTML = "";
     return true;
   }
@@ -86,8 +94,9 @@ function validateCVV() {
   }
 }
 function validateCreditowner() {
+  const regex = /^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/;
   const cardOwnerNameValue = cardOwnerNameInput.value;
-  if (cardOwnerNameValue.length !== 0) {
+  if (regex.test(cardOwnerNameValue)) {
     cardOwnerNameError.innerHTML = "";
     return true;
   }
