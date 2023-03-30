@@ -307,6 +307,11 @@
                   </div>
                 </div>
               </c:forEach>
+              <div class="d-flex flex-row justify-content-end align-items-end col-lg-4 col-xl-4 col-md-6 col-sm-6" >
+                <a href="http://localhost:8888/fusion/all-products" class="btn btn-black border text-cart" style="height: 40px;"> 
+                    See More ...
+                </a>
+            </div>
             </div>
           </div>
         </section>
