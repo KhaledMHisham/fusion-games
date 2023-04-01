@@ -4,6 +4,8 @@
     <html lang="en">
 
     <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
       <title>Fusion</title>
@@ -171,7 +173,7 @@
           </div>
         </c:if>
         </div>
-          <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy-BestSellerList "
+          <div class="d-flex flex-row flex-nowrap  list-scroll collapsible-scrollspy-BestSellerList "
             style="position: relative;">
             <c:forEach items="${mostPurchased}" var="game">
               <div class="m-2 col-lg-3 col-md-6 col-sm-6">
@@ -308,7 +310,7 @@
                 </div>
               </c:forEach>
               <div class="d-flex flex-row justify-content-end align-items-end col-lg-4 col-xl-4 col-md-6 col-sm-6" >
-                <a href="http://localhost:8888/fusion/all-products" class="btn btn-black border text-cart" style="height: 40px;"> 
+                <a href="/fusion/all-products" class="btn btn-black border text-cart" style="height: 40px;">
                     See More ...
                 </a>
             </div>
@@ -400,7 +402,7 @@
           </div>
         </c:if>
         </div>
-          <div class="d-flex flex-row flex-nowrap  overflow-hidden collapsible-scrollspy " style="position: relative;">
+          <div class="d-flex flex-row flex-nowrap  list-scroll collapsible-scrollspy " style="position: relative;">
             <c:forEach items="${gamesOnSale}" var="game">
               <div class="m-2 col-lg-3 col-md-6 col-sm-6">
                 <div class="card my-2 shadow-0 bg-black border">

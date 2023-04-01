@@ -45,7 +45,7 @@ function validateLastName(){
 
 async function validateUsername() {
     const username = usernameInput.value;
-    const url = "http://localhost:8888/fusion/validate/username";
+    const url = "/fusion/validate/username";
     const requestBody =  {
         username: username,
     };
@@ -72,7 +72,7 @@ async function validateUsername() {
 }
 async function validateEmail() {
     const emailValue = emailInput.value;
-    const url = "http://localhost:8888/fusion/validate/email";
+    const url = "/fusion/validate/email";
     const requestBody =  {
         email: emailValue,
     };
@@ -101,7 +101,7 @@ async function validateEmail() {
 
 async function validatePhoneNumber() {
     const phoneNumberValue = phoneNumberInput.value;
-    const url = "http://localhost:8888/fusion/validate/phonenumber";
+    const url = "/fusion/validate/phonenumber";
     const requestBody =  {
         phoneNumber: phoneNumberValue,
     };
@@ -207,7 +207,7 @@ function propagateCountry(data){
 }
 
 function getUserData(){
-    const url = "http://localhost:8888/fusion/user";
+    const url = "/fusion/user";
     const options = {
         method: "GET",
         headers: {
@@ -247,7 +247,7 @@ async function editProfile(){
         & validateBirthDate() & validateCountry() & isPhoneNumberValid & validateCreditLimit()){
 
             
-            const url = "http://localhost:8888/fusion/user/profile";
+            const url = "/fusion/user/profile";
 
             const requestBody =  {
                                     firstName: firstNameInput.value,

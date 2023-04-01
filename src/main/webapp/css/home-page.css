@@ -189,11 +189,23 @@ body {
 
   .box{
     flex: 1;
-
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    min-width: 320px;
   }
+.list-scroll {
+    /* Set default overflow to auto */
+    overflow: auto;
+}
+
+/* Apply styles for screens wider than 768px (medium screens) */
+@media (min-width: 768px) {
+    .list-scroll {
+        /* Set overflow to hidden */
+        overflow: hidden;
+    }
+}
 
 
 

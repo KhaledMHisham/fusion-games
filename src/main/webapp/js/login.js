@@ -24,7 +24,7 @@ function login(){
 
     if(validateEmail()){
 
-        const url = "http://localhost:8888/fusion/login";
+        const url = "/fusion/login";
 
         const requestBody =  {
             email: emailInput.value,

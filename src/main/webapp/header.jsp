@@ -9,7 +9,7 @@
           <!-- Left elements -->
           <div class="col-lg-2 col-sm-4 col-4">
             <a href="" class="float-start">
-              <img class="rounded-circle" style="aspect-ratio: 1/1;" src="http://localhost:8888/fusion/games/images/logo5.png" height="50">
+              <img class="rounded-circle" style="aspect-ratio: 1/1;" src="/fusion/games/images/logo5.png" height="50">
             </a>
             
               <!-- <p class="margin-left d-none d-md-block mb-0 text-gold p-3">
@@ -28,23 +28,23 @@
             <div class="d-flex float-end">
               <c:choose>
                 <c:when test="${user ne null}">
-                  <a href="http://localhost:8888/fusion/logout" class="me-12 py-1 px-3 nav-link align-items-center navbar-link"> <i
+                  <a href="/fusion/logout" class="me-12 py-1 px-3 nav-link align-items-center navbar-link"> <i
                       class="fa-solid fa-right-from-bracket m-1 me-md-2 text-gold"></i>
                         <p class="d-none d-md-block mb-0 text-gold">Sign out</p>
                   </a>
-                  <a href="http://localhost:8888/fusion/user/profile" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
+                  <a href="/fusion/user/profile" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
                     <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                     <p class="d-none d-md-block mb-0 text-gold">Profile</p>
                   </a>
                   <c:if test="${user.isAdmin()}">
-                    <a href="http://localhost:8888/fusion/admin" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
+                    <a href="/fusion/admin" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
                       <i class="fa-solid fa-wrench m-1 me-md-2 text-gold"></i>
                       <p class="d-none d-md-block mb-0 text-gold">Admin</p>
                     </a>
                   </c:if>
                 </c:when>
                 <c:otherwise>
-                  <a href="http://localhost:8888/fusion/login" class="me-12 py-1 px-3 nav-link align-items-center navbar-link"> 
+                  <a href="/fusion/login" class="me-12 py-1 px-3 nav-link align-items-center navbar-link">
                     <i class="fas fa-user-alt m-1 me-md-2 text-gold"></i>
                     <p class="d-none d-md-block me-md-2 mb-0 text-gold">Sign in</p>
                   </c:otherwise>
@@ -97,30 +97,30 @@
         <!-- Left links -->
         <ul class="margin-left navbar-nav me-auto mb-2 mb-lg-0 align-items-end">
           <li class="nav-item">
-            <a class="nav-link text-white" href="http://localhost:8888/fusion/home">Home</a>
+            <a class="nav-link text-white" href="/fusion/home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " href="http://localhost:8888/fusion/all-products">All Games</a>
+            <a class="nav-link " href="/fusion/all-products">All Games</a>
           </li>
 
           <li class="nav-item">
             <c:choose>
               <c:when test="${user ne null}">
-                <a class="nav-link" href="http://localhost:8888/fusion/library-page">Library</a>
+                <a class="nav-link" href="/fusion/library-page">Library</a>
               </c:when>
               <c:otherwise>
-                <a class="nav-link" href="http://localhost:8888/fusion/login">Library</a>
+                <a class="nav-link" href="/fusion/login">Library</a>
               </c:otherwise>
             </c:choose>
           </li>
           <li class="nav-item">
             <c:choose>
               <c:when test="${user ne null}">
-                <a href="http://localhost:8888/fusion/wish-list" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                <a href="/fusion/wish-list" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                     class="fas fa-heart m-1 me-md-2 text-gold"></i>
               </c:when>
               <c:otherwise>
-                <a href="http://localhost:8888/fusion/login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                <a href="/fusion/login" class="me-1 py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                     class="fas fa-heart m-1 me-md-2 text-gold"></i>
               </c:otherwise>
             </c:choose>
@@ -131,11 +131,11 @@
           <li class="nav-item">
             <c:choose>
               <c:when test="${user ne null}">
-                <a href="http://localhost:8888/fusion/cart" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                <a href="/fusion/cart" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                     class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
               </c:when>
               <c:otherwise>
-                <a href="http://localhost:8888/fusion/login" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
+                <a href="/fusion/login" class="py-1 px-3 nav-link d-flex align-items-center navbar-link"> <i
                     class="fas fa-shopping-cart m-1 me-md-2 text-gold"></i>
               </c:otherwise>
             </c:choose>

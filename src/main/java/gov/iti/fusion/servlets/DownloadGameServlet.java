@@ -37,6 +37,6 @@ public class DownloadGameServlet extends HttpServlet {
         in.close();
         out.close();
 
-        response.sendRedirect("http://localhost:8888/fusion/library-page");
+        response.sendRedirect("/fusion/library-page");
     }
 }

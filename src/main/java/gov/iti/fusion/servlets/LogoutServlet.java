@@ -16,6 +16,6 @@ public class LogoutServlet extends HttpServlet {
         cookie.setValue("");
         cookie.setMaxAge(0);
         resp.addCookie(cookie);
-        resp.sendRedirect("http://localhost:8888/fusion/home");
+        resp.sendRedirect("/fusion/home");
     }
 }

@@ -70,7 +70,7 @@ function validateCreditLimit(){
 
 async function validateUsername() {
     const username = usernameInput.value;
-    const url = "http://localhost:8888/fusion/validate/username";
+    const url = "/fusion/validate/username";
     const requestBody =  {
         username: username,
     };
@@ -97,7 +97,7 @@ async function validateUsername() {
 }
 async function validateEmail() {
     const emailValue = emailInput.value;
-    const url = "http://localhost:8888/fusion/validate/email";
+    const url = "/fusion/validate/email";
     const requestBody =  {
         email: emailValue,
     };
@@ -126,7 +126,7 @@ async function validateEmail() {
 
 async function validatePhoneNumber() {
     const phoneNumberValue = phoneNumberInput.value;
-    const url = "http://localhost:8888/fusion/validate/phonenumber";
+    const url = "/fusion/validate/phonenumber";
     const requestBody =  {
         phoneNumber: phoneNumberValue,
     };
@@ -227,7 +227,7 @@ async function signUp(){
         & validateBirthDate() & validateCountry() & isPhoneNumberValid & validateGender()){
 
             
-            const url = "http://localhost:8888/fusion/register";
+            const url = "/fusion/register";
 
             const requestBody =  {
                                     firstName: firstNameInput.value,

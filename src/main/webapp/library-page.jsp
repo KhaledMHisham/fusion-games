@@ -4,6 +4,8 @@
     <html lang="en">
 
     <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="content-type" content="text/html; charset=UTF-8">
       <meta charset="UTF-8">
       <title>Fusion Library</title>
@@ -58,7 +60,7 @@
                         <h5 class="mb-0">$${game.price.intValue()}</h5>
                       </div>
                       <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                        <a  class="bg-transparent border-0 shadow-0 text-gold" href='http://localhost:8888/fusion/${game.gameFileUrl}' target="_blank"><i
+                        <a  class="bg-transparent border-0 shadow-0 text-gold" href='/fusion/${game.gameFileUrl}' target="_blank"><i
                           class="fas fa-download cursor-pointer fa-2xl"></i></a>
                       </div>
                     </div>
