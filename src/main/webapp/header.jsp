@@ -7,10 +7,11 @@
         <div class="row justify-content-between gy-3">
 
           <!-- Left elements -->
-          <div class="col-lg-2 col-sm-4 col-4">
+          <div class="col-lg-2 col-sm-4 col-6">
             <a href="" class="float-start">
               <img class="rounded-circle" style="aspect-ratio: 1/1;" src="/fusion/games/images/logo5.png" height="50">
             </a>
+            <h3 class="text-gold">FUSION GAMES</h3>
             
               <!-- <p class="margin-left d-none d-md-block mb-0 text-gold p-3">
                 Distribution
@@ -21,10 +22,10 @@
           </div>
           <!-- <a href="" class="float-start"> -->
           <!-- </a> -->
-          <div class="order-lg-last col-lg-2 col-sm-2 col-8"></div>
+          <div class="order-lg-last col-lg-2 col-sm-2 col-4"></div>
           <!-- Left elements -->
           <!-- Center elements -->
-          <div class="order-lg-last col-lg-5 col-sm-6 col-8">
+          <div class="order-lg-last col-lg-5 col-sm-6 col-4">
             <div class="d-flex float-end">
               <c:choose>
                 <c:when test="${user ne null}">

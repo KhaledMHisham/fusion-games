@@ -13,7 +13,9 @@
 
 const scrollContainer = document.querySelector('.collapsible-scrollspy');
 const scrollArrows = document.querySelector('.arrows');
+
 const scrollStep = 350;
+
 if(scrollArrows!=null){
 document.querySelector('.arrow-left').addEventListener('click', () => {
   scrollContainer.scrollBy({
