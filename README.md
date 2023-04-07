@@ -32,3 +32,6 @@ Getting Started
             * Add **path/to/maven/bin** to **PATH**
             * Run Command: **mvn -version**
 * Go to the project file in the same directory as the pom.xml file and run the following command: **mvn package tomcat7:redeploy**
+
+* Create a new admin account.
+* Add games.
